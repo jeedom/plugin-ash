@@ -176,7 +176,7 @@ class ash_light {
 					$cmd->execCmd(array('slider' => 100));
 				}
 				break;
-			case 'TurnOn':
+			case 'TurnOff':
 				if (isset($_directive['endpoint']['cookie']['cmd_set_off'])) {
 					$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_off']);
 				} else if (isset($_directive['endpoint']['cookie']['cmd_set_slider'])) {
