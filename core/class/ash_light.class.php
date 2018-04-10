@@ -47,7 +47,7 @@ class ash_light {
 		$return['capabilities'] = array();
 
 		foreach ($eqLogic->getCmd() as $cmd) {
-			if (in_array($cmd->getGeneric_type(), self::$_ON) || in_array($cmd->getGeneric_type(), self::$_OFF)) {
+			if (in_array($cmd->getGeneric_type(), self::$_OFF)) {
 				if (!ash::findCapability($return['capabilities'], 'Alexa.PowerController')) {
 					$return['capabilities'][] = array(
 						'type' => 'AlexaInterface',
@@ -62,6 +62,25 @@ class ash_light {
 						'retrievable' => true,
 					);
 				}
+				$return['cookie']['cmd_set_on'] = $cmd->getId();
+			}
+
+			if (in_array($cmd->getGeneric_type(), self::$_ON)) {
+				if (!ash::findCapability($return['capabilities'], 'Alexa.PowerController')) {
+					$return['capabilities'][] = array(
+						'type' => 'AlexaInterface',
+						'interface' => 'Alexa.PowerController',
+						'version' => 3,
+						'properties' => array(
+							'supported' => array(
+								array('name' => 'powerState'),
+							),
+						),
+						'proactivelyReported' => true,
+						'retrievable' => true,
+					);
+				}
+				$return['cookie']['cmd_set_off'] = $cmd->getId();
 			}
 
 			if (in_array($cmd->getGeneric_type(), array('LIGHT_SLIDER'))) {
@@ -93,6 +112,7 @@ class ash_light {
 						'retrievable' => true,
 					);
 				}
+				$return['cookie']['cmd_set_slider'] = $cmd->getId();
 			}
 			if (in_array($cmd->getGeneric_type(), array('LIGHT_SET_COLOR'))) {
 				if (!ash::findCapability($return['capabilities'], 'Alexa.ColorController')) {
@@ -109,6 +129,7 @@ class ash_light {
 						'retrievable' => true,
 					);
 				}
+				$return['cookie']['cmd_set_color'] = $cmd->getId();
 			}
 		}
 		if (count($return['capabilities']) == 0) {
