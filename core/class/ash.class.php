@@ -134,48 +134,51 @@ class ash extends eqLogic {
 	}
 
 	public static function exec($_data) {
-		$return = array('commands' => array());
-		foreach ($_data['data']['commands'] as $command) {
-			foreach ($command['devices'] as $infos) {
-				if (strpos($infos['id'], 'scene::') !== false) {
-					$device = ash_devices::byId(str_replace('scene::', '', $infos['id']));
-				} else {
-					$device = ash_devices::byLinkTypeLinkId('eqLogic', $infos['id']);
-				}
-				$result = array('ids' => array($infos['id']));
-				if (!is_object($device)) {
-					$result['status'] = 'ERROR';
-					$return['commands'][] = $result;
-					continue;
-				}
-				if ($device->getEnable() == 0) {
-					$result['status'] = 'OFFLINE';
-					$return['commands'][] = $result;
-					continue;
-				}
-				$result = array_merge($result, $device->exec($command['execution'], $infos));
-				$return['commands'][] = $result;
+		$directive = $_data['data']['directive'];
+		$responseHeader = $directive['header'];
+		$responseHeader['namespace'] = 'Alexa';
+		$responseHeader['name'] = 'Response';
+		$return = array(
+			'context' => '',
+			'event' => array(
+				'header' => $responseHeader,
+				'endpoint' => $directive['endpoint'],
+				'payload' => array(),
+			),
+		);
+		if (strpos($directive['endpoint']['endpointId'], 'scene::') !== false) {
+			$device = ash_devices::byId(str_replace('scene::', '', $directive['endpoint']['endpointId']));
+		} else {
+			$device = ash_devices::byLinkTypeLinkId('eqLogic', $directive['endpoint']['endpointId']);
+		}
+		if (!is_object($device)) {
+			return self::buildErrorResponse($_data, 'NO_SUCH_ENDPOINT');
+		} else if ($device->getEnable() == 0) {
+			return self::buildErrorResponse($_data, 'ENDPOINT_UNREACHABLE');
+		} else {
+			try {
+				$return['context'] = $device->exec($directive);
+			} catch (Exception $e) {
+				return self::buildErrorResponse($_data, $e->getMessage());
 			}
 		}
 		return $return;
 	}
 
+	public static function buildErrorResponse($_data, $_name, $_payload = array()) {
+		$responseHeader = $_data['data']['directive']['header'];
+		$responseHeader['name'] = $_name;
+		$response = array(
+			'event' => array(
+				'header' => $responseHeader,
+			),
+			'payload' => array($_payload),
+		);
+		return $response;
+	}
+
 	public static function query($_data) {
-		$return = array('devices' => array());
-		foreach ($_data['commands']['devices'] as $infos) {
-			$return['devices'][$infos['id']] = array();
-			$device = ash_devices::byLinkTypeLinkId('eqLogic', $infos['id']);
-			if (!is_object($device)) {
-				$return['devices'][$infos['id']] = array('status' => 'ERROR');
-				continue;
-			}
-			if ($device->getEnable() == 0) {
-				$return['devices'][$infos['id']] = array('status' => 'OFFLINE');
-				continue;
-			}
-			$return['devices'][$infos['id']] = $device->query($infos);
-		}
-		return $return;
+
 	}
 
 	/*     * *********************Méthodes d'instance************************* */
@@ -275,7 +278,7 @@ class ash_devices {
 		return $class::buildDevice($this);
 	}
 
-	public function exec($_execution, $_infos) {
+	public function exec($_directive) {
 		if (!isset(ash::$_supportedType[$this->getType()])) {
 			return;
 		}
@@ -283,10 +286,10 @@ class ash_devices {
 		if (!class_exists($class)) {
 			return array();
 		}
-		return $class::exec($this, $_execution, $_infos);
+		return $class::exec($this, $_directive);
 	}
 
-	public function query($_infos) {
+	public function query($_directive) {
 		if (!isset(ash::$_supportedType[$this->getType()])) {
 			return;
 		}
@@ -294,7 +297,7 @@ class ash_devices {
 		if (!class_exists($class)) {
 			return array();
 		}
-		return $class::query($this, $_infos);
+		return $class::query($this, $_directive);
 	}
 
 	public function getPseudo() {

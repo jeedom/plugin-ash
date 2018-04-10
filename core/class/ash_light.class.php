@@ -32,10 +32,10 @@ class ash_light {
 	public static function buildDevice($_device) {
 		$eqLogic = $_device->getLink();
 		if (!is_object($eqLogic)) {
-			return 'deviceNotFound';
+			return array();
 		}
 		if ($eqLogic->getIsEnable() == 0) {
-			return 'deviceNotFound';
+			return array();
 		}
 		$return = array();
 		$return['endpointId'] = $eqLogic->getId();
@@ -47,7 +47,7 @@ class ash_light {
 		$return['capabilities'] = array();
 
 		foreach ($eqLogic->getCmd() as $cmd) {
-			if (in_array($cmd->getGeneric_type(), self::$_OFF)) {
+			if (in_array($cmd->getGeneric_type(), self::$_ON)) {
 				if (!ash::findCapability($return['capabilities'], 'Alexa.PowerController')) {
 					$return['capabilities'][] = array(
 						'type' => 'AlexaInterface',
@@ -65,7 +65,7 @@ class ash_light {
 				$return['cookie']['cmd_set_on'] = $cmd->getId();
 			}
 
-			if (in_array($cmd->getGeneric_type(), self::$_ON)) {
+			if (in_array($cmd->getGeneric_type(), self::$_OFF)) {
 				if (!ash::findCapability($return['capabilities'], 'Alexa.PowerController')) {
 					$return['capabilities'][] = array(
 						'type' => 'AlexaInterface',
@@ -98,14 +98,14 @@ class ash_light {
 						'retrievable' => true,
 					);
 				}
-				if (!ash::findCapability($return['capabilities'], 'Alexa.PowerLevelController')) {
+				if (!ash::findCapability($return['capabilities'], 'Alexa.BrightnessController')) {
 					$return['capabilities'][] = array(
 						'type' => 'AlexaInterface',
-						'interface' => 'Alexa.PowerLevelController',
+						'interface' => 'Alexa.BrightnessController',
 						'version' => 3,
 						'properties' => array(
 							'supported' => array(
-								array('name' => 'powerLevelState'),
+								array('name' => 'AdjustBrightness'),
 							),
 						),
 						'proactivelyReported' => true,
@@ -115,6 +115,7 @@ class ash_light {
 				$return['cookie']['cmd_set_slider'] = $cmd->getId();
 			}
 			if (in_array($cmd->getGeneric_type(), array('LIGHT_SET_COLOR'))) {
+				continue;
 				if (!ash::findCapability($return['capabilities'], 'Alexa.ColorController')) {
 					$return['capabilities'][] = array(
 						'type' => 'AlexaInterface',
@@ -130,6 +131,9 @@ class ash_light {
 					);
 				}
 				$return['cookie']['cmd_set_color'] = $cmd->getId();
+			}
+			if (in_array($cmd->getGeneric_type(), self::$_STATE)) {
+				$return['cookie']['cmd_get_state'] = $cmd->getId();
 			}
 		}
 		if (count($return['capabilities']) == 0) {
@@ -147,103 +151,98 @@ class ash_light {
 		return self::getState($_device, $_infos);
 	}
 
-	public static function exec($_device, $_executions, $_infos) {
+	public static function exec($_device, $_directive) {
 		$return = array('status' => 'ERROR');
 		$eqLogic = $_device->getLink();
 		if (!is_object($eqLogic)) {
-			return $return;
+			throw new Exception('NO_SUCH_ENDPOINT');
 		}
 		if ($eqLogic->getIsEnable() == 0) {
-			return $return;
+			throw new Exception('ENDPOINT_UNREACHABLE');
 		}
-		foreach ($_executions as $execution) {
-			$cmd = null;
-			try {
-				switch ($execution['command']) {
-					case 'action.devices.commands.OnOff':
-						if ($execution['params']['on']) {
-							if (isset($_infos['customData']['cmd_set_on'])) {
-								$cmd = cmd::byId($_infos['customData']['cmd_set_on']);
-							} else if (isset($_infos['customData']['cmd_set_slider'])) {
-								$cmd = cmd::byId($_infos['customData']['cmd_set_slider']);
-							}
-							if (!is_object($cmd)) {
-								break;
-							}
-							if ($cmd->getSubtype() == 'other') {
-								$cmd->execCmd();
-								$return = array('status' => 'SUCCESS');
-							} else if ($cmd->getSubtype() == 'slider') {
-								$cmd->execCmd(array('slider' => 100));
-								$return = array('status' => 'SUCCESS');
-							}
-						} else {
-							if (isset($_infos['customData']['cmd_set_off'])) {
-								$cmd = cmd::byId($_infos['customData']['cmd_set_off']);
-							} else if (isset($_infos['customData']['cmd_set_slider'])) {
-								$cmd = cmd::byId($_infos['customData']['cmd_set_slider']);
-							}
-							if (!is_object($cmd)) {
-								break;
-							}
-							if ($cmd->getSubtype() == 'other') {
-								$cmd->execCmd();
-								$return = array('status' => 'SUCCESS');
-							} else if ($cmd->getSubtype() == 'slider') {
-								$cmd->execCmd(array('slider' => 0));
-								$return = array('status' => 'SUCCESS');
-							}
-						}
-						break;
-					case 'action.devices.commands.ColorAbsolute':
-						if (isset($_infos['customData']['cmd_set_color'])) {
-							$cmd = cmd::byId($_infos['customData']['cmd_set_color']);
-						}
-						if (is_object($cmd)) {
-							$cmd->execCmd(array('color' => '#' . str_pad(dechex($execution['params']['color']['spectrumRGB']), 6, '0', STR_PAD_LEFT)));
-							$return = array('status' => 'SUCCESS');
-						}
-						break;
-					case 'action.devices.commands.BrightnessAbsolute':
-						if (isset($_infos['customData']['cmd_set_slider'])) {
-							$cmd = cmd::byId($_infos['customData']['cmd_set_slider']);
-						}
-						if (is_object($cmd)) {
-							$value = $cmd->getConfiguration('minValue', 0) + ($execution['params']['brightness'] / 100 * ($cmd->getConfiguration('maxValue', 100) - $cmd->getConfiguration('minValue', 0)));
-							$cmd->execCmd(array('slider' => $value));
-							$return = array('status' => 'SUCCESS');
-						}
-						break;
+		switch ($_directive['header']['name']) {
+			case 'TurnOn':
+				if (isset($_directive['endpoint']['cookie']['cmd_set_on'])) {
+					$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_on']);
+				} else if (isset($_directive['endpoint']['cookie']['cmd_set_slider'])) {
+					$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_slider']);
 				}
-			} catch (Exception $e) {
-				$return = array('status' => 'ERROR');
-			}
+				if (!is_object($cmd)) {
+					throw new Exception('ENDPOINT_UNREACHABLE');
+				}
+				if ($cmd->getSubtype() == 'other') {
+					$cmd->execCmd();
+				} else if ($cmd->getSubtype() == 'slider') {
+					$cmd->execCmd(array('slider' => 100));
+				}
+				break;
+			case 'TurnOn':
+				if (isset($_directive['endpoint']['cookie']['cmd_set_off'])) {
+					$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_off']);
+				} else if (isset($_directive['endpoint']['cookie']['cmd_set_slider'])) {
+					$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_slider']);
+				}
+				if (!is_object($cmd)) {
+					throw new Exception('ENDPOINT_UNREACHABLE');
+				}
+				if ($cmd->getSubtype() == 'other') {
+					$cmd->execCmd();
+				} else if ($cmd->getSubtype() == 'slider') {
+					$cmd->execCmd(array('slider' => 0));
+				}
+				break;
+			case 'SetBrightness':
+				if (isset($_directive['endpoint']['cookie']['cmd_set_slider'])) {
+					$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_slider']);
+				}
+				if (is_object($cmd)) {
+					$value = $cmd->getConfiguration('minValue', 0) + ($_directive['payload']['brightness'] / 100 * ($cmd->getConfiguration('maxValue', 100) - $cmd->getConfiguration('minValue', 0)));
+					$cmd->execCmd(array('slider' => $value));
+				}
+				break;
+			case 'SetColor':
+
+				break;
 		}
-		$return['states'] = self::getState($_device, $_infos);
-		return $return;
+		return self::getState($_device, $_directive);
 	}
 
-	public static function getState($_device, $_infos) {
+	public static function getState($_device, $_directive) {
 		$return = array();
 		$cmd = null;
-		if (isset($_infos['customData']['cmd_get_state'])) {
-			$cmd = cmd::byId($_infos['customData']['cmd_get_state']);
+		if (isset($_directive['endpoint']['cookie']['cmd_get_state'])) {
+			$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_get_state']);
 		}
 		if (!is_object($cmd)) {
 			return $return;
 		}
 		$value = $cmd->execCmd();
 		if ($cmd->getSubtype() == 'numeric') {
-			$return['brightness'] = $value / $cmd->getConfiguration('maxValue', 100) * 100;
-			$return['on'] = ($return['brightness'] > 0);
+			$return[] = array(
+				'namespace' => 'Alexa.BrightnessController',
+				'name' => 'brightness',
+				'value' => $value,
+				'timeOfSample' => date('Y-m-d\TH:i:s\Z'),
+				'uncertaintyInMilliseconds' => 0,
+			);
 		} else if ($cmd->getSubtype() == 'binary') {
-			$return['on'] = boolval($value);
+			$return[] = array(
+				'namespace' => 'Alexa.PowerController',
+				'name' => 'powerState',
+				'value' => ($value) ? 'ON' : 'OFF',
+				'timeOfSample' => date('Y-m-d\TH:i:s\Z'),
+				'uncertaintyInMilliseconds' => 0,
+			);
 		} else if ($cmd->getSubtype() == 'string') {
-			$return['color'] = array(
-				'spectrumRGB' => hexdec(str_replace('#', '', $value)),
+			$return[] = array(
+				'namespace' => 'Alexa.ColorController',
+				'name' => 'color',
+				'value' => $value,
+				'timeOfSample' => date('Y-m-d\TH:i:s\Z'),
+				'uncertaintyInMilliseconds' => 0,
 			);
 		}
-		return $return;
+		return array('properties' => $return);
 	}
 
 	/*     * *********************Méthodes d'instance************************* */
