@@ -40,9 +40,8 @@ class ash extends eqLogic {
 	public static function generateConfiguration() {
 		$return = array(
 			"devPortSmartHome" => config::byKey('ashs::port', 'ash'),
-			"smartHomeProviderGoogleClientId" => config::byKey('ashs::clientId', 'ash'),
-			"smartHomeProvideGoogleClientSecret" => config::byKey('ashs::clientSecret', 'ash'),
-			"smartHomeProviderApiKey" => config::byKey('ashs::googleapikey', 'ash'),
+			"smartHomeProviderClientId" => config::byKey('ashs::clientId', 'ash'),
+			"smartHomeProvideClientSecret" => config::byKey('ashs::clientSecret', 'ash'),
 			"masterkey" => config::byKey('ashs::masterkey', 'ash'),
 			"jeedomTimeout" => config::byKey('ashs::timeout', 'ash'),
 			"url" => config::byKey('ashs::url', 'ash'),
@@ -105,6 +104,18 @@ class ash extends eqLogic {
 		}
 	}
 
+	public static function findCapability($_capabilities, $_capability) {
+		if (count($_capabilities) == 0) {
+			return false;
+		}
+		foreach ($_capabilities as $capability) {
+			if ($capability['interface'] == $_capability) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	public static function sync() {
 		$return = array();
 		$devices = ash_devices::all(true);
@@ -119,7 +130,7 @@ class ash extends eqLogic {
 			$device->setOptions('configState', 'OK');
 			$device->save();
 		}
-		return $return;
+		return array('endpoints' => $return);
 	}
 
 	public static function exec($_data) {

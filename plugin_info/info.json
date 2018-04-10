@@ -1,7 +1,7 @@
 {
 	"id" : "ash",
 	"name" : "Amazon Smarthome",
-	"description" : "Plugin pour Google Smarthome",
+	"description" : "Plugin pour Amazon Smarthome",
 	"licence" : "AGPL",
 	"author" : "Loïc",
 	"require" : "3.2.1",

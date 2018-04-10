@@ -38,52 +38,87 @@ class ash_light {
 			return 'deviceNotFound';
 		}
 		$return = array();
-		$return['id'] = $eqLogic->getId();
-		$return['type'] = $_device->getType();
-		$return['name'] = array('name' => $eqLogic->getHumanName(), 'nicknames' => $_device->getPseudo());
-		$return['traits'] = array();
-		$return['customData'] = array();
-		$return['willReportState'] = false;
+		$return['endpointId'] = $eqLogic->getId();
+		$return['friendlyName'] = str_replace(array('#', '][', '[', ']'), array('', ' ', '', ''), $eqLogic->getHumanName());
+		$return['description'] = $eqLogic->getHumanName();
+		$return['manufacturerName'] = 'Jeedom';
+		$return['cookie'] = array('key1' => '');
+		$return['displayCategories'] = array($_device->getType());
+		$return['capabilities'] = array();
+
 		foreach ($eqLogic->getCmd() as $cmd) {
-			if (in_array($cmd->getGeneric_type(), self::$_ON)) {
-				if (!in_array('action.devices.traits.OnOff', $return['traits'])) {
-					$return['traits'][] = 'action.devices.traits.OnOff';
+			if (in_array($cmd->getGeneric_type(), self::$_ON) || in_array($cmd->getGeneric_type(), self::$_OFF)) {
+				if (!ash::findCapability($return['capabilities'], 'Alexa.PowerController')) {
+					$return['capabilities'][] = array(
+						'type' => 'AlexaInterface',
+						'interface' => 'Alexa.PowerController',
+						'version' => 3,
+						'properties' => array(
+							'supported' => array(
+								array('name' => 'powerState'),
+							),
+						),
+						'proactivelyReported' => true,
+						'retrievable' => true,
+					);
 				}
-				$return['customData']['cmd_set_on'] = $cmd->getId();
 			}
-			if (in_array($cmd->getGeneric_type(), self::$_OFF)) {
-				if (!in_array('action.devices.traits.OnOff', $return['traits'])) {
-					$return['traits'][] = 'action.devices.traits.OnOff';
-				}
-				$return['customData']['cmd_set_off'] = $cmd->getId();
-			}
+
 			if (in_array($cmd->getGeneric_type(), array('LIGHT_SLIDER'))) {
-				if (!in_array('action.devices.traits.OnOff', $return['traits'])) {
-					$return['traits'][] = 'action.devices.traits.OnOff';
+				if (!ash::findCapability($return['capabilities'], 'Alexa.PowerController')) {
+					$return['capabilities'][] = array(
+						'type' => 'AlexaInterface',
+						'interface' => 'Alexa.PowerController',
+						'version' => 3,
+						'properties' => array(
+							'supported' => array(
+								array('name' => 'powerState'),
+							),
+						),
+						'proactivelyReported' => true,
+						'retrievable' => true,
+					);
 				}
-				if (!in_array('action.devices.traits.Brightness', $return['traits'])) {
-					$return['traits'][] = 'action.devices.traits.Brightness';
+				if (!ash::findCapability($return['capabilities'], 'Alexa.PowerLevelController')) {
+					$return['capabilities'][] = array(
+						'type' => 'AlexaInterface',
+						'interface' => 'Alexa.PowerLevelController',
+						'version' => 3,
+						'properties' => array(
+							'supported' => array(
+								array('name' => 'powerLevelState'),
+							),
+						),
+						'proactivelyReported' => true,
+						'retrievable' => true,
+					);
 				}
-				$return['customData']['cmd_set_slider'] = $cmd->getId();
 			}
 			if (in_array($cmd->getGeneric_type(), array('LIGHT_SET_COLOR'))) {
-				if (!in_array('action.devices.traits.ColorSpectrum', $return['traits'])) {
-					$return['traits'][] = 'action.devices.traits.ColorSpectrum';
+				if (!ash::findCapability($return['capabilities'], 'Alexa.ColorController')) {
+					$return['capabilities'][] = array(
+						'type' => 'AlexaInterface',
+						'interface' => 'Alexa.ColorController',
+						'version' => 3,
+						'properties' => array(
+							'supported' => array(
+								array('name' => 'color'),
+							),
+						),
+						'proactivelyReported' => true,
+						'retrievable' => true,
+					);
 				}
-				$return['customData']['cmd_set_color'] = $cmd->getId();
-				if (!isset($return['attributes'])) {
-					$return['attributes'] = array();
-				}
-				$return['attributes']['colorModel'] = 'RGB';
-			}
-			if (in_array($cmd->getGeneric_type(), self::$_STATE)) {
-				$return['willReportState'] = true;
-				$return['customData']['cmd_get_state'] = $cmd->getId();
 			}
 		}
-		if (count($return['traits']) == 0) {
+		if (count($return['capabilities']) == 0) {
 			return array();
 		}
+		$return['capabilities'][] = array(
+			"type" => "AlexaInterface",
+			"interface" => "Alexa",
+			"version" => "3",
+		);
 		return $return;
 	}
 
