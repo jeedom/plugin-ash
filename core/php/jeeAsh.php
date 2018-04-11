@@ -49,6 +49,11 @@ if ($data['action'] == 'exec') {
 	echo $result;
 	die();
 }
+if ($data['action'] == 'interact') {
+	$params = array('plugin' => 'ash', 'reply_cmd' => null);
+	echo json_encode(interactQuery::tryToReply(trim($data['data']['request']['intent']['slots']['message']['value']), $params));
+	die();
+}
 
 echo json_encode(array(
 	'status' => 'SUCCESS',
