@@ -19,6 +19,7 @@
 /* * ***************************Includes********************************* */
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 include_file('core', 'ash_light', 'class', 'ash');
+include_file('core', 'ash_outlet', 'class', 'ash');
 
 class ash extends eqLogic {
 
@@ -26,6 +27,8 @@ class ash extends eqLogic {
 
 	public static $_supportedType = array(
 		'LIGHT' => array('class' => 'ash_light', 'name' => 'Lumière'),
+		'SWITCH' => array('class' => 'ash_outlet', 'name' => 'Switch (volet...)'),
+		'SMARTPLUG' => array('class' => 'ash_outlet', 'name' => 'Prise'),
 	);
 
 	/*     * ***********************Methode static*************************** */

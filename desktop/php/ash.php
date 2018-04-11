@@ -23,7 +23,6 @@ if (!isConnect('admin')) {
 					<th>{{Transmettre}}</th>
 					<th>{{Paramétrage}}</th>
 					<th>{{Type}}</th>
-					<th>{{Pseudo}}</th>
 					<th>{{Action}}</th>
 				</tr>
 			</thead>
@@ -52,9 +51,6 @@ foreach (eqLogic::all() as $eqLogic) {
 		echo '<option value="' . $key . '">{{' . $value['name'] . '}}</option>';
 	}
 	echo '<select>';
-	echo '</td>';
-	echo '<td>';
-	echo '<input class="deviceAttr form-control" data-l1key="options" data-l2key="pseudo" />';
 	echo '</td>';
 	echo '<td>';
 	echo '<a class="btn btn-default btn-sm bt_configureEqLogic" data-id="' . $eqLogic->getId() . '"><i class="fa fa-cogs"></i></a>';
