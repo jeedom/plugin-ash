@@ -28,18 +28,12 @@ if (init('apikey') != '') {
 header('Content-type: application/json');
 $data = json_decode(file_get_contents('php://input'), true);
 if (!isset($data['apikey']) || !jeedom::apiAccess($data['apikey'], 'ash')) {
-	echo json_encode(array(
-		'status' => 'ERROR',
-		'errorCode' => 'authFailure',
-	));
+	echo json_encode(ash::buildErrorResponse($data, 'INTERNAL_ERROR'));
 	die();
 }
 $plugin = plugin::byId('ash');
 if (!$plugin->isActive()) {
-	echo json_encode(array(
-		'status' => 'ERROR',
-		'errorCode' => 'authFailure',
-	));
+	echo json_encode(ash::buildErrorResponse($data, 'INTERNAL_ERROR'));
 	die();
 }
 log::add('ash', 'debug', json_encode($data));
@@ -54,8 +48,5 @@ if ($data['action'] == 'interact') {
 	echo json_encode(interactQuery::tryToReply(trim($data['data']['request']['intent']['slots']['message']['value']), $params));
 	die();
 }
-
-echo json_encode(array(
-	'status' => 'SUCCESS',
-));
+echo json_encode(ash::buildErrorResponse($data, 'INTERNAL_ERROR'));
 die();
