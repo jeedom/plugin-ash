@@ -115,7 +115,6 @@ class ash_light {
 				$return['cookie']['cmd_set_slider'] = $cmd->getId();
 			}
 			if (in_array($cmd->getGeneric_type(), array('LIGHT_SET_COLOR'))) {
-				continue;
 				if (!ash::findCapability($return['capabilities'], 'Alexa.ColorController')) {
 					$return['capabilities'][] = array(
 						'type' => 'AlexaInterface',
@@ -201,7 +200,13 @@ class ash_light {
 				}
 				break;
 			case 'SetColor':
-
+				if (isset($_directive['endpoint']['cookie']['cmd_set_color'])) {
+					$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_color']);
+				}
+				if (is_object($cmd)) {
+					$value = self::hslToHex(array($_directive['payload']['color']['hue'], $_directive['payload']['color']['saturation'], $_directive['payload']['color']['brightness']));
+					$cmd->execCmd(array('color' => '#' . $value));
+				}
 				break;
 		}
 		return self::getState($_device, $_directive);
@@ -237,12 +242,77 @@ class ash_light {
 			$return[] = array(
 				'namespace' => 'Alexa.ColorController',
 				'name' => 'color',
-				'value' => $value,
+				'value' => self::hexToHsl(str_replace('#', '', $value)),
 				'timeOfSample' => date('Y-m-d\TH:i:s\Z'),
 				'uncertaintyInMilliseconds' => 0,
 			);
 		}
 		return array('properties' => $return);
+	}
+
+	public static function hexToHsl($hex) {
+		$hex = array($hex[0] . $hex[1], $hex[2] . $hex[3], $hex[4] . $hex[5]);
+		$rgb = array_map(function ($part) {return hexdec($part) / 255;}, $hex);
+		$max = max($rgb);
+		$min = min($rgb);
+		$l = ($max + $min) / 2;
+		if ($max == $min) {
+			$h = $s = 0;
+		} else {
+			$diff = $max - $min;
+			$s = $l > 0.5 ? $diff / (2 - $max - $min) : $diff / ($max + $min);
+			switch ($max) {
+				case $rgb[0]:
+					$h = ($rgb[1] - $rgb[2]) / $diff + ($rgb[1] < $rgb[2] ? 6 : 0);
+					break;
+				case $rgb[1]:
+					$h = ($rgb[2] - $rgb[0]) / $diff + 2;
+					break;
+				case $rgb[2]:
+					$h = ($rgb[0] - $rgb[1]) / $diff + 4;
+					break;
+			}
+			$h /= 6;
+		}
+		return array('hue' => $h, 'saturation' => $s, 'brightness' => $l);
+	}
+
+	public static function hslToHex($hsl) {
+		list($h, $s, $l) = $hsl;
+		if ($s == 0) {
+			$r = $g = $b = 1;
+		} else {
+			$q = $l < 0.5 ? $l * (1 + $s) : $l + $s - $l * $s;
+			$p = 2 * $l - $q;
+
+			$r = self::hue2rgb($p, $q, $h + 1 / 3);
+			$g = self::hue2rgb($p, $q, $h);
+			$b = self::hue2rgb($p, $q, $h - 1 / 3);
+		}
+		return self::rgb2hex($r) . self::rgb2hex($g) . self::rgb2hex($b);
+	}
+
+	public static function rgb2hex($rgb) {
+		return str_pad(dechex($rgb * 255), 2, '0', STR_PAD_LEFT);
+	}
+
+	public static function hue2rgb($p, $q, $t) {
+		if ($t < 0) {
+			$t += 1;
+		}
+		if ($t > 1) {
+			$t -= 1;
+		}
+		if ($t < 1 / 6) {
+			return $p + ($q - $p) * 6 * $t;
+		}
+		if ($t < 1 / 2) {
+			return $q;
+		}
+		if ($t < 2 / 3) {
+			return $p + ($q - $p) * (2 / 3 - $t) * 6;
+		}
+		return $p;
 	}
 
 	/*     * *********************Méthodes d'instance************************* */
