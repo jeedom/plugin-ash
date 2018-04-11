@@ -20,6 +20,7 @@
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 include_file('core', 'ash_light', 'class', 'ash');
 include_file('core', 'ash_outlet', 'class', 'ash');
+include_file('core', 'ash_temperature', 'class', 'ash');
 
 class ash extends eqLogic {
 
@@ -29,6 +30,7 @@ class ash extends eqLogic {
 		'LIGHT' => array('class' => 'ash_light', 'name' => 'Lumière'),
 		'SWITCH' => array('class' => 'ash_outlet', 'name' => 'Switch (volet...)'),
 		'SMARTPLUG' => array('class' => 'ash_outlet', 'name' => 'Prise'),
+		'TEMPERATURE_SENSOR' => array('class' => 'ash_temperature', 'name' => 'Température'),
 	);
 
 	/*     * ***********************Methode static*************************** */
@@ -180,10 +182,6 @@ class ash extends eqLogic {
 		return $response;
 	}
 
-	public static function query($_data) {
-
-	}
-
 	/*     * *********************Méthodes d'instance************************* */
 
 	/*     * **********************Getteur Setteur*************************** */
@@ -290,26 +288,6 @@ class ash_devices {
 			return array();
 		}
 		return $class::exec($this, $_directive);
-	}
-
-	public function query($_directive) {
-		if (!isset(ash::$_supportedType[$this->getType()])) {
-			return;
-		}
-		$class = ash::$_supportedType[$this->getType()]['class'];
-		if (!class_exists($class)) {
-			return array();
-		}
-		return $class::query($this, $_directive);
-	}
-
-	public function getPseudo() {
-		$eqLogic = $this->getLink();
-		$pseudo = array(trim($eqLogic->getName()), trim($eqLogic->getName()) . 's');
-		if ($this->getOptions('pseudo') != '') {
-			$pseudo = array_merge(explode(',', $this->getOptions('pseudo')), $pseudo);
-		}
-		return $pseudo;
 	}
 
 	public function cronHourly() {

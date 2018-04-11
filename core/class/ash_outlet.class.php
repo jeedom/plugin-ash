@@ -97,10 +97,6 @@ class ash_outlet {
 		return $return;
 	}
 
-	public static function query($_device, $_infos) {
-		return self::getState($_device, $_infos);
-	}
-
 	public static function exec($_device, $_directive) {
 		$return = array('status' => 'ERROR');
 		$eqLogic = $_device->getLink();
@@ -162,7 +158,7 @@ class ash_outlet {
 				'namespace' => 'Alexa.BrightnessController',
 				'name' => 'brightness',
 				'value' => $value,
-				'timeOfSample' => date('Y-m-d\TH:i:s\Z'),
+				'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
 				'uncertaintyInMilliseconds' => 0,
 			);
 		} else if ($cmd->getSubtype() == 'binary') {
@@ -173,7 +169,7 @@ class ash_outlet {
 				'namespace' => 'Alexa.PowerController',
 				'name' => 'powerState',
 				'value' => ($value) ? 'ON' : 'OFF',
-				'timeOfSample' => date('Y-m-d\TH:i:s\Z'),
+				'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
 				'uncertaintyInMilliseconds' => 0,
 			);
 		}

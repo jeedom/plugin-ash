@@ -50,13 +50,6 @@ if ($data['action'] == 'exec') {
 	die();
 }
 
-if ($data['action'] == 'query') {
-	$result = json_encode(ash::query($data));
-	log::add('ash', 'debug', $result);
-	echo $result;
-	die();
-}
-
 echo json_encode(array(
 	'status' => 'SUCCESS',
 ));
