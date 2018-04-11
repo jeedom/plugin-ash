@@ -301,7 +301,7 @@
  	div += '<input class="sceneAttr" data-l1key="id" style="display:none;" />';
  	div += '<input class="sceneAttr" data-l1key="enable" style="display:none;" value="1" />';
  	div += '<input class="sceneAttr" data-l1key="link_type" style="display:none;" value="scene" />';
- 	div += '<input class="sceneAttr" data-l1key="type" style="display:none;" value="action.devices.types.SCENE" />';
+ 	div += '<input class="sceneAttr" data-l1key="type" style="display:none;" value="SCENE_TRIGGER" />';
  	div += '<span class="sceneAttr label label-info rename cursor" data-l1key="options" data-l2key="name" style="font-size : 1em;" ></span>';
  	div += '</div>';
  	div += '<div class="col-sm-8">';

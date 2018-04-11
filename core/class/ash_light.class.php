@@ -137,7 +137,6 @@ class ash_light {
 	}
 
 	public static function exec($_device, $_directive) {
-		$return = array('status' => 'ERROR');
 		$eqLogic = $_device->getLink();
 		if (!is_object($eqLogic)) {
 			throw new Exception('NO_SUCH_ENDPOINT');

@@ -45,7 +45,7 @@ foreach (eqLogic::all() as $eqLogic) {
 	echo '<select class="deviceAttr form-control input-sm" data-l1key="type">';
 	echo '<option value="">{{Aucun}}</option>';
 	foreach (ash::$_supportedType as $key => $value) {
-		if ($key == 'action.devices.types.SCENE') {
+		if ($key == 'SCENE_TRIGGER') {
 			continue;
 		}
 		echo '<option value="' . $key . '">{{' . $value['name'] . '}}</option>';

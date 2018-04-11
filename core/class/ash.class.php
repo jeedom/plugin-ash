@@ -22,6 +22,7 @@ include_file('core', 'ash_light', 'class', 'ash');
 include_file('core', 'ash_outlet', 'class', 'ash');
 include_file('core', 'ash_temperature', 'class', 'ash');
 include_file('core', 'ash_thermostat', 'class', 'ash');
+include_file('core', 'ash_scene', 'class', 'ash');
 
 class ash extends eqLogic {
 
@@ -33,6 +34,7 @@ class ash extends eqLogic {
 		'SMARTPLUG' => array('class' => 'ash_outlet', 'name' => 'Prise'),
 		'TEMPERATURE_SENSOR' => array('class' => 'ash_temperature', 'name' => 'Température'),
 		'THERMOSTAT' => array('class' => 'ash_thermostat', 'name' => 'Thermostat'),
+		'SCENE_TRIGGER' => array('class' => 'ash_scene', 'name' => 'Scene'),
 	);
 
 	/*     * ***********************Methode static*************************** */
@@ -153,7 +155,14 @@ class ash extends eqLogic {
 			return self::buildErrorResponse($_data, 'ENDPOINT_UNREACHABLE');
 		} else {
 			try {
-				$return['context'] = $device->exec($directive);
+				$result = $device->exec($directive);
+
+				if (isset($result['event'])) {
+					$return = $result;
+				} else {
+					$return['context'] = $result;
+				}
+
 			} catch (Exception $e) {
 				return self::buildErrorResponse($_data, $e->getMessage());
 			}
