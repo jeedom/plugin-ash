@@ -41,7 +41,7 @@ class ash extends eqLogic {
 
 	public static function sendJeedomConfig() {
 		$market = repo_market::getJsonRpc();
-		if (!$market->sendRequest('ash::configash', array('ash::apikey' => jeedom::getApiKey('ash'), 'ash::url' => network::getNetworkAccess('external')))) {
+		if (!$market->sendRequest('ash::configAsh', array('ash::apikey' => jeedom::getApiKey('ash'), 'ash::url' => network::getNetworkAccess('external')))) {
 			throw new Exception($market->getError(), $market->getErrorCode());
 		}
 	}
