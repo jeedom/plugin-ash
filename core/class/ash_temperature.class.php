@@ -46,27 +46,25 @@ class ash_temperature {
 
 		foreach ($eqLogic->getCmd() as $cmd) {
 			if (in_array($cmd->getGeneric_type(), self::$_SENSOR)) {
-				if (!ash::findCapability($return['capabilities'], 'Alexa.TemperatureSensor')) {
-					$return['capabilities'][] = array(
-						'type' => 'AlexaInterface',
-						'interface' => 'Alexa.TemperatureSensor',
-						'version' => 3,
-						'properties' => array(
-							'supported' => array(
-								array('name' => 'temperature'),
-							),
+				$return['capabilities']['Alexa.TemperatureSensor'] = array(
+					'type' => 'AlexaInterface',
+					'interface' => 'Alexa.TemperatureSensor',
+					'version' => 3,
+					'properties' => array(
+						'supported' => array(
+							array('name' => 'temperature'),
 						),
-						'proactivelyReported' => true,
-						'retrievable' => true,
-					);
-				}
+					),
+					'proactivelyReported' => true,
+					'retrievable' => true,
+				);
 				$return['cookie']['cmd_get_temperature'] = $cmd->getId();
 			}
 		}
 		if (count($return['capabilities']) == 0) {
 			return array();
 		}
-		$return['capabilities'][] = array(
+		$return['capabilities']['AlexaInterface'] = array(
 			"type" => "AlexaInterface",
 			"interface" => "Alexa",
 			"version" => "3",
@@ -89,8 +87,8 @@ class ash_temperature {
 	public static function getState($_device, $_directive) {
 		$return = array();
 		$cmd = null;
-		if (isset($_directive['endpoint']['cookie']['cmd_get_state'])) {
-			$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_get_state']);
+		if (isset($_directive['endpoint']['cookie']['cmd_get_temperature'])) {
+			$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_get_temperature']);
 		}
 		if (!is_object($cmd)) {
 			return $return;

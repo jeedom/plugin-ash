@@ -48,38 +48,34 @@ class ash_outlet {
 
 		foreach ($eqLogic->getCmd() as $cmd) {
 			if (in_array($cmd->getGeneric_type(), self::$_ON)) {
-				if (!ash::findCapability($return['capabilities'], 'Alexa.PowerController')) {
-					$return['capabilities'][] = array(
-						'type' => 'AlexaInterface',
-						'interface' => 'Alexa.PowerController',
-						'version' => 3,
-						'properties' => array(
-							'supported' => array(
-								array('name' => 'powerState'),
-							),
+				$return['capabilities']['Alexa.PowerController'] = array(
+					'type' => 'AlexaInterface',
+					'interface' => 'Alexa.PowerController',
+					'version' => 3,
+					'properties' => array(
+						'supported' => array(
+							array('name' => 'powerState'),
 						),
-						'proactivelyReported' => true,
-						'retrievable' => true,
-					);
-				}
+					),
+					'proactivelyReported' => true,
+					'retrievable' => true,
+				);
 				$return['cookie']['cmd_set_on'] = $cmd->getId();
 			}
 
 			if (in_array($cmd->getGeneric_type(), self::$_OFF)) {
-				if (!ash::findCapability($return['capabilities'], 'Alexa.PowerController')) {
-					$return['capabilities'][] = array(
-						'type' => 'AlexaInterface',
-						'interface' => 'Alexa.PowerController',
-						'version' => 3,
-						'properties' => array(
-							'supported' => array(
-								array('name' => 'powerState'),
-							),
+				$return['capabilities']['Alexa.PowerController'] = array(
+					'type' => 'AlexaInterface',
+					'interface' => 'Alexa.PowerController',
+					'version' => 3,
+					'properties' => array(
+						'supported' => array(
+							array('name' => 'powerState'),
 						),
-						'proactivelyReported' => true,
-						'retrievable' => true,
-					);
-				}
+					),
+					'proactivelyReported' => true,
+					'retrievable' => true,
+				);
 				$return['cookie']['cmd_set_off'] = $cmd->getId();
 			}
 			if (in_array($cmd->getGeneric_type(), self::$_STATE)) {
@@ -89,7 +85,7 @@ class ash_outlet {
 		if (count($return['capabilities']) == 0) {
 			return array();
 		}
-		$return['capabilities'][] = array(
+		$return['capabilities']['AlexaInterface'] = array(
 			"type" => "AlexaInterface",
 			"interface" => "Alexa",
 			"version" => "3",

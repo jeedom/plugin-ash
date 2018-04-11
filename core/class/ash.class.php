@@ -21,6 +21,7 @@ require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 include_file('core', 'ash_light', 'class', 'ash');
 include_file('core', 'ash_outlet', 'class', 'ash');
 include_file('core', 'ash_temperature', 'class', 'ash');
+include_file('core', 'ash_thermostat', 'class', 'ash');
 
 class ash extends eqLogic {
 
@@ -31,6 +32,7 @@ class ash extends eqLogic {
 		'SWITCH' => array('class' => 'ash_outlet', 'name' => 'Switch (volet...)'),
 		'SMARTPLUG' => array('class' => 'ash_outlet', 'name' => 'Prise'),
 		'TEMPERATURE_SENSOR' => array('class' => 'ash_temperature', 'name' => 'Température'),
+		'THERMOSTAT' => array('class' => 'ash_thermostat', 'name' => 'Thermostat'),
 	);
 
 	/*     * ***********************Methode static*************************** */
@@ -109,18 +111,6 @@ class ash extends eqLogic {
 		}
 	}
 
-	public static function findCapability($_capabilities, $_capability) {
-		if (count($_capabilities) == 0) {
-			return false;
-		}
-		foreach ($_capabilities as $capability) {
-			if ($capability['interface'] == $_capability) {
-				return true;
-			}
-		}
-		return false;
-	}
-
 	public static function sync() {
 		$return = array();
 		$devices = ash_devices::all(true);
@@ -131,6 +121,7 @@ class ash extends eqLogic {
 				$device->save();
 				continue;
 			}
+			$info['capabilities'] = array_values($info['capabilities']);
 			$return[] = $info;
 			$device->setOptions('configState', 'OK');
 			$device->save();
