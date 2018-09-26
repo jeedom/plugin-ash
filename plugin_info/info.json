@@ -1,6 +1,6 @@
 {
 	"id" : "ash",
-	"name" : "Amazon Smarthome",
+	"name" : "Amazon Alexa",
 	"description" : "Plugin pour Amazon Smarthome",
 	"licence" : "AGPL",
 	"author" : "Loïc",
