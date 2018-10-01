@@ -23,8 +23,6 @@ Ensuite sur le market dans votre profil partie "Mes Jeedoms", il faut que vous c
 - Donnez l'url de votre Jeedom (HTTPS obligatoire sinon votre configuration ne passera jamais active)
 - Mettez la clef API précédemment récuperée
 
-![ash](../images/ash1.png)
-
 Validez ensuite la configuration. 
 
 Il vous faut maintenant attendre 24h le temps que votre demande soit prise en compte.
@@ -37,8 +35,6 @@ Il vous faut maintenant attendre 24h le temps que votre demande soit prise en co
 
 Sur votre Jeedom, allez sur Plugin -> Communication -> Google Smarthome et dans la partie équipement sélectionnez les équipements à transmettre à Google ainsi que le type de l'équipement.
 
-![ash](../images/ash2.png)
-
 > **IMPORTANT**
 >
 > Le plugin se base sur les types génériques de Jeedom des commandes pour piloter votre domotique. Il est donc très important de configurer ceux-ci correctement.
@@ -50,21 +46,13 @@ Sur votre Jeedom, allez sur Plugin -> Communication -> Google Smarthome et dans 
 
 Vous pouvez aussi créer des scènes dans l'onglet scène, avec des actions d'entrée et de sortie.
 
-![ash](../images/ash3.png)
-
 ## Configuration Google
 
-Depuis votre téléphone, lancez l'application Google Home puis dans le Menu (à gauche) cliquez sur "Contrôle de maison" :
+Depuis votre téléphone, lancez l'application Google Home puis dans le Menu (à gauche) cliquez sur "Contrôle de maison".
 
-![ash](../images/ash4.png)
+Cliquez sur le "+" et cherchez "Jeedom Smarthome" dans la liste.
 
-Cliquez sur le "+" et cherchez "Jeedom Smarthome" dans la liste :
-
-![ash](../images/ash5.png)
-
-Une fois sélectionné indiquez vos identifiants Market :
-
-![ash](../images/ash6.png)
+Une fois sélectionné indiquez vos identifiants Market.
 
 L'application va normalement se synchroniser avec vos équipements, vous pourrez ensuite les mettres dans les pièces et piloter vocalement votre domotique.
 
