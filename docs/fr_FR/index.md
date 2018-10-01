@@ -24,15 +24,11 @@ Il vous faut maintenant attendre 24h le temps que votre demande soit prise en co
 
 Sur votre Jeedom, allez sur Plugin -> Communication -> Alexa et dans la partie équipement sélectionnez les équipements à transmettre à Alexa ainsi que le type de l'équipement.
 
-![ash](../images/ash2.png)
-
 > **IMPORTANT**
 >
 > Le plugin se base sur les types génériques de Jeedom des commandes pour piloter votre domotique. Il est donc très important de configurer ceux-ci correctement.
 
 Vous pouvez aussi créer des scènes dans l'onglet scène, avec des actions d'entrée et de sortie.
-
-![ash](../images/ash3.png)
 
 # FAQ
 
