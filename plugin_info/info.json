@@ -1,7 +1,7 @@
 {
 	"id" : "ash",
 	"name" : "Amazon Alexa",
-	"description" : "Plugin pour Amazon Smarthome",
+	"description" : "Plugin pour Alexa (Amazon Smarthome). Attention service en beta pour le moment, ce service deviendra payant au moment du stable (par abonnement)",
 	"licence" : "AGPL",
 	"author" : "Loïc",
 	"require" : "3.2.1",
