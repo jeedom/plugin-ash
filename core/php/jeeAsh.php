@@ -45,7 +45,7 @@ if ($data['action'] == 'exec') {
 }
 if ($data['action'] == 'interact') {
 	$params = array('plugin' => 'ash', 'reply_cmd' => null);
-	echo json_encode(interactQuery::tryToReply(trim($data['data']['request']['intent']['slots']['message']['value']), $params));
+	echo json_encode(interactQuery::tryToReply(trim($data['data']['message']), $params));
 	die();
 }
 echo json_encode(ash::buildErrorResponse($data, 'INTERNAL_ERROR'));
