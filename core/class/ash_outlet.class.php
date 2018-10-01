@@ -151,9 +151,9 @@ class ash_outlet {
 		$value = $cmd->execCmd();
 		if ($cmd->getSubtype() == 'numeric') {
 			$return[] = array(
-				'namespace' => 'Alexa.PowerController',
-				'name' => 'powerState',
-				'value' => ($value > 0) ? 'ON' : 'OFF',
+				'namespace' => 'Alexa.BrightnessController',
+				'name' => 'brightness',
+				'value' => $value,
 				'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
 				'uncertaintyInMilliseconds' => 0,
 			);

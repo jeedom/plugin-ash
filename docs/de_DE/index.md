@@ -1,4 +1,4 @@
-# Beschreibung
+# Description
 
 Ce plugin permet de faire le lien entre votre Jeedom, un service Google Smarthome et Google Smarthome.
 
