@@ -135,13 +135,17 @@ class ash extends eqLogic {
 		$directive = $_data['data']['directive'];
 		$responseHeader = $directive['header'];
 		$responseHeader['namespace'] = 'Alexa';
-		$responseHeader['name'] = 'Response';
+		if($responseHeader['name'] == 'ReportState'){
+			$responseHeader['name'] = 'StateReport';
+		}else{
+			$responseHeader['name'] = 'Response';
+		}
 		$return = array(
 			'context' => '',
 			'event' => array(
 				'header' => $responseHeader,
 				'endpoint' => $directive['endpoint'],
-				'payload' => array(),
+				'payload' => new stdClass(),
 			),
 		);
 		if (strpos($directive['endpoint']['endpointId'], 'scene::') !== false) {
