@@ -300,11 +300,11 @@ class ash_devices {
 		}
 		$return = '';
 		$eqLogic = $this->getLink();
-		$return .= $eqLogic->getName();
 		$object = $eqLogic->getObject();
 		if(is_object($object)){
-			$return .= ' '. $object->getName();
+			$return .= $object->getName().' ';
 		}
+		$return .= $eqLogic->getName();
 		return $return;
 	}
 
