@@ -134,7 +134,7 @@ class ash extends eqLogic {
 	public static function exec($_data) {
 		$directive = $_data['data']['directive'];
 		$responseHeader = $directive['header'];
-		if(isset($responseHeader['cookie']){
+		if(isset($responseHeader['cookie'])){
 			unset($responseHeader['cookie']);
 		}
 		$responseHeader['namespace'] = 'Alexa';
