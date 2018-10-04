@@ -294,9 +294,18 @@ class ash_devices {
 		return $class::exec($this, $_directive);
 	}
 
-	public function cronHourly() {
-		system::kill('stream2chromecast.py');
-		system::kill('avconv -i');
+	public function getPseudo() {
+		if ($this->getOptions('pseudo') != '') {
+			return $this->getOptions('pseudo');
+		}
+		$return = '';
+		$eqLogic = $this->getLink();
+		$return .= $eqLogic->getName();
+		$object = $eqLogic->getObject();
+		if(is_object($object)){
+			$return .= ' '. $object->getName();
+		}
+		return $return;
 	}
 
 	/*     * **********************Getteur Setteur*************************** */
