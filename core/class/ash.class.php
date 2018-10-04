@@ -171,8 +171,8 @@ class ash extends eqLogic {
 				return self::buildErrorResponse($_data, $e->getMessage());
 			}
 		}
-		if(isset($return['event']['header']['endpoint']['cookie'])){
-			unset($return['event']['header']['endpoint']['cookie']);
+		if(isset($return['event']['endpoint']['cookie'])){
+			unset($return['event']['endpoint']['cookie']);
 		}
 		return $return;
 	}
