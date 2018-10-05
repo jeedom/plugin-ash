@@ -127,6 +127,19 @@ class ash_thermostat {
 	public static function getState($_device, $_directive) {
 		$return = array();
 		$cmd = null;
+		if (isset($_directive['endpoint']['cookie']['cmd_get_temperature'])) {
+			$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_get_temperature']);
+			if (is_object($cmd)) {
+				$value = $cmd->execCmd();
+				$return[] = array(
+					'namespace' => 'Alexa.TemperatureSensor',
+					'name' => 'temperature',
+					'value' => array('value' => $value, 'scale' => 'CELSIUS'),
+					'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+					'uncertaintyInMilliseconds' => 0,
+				);
+			}
+		}
 		if (isset($_directive['endpoint']['cookie']['cmd_get_thermostat'])) {
 			$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_get_thermostat']);
 			if (is_object($cmd)) {
