@@ -171,6 +171,9 @@ class ash extends eqLogic {
 				return self::buildErrorResponse($_data, $e->getMessage());
 			}
 		}
+		if(isset($return['event']['endpoint']['cookie'])){
+			unset($return['event']['endpoint']['cookie']);
+		}
 		return $return;
 	}
 
@@ -294,9 +297,18 @@ class ash_devices {
 		return $class::exec($this, $_directive);
 	}
 
-	public function cronHourly() {
-		system::kill('stream2chromecast.py');
-		system::kill('avconv -i');
+	public function getPseudo() {
+		if ($this->getOptions('pseudo') != '') {
+			return $this->getOptions('pseudo');
+		}
+		$return = '';
+		$eqLogic = $this->getLink();
+		$object = $eqLogic->getObject();
+		if(is_object($object)){
+			$return .= $object->getName().' ';
+		}
+		$return .= $eqLogic->getName();
+		return $return;
 	}
 
 	/*     * **********************Getteur Setteur*************************** */

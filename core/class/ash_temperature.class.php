@@ -37,7 +37,7 @@ class ash_temperature {
 		}
 		$return = array();
 		$return['endpointId'] = $eqLogic->getId();
-		$return['friendlyName'] = str_replace(array('#', '][', '[', ']'), array('', ' ', '', ''), $eqLogic->getHumanName());
+		$return['friendlyName'] = $_device->getPseudo();
 		$return['description'] = $eqLogic->getHumanName();
 		$return['manufacturerName'] = 'Jeedom';
 		$return['cookie'] = array('key1' => '');

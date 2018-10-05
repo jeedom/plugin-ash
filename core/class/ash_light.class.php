@@ -39,7 +39,7 @@ class ash_light {
 		}
 		$return = array();
 		$return['endpointId'] = $eqLogic->getId();
-		$return['friendlyName'] = str_replace(array('#', '][', '[', ']'), array('', ' ', '', ''), $eqLogic->getHumanName());
+		$return['friendlyName'] = $_device->getPseudo();
 		$return['description'] = $eqLogic->getHumanName();
 		$return['manufacturerName'] = 'Jeedom';
 		$return['cookie'] = array('key1' => '');
@@ -212,6 +212,13 @@ class ash_light {
 				'namespace' => 'Alexa.BrightnessController',
 				'name' => 'brightness',
 				'value' => $value,
+				'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+				'uncertaintyInMilliseconds' => 0,
+			);
+			$return[] = array(
+				'namespace' => 'Alexa.PowerController',
+				'name' => 'powerState',
+				'value' => ($value) ? 'ON' : 'OFF',
 				'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
 				'uncertaintyInMilliseconds' => 0,
 			);
