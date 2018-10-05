@@ -127,19 +127,6 @@ class ash_thermostat {
 	public static function getState($_device, $_directive) {
 		$return = array();
 		$cmd = null;
-		if (isset($_directive['endpoint']['cookie']['cmd_get_temperature'])) {
-			$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_get_temperature']);
-			if (is_object($cmd)) {
-				$value = $cmd->execCmd();
-				/*$return[] = array(
-					'namespace' => 'Alexa.TemperatureSensor',
-					'name' => 'temperature',
-					'value' => array('value' => $value, 'scale' => 'CELSIUS'),
-					'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
-					'uncertaintyInMilliseconds' => 0,
-				);*/
-			}
-		}
 		if (isset($_directive['endpoint']['cookie']['cmd_get_thermostat'])) {
 			$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_get_thermostat']);
 			if (is_object($cmd)) {
@@ -156,11 +143,21 @@ class ash_thermostat {
 		if (isset($_directive['endpoint']['cookie']['cmd_get_mode'])) {
 			$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_get_mode']);
 			if (is_object($cmd)) {
-				$value = $cmd->execCmd();
+				$value = strtolower($cmd->execCmd());
+				$cValue = 'AUTO';
+				if(strpos($value,'chauffage') !== false){
+					$cValue = 'HEAT';
+				}else if(strpos($value,'clim') !== false){
+					$cValue = 'COOL';
+				}else if(strpos($value,'stop') !== false || strpos($value,'off')  !== false){
+					$cValue = 'OFF';
+				}else if(strpos($value,'eco') !== false){
+					$cValue = 'ECO';
+				}
 				$return[] = array(
 					'namespace' => 'Alexa.ThermostatController',
 					'name' => 'thermostatMode',
-					'value' => array('value' => 'HEAT'),
+					'value' => array('value' => $cValue),
 					'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
 					'uncertaintyInMilliseconds' => 0,
 				);
