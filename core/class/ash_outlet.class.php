@@ -157,6 +157,13 @@ class ash_outlet {
 				'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
 				'uncertaintyInMilliseconds' => 0,
 			);
+			$return[] = array(
+				'namespace' => 'Alexa.PowerController',
+				'name' => 'powerState',
+				'value' => ($value) ? 'ON' : 'OFF',
+				'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+				'uncertaintyInMilliseconds' => 0,
+			);
 		} else if ($cmd->getSubtype() == 'binary') {
 			if (in_array($cmd->getGeneric_type(), array('FLAP_SLIDER'))) {
 				$value = (!$value);

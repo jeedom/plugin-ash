@@ -1,3 +1,7 @@
+# 08/10/2018
+
+- Correction de bug sur les prises, volets...
+
 # 05/10/2018
 
 - Amélioration de la gestion des noms des équipements
