@@ -55,7 +55,7 @@ class ash_thermostat {
 						'properties' => array(
 							'supported' => array(),
 						),
-						'proactivelyReported' => true,
+						'proactivelyReported' => false,
 						'retrievable' => true,
 					);
 				}
@@ -71,7 +71,7 @@ class ash_thermostat {
 						'properties' => array(
 							'supported' => array(),
 						),
-						'proactivelyReported' => true,
+						'proactivelyReported' => false,
 						'retrievable' => true,
 					);
 				}
@@ -88,7 +88,7 @@ class ash_thermostat {
 							array('name' => 'temperature'),
 						),
 					),
-					'proactivelyReported' => true,
+					'proactivelyReported' => false,
 					'retrievable' => true,
 				);
 				$return['cookie']['cmd_get_temperature'] = $cmd->getId();
