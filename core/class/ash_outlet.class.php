@@ -57,7 +57,7 @@ class ash_outlet {
 							array('name' => 'powerState'),
 						),
 					),
-					'proactivelyReported' => true,
+					'proactivelyReported' => false,
 					'retrievable' => true,
 				);
 				$return['cookie']['cmd_set_on'] = $cmd->getId();
@@ -73,7 +73,7 @@ class ash_outlet {
 							array('name' => 'powerState'),
 						),
 					),
-					'proactivelyReported' => true,
+					'proactivelyReported' => false,
 					'retrievable' => true,
 				);
 				$return['cookie']['cmd_set_off'] = $cmd->getId();
