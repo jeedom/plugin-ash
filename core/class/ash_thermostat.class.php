@@ -62,6 +62,9 @@ class ash_thermostat {
 				$return['capabilities']['Alexa.ThermostatController']['properties']['supported'][] = array('name' => 'targetSetpoint');
 				$return['cookie']['cmd_set_thermostat'] = $cmd->getId();
 			}
+			if (in_array($cmd->getGeneric_type(), array('THERMOSTAT_SETPOINT'))) {
+				$return['cookie']['cmd_get_thermostat'] = $cmd->getId();
+			}
 			if (in_array($cmd->getGeneric_type(), array('THERMOSTAT_MODE'))) {
 				if (!isset($return['capabilities']['Alexa.ThermostatController'])) {
 					$return['capabilities']['Alexa.ThermostatController'] = array(
@@ -119,6 +122,21 @@ class ash_thermostat {
 					break;
 				}
 				$cmd->execCmd(array('slider' => $_directive['payload']['targetSetpoint']['value']));
+				break;
+			case 'targetSetpointDelta':
+				if (isset($_directive['endpoint']['cookie']['cmd_set_thermostat'])) {
+					$cmd_set = cmd::byId($_directive['endpoint']['cookie']['cmd_set_thermostat']);
+				}
+				if (!is_object($cmd_set)) {
+					break;
+				}
+				if (isset($_directive['endpoint']['cookie']['cmd_get_thermostat'])) {
+					$cmd_get = cmd::byId($_directive['endpoint']['cookie']['cmd_get_thermostat']);
+				}
+				if (!is_object($cmd_get)) {
+					break;
+				}
+				$cmd->execCmd(array('slider' => $cmd_get->execCmd() + $_directive['payload']['targetSetpoint']['value']))
 				break;
 		}
 		return self::getState($_device, $_directive);
