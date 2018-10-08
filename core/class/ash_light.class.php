@@ -57,7 +57,7 @@ class ash_light {
 							array('name' => 'powerState'),
 						),
 					),
-					'proactivelyReported' => true,
+					'proactivelyReported' => false,
 					'retrievable' => true,
 				);
 				$return['cookie']['cmd_set_on'] = $cmd->getId();
@@ -73,7 +73,7 @@ class ash_light {
 							array('name' => 'powerState'),
 						),
 					),
-					'proactivelyReported' => true,
+					'proactivelyReported' => false,
 					'retrievable' => true,
 				);
 				$return['cookie']['cmd_set_off'] = $cmd->getId();
@@ -89,7 +89,7 @@ class ash_light {
 							array('name' => 'powerState'),
 						),
 					),
-					'proactivelyReported' => true,
+					'proactivelyReported' => false,
 					'retrievable' => true,
 				);
 				$return['capabilities']['Alexa.BrightnessController'] = array(
@@ -101,7 +101,7 @@ class ash_light {
 							array('name' => 'AdjustBrightness'),
 						),
 					),
-					'proactivelyReported' => true,
+					'proactivelyReported' => false,
 					'retrievable' => true,
 				);
 				$return['cookie']['cmd_set_slider'] = $cmd->getId();
@@ -116,7 +116,7 @@ class ash_light {
 							array('name' => 'color'),
 						),
 					),
-					'proactivelyReported' => true,
+					'proactivelyReported' => false,
 					'retrievable' => true,
 				);
 				$return['cookie']['cmd_set_color'] = $cmd->getId();
