@@ -62,9 +62,6 @@ class ash_thermostat {
 				$return['capabilities']['Alexa.ThermostatController']['properties']['supported'][] = array('name' => 'targetSetpoint');
 				$return['cookie']['cmd_set_thermostat'] = $cmd->getId();
 			}
-			if (in_array($cmd->getGeneric_type(), array('THERMOSTAT_SETPOINT'))) {
-				$return['cookie']['cmd_get_thermostat'] = $cmd->getId();
-			}
 			if (in_array($cmd->getGeneric_type(), array('THERMOSTAT_MODE'))) {
 				if (!isset($return['capabilities']['Alexa.ThermostatController'])) {
 					$return['capabilities']['Alexa.ThermostatController'] = array(
