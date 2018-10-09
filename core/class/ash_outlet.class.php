@@ -81,7 +81,7 @@ class ash_outlet {
 		}
 		foreach ($eqLogic->getCmd() as $cmd) {
 			if (in_array($cmd->getGeneric_type(), self::$_STATE)) {
-				if(isset($return['capabilities']['Alexa.PowerController']){
+				if(isset($return['capabilities']['Alexa.PowerController'])){
 					$return['capabilities']['Alexa.PowerController']['properties']['retrievable'] = true;
 				}
 				$return['cookie']['cmd_get_state'] = $cmd->getId();
