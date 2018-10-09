@@ -54,9 +54,13 @@ class ash_thermostat {
 						'version' => 3,
 						'properties' => array(
 							'supported' => array(),
+						        'proactivelyReported' => false,
+							'retrievable' => true,
 						),
-						'proactivelyReported' => false,
-						'retrievable' => true,
+						'configuration' => array(
+						   'supportsScheduling'=> false,
+						   'supportedModes'=> array('HEAT','COOL','AUTO','OFF')
+						)
 					);
 				}
 				$return['capabilities']['Alexa.ThermostatController']['properties']['supported'][] = array('name' => 'targetSetpoint');
@@ -70,9 +74,13 @@ class ash_thermostat {
 						'version' => 3,
 						'properties' => array(
 							'supported' => array(),
+						        'proactivelyReported' => false,
+							'retrievable' => true,
 						),
-						'proactivelyReported' => false,
-						'retrievable' => true,
+						'configuration' => array(
+						   'supportsScheduling'=> false,
+						   'supportedModes'=> array('HEAT','COOL','AUTO','OFF')
+						)
 					);
 				}
 				$return['capabilities']['Alexa.ThermostatController']['properties']['supported'][] = array('name' => 'thermostatMode');
@@ -86,10 +94,10 @@ class ash_thermostat {
 					'properties' => array(
 						'supported' => array(
 							array('name' => 'temperature'),
-						),
+                          			),
+                          		'proactivelyReported' => false,
+					      'retrievable' => true,
 					),
-					'proactivelyReported' => false,
-					'retrievable' => true,
 				);
 				$return['cookie']['cmd_get_temperature'] = $cmd->getId();
 			}
@@ -97,7 +105,6 @@ class ash_thermostat {
 		if (count($return['capabilities']) == 0) {
 			return array();
 		}
-		$return['attributes'] = array('availableThermostatModes' => 'on,off,heat,cool', 'thermostatTemperatureUnit' => 'C');
 		return $return;
 	}
 
