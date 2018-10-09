@@ -120,7 +120,7 @@ class ash_outlet {
 				if ($cmd->getSubtype() == 'other') {
 					$cmd->execCmd();
 				} else if ($cmd->getSubtype() == 'slider') {
-					$value = (in_array($cmd->getGeneric_type(), array('FLAP_SLIDER'))) ? 0 : 100;
+					$value = (in_array($cmd->getGeneric_type(), array('FLAP_SLIDER'))) ? $cmd->getConfiguration('minValue',0) : $cmd->getConfiguration('maxValue',100);
 					$cmd->execCmd(array('slider' => $value));
 				}
 				break;
@@ -136,7 +136,7 @@ class ash_outlet {
 				if ($cmd->getSubtype() == 'other') {
 					$cmd->execCmd();
 				} else if ($cmd->getSubtype() == 'slider') {
-					$value = (in_array($cmd->getGeneric_type(), array('FLAP_SLIDER'))) ? 100 : 0;
+					$value = (in_array($cmd->getGeneric_type(), array('FLAP_SLIDER'))) ? $cmd->getConfiguration('maxValue',100) : $cmd->getConfiguration('minValue',0);
 					$cmd->execCmd(array('slider' => $value));
 				}
 				break;
