@@ -54,9 +54,9 @@ class ash_temperature {
 						'supported' => array(
 							array('name' => 'temperature'),
 						),
+						'proactivelyReported' => false,
+					       'retrievable' => true,
 					),
-					'proactivelyReported' => true,
-					'retrievable' => true,
 				);
 				$return['cookie']['cmd_get_temperature'] = $cmd->getId();
 			}

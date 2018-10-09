@@ -38,7 +38,7 @@ class ash_scene {
 			'type' => 'AlexaInterface',
 			'interface' => 'Alexa.SceneController',
 			'version' => 3,
-			'proactivelyReported' => true,
+			'proactivelyReported' => false,
 			'supportsDeactivation' => (count($_device->getOptions('outAction')) > 0),
 		);
 		return $return;

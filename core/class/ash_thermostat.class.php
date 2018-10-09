@@ -54,9 +54,13 @@ class ash_thermostat {
 						'version' => 3,
 						'properties' => array(
 							'supported' => array(),
+						        'proactivelyReported' => false,
+							'retrievable' => true,
 						),
-						'proactivelyReported' => true,
-						'retrievable' => true,
+						'configuration' => array(
+						   'supportsScheduling'=> false,
+						   'supportedModes'=> array('HEAT','COOL','AUTO','OFF')
+						)
 					);
 				}
 				$return['capabilities']['Alexa.ThermostatController']['properties']['supported'][] = array('name' => 'targetSetpoint');
@@ -70,9 +74,13 @@ class ash_thermostat {
 						'version' => 3,
 						'properties' => array(
 							'supported' => array(),
+						        'proactivelyReported' => false,
+							'retrievable' => true,
 						),
-						'proactivelyReported' => true,
-						'retrievable' => true,
+						'configuration' => array(
+						   'supportsScheduling'=> false,
+						   'supportedModes'=> array('HEAT','COOL','AUTO','OFF')
+						)
 					);
 				}
 				$return['capabilities']['Alexa.ThermostatController']['properties']['supported'][] = array('name' => 'thermostatMode');
@@ -86,10 +94,10 @@ class ash_thermostat {
 					'properties' => array(
 						'supported' => array(
 							array('name' => 'temperature'),
-						),
+                          			),
+                          		'proactivelyReported' => false,
+					      'retrievable' => true,
 					),
-					'proactivelyReported' => true,
-					'retrievable' => true,
 				);
 				$return['cookie']['cmd_get_temperature'] = $cmd->getId();
 			}
@@ -119,6 +127,21 @@ class ash_thermostat {
 					break;
 				}
 				$cmd->execCmd(array('slider' => $_directive['payload']['targetSetpoint']['value']));
+				break;
+			case 'targetSetpointDelta':
+				if (isset($_directive['endpoint']['cookie']['cmd_set_thermostat'])) {
+					$cmd_set = cmd::byId($_directive['endpoint']['cookie']['cmd_set_thermostat']);
+				}
+				if (!is_object($cmd_set)) {
+					break;
+				}
+				if (isset($_directive['endpoint']['cookie']['cmd_get_thermostat'])) {
+					$cmd_get = cmd::byId($_directive['endpoint']['cookie']['cmd_get_thermostat']);
+				}
+				if (!is_object($cmd_get)) {
+					break;
+				}
+				$cmd->execCmd(array('slider' => $cmd_get->execCmd() + $_directive['payload']['targetSetpoint']['value']));
 				break;
 		}
 		return self::getState($_device, $_directive);
