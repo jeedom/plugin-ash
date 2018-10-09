@@ -57,7 +57,7 @@ class ash_outlet {
 							array('name' => 'powerState'),
 						),
 						'proactivelyReported' => false,
-					        'retrievable' => true,
+					        'retrievable' => false,
 					),
 				);
 				$return['cookie']['cmd_set_on'] = $cmd->getId();
@@ -73,12 +73,17 @@ class ash_outlet {
 							array('name' => 'powerState'),
 						),
 						'proactivelyReported' => false,
-					        'retrievable' => true,
+					        'retrievable' => false,
 					),
 				);
 				$return['cookie']['cmd_set_off'] = $cmd->getId();
 			}
+		}
+		foreach ($eqLogic->getCmd() as $cmd) {
 			if (in_array($cmd->getGeneric_type(), self::$_STATE)) {
+				if(isset($return['capabilities']['Alexa.PowerController'])){
+					$return['capabilities']['Alexa.PowerController']['properties']['retrievable'] = true;
+				}
 				$return['cookie']['cmd_get_state'] = $cmd->getId();
 			}
 		}

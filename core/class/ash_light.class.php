@@ -26,6 +26,7 @@ class ash_light {
 	private static $_ON = array('ENERGY_ON', 'LIGHT_ON');
 	private static $_OFF = array('ENERGY_OFF', 'LIGHT_OFF');
 	private static $_STATE = array('ENERGY_STATE', 'LIGHT_STATE');
+	private static $_STATE_COLOR = array('LIGHT_COLOR');
 
 	/*     * ***********************Methode static*************************** */
 
@@ -57,7 +58,7 @@ class ash_light {
 							array('name' => 'powerState'),
 						),
 						'proactivelyReported' => false,
-					        'retrievable' => true,
+					        'retrievable' => false,
 					),
 				);
 				$return['cookie']['cmd_set_on'] = $cmd->getId();
@@ -73,7 +74,7 @@ class ash_light {
 							array('name' => 'powerState'),
 						),
 						'proactivelyReported' => false,
-					        'retrievable' => true,
+					        'retrievable' => false,
 					),
 				);
 				$return['cookie']['cmd_set_off'] = $cmd->getId();
@@ -90,7 +91,7 @@ class ash_light {
 						),
 					),
 					'proactivelyReported' => false,
-					'retrievable' => true,
+					'retrievable' => false,
 				);
 				$return['capabilities']['Alexa.BrightnessController'] = array(
 					'type' => 'AlexaInterface',
@@ -100,9 +101,9 @@ class ash_light {
 						'supported' => array(
 							array('name' => 'AdjustBrightness'),
 						),
+						'proactivelyReported' => false,
+					        'retrievable' => false,
 					),
-					'proactivelyReported' => false,
-					'retrievable' => true,
 				);
 				$return['cookie']['cmd_set_slider'] = $cmd->getId();
 			}
@@ -116,13 +117,27 @@ class ash_light {
 							array('name' => 'color'),
 						),
 						'proactivelyReported' => false,
-					        'retrievable' => true,
+					        'retrievable' => false,
 					),
 				);
 				$return['cookie']['cmd_set_color'] = $cmd->getId();
 			}
+		}
+		foreach ($eqLogic->getCmd() as $cmd) {
 			if (in_array($cmd->getGeneric_type(), self::$_STATE)) {
+				if(isset($return['capabilities']['Alexa.PowerController'])){
+					$return['capabilities']['Alexa.PowerController']['properties']['retrievable'] = true;
+				}
+				if(isset($return['capabilities']['Alexa.BrightnessController'])){
+					$return['capabilities']['Alexa.BrightnessController']['properties']['retrievable'] = true;
+				}
 				$return['cookie']['cmd_get_state'] = $cmd->getId();
+			}
+			if (in_array($cmd->getGeneric_type(), self::$_STATE_COLOR)) {
+				if(isset($return['capabilities']['Alexa.ColorController'])){
+					$return['capabilities']['Alexa.ColorController']['properties']['retrievable'] = true;
+				}
+				$return['cookie']['cmd_get_state_color'] = $cmd->getId();
 			}
 		}
 		if (count($return['capabilities']) == 0) {
@@ -189,8 +204,9 @@ class ash_light {
 					$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_color']);
 				}
 				if (is_object($cmd)) {
-					$value = self::hslToHex(array($_directive['payload']['color']['hue'], $_directive['payload']['color']['saturation'], $_directive['payload']['color']['brightness']));
-					$cmd->execCmd(array('color' => '#' . $value));
+					$value = self::hslToRgb($_directive['payload']['color']['hue'], $_directive['payload']['color']['saturation']*100, $_directive['payload']['color']['brightness']*100);
+					$color = sprintf("#%02x%02x%02x", $value[0], $value[1], $value[2]);
+                    $cmd->execCmd(array('color' => $color));
 				}
 				break;
 		}
@@ -203,109 +219,179 @@ class ash_light {
 		if (isset($_directive['endpoint']['cookie']['cmd_get_state'])) {
 			$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_get_state']);
 		}
-		if (!is_object($cmd)) {
-			return $return;
+		if (is_object($cmd)) {
+			$value = $cmd->execCmd();
+			if ($cmd->getSubtype() == 'numeric') {
+				$return[] = array(
+					'namespace' => 'Alexa.BrightnessController',
+					'name' => 'brightness',
+					'value' => $value,
+					'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+					'uncertaintyInMilliseconds' => 0,
+				);
+				$return[] = array(
+					'namespace' => 'Alexa.PowerController',
+					'name' => 'powerState',
+					'value' => ($value) ? 'ON' : 'OFF',
+					'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+					'uncertaintyInMilliseconds' => 0,
+				);
+			} else if ($cmd->getSubtype() == 'binary') {
+				$return[] = array(
+					'namespace' => 'Alexa.PowerController',
+					'name' => 'powerState',
+					'value' => ($value) ? 'ON' : 'OFF',
+					'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+					'uncertaintyInMilliseconds' => 0,
+				);
+			} 
 		}
-		$value = $cmd->execCmd();
-		if ($cmd->getSubtype() == 'numeric') {
-			$return[] = array(
-				'namespace' => 'Alexa.BrightnessController',
-				'name' => 'brightness',
-				'value' => $value,
-				'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
-				'uncertaintyInMilliseconds' => 0,
-			);
-			$return[] = array(
-				'namespace' => 'Alexa.PowerController',
-				'name' => 'powerState',
-				'value' => ($value) ? 'ON' : 'OFF',
-				'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
-				'uncertaintyInMilliseconds' => 0,
-			);
-		} else if ($cmd->getSubtype() == 'binary') {
-			$return[] = array(
-				'namespace' => 'Alexa.PowerController',
-				'name' => 'powerState',
-				'value' => ($value) ? 'ON' : 'OFF',
-				'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
-				'uncertaintyInMilliseconds' => 0,
-			);
-		} else if ($cmd->getSubtype() == 'string') {
-			$return[] = array(
-				'namespace' => 'Alexa.ColorController',
-				'name' => 'color',
-				'value' => self::hexToHsl(str_replace('#', '', $value)),
-				'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
-				'uncertaintyInMilliseconds' => 0,
-			);
+		if (isset($_directive['endpoint']['cookie']['cmd_get_state_color'])) {
+			$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_get_state_color']);
+		}
+		if (is_object($cmd)) {
+			$value = $cmd->execCmd();
+			if ($cmd->getSubtype() == 'string') {
+				list($r, $g, $b) = sscanf($value, "#%02x%02x%02x");
+				$value = self::rgb_to_hsv($r, $g, $b);
+				$return[] = array(
+					'namespace' => 'Alexa.ColorController',
+					'name' => 'color',
+					'value' => array('hue' => $value[0],'saturation'=>$value[1]/100,'brightness'=>$value[2]/100),
+					'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+					'uncertaintyInMilliseconds' => 0,
+				);
+			}
 		}
 		return array('properties' => $return);
 	}
 
-	public static function hexToHsl($hex) {
-		$hex = array($hex[0] . $hex[1], $hex[2] . $hex[3], $hex[4] . $hex[5]);
-		$rgb = array_map(function ($part) {return hexdec($part) / 255;}, $hex);
-		$max = max($rgb);
-		$min = min($rgb);
-		$l = ($max + $min) / 2;
-		if ($max == $min) {
-			$h = $s = 0;
-		} else {
-			$diff = $max - $min;
-			$s = $l > 0.5 ? $diff / (2 - $max - $min) : $diff / ($max + $min);
-			switch ($max) {
-				case $rgb[0]:
-					$h = ($rgb[1] - $rgb[2]) / $diff + ($rgb[1] < $rgb[2] ? 6 : 0);
-					break;
-				case $rgb[1]:
-					$h = ($rgb[2] - $rgb[0]) / $diff + 2;
-					break;
-				case $rgb[2]:
-					$h = ($rgb[0] - $rgb[1]) / $diff + 4;
-					break;
-			}
-			$h /= 6;
-		}
-		return array('hue' => $h, 'saturation' => $s, 'brightness' => $l);
+	public static function rgb_to_hsv($R, $G, $B) {
+	$R = ($R / 255);
+	$G = ($G / 255);
+	$B = ($B / 255);
+	$maxRGB = max($R, $G, $B);
+	$minRGB = min($R, $G, $B);
+	$chroma = $maxRGB - $minRGB;
+	$computedV = 100 * $maxRGB;
+	if ($chroma == 0) {
+		return array(0, 0, $computedV);
 	}
-
-	public static function hslToHex($hsl) {
-		list($h, $s, $l) = $hsl;
-		if ($s == 0) {
-			$r = $g = $b = 1;
-		} else {
-			$q = $l < 0.5 ? $l * (1 + $s) : $l + $s - $l * $s;
-			$p = 2 * $l - $q;
-
-			$r = self::hue2rgb($p, $q, $h + 1 / 3);
-			$g = self::hue2rgb($p, $q, $h);
-			$b = self::hue2rgb($p, $q, $h - 1 / 3);
-		}
-		return self::rgb2hex($r) . self::rgb2hex($g) . self::rgb2hex($b);
+	$computedS = 100 * ($chroma / $maxRGB);
+	if ($R == $minRGB) {
+		$h = 3 - (($G - $B) / $chroma);
+	} elseif ($B == $minRGB) {
+		$h = 1 - (($R - $G) / $chroma);
+	} else {
+		$h = 5 - (($B - $R) / $chroma);
 	}
-
-	public static function rgb2hex($rgb) {
-		return str_pad(dechex($rgb * 255), 2, '0', STR_PAD_LEFT);
+	$computedH = 60 * $h;
+	return array($computedH, $computedS, $computedV);
+}
+  
+  public static function rgbToHsl( $r, $g, $b ) {
+	$oldR = $r;
+	$oldG = $g;
+	$oldB = $b;
+	$r /= 255;
+	$g /= 255;
+	$b /= 255;
+    $max = max( $r, $g, $b );
+	$min = min( $r, $g, $b );
+	$h;
+	$s;
+	$l = ( $max + $min ) / 2;
+	$d = $max - $min;
+    	if( $d == 0 ){
+        	$h = $s = 0; // achromatic
+    	} else {
+        	$s = $d / ( 1 - abs( 2 * $l - 1 ) );
+		switch( $max ){
+	            case $r:
+	            	$h = 60 * fmod( ( ( $g - $b ) / $d ), 6 ); 
+                        if ($b > $g) {
+	                    $h += 360;
+	                }
+	                break;
+	            case $g: 
+	            	$h = 60 * ( ( $b - $r ) / $d + 2 ); 
+	            	break;
+	            case $b: 
+	            	$h = 60 * ( ( $r - $g ) / $d + 4 ); 
+	            	break;
+	        }			        	        
 	}
-
-	public static function hue2rgb($p, $q, $t) {
-		if ($t < 0) {
-			$t += 1;
-		}
-		if ($t > 1) {
-			$t -= 1;
-		}
-		if ($t < 1 / 6) {
-			return $p + ($q - $p) * 6 * $t;
-		}
-		if ($t < 1 / 2) {
-			return $q;
-		}
-		if ($t < 2 / 3) {
-			return $p + ($q - $p) * (2 / 3 - $t) * 6;
-		}
-		return $p;
+	return array( round( $h, 2 ), round( $s, 2 ), round( $l, 2 ) );
+}
+public static function hslToRgb($iH, $iS, $iV){
+  	if ($iH < 0) {
+		$iH = 0;
 	}
+	if ($iH > 360) {
+		$iH = 360;
+	}
+	if ($iS < 0) {
+		$iS = 0;
+	}
+	if ($iS > 100) {
+		$iS = 100;
+	}
+	if ($iV < 0) {
+		$iV = 0;
+	}
+	if ($iV > 100) {
+		$iV = 100;
+	}
+	$dS = $iS / 100.0;
+	$dV = $iV / 100.0;
+	$dC = $dV * $dS;
+	$dH = $iH / 60.0;
+	if ($dH === null) {
+		$dH = 0;
+	}
+	$dT = $dH;
+	while ($dT >= 2.0) {
+		$dT -= 2.0;
+	}
+	$dX = $dC * (1 - abs($dT - 1));
+	if ($dH >= 0.0 && $dH < 1.0) {
+		$dR = $dC;
+		$dG = $dX;
+		$dB = 0.0;
+	} else if ($dH >= 1.0 && $dH < 2.0) {
+		$dR = $dX;
+		$dG = $dC;
+		$dB = 0.0;
+	} else if ($dH >= 2.0 && $dH < 3.0) {
+		$dR = 0.0;
+		$dG = $dC;
+		$dB = $dX;
+	} else if ($dH >= 3.0 && $dH < 4.0) {
+		$dR = 0.0;
+		$dG = $dX;
+		$dB = $dC;
+	} else if ($dH >= 4.0 && $dH < 5.0) {
+		$dR = $dX;
+		$dG = 0.0;
+		$dB = $dC;
+	} else if ($dH >= 5.0 && $dH < 6.0) {
+		$dR = $dC;
+		$dG = 0.0;
+		$dB = $dX;
+	} else {
+		$dR = 0.0;
+		$dG = 0.0;
+		$dB = 0.0;
+	}
+	$dM = $dV - $dC;
+	$dR += $dM;
+	$dG += $dM;
+	$dB += $dM;
+	$dR *= 255;
+	$dG *= 255;
+	$dB *= 255;
+	return array(round($dR), round($dG), round($dB));
+}
 
 	/*     * *********************Méthodes d'instance************************* */
 
