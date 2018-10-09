@@ -101,9 +101,9 @@ class ash_light {
 						'supported' => array(
 							array('name' => 'AdjustBrightness'),
 						),
+						'proactivelyReported' => false,
+					        'retrievable' => false,
 					),
-					'proactivelyReported' => false,
-					'retrievable' => false,
 				);
 				$return['cookie']['cmd_set_slider'] = $cmd->getId();
 			}
