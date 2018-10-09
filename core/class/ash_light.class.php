@@ -57,7 +57,7 @@ class ash_light {
 							array('name' => 'powerState'),
 						),
 						'proactivelyReported' => false,
-					        'retrievable' => true,
+					        'retrievable' => false,
 					),
 				);
 				$return['cookie']['cmd_set_on'] = $cmd->getId();
@@ -73,7 +73,7 @@ class ash_light {
 							array('name' => 'powerState'),
 						),
 						'proactivelyReported' => false,
-					        'retrievable' => true,
+					        'retrievable' => false,
 					),
 				);
 				$return['cookie']['cmd_set_off'] = $cmd->getId();
@@ -90,7 +90,7 @@ class ash_light {
 						),
 					),
 					'proactivelyReported' => false,
-					'retrievable' => true,
+					'retrievable' => false,
 				);
 				$return['capabilities']['Alexa.BrightnessController'] = array(
 					'type' => 'AlexaInterface',
@@ -102,7 +102,7 @@ class ash_light {
 						),
 					),
 					'proactivelyReported' => false,
-					'retrievable' => true,
+					'retrievable' => false,
 				);
 				$return['cookie']['cmd_set_slider'] = $cmd->getId();
 			}
@@ -116,12 +116,17 @@ class ash_light {
 							array('name' => 'color'),
 						),
 						'proactivelyReported' => false,
-					        'retrievable' => true,
+					        'retrievable' => false,
 					),
 				);
 				$return['cookie']['cmd_set_color'] = $cmd->getId();
 			}
+		}
+		foreach ($eqLogic->getCmd() as $cmd) {
 			if (in_array($cmd->getGeneric_type(), self::$_STATE)) {
+				if(isset($return['capabilities']['Alexa.ColorController']){
+					$return['capabilities']['Alexa.ColorController']['properties']['retrievable'] = true;
+				}
 				$return['cookie']['cmd_get_state'] = $cmd->getId();
 			}
 		}
