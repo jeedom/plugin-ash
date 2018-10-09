@@ -133,7 +133,7 @@ class ash_thermostat {
 				if (!is_object($cmd_get)) {
 					break;
 				}
-				$cmd->execCmd(array('slider' => $cmd_get->execCmd() + $_directive['payload']['targetSetpoint']['value']))
+				$cmd->execCmd(array('slider' => $cmd_get->execCmd() + $_directive['payload']['targetSetpoint']['value']));
 				break;
 		}
 		return self::getState($_device, $_directive);
