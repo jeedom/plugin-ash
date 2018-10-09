@@ -124,7 +124,7 @@ class ash_light {
 		}
 		foreach ($eqLogic->getCmd() as $cmd) {
 			if (in_array($cmd->getGeneric_type(), self::$_STATE)) {
-				if(isset($return['capabilities']['Alexa.ColorController']){
+				if(isset($return['capabilities']['Alexa.ColorController'])){
 					$return['capabilities']['Alexa.ColorController']['properties']['retrievable'] = true;
 				}
 				$return['cookie']['cmd_get_state'] = $cmd->getId();
