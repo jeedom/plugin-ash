@@ -105,6 +105,7 @@ class ash_thermostat {
 		if (count($return['capabilities']) == 0) {
 			return array();
 		}
+		$return['attributes'] = array('availableThermostatModes' => 'on,off,heat,cool', 'thermostatTemperatureUnit' => 'C');
 		return $return;
 	}
 
