@@ -1,3 +1,7 @@
+# 09/10/2018
+
+- Correction de nombreux bug sur les retours d'état (lumière, prise, température, thermostat...)
+
 # 08/10/2018
 
 - Correction de bug sur les prises, volets...
