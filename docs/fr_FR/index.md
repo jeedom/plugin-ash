@@ -24,7 +24,7 @@ Après l'installation du plugin, il vous suffit d'aller dans la partie configura
 
 ## Configuration Alexa
 
-Une fois le service bien actif il faut sur l'application Alexa ou sur le site web (https://alexa.amazon.fr/spa/index.html) aller dans la partie skill et chercher le skill Jeedom puis l'activer, la il vous demandera des identifants il faut mettre ceux du market (attention bien mettre vos identifiants market et non ceux de votre Jeedom)
+Une fois le service bien actif il faut sur l'application Alexa ou sur le [site web](https://alexa.amazon.fr/spa/index.html) aller dans la partie skill et chercher le skill Jeedom puis l'activer, la il vous demandera des identifants il faut mettre ceux du market (attention bien mettre vos identifiants market et non ceux de votre Jeedom)
 
 > **IMPORTANT**
 >
