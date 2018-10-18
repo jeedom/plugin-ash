@@ -1,3 +1,5 @@
+- Correction d'un bug sur les volets
+
 # 10/10/2018
 
 - Mise à jour de la doc
