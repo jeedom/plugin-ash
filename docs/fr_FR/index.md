@@ -59,5 +59,5 @@ Vous pouvez aussi créer des scènes dans l'onglet scène, avec des actions d'en
 
 >**Alexa me dis "l'appareil ne répond pas" alors que l'action est bien faite**
 >
-> Regardez vos type générique, Alexa necessite ABSOLUMENT un retour d'état sinon il vous dira que l'appareil ne répond pas. Attention aussi au délai pour faire l'action si c'est trop long vous aurez le message l'appareil ne répond pas.
+> Regardez vos type générique, Alexa nécessite ABSOLUMENT un retour d'état sinon il vous dira que l'appareil ne répond pas. Attention aussi au délai pour faire l'action si c'est trop long vous aurez le message l'appareil ne répond pas.
 
