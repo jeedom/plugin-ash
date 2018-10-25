@@ -45,10 +45,6 @@ Vous pouvez aussi créer des scènes dans l'onglet scène, avec des actions d'en
 
 # FAQ
 
->**Quand je demande de fermer les volets ça s'ouvre et quand je demande d'ouvrir ca se ferme ?**
->
-> Sur les volets ayant un générique type "Volet Bouton Slider" le plugin va utiliser cette commande pour le piloter en demandant un état 100% pour la fermeture et 0% pour l'ouverture le soucis peut donc venir d'un branchement inversé de votre module
-
 >**J'ai lu que le plugin necessiterait un abonnement, pourquoi ?**
 >
 > C'est assez simple, Jeedom est une solution non-cloud (entendre tout est chez vous il n'y a pas de serveur de notre coté pour votre Jeedom) mais Alexa ne peut envoyer des demandes que vers un serveur unique pour un skill. On a donc été obligé de faire un serveur qui recoit toute les demandes d'Alexa et les retransmets vers votre Jeedom. Malheureusement se serveur (en plus du coût de développement et de maintenance) à un coût de location de notre coté. Voila pourquoi il y aura un abonnement pour le service "Assistant Vocal" qui couvrira et Amazon et Google (vous inquietez pas pour le prix il sera minime, le but est juste d'amortir le coût du serveur)
@@ -59,5 +55,4 @@ Vous pouvez aussi créer des scènes dans l'onglet scène, avec des actions d'en
 
 >**Alexa me dis "l'appareil ne répond pas" alors que l'action est bien faite**
 >
-> Regardez vos type générique, Alexa nécessite ABSOLUMENT un retour d'état sinon il vous dira que l'appareil ne répond pas. Attention aussi au délai pour faire l'action si c'est trop long vous aurez le message l'appareil ne répond pas.
-
+> Regardez vos types génériques, Alexa nécessite ABSOLUMENT un retour d'état sinon il vous dira que l'appareil ne répond pas. Attention aussi au délai pour faire l'action si c'est trop long vous aurez le message l'appareil ne répond pas. 
