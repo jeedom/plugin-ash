@@ -16,7 +16,7 @@ Après l'installation du plugin, il vous suffit d'aller dans la partie configura
 
 > **IMPORTANT**
 >
-> Si le service ne passe pas en actif au bout de quelques heures verifiez que : l'url est bien en https (c'est obligatoire et disponible gratuitement avec un service pack power ou plus), que la case "Activer Amazon alexa" est bien cochée
+> Si le service ne passe pas en actif au bout de quelques heures verifiez que : l'url est bien en https signé (c'est obligatoire et disponible gratuitement avec un service pack power ou plus, attention les certificats auto-signé ne marchent pas !!!!), que la case "Activer Amazon alexa" est bien cochée
 
 > **IMPORTANT**
 >
