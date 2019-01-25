@@ -33,7 +33,7 @@ Une fois le service bien actif il faut sur l'application Alexa ou sur le [site w
 > - si c'est bien le cas, etês vous sur de vos identifiants (attention il faut respecter majuscule/minuscule) ? 
 > - si c'est le cas changer votre mot de passe sur le market et attendez 1h puis retestez
 
-## Configuration du plugin
+## Plugin configuration
 
 Sur votre Jeedom, allez sur Plugin -> Communication -> Alexa et dans la partie équipement sélectionnez les équipements à transmettre à Alexa ainsi que le type de l'équipement.
 
