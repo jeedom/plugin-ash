@@ -142,6 +142,7 @@ while [ "$#" -gt 0 ] ; do
 					AMAZON='amazon.de'
 					ALEXA='layla.amazon.de'
 					;;
+			esac
 			shift
 			;;
 		-b)
