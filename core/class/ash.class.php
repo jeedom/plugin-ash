@@ -192,11 +192,11 @@ class ash extends eqLogic {
 	/*     * *********************Méthodes d'instance************************* */
 	
 	public function tts($_text){
-		$cmd = '/var/www/html/plugins/ash/resources/alexa-remote-control.sh';
+		$cmd = __DIR__.'/../../resources/alexa-remote-control.sh';
 		$cmd .= '-i "'.escapeshellarg(config::byKey('amazon::login','ash')).'"';
 		$cmd .= '-p "'.escapeshellarg(config::byKey('amazon::password','ash')).'"';
 		$cmd .= '-c '.config::byKey('amazon::language','ash');
-		$cmd .= '-d "VOTRE ECHO"';
+		$cmd .= '-d "'.$this->getLogicalId().'"';
 		$cmd .= '-e speak:"'.escapeshellarg($_text).'"';
 	}
 
@@ -209,6 +209,12 @@ class ashCmd extends cmd {
 	/*     * ***********************Methode static*************************** */
 
 	/*     * *********************Methode d'instance************************* */
+	
+	public function execute($_options = array()) {
+		if ($this->getLogicalId() == 'tts') {
+			$this->getEqLogic()->tts($_options['message']);
+		}
+	}
 
 	/*     * **********************Getteur Setteur*************************** */
 }
