@@ -59,9 +59,35 @@ if (!isConnect()) {
 				</select>
 			</div>
 		</div>
+		<div class="form-group">
+			<label class="col-lg-3 control-label">{{Nom des echos/dots (séparé par des ;}}</label>
+			<div class="col-lg-9">
+				<input class="configKey form-control" data-l1key="amazon::deviceList" />
+			</div>
+		</div>
 	</fieldset>
 </form>
 <script type="text/javascript">
+	function ash_postSaveConfiguration(){
+		$.ajax({
+			type: "POST",
+			url: "plugins/ash/core/ajax/ash.ajax.php",
+			data: {
+				action: "createEqLogicFromDeviceList",
+			},
+			dataType: 'json',
+			error: function (request, status, error) {
+				handleAjaxError(request, status, error);
+			},
+			success: function (data) {
+				if (data.state != 'ok') {
+					$('#div_alert').showAlert({message: data.result, level: 'danger'});
+					return;
+				}
+			}
+		});
+	}
+	
 	$('#bt_sendConfigToMarket').on('click', function () {
 		$.ajax({
 			type: "POST",
