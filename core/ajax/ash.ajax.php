@@ -25,6 +25,11 @@ try {
 	}
 
 	ajax::init();
+	
+	if (init('action') == 'createEqLogicFromDeviceList') {
+		ash::createEqLogicFromDeviceList();
+		ajax::success();
+	}
 
 	if (init('action') == 'sendDevices') {
 		ash::sendDevices();
