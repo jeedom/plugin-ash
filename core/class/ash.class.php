@@ -188,8 +188,35 @@ class ash extends eqLogic {
 		);
 		return $response;
 	}
+	
+	public static function createEqLogicFromDeviceList(){
+		$devicesList = explode(';',config::byKey('amazon::deviceList','ash'));
+		$eqLogics =  self::byType('ash');
+		if(count($devicesList) == 0 && count($eqLogics) > 0){
+			foreach($eqLogics as $eqLogic){
+				$eqLogic->remove();
+			}
+		}
+		foreach($devicesList as $deviceName){
+			$eqLogic = self::byLogicalId($deviceName, 'ash');
+			if(!is_object($eqLogic)){
+				  $eqLogic = new ash();
+				  $eqLogic->setEqType_name('ash');
+				  $eqLogic->setIsEnable(1);
+				  $eqLogic->setLogicalId($deviceName);
+				  $eqLogic->save();
+			}
+		}
+		foreach($eqLogics as $eqLogic){
+			if(!in_array($eqLogic->getLogicalId(),$devicesList)){
+				$eqLogic->remove();
+			}
+		}
+	}
 
 	/*     * *********************Méthodes d'instance************************* */
+	
+	
 	public function postSave() {
 		$cmd = $this->getCmd(null, 'tts');
 		if (!is_object($cmd)) {
