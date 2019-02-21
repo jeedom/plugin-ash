@@ -190,6 +190,18 @@ class ash extends eqLogic {
 	}
 
 	/*     * *********************Méthodes d'instance************************* */
+	public function postSave() {
+		$cmd = $this->getCmd(null, 'tts');
+		if (!is_object($cmd)) {
+			$cmd = new ashCmd();
+			$cmd->setName(__('Parle', __FILE__));
+		}
+		$cmd->setEqLogic_id($this->getId());
+		$cmd->setLogicalId('tts');
+		$cmd->setType('action');
+		$cmd->setSubType('message');
+		$cmd->save();
+	}
 	
 	public function tts($_text){
 		$cmd = __DIR__.'/../../resources/alexa-remote-control.sh';
@@ -198,6 +210,8 @@ class ash extends eqLogic {
 		$cmd .= '-c '.config::byKey('amazon::language','ash');
 		$cmd .= '-d "'.$this->getLogicalId().'"';
 		$cmd .= '-e speak:"'.escapeshellarg($_text).'"';
+		log::add('ash', 'debug', $cmd);
+		shell_exec($cmd);
 	}
 
 	/*     * **********************Getteur Setteur*************************** */
