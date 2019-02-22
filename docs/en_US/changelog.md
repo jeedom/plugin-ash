@@ -1,3 +1,5 @@
+- Support du tts (beta)
+
 # 02/11/2018
 
 - Mise à jour de la doc

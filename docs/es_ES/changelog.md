@@ -1,3 +1,5 @@
+- Support du tts (beta)
+
 # 02/11/2018
 
 - Actualización de la documentación
