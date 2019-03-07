@@ -40,59 +40,7 @@ if (!isConnect()) {
 		</div>
 	</fieldset>
 </form>
-<form class="form-horizontal">
-	<fieldset>
-		<legend>{{TTS}}</legend>
-		<div class="form-group">
-			<label class="col-lg-3 control-label">{{Nom d'utilisateur Amazon}}</label>
-			<div class="col-lg-3">
-				<input class="configKey form-control" data-l1key="amazon::login" />
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-lg-3 control-label">{{Mot de passe Amazon}}</label>
-			<div class="col-lg-3">
-				<input class="configKey form-control" data-l1key="amazon::password" />
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-lg-3 control-label">{{Langue}}</label>
-			<div class="col-lg-3">
-				<select class="configKey form-control" data-l1key="amazon::language" >
-					<option value="fr">{{Français}}</option>
-					<option value="de">{{Allemand}}</option>
-				</select>
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-lg-3 control-label">{{Nom des echos/dots (séparé par des ;}}</label>
-			<div class="col-lg-9">
-				<input class="configKey form-control" data-l1key="amazon::deviceList" />
-			</div>
-		</div>
-	</fieldset>
-</form>
 <script type="text/javascript">
-	function ash_postSaveConfiguration(){
-		$.ajax({
-			type: "POST",
-			url: "plugins/ash/core/ajax/ash.ajax.php",
-			data: {
-				action: "createEqLogicFromDeviceList",
-			},
-			dataType: 'json',
-			error: function (request, status, error) {
-				handleAjaxError(request, status, error);
-			},
-			success: function (data) {
-				if (data.state != 'ok') {
-					$('#div_alert').showAlert({message: data.result, level: 'danger'});
-					return;
-				}
-			}
-		});
-	}
-	
 	$('#bt_sendConfigToMarket').on('click', function () {
 		$.ajax({
 			type: "POST",
