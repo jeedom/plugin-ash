@@ -1,20 +1,20 @@
 <?php
 
 /* This file is part of Jeedom.
- *
- * Jeedom is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Jeedom is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
- */
+*
+* Jeedom is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* Jeedom is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
+*/
 
 /* * ***************************Includes********************************* */
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
@@ -25,9 +25,9 @@ include_file('core', 'ash_thermostat', 'class', 'ash');
 include_file('core', 'ash_scene', 'class', 'ash');
 
 class ash extends eqLogic {
-
+	
 	/*     * *************************Attributs****************************** */
-
+	
 	public static $_supportedType = array(
 		'LIGHT' => array('class' => 'ash_light', 'name' => 'Lumière'),
 		'SWITCH' => array('class' => 'ash_outlet', 'name' => 'Switch (volet...)'),
@@ -36,16 +36,16 @@ class ash extends eqLogic {
 		'THERMOSTAT' => array('class' => 'ash_thermostat', 'name' => 'Thermostat'),
 		'SCENE_TRIGGER' => array('class' => 'ash_scene', 'name' => 'Scene'),
 	);
-
+	
 	/*     * ***********************Methode static*************************** */
-
+	
 	public static function sendJeedomConfig() {
 		$market = repo_market::getJsonRpc();
 		if (!$market->sendRequest('ash::configAsh', array('ash::apikey' => jeedom::getApiKey('ash'), 'ash::url' => network::getNetworkAccess('external')))) {
 			throw new Exception($market->getError(), $market->getErrorCode());
 		}
 	}
-
+	
 	public static function generateConfiguration() {
 		$return = array(
 			"devPortSmartHome" => config::byKey('ashs::port', 'ash'),
@@ -57,7 +57,7 @@ class ash extends eqLogic {
 		);
 		return $return;
 	}
-
+	
 	public static function generateUserConf() {
 		$return = array(
 			"tokens" => array(
@@ -84,13 +84,15 @@ class ash extends eqLogic {
 		);
 		return $return;
 	}
-
+	
 	public static function sendDevices() {
 		if (config::byKey('mode', 'ash') == 'jeedom') {
-			$market = repo_market::getJsonRpc();
-			if (!$market->sendRequest('ash::sync', array('devices' => self::sync()))) {
-				throw new Exception($market->getError(), $market->getErrorCode());
-			}
+			$request_http = new com_http('https://api-aa.jeedom.com/jeedom/sync');
+			$request_http->setPost(http_build_query(array(
+				'apikey' =>  jeedom::getApiKey('ash'),
+				'data' => json_encode(self::sync())
+			)));
+			$result = $request_http->exec(30);
 		} else {
 			$request_http = new com_http(trim(config::byKey('ashs::url', 'ash')) . '/jeedom/sync/devices');
 			$post = array(
@@ -112,7 +114,7 @@ class ash extends eqLogic {
 			}
 		}
 	}
-
+	
 	public static function sync() {
 		$return = array();
 		$devices = ash_devices::all(true);
@@ -130,7 +132,7 @@ class ash extends eqLogic {
 		}
 		return array('endpoints' => $return);
 	}
-
+	
 	public static function exec($_data) {
 		$directive = $_data['data']['directive'];
 		$responseHeader = $directive['header'];
@@ -160,13 +162,13 @@ class ash extends eqLogic {
 		} else {
 			try {
 				$result = $device->exec($directive);
-
+				
 				if (isset($result['event'])) {
 					$return = $result;
 				} else {
 					$return['context'] = $result;
 				}
-
+				
 			} catch (Exception $e) {
 				return self::buildErrorResponse($_data, $e->getMessage());
 			}
@@ -176,7 +178,7 @@ class ash extends eqLogic {
 		}
 		return $return;
 	}
-
+	
 	public static function buildErrorResponse($_data, $_name, $_payload = array()) {
 		$responseHeader = $_data['data']['directive']['header'];
 		$responseHeader['name'] = $_name;
@@ -200,11 +202,11 @@ class ash extends eqLogic {
 		foreach($devicesList as $deviceName){
 			$eqLogic = self::byLogicalId($deviceName, 'ash');
 			if(!is_object($eqLogic)){
-				  $eqLogic = new ash();
-				  $eqLogic->setEqType_name('ash');
-				  $eqLogic->setIsEnable(1);
-				  $eqLogic->setLogicalId($deviceName);
-				  $eqLogic->save();
+				$eqLogic = new ash();
+				$eqLogic->setEqType_name('ash');
+				$eqLogic->setIsEnable(1);
+				$eqLogic->setLogicalId($deviceName);
+				$eqLogic->save();
 			}
 		}
 		foreach($eqLogics as $eqLogic){
@@ -213,30 +215,30 @@ class ash extends eqLogic {
 			}
 		}
 	}
-
+	
 	/*     * *********************Méthodes d'instance************************* */
-
+	
 	
 	/*     * **********************Getteur Setteur*************************** */
 }
 
 class ashCmd extends cmd {
 	/*     * *************************Attributs****************************** */
-
+	
 	/*     * ***********************Methode static*************************** */
-
+	
 	/*     * *********************Methode d'instance************************* */
 	
 	public function execute($_options = array()) {
 		
 	}
-
+	
 	/*     * **********************Getteur Setteur*************************** */
 }
 
 class ash_devices {
 	/*     * *************************Attributs****************************** */
-
+	
 	private $id;
 	private $enable;
 	private $link_type;
@@ -245,9 +247,9 @@ class ash_devices {
 	private $options;
 	private $_link = null;
 	private $_cmds = null;
-
+	
 	/*     * ***********************Methode static*************************** */
-
+	
 	public static function all($_onlyEnable = false) {
 		$sql = 'SELECT ' . DB::buildField(__CLASS__) . '
 		FROM ash_devices';
@@ -256,7 +258,7 @@ class ash_devices {
 		}
 		return DB::Prepare($sql, array(), DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__);
 	}
-
+	
 	public static function byId($_id) {
 		$values = array(
 			'id' => $_id,
@@ -266,7 +268,7 @@ class ash_devices {
 		WHERE id=:id';
 		return DB::Prepare($sql, $values, DB::FETCH_TYPE_ROW, PDO::FETCH_CLASS, __CLASS__);
 	}
-
+	
 	public static function byLinkTypeLinkId($_link_type, $_link_id) {
 		$values = array(
 			'link_type' => $_link_type,
@@ -278,23 +280,23 @@ class ash_devices {
 		AND link_id=:link_id';
 		return DB::Prepare($sql, $values, DB::FETCH_TYPE_ROW, PDO::FETCH_CLASS, __CLASS__);
 	}
-
+	
 	/*     * *********************Methode d'instance************************* */
-
+	
 	public function preSave() {
 		if ($this->getEnable() == 0) {
 			$this->setOptions('configState', '');
 		}
 	}
-
+	
 	public function save() {
 		return DB::save($this);
 	}
-
+	
 	public function remove() {
 		DB::remove($this);
 	}
-
+	
 	public function getLink() {
 		if ($this->_link != null) {
 			return $this->_link;
@@ -304,7 +306,7 @@ class ash_devices {
 		}
 		return $this->_link;
 	}
-
+	
 	public function buildDevice() {
 		if (!isset(ash::$_supportedType[$this->getType()])) {
 			return array();
@@ -315,7 +317,7 @@ class ash_devices {
 		}
 		return $class::buildDevice($this);
 	}
-
+	
 	public function exec($_directive) {
 		if (!isset(ash::$_supportedType[$this->getType()])) {
 			return;
@@ -326,7 +328,7 @@ class ash_devices {
 		}
 		return $class::exec($this, $_directive);
 	}
-
+	
 	public function getPseudo() {
 		if ($this->getOptions('pseudo') != '') {
 			return $this->getOptions('pseudo');
@@ -340,52 +342,52 @@ class ash_devices {
 		$return .= $eqLogic->getName();
 		return $return;
 	}
-
+	
 	/*     * **********************Getteur Setteur*************************** */
 	public function getId() {
 		return $this->id;
 	}
-
+	
 	public function setId($id) {
 		$this->id = $id;
 	}
-
+	
 	public function getEnable() {
 		return $this->enable;
 	}
-
+	
 	public function setEnable($enable) {
 		$this->enable = $enable;
 	}
-
+	
 	public function getlink_type() {
 		return $this->link_type;
 	}
-
+	
 	public function setLink_type($link_type) {
 		$this->link_type = $link_type;
 	}
-
+	
 	public function getLink_id() {
 		return $this->link_id;
 	}
-
+	
 	public function setLink_id($link_id) {
 		$this->link_id = $link_id;
 	}
-
+	
 	public function getType() {
 		return $this->type;
 	}
-
+	
 	public function setType($type) {
 		$this->type = $type;
 	}
-
+	
 	public function getOptions($_key = '', $_default = '') {
 		return utils::getJsonAttr($this->options, $_key, $_default);
 	}
-
+	
 	public function setOptions($_key, $_value) {
 		$this->options = utils::setJsonAttr($this->options, $_key, $_value);
 	}
