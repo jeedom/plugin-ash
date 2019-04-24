@@ -125,6 +125,7 @@ function loadData(){
           }
         }
       }
+      $('#eqlogictab .tablesorter').trigger('update')
       jeedom.cmd.displayActionsOption({
         params : actionOptions,
         async : false,
