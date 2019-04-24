@@ -19,10 +19,10 @@ if (!isConnect('admin')) {
 				<tr>
 					<th>{{Equipement}}</th>
 					<th>{{Plugin}}</th>
-					<th data-sorter="false" data-filter="false">{{Transmettre}}</th>
-					<th data-sorter="false" data-filter="false">{{Paramétrage}}</th>
-					<th data-sorter="false" data-filter="false">{{Type}}</th>
-					<th data-sorter="false" data-filter="false">{{Pseudo}}</th>
+					<th data-sorter="false" data-filter="false">{{Options}}</th>
+					<th>{{Status}}</th>
+					<th ddata-sorter="select-text">{{Type}}</th>
+					<th data-sorter="inputs">{{Pseudo}}</th>
 					<th data-sorter="false" data-filter="false">{{Action}}</th>
 				</tr>
 			</thead>
@@ -36,7 +36,7 @@ if (!isConnect('admin')) {
 					echo '<input style="display:none;" class="deviceAttr" data-l1key="id" />';
 					echo '<input style="display:none;" class="deviceAttr" data-l1key="link_type" value="eqLogic" />';
 					echo '<input style="display:none;" class="deviceAttr" data-l1key="link_id" value="' . $eqLogic->getId() . '" />';
-					echo '<input type="checkbox" class="deviceAttr" data-l1key="enable" />';
+					echo '<input type="checkbox" class="deviceAttr" data-l1key="enable" /> <label>{{Transmettre}}</label><br/>';
 					echo '</td>';
 					echo '<td>';
 					echo '<span class="deviceAttr label" data-l1key="options" data-l2key="configState" style="font-size:1em;"></span>';
