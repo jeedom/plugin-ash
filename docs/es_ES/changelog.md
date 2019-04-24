@@ -1,3 +1,7 @@
+# 02/11/2018
+
+- Actualización de la documentación
+
 # 25/10/2018
 
 - Correction d'un bug sur les volets
