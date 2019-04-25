@@ -1,3 +1,7 @@
+# 24/04/2019
+
+- Nouvelle methode de synchronisation des péripheriques
+
 # 02/11/2018
 
 - Mise à jour de la doc
