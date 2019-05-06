@@ -36,6 +36,7 @@ class ash extends eqLogic {
 		'THERMOSTAT' => array('class' => 'ash_thermostat', 'name' => 'Thermostat'),
 		'SCENE_TRIGGER' => array('class' => 'ash_scene', 'name' => 'Scene'),
 		'SHUTTER' => array('class' => 'ash_shutter', 'name' => 'Volet'),
+		'SENSORS' => array('class' => 'ash_sensors', 'name' => 'Capteur (mouvement, contact et température)'),
 	);
 	
 	/*     * ***********************Methode static*************************** */
