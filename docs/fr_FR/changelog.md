@@ -1,3 +1,6 @@
+- Support des volets
+- Support des capteurs (mouvement,contact, température)
+
 # 24/04/2019
 
 - Nouvelle methode de synchronisation des péripheriques
