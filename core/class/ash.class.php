@@ -30,11 +30,12 @@ class ash extends eqLogic {
 	
 	public static $_supportedType = array(
 		'LIGHT' => array('class' => 'ash_light', 'name' => 'Lumière'),
-		'SWITCH' => array('class' => 'ash_outlet', 'name' => 'Switch (volet...)'),
+		'SWITCH' => array('class' => 'ash_outlet', 'name' => 'Switch'),
 		'SMARTPLUG' => array('class' => 'ash_outlet', 'name' => 'Prise'),
 		'TEMPERATURE_SENSOR' => array('class' => 'ash_temperature', 'name' => 'Température'),
 		'THERMOSTAT' => array('class' => 'ash_thermostat', 'name' => 'Thermostat'),
 		'SCENE_TRIGGER' => array('class' => 'ash_scene', 'name' => 'Scene'),
+		'SHUTTER' => array('class' => 'ash_shutter', 'name' => 'Volet'),
 	);
 	
 	/*     * ***********************Methode static*************************** */
