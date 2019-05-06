@@ -16,10 +16,8 @@
  */
 /* * ***************************Includes********************************* */
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
-class ash_outlet {
+class ash_shutter {
 	/*     * *************************Attributs****************************** */
-	private static $_ON = array('FLAP_BSO_UP', 'FLAP_UP', 'ENERGY_ON', 'HEATING_ON', 'LOCK_OPEN', 'SIREN_ON', 'GB_OPEN', 'GB_TOGGLE');
-	private static $_OFF = array('FLAP_BSO_DOWN', 'FLAP_DOWN', 'ENERGY_OFF','HEATING_OFF', 'LOCK_CLOSE', 'SIREN_OFF', 'GB_CLOSE', 'GB_TOGGLE');
 	private static $_SLIDER = array('FLAP_SLIDER', 'ENERGY_SLIDER');
 	private static $_STATE = array('ENERGY_STATE', 'FLAP_STATE', 'FLAP_BSO_STATE', 'HEATING_STATE', 'LOCK_STATE', 'SIREN_STATE', 'GARAGE_STATE', 'BARRIER_STATE', 'OPENING', 'OPENING_WINDOW');
 	/*     * ***********************Methode static*************************** */
@@ -40,46 +38,12 @@ class ash_outlet {
 		$return['displayCategories'] = array($_device->getType());
 		$return['capabilities'] = array();
 		foreach ($eqLogic->getCmd() as $cmd) {
-			if (in_array($cmd->getGeneric_type(), self::$_ON)) {
-				$return['capabilities']['Alexa.PowerController'] = array(
-					'type' => 'AlexaInterface',
-					'interface' => 'Alexa.PowerController',
-					'version' => 3,
-					'properties' => array(
-						'supported' => array(
-							array('name' => 'powerState'),
-						),
-						'proactivelyReported' => false,
-					        'retrievable' => false,
-					),
-				);
-				$return['cookie']['cmd_set_on'] = $cmd->getId();
-			}
-			if (in_array($cmd->getGeneric_type(), self::$_OFF)) {
-				$return['capabilities']['Alexa.PowerController'] = array(
-					'type' => 'AlexaInterface',
-					'interface' => 'Alexa.PowerController',
-					'version' => 3,
-					'properties' => array(
-						'supported' => array(
-							array('name' => 'powerState'),
-						),
-						'proactivelyReported' => false,
-					        'retrievable' => false,
-					),
-				);
-				$return['cookie']['cmd_set_off'] = $cmd->getId();
-			}
-			
 			if (in_array($cmd->getGeneric_type(), self::$_SLIDER)) {
-				$return['capabilities']['Alexa.PowerController'] = array(
+				$return['capabilities']['Alexa.PercentageController'] = array(
 					'type' => 'AlexaInterface',
-					'interface' => 'Alexa.PowerController',
+					'interface' => 'Alexa.PercentageController',
 					'version' => 3,
 					'properties' => array(
-						'supported' => array(
-							array('name' => 'powerState'),
-						),
 						'proactivelyReported' => false,
 					        'retrievable' => false,
 					),
@@ -89,8 +53,8 @@ class ash_outlet {
 		}
 		foreach ($eqLogic->getCmd() as $cmd) {
 			if (in_array($cmd->getGeneric_type(), self::$_STATE)) {
-				if(isset($return['capabilities']['Alexa.PowerController'])){
-					$return['capabilities']['Alexa.PowerController']['properties']['retrievable'] = true;
+				if(isset($return['capabilities']['Alexa.PercentageController'])){
+					$return['capabilities']['Alexa.PercentageController']['properties']['retrievable'] = true;
 				}
 				$return['cookie']['cmd_get_state'] = $cmd->getId();
 			}
@@ -115,36 +79,24 @@ class ash_outlet {
 			throw new Exception('ENDPOINT_UNREACHABLE');
 		}
 		switch ($_directive['header']['name']) {
-			case 'TurnOn':
-				if (isset($_directive['endpoint']['cookie']['cmd_set_on'])) {
-					$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_on']);
-				} else if (isset($_directive['endpoint']['cookie']['cmd_set_slider'])) {
+			case 'SetPercentage':
+				if (isset($_directive['endpoint']['cookie']['cmd_set_slider'])) {
 					$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_slider']);
 				}
 				if (!is_object($cmd)) {
 					throw new Exception('ENDPOINT_UNREACHABLE');
 				}
-				if ($cmd->getSubtype() == 'other') {
-					$cmd->execCmd();
-				} else if ($cmd->getSubtype() == 'slider') {
-					$value = (in_array($cmd->getGeneric_type(), array('FLAP_SLIDER'))) ? $cmd->getConfiguration('minValue',0) : $cmd->getConfiguration('maxValue',100);
-					$cmd->execCmd(array('slider' => $value));
+				if(isset($_directive['payload']['percentage'])){
+					$cmd->execCmd(array('slider' => $_directive['payload']['percentage']));
 				}
-				break;
-			case 'TurnOff':
-				if (isset($_directive['endpoint']['cookie']['cmd_set_off'])) {
-					$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_off']);
-				} else if (isset($_directive['endpoint']['cookie']['cmd_set_slider'])) {
-					$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_slider']);
-				}
-				if (!is_object($cmd)) {
-					throw new Exception('ENDPOINT_UNREACHABLE');
-				}
-				if ($cmd->getSubtype() == 'other') {
-					$cmd->execCmd();
-				} else if ($cmd->getSubtype() == 'slider') {
-					$value = (in_array($cmd->getGeneric_type(), array('FLAP_SLIDER'))) ? $cmd->getConfiguration('maxValue',100) : $cmd->getConfiguration('minValue',0);
-					$cmd->execCmd(array('slider' => $value));
+				if(isset($_directive['payload']['percentageDelta'])){
+					if (isset($_directive['endpoint']['cookie']['cmd_get_state'])) {
+						$cmdState = cmd::byId($_directive['endpoint']['cookie']['cmd_get_state']);
+					}
+					if (!is_object($cmdState)) {
+						throw new Exception('ENDPOINT_UNREACHABLE');
+					}
+					$cmd->execCmd(array('slider' => $cmdState->execCmd() + $_directive['payload']['percentageDelta']));
 				}
 				break;
 		}
@@ -159,34 +111,13 @@ class ash_outlet {
 		if (!is_object($cmd)) {
 			return $return;
 		}
-		$value = $cmd->execCmd();
-		if ($cmd->getSubtype() == 'numeric') {
-			$return[] = array(
-				'namespace' => 'Alexa.BrightnessController',
-				'name' => 'brightness',
-				'value' => $value,
-				'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
-				'uncertaintyInMilliseconds' => 0,
-			);
-			$return[] = array(
-				'namespace' => 'Alexa.PowerController',
-				'name' => 'powerState',
-				'value' => ($value) ? 'ON' : 'OFF',
-				'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
-				'uncertaintyInMilliseconds' => 0,
-			);
-		} else if ($cmd->getSubtype() == 'binary') {
-			if (in_array($cmd->getGeneric_type(), array('FLAP_SLIDER'))) {
-				$value = (!$value);
-			}
-			$return[] = array(
-				'namespace' => 'Alexa.PowerController',
-				'name' => 'powerState',
-				'value' => ($value) ? 'ON' : 'OFF',
-				'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
-				'uncertaintyInMilliseconds' => 0,
-			);
-		}
+		$return[] = array(
+			'namespace' => 'Alexa.PercentageController',
+			'name' => 'percentage',
+			'value' => $cmd->execCmd(),
+			'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+			'uncertaintyInMilliseconds' => 0,
+		);
 		return array('properties' => $return);
 	}
 	/*     * *********************Méthodes d'instance************************* */
