@@ -44,6 +44,9 @@ class ash_shutter {
 					'interface' => 'Alexa.PercentageController',
 					'version' => 3,
 					'properties' => array(
+						'supported' => array(
+							array('name' => 'percentage'),
+						),
 						'proactivelyReported' => false,
 					        'retrievable' => false,
 					),
