@@ -1,5 +1,6 @@
 - Support des volets
 - Support des capteurs (mouvement,contact, température)
+- Fehlerbehebungen
 
 # 24/04/2019
 
