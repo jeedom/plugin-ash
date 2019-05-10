@@ -93,6 +93,7 @@ class ash extends eqLogic {
 			$request_http->setPost(http_build_query(array(
 				'apikey' =>  jeedom::getApiKey('ash'),
 				'url' =>  network::getNetworkAccess('external'),
+				'hwkey' =>  jeedom::getHardwareKey(),
 				'data' => json_encode(self::sync())
 			)));
 			$result = $request_http->exec(30);
