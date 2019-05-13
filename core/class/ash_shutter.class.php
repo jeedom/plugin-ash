@@ -18,8 +18,10 @@
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 class ash_shutter {
 	/*     * *************************Attributs****************************** */
-	private static $_SLIDER = array('FLAP_SLIDER', 'ENERGY_SLIDER');
-	private static $_STATE = array('ENERGY_STATE', 'FLAP_STATE', 'FLAP_BSO_STATE', 'HEATING_STATE', 'LOCK_STATE', 'SIREN_STATE', 'GARAGE_STATE', 'BARRIER_STATE', 'OPENING', 'OPENING_WINDOW');
+	private static $_SLIDER = array('FLAP_SLIDER');
+	private static $_STATE = array('FLAP_STATE', 'FLAP_BSO_STATE','GARAGE_STATE','BARRIER_STATE');
+	private static $_ON = array('FLAP_BSO_UP', 'FLAP_UP','GB_OPEN');
+	private static $_OFF = array('FLAP_BSO_DOWN', 'FLAP_DOWN','GB_CLOSE');
 	/*     * ***********************Methode static*************************** */
 	public static function buildDevice($_device) {
 		$eqLogic = $_device->getLink();
@@ -53,6 +55,36 @@ class ash_shutter {
 				);
 				$return['cookie']['cmd_set_slider'] = $cmd->getId();
 			}
+			if (in_array($cmd->getGeneric_type(), self::$_ON)) {
+				$return['capabilities']['Alexa.PercentageController'] = array(
+					'type' => 'AlexaInterface',
+					'interface' => 'Alexa.PercentageController',
+					'version' => 3,
+					'properties' => array(
+						'supported' => array(
+							array('name' => 'percentage'),
+						),
+						'proactivelyReported' => false,
+					        'retrievable' => false,
+					),
+				);
+				$return['cookie']['cmd_set_on'] = $cmd->getId();
+			}
+			if (in_array($cmd->getGeneric_type(), self::$_OFF)) {
+				$return['capabilities']['Alexa.PercentageController'] = array(
+					'type' => 'AlexaInterface',
+					'interface' => 'Alexa.PercentageController',
+					'version' => 3,
+					'properties' => array(
+						'supported' => array(
+							array('name' => 'percentage'),
+						),
+						'proactivelyReported' => false,
+					        'retrievable' => false,
+					),
+				);
+				$return['cookie']['cmd_set_off'] = $cmd->getId();
+			}
 		}
 		foreach ($eqLogic->getCmd() as $cmd) {
 			if (in_array($cmd->getGeneric_type(), self::$_STATE)) {
@@ -85,21 +117,39 @@ class ash_shutter {
 			case 'SetPercentage':
 				if (isset($_directive['endpoint']['cookie']['cmd_set_slider'])) {
 					$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_slider']);
-				}
-				if (!is_object($cmd)) {
-					throw new Exception('ENDPOINT_UNREACHABLE');
-				}
-				if(isset($_directive['payload']['percentage'])){
-					$cmd->execCmd(array('slider' => $_directive['payload']['percentage']));
-				}
-				if(isset($_directive['payload']['percentageDelta'])){
-					if (isset($_directive['endpoint']['cookie']['cmd_get_state'])) {
-						$cmdState = cmd::byId($_directive['endpoint']['cookie']['cmd_get_state']);
-					}
-					if (!is_object($cmdState)) {
+					if (!is_object($cmd)) {
 						throw new Exception('ENDPOINT_UNREACHABLE');
 					}
-					$cmd->execCmd(array('slider' => $cmdState->execCmd() + $_directive['payload']['percentageDelta']));
+					if(isset($_directive['payload']['percentage'])){
+						$cmd->execCmd(array('slider' => $_directive['payload']['percentage']));
+					}
+					if(isset($_directive['payload']['percentageDelta'])){
+						if (isset($_directive['endpoint']['cookie']['cmd_get_state'])) {
+							$cmdState = cmd::byId($_directive['endpoint']['cookie']['cmd_get_state']);
+						}
+						if (!is_object($cmdState)) {
+							throw new Exception('ENDPOINT_UNREACHABLE');
+						}
+						$cmd->execCmd(array('slider' => $cmdState->execCmd() + $_directive['payload']['percentageDelta']));
+					}
+				   break;
+				}
+				if($_directive['payload']['percentage'] > 50){
+					if (isset($_directive['endpoint']['cookie']['cmd_set_on'])) {
+						$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_on']);
+					}
+					if (!is_object($cmd)) {
+						break;
+					}
+					$cmd->execCmd();
+				}else{
+					if (isset($_directive['endpoint']['cookie']['cmd_set_off'])) {
+						$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_off']);
+					}
+					if (!is_object($cmd)) {
+						break;
+					}
+					$cmd->execCmd();
 				}
 				break;
 		}
