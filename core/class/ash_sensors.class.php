@@ -100,7 +100,7 @@ class ash_sensors {
 		return $return;
 	}
 	public static function exec($_device, $_directive) {
-		$return = array('status' => 'ERROR');
+		return self::getState($_device, $_directive);
 	}
 	
 	public static function getState($_device, $_directive) {
@@ -108,47 +108,50 @@ class ash_sensors {
 		$cmd = null;
 		if (isset($_directive['endpoint']['cookie']['cmd_contact_state'])) {
 			$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_contact_state']);
+            if (is_object($cmd)) {
+              $value = $cmd->execCmd();
+              $value = ($value > 0) ? 'DETECTED' : 'NOT_DETECTED';
+              $return[] = array(
+                  'namespace' => 'Alexa.ContactSensor',
+                  'name' => 'detectionState',
+                  'value' => $value,
+                  'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+                  'uncertaintyInMilliseconds' => 0,
+              );
+          }
 		}
-		if (is_object($cmd)) {
-			$value = $cmd->execCmd();
-			$value = ($value > 0) ? 'DETECTED' : 'NOT_DETECTED';
-			$return[] = array(
-				'namespace' => 'Alexa.ContactSensor',
-				'name' => 'detectionState',
-				'value' => $value,
-				'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
-				'uncertaintyInMilliseconds' => 0,
-			);
-		}
+		
 		if (isset($_directive['endpoint']['cookie']['cmd_motion_state'])) {
 			$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_motion_state']);
+            if (is_object($cmd)) {
+              $value = $cmd->execCmd();
+              $value = ($value > 0) ? 'DETECTED' : 'NOT_DETECTED';
+              $return[] = array(
+                  'namespace' => 'Alexa.MotionSensor',
+                  'name' => 'detectionState',
+                  'value' => $value,
+                  'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+                  'uncertaintyInMilliseconds' => 0,
+              );
+          }
 		}
-		if (is_object($cmd)) {
-			$value = $cmd->execCmd();
-			$value = ($value > 0) ? 'DETECTED' : 'NOT_DETECTED';
-			$return[] = array(
-				'namespace' => 'Alexa.MotionSensor',
-				'name' => 'detectionState',
-				'value' => $value,
-				'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
-				'uncertaintyInMilliseconds' => 0,
-			);
-		}
+		
 		if (isset($_directive['endpoint']['cookie']['cmd_temperature_state'])) {
 			$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_temperature_state']);
+            if (is_object($cmd)) {
+              $return[] = array(
+                  'namespace' => 'Alexa.TemperatureSensor',
+                  'name' => 'temperature',
+                  'value' => array(
+                      'value' => $cmd->execCmd(),
+                      'scale' => 'CELSIUS',
+                  ),
+                  'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+                  'uncertaintyInMilliseconds' => 0,
+              );
+          }
 		}
-		if (is_object($cmd)) {
-			$return[] = array(
-				'namespace' => 'Alexa.TemperatureSensor',
-				'name' => 'temperature',
-				'value' => array(
-					'value' => $cmd->execCmd(),
-					'scale' => 'CELSIUS',
-				),
-				'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
-				'uncertaintyInMilliseconds' => 0,
-			);
-		}
+		
 		return array('properties' => $return);
 	}
 	/*     * *********************Méthodes d'instance************************* */
