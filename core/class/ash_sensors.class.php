@@ -110,7 +110,10 @@ class ash_sensors {
 			$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_contact_state']);
             if (is_object($cmd)) {
               $value = $cmd->execCmd();
-              $value = ($value > 0) ? 'DETECTED' : 'NOT_DETECTED';
+               if ($cmd->getDisplay('invertBinary') == 1) {
+                $value = ($value) ? false : true;
+              }
+              $value = ($value == 0) ? 'DETECTED' : 'NOT_DETECTED';
               $return[] = array(
                   'namespace' => 'Alexa.ContactSensor',
                   'name' => 'detectionState',
@@ -125,7 +128,10 @@ class ash_sensors {
 			$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_motion_state']);
             if (is_object($cmd)) {
               $value = $cmd->execCmd();
-              $value = ($value > 0) ? 'DETECTED' : 'NOT_DETECTED';
+              if ($cmd->getDisplay('invertBinary') == 1) {
+                $value = ($value) ? false : true;
+              }
+              $value = ($value == 0) ? 'DETECTED' : 'NOT_DETECTED';
               $return[] = array(
                   'namespace' => 'Alexa.MotionSensor',
                   'name' => 'detectionState',
