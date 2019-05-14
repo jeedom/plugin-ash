@@ -53,6 +53,7 @@ class ash_sensors {
 					        'retrievable' => true,
 					),
 				);
+				$return['displayCategories'][] = 'CONTACT_SENSOR'
 				$return['cookie']['cmd_contact_state'] = $cmd->getId();
 			}
 			if (in_array($cmd->getGeneric_type(), self::$_MOTION)) {
@@ -68,6 +69,7 @@ class ash_sensors {
 					        'retrievable' => true,
 					),
 				);
+				$return['displayCategories'][] = 'MOTION_SENSOR'
 				$return['cookie']['cmd_motion_state'] = $cmd->getId();
 			}
 			if (in_array($cmd->getGeneric_type(), self::$_TEMPERATURE)) {
@@ -83,6 +85,7 @@ class ash_sensors {
 					        'retrievable' => true,
 					),
 				);
+				$return['displayCategories'][] = 'TEMPERATURE_SENSOR'
 				$return['cookie']['cmd_temperature_state'] = $cmd->getId();
 			}
 		}
