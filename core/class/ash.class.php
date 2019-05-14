@@ -20,7 +20,6 @@
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 include_file('core', 'ash_light', 'class', 'ash');
 include_file('core', 'ash_outlet', 'class', 'ash');
-include_file('core', 'ash_temperature', 'class', 'ash');
 include_file('core', 'ash_thermostat', 'class', 'ash');
 include_file('core', 'ash_scene', 'class', 'ash');
 include_file('core', 'ash_shutter', 'class', 'ash');
@@ -34,7 +33,6 @@ class ash extends eqLogic {
 		'LIGHT' => array('class' => 'ash_light', 'name' => 'Lumière'),
 		'SWITCH' => array('class' => 'ash_outlet', 'name' => 'Switch'),
 		'SMARTPLUG' => array('class' => 'ash_outlet', 'name' => 'Prise'),
-		'TEMPERATURE_SENSOR' => array('class' => 'ash_temperature', 'name' => 'Température (Deprecated)'),
 		'THERMOSTAT' => array('class' => 'ash_thermostat', 'name' => 'Thermostat'),
 		'SCENE_TRIGGER' => array('class' => 'ash_scene', 'name' => 'Scene'),
 		'SHUTTER' => array('class' => 'ash_shutter', 'name' => 'Volet'),
