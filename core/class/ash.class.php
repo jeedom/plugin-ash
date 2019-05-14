@@ -23,6 +23,8 @@ include_file('core', 'ash_outlet', 'class', 'ash');
 include_file('core', 'ash_temperature', 'class', 'ash');
 include_file('core', 'ash_thermostat', 'class', 'ash');
 include_file('core', 'ash_scene', 'class', 'ash');
+include_file('core', 'ash_shutter', 'class', 'ash');
+include_file('core', 'ash_sensors', 'class', 'ash');
 
 class ash extends eqLogic {
 	
