@@ -1,6 +1,7 @@
 - Support des volets
 - Support des capteurs (mouvement,contact, température)
 - Correction de bugs
+- IMPORTANT : a partir du 01/06/2019 les services vocaux deviennent payant, vous pouvez voir votre status sur votre page profils sur le market, onglet mes services
 
 # 24/04/2019
 
