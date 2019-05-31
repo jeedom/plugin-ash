@@ -20,9 +20,10 @@
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 include_file('core', 'ash_light', 'class', 'ash');
 include_file('core', 'ash_outlet', 'class', 'ash');
-include_file('core', 'ash_temperature', 'class', 'ash');
 include_file('core', 'ash_thermostat', 'class', 'ash');
 include_file('core', 'ash_scene', 'class', 'ash');
+include_file('core', 'ash_shutter', 'class', 'ash');
+include_file('core', 'ash_sensors', 'class', 'ash');
 
 class ash extends eqLogic {
 	
@@ -30,11 +31,12 @@ class ash extends eqLogic {
 	
 	public static $_supportedType = array(
 		'LIGHT' => array('class' => 'ash_light', 'name' => 'Lumière'),
-		'SWITCH' => array('class' => 'ash_outlet', 'name' => 'Switch (volet...)'),
+		'SWITCH' => array('class' => 'ash_outlet', 'name' => 'Switch'),
 		'SMARTPLUG' => array('class' => 'ash_outlet', 'name' => 'Prise'),
-		'TEMPERATURE_SENSOR' => array('class' => 'ash_temperature', 'name' => 'Température'),
 		'THERMOSTAT' => array('class' => 'ash_thermostat', 'name' => 'Thermostat'),
 		'SCENE_TRIGGER' => array('class' => 'ash_scene', 'name' => 'Scene'),
+		'SHUTTER' => array('class' => 'ash_shutter', 'name' => 'Volet'),
+		'SENSORS' => array('class' => 'ash_sensors', 'name' => 'Capteur (mouvement, contact et température)'),
 	);
 	
 	/*     * ***********************Methode static*************************** */
@@ -90,6 +92,8 @@ class ash extends eqLogic {
 			$request_http = new com_http('https://api-aa.jeedom.com/jeedom/sync');
 			$request_http->setPost(http_build_query(array(
 				'apikey' =>  jeedom::getApiKey('ash'),
+				'url' =>  network::getNetworkAccess('external'),
+				'hwkey' =>  jeedom::getHardwareKey(),
 				'data' => json_encode(self::sync())
 			)));
 			$result = $request_http->exec(30);

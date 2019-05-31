@@ -1,3 +1,11 @@
+- Support des volets
+- Support des capteurs (mouvement,contact, température)
+- Corrección de errores
+
+# 24/04/2019
+
+- Nouvelle methode de synchronisation des péripheriques
+
 # 02/11/2018
 
 - Actualización de la documentación
