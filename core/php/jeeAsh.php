@@ -36,10 +36,10 @@ if (!$plugin->isActive()) {
 	echo json_encode(ash::buildErrorResponse($data, 'INTERNAL_ERROR'));
 	die();
 }
-log::add('ash', 'debug', json_encode($data));
+log::add('ash', 'debug','Received : '. json_encode($data));
 if ($data['action'] == 'exec') {
 	$result = json_encode(ash::exec($data));
-	log::add('ash', 'debug', $result);
+	log::add('ash', 'debug','Reply : '. $result);
 	echo $result;
 	die();
 }
