@@ -60,7 +60,6 @@ $('#bt_saveConfiguration').on('click',function(){
         $('#div_alert').showAlert({message: data.result, level: 'danger'});
         return;
       }
-      loadData();
       sendDevices();
     },
   });
@@ -82,8 +81,7 @@ function sendDevices(){
         $('#div_alert').showAlert({message: data.result, level: 'danger'});
         return;
       }
-      $('#div_alert').showAlert({message: '{{Synchronisation réussie}}', level: 'success'});
-      loadData();
+      $('#div_alert').showAlert({message: '{{Synchronisation réussie. Pour voir le status des equipements à jour, merci de rafraichir la page (F5)}}', level: 'success'});
     },
   });
 }
