@@ -2,7 +2,11 @@
 
 Ce plugin permet de faire le lien entre votre Jeedom et Alexa
 
-Il peut fonctionner en passant par un service cloud mis à disposition par Jeedom
+Il peut fonctionner en passant par un service cloud mis à disposition par Jeedom.
+
+> **Important**
+>
+> Le plugin necessite un abonnement aux services vocaux. Vous pouvez gérer votre abonnement [ici](https://www.jeedom.com/market/index.php?v=d&p=profils#services)
 
 # Mise en place de la connexion vers Alexa
 
