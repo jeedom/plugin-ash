@@ -10,6 +10,18 @@ Il peut fonctionner en passant par un service cloud mis à disposition par Jeedo
 >
 > Il est important de faire les étapes suivantes dans l'ordre indiqué !!!
 
+## Synchronisation et délai
+
+En mode cloud (et uniquement en mode cloud), il y a des délai de synchronisation lors des actions suivantes :
+
+- Activation du compte
+- Achat d'année sur le service Assistant Vocaux
+- changement de clef api du plugin Google smarthome
+- changemrnt de l'url du jeedom
+- changement de mot de passe market
+
+La synchronisation se fait toute les 6h (à 00h10,6h10,12h10,18h10). Cette synchronisation est du a notre volonté de rendre le serveur tierce qui fait le bon entre votre Jeedom et l'infrastructure Amazon Alexa indépendant et autonome (ca évite lors d'un soucis sur le market par exemple de perdre aussi les service Assistant vocaux). Lors de la synchronisation il y a un redemarrage du service (coupure de moins de 1s), ce qui explique la limitation à une fois toute les 6h.
+
 ## Configuration Market
 
 Après l'installation du plugin, il vous suffit d'aller dans la partie configuration du plugin puis de cliquer sur envoyer la configuration au market puis d'attendre 1h. Vous pouvez voir l'état sur le votre page profils sur le market, partie "Mes services" puis configuration sur le service d'assistant vocal (le status Amazon Alexa doit etre sur actif).
