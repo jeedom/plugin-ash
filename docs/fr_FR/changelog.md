@@ -1,3 +1,8 @@
+# 03/06/2019
+
+- Mise à jour de la doc
+- Ajout de d'information et d'un lien vers le service Assistant Vocaux
+
 # 31/05/2019
 
 - Support des volets
