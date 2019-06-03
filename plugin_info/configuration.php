@@ -33,6 +33,28 @@ if (!isConnect()) {
 			{{Attention il faut attendre 24h suite à l'envoi de la configuration pour que ca soit pris en compte.}}
 		</div>
 		<div class="form-group ashmode jeedom">
+			<?php
+			try {
+				$info =	gsh::voiceAssistantInfo();
+				echo '<label class="col-lg-3 control-label">{{Abonnement service assistant vocaux}}</label>';
+				echo '<div class="col-lg-9">';
+				if(isset($info['limit']) && $info['limit'] != -1 && $info['limit'] != ''){
+					echo '<div>{{Votre abonnement aux services assistant vocaux fini le }}'.$info['limit'].'.';
+					echo ' {{Pour le prolonger, allez}} <a href="https://www.jeedom.com/market/index.php?v=d&p=profils" target="_blank">{{ici}}</a> {{puis onglet Mes Service}}';
+				}else if($info['limit'] != -1){
+					echo '<div>{{Votre abonnement aux services assistant vocaux est illimité.}}';
+				}else{
+					echo '<div class="alert alert-warning">{{Votre abonnement aux services assistant vocaux est fini.}}';
+					echo ' {{Pour vous réabonner, allez}} <a href="https://www.jeedom.com/market/index.php?v=d&p=profils" target="_blank">{{ici}}</a> {{puis onglet Mes Service}}';
+				}
+				echo '</div>';
+				echo '</div>';
+			} catch (\Exception $e) {
+				echo '<div class="alert alert-danger">'.$e->getMessage().'</div>';
+			}
+			?>
+		</div>
+		<div class="form-group ashmode jeedom">
 			<label class="col-lg-3 control-label">{{Envoyer configuration au market}}</label>
 			<div class="col-lg-2">
 				<a class="btn btn-default" id="bt_sendConfigToMarket"><i class="fa fa-paper-plane" aria-hidden="true"></i> {{Envoyer}}</a>
