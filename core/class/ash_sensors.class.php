@@ -143,20 +143,22 @@ class ash_sensors {
 		}
 		
 		if (isset($_directive['endpoint']['cookie']['cmd_temperature_state'])) {
-			$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_temperature_state']);
-            if (is_object($cmd)) {
-              $return[] = array(
-                  'namespace' => 'Alexa.TemperatureSensor',
-                  'name' => 'temperature',
-                  'value' => array(
-                      'value' => $cmd->execCmd(),
-                      'scale' => 'CELSIUS',
-                  ),
-                  'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
-                  'uncertaintyInMilliseconds' => 0,
-              );
-          }
+		    $cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_temperature_state']);
+		    if (is_object($cmd)) {
+		      $return[] = array(
+			  'namespace' => 'Alexa.TemperatureSensor',
+			  'name' => 'temperature',
+			  'value' => array(
+			      'value' => $cmd->execCmd(),
+			      'scale' => 'CELSIUS',
+			  ),
+			  'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+			  'uncertaintyInMilliseconds' => 0,
+		      );
+		  }
 		}
+		
+		
 		
 		return array('properties' => $return);
 	}

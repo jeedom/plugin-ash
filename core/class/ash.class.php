@@ -48,6 +48,14 @@ class ash extends eqLogic {
 		}
 	}
 	
+	public static function voiceAssistantInfo() {
+		$market = repo_market::getJsonRpc();
+		if (!$market->sendRequest('voiceAssistant::info')) {
+			throw new Exception($market->getError(), $market->getErrorCode());
+		}
+		return $market->getResult();
+	}
+	
 	public static function generateConfiguration() {
 		$return = array(
 			"devPortSmartHome" => config::byKey('ashs::port', 'ash'),
