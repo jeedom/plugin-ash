@@ -1,19 +1,19 @@
 <?php
 /* This file is part of Jeedom.
- *
- * Jeedom is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Jeedom is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
- */
+*
+* Jeedom is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* Jeedom is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
+*/
 /* * ***************************Includes********************************* */
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 class ash_shutter {
@@ -50,7 +50,7 @@ class ash_shutter {
 							array('name' => 'percentage'),
 						),
 						'proactivelyReported' => false,
-					        'retrievable' => false,
+						'retrievable' => false,
 					),
 				);
 				$return['cookie']['cmd_set_slider'] = $cmd->getId();
@@ -65,7 +65,7 @@ class ash_shutter {
 							array('name' => 'percentage'),
 						),
 						'proactivelyReported' => false,
-					        'retrievable' => false,
+						'retrievable' => false,
 					),
 				);
 				$return['cookie']['cmd_set_on'] = $cmd->getId();
@@ -80,7 +80,7 @@ class ash_shutter {
 							array('name' => 'percentage'),
 						),
 						'proactivelyReported' => false,
-					        'retrievable' => false,
+						'retrievable' => false,
 					),
 				);
 				$return['cookie']['cmd_set_off'] = $cmd->getId();
@@ -94,8 +94,13 @@ class ash_shutter {
 				$return['cookie']['cmd_get_state'] = $cmd->getId();
 			}
 		}
-		if (count($return['capabilities']) == 0) {
-			return array();
+		if (count($return['traits']) == 0) {
+			return array('missingGenericType' => array(
+				__('Position',__FILE__) => self::$_SLIDER,
+				__('On',__FILE__) => self::$_ON,
+				__('Off',__FILE__) => self::$_OFF,
+				__('Etat',__FILE__) => self::$_STATE
+			));
 		}
 		$return['capabilities']['AlexaInterface'] = array(
 			"type" => "AlexaInterface",
@@ -115,43 +120,43 @@ class ash_shutter {
 		}
 		switch ($_directive['header']['name']) {
 			case 'SetPercentage':
-				if (isset($_directive['endpoint']['cookie']['cmd_set_slider'])) {
-					$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_slider']);
-					if (!is_object($cmd)) {
+			if (isset($_directive['endpoint']['cookie']['cmd_set_slider'])) {
+				$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_slider']);
+				if (!is_object($cmd)) {
+					throw new Exception('ENDPOINT_UNREACHABLE');
+				}
+				if(isset($_directive['payload']['percentage'])){
+					$cmd->execCmd(array('slider' => $_directive['payload']['percentage']));
+				}
+				if(isset($_directive['payload']['percentageDelta'])){
+					if (isset($_directive['endpoint']['cookie']['cmd_get_state'])) {
+						$cmdState = cmd::byId($_directive['endpoint']['cookie']['cmd_get_state']);
+					}
+					if (!is_object($cmdState)) {
 						throw new Exception('ENDPOINT_UNREACHABLE');
 					}
-					if(isset($_directive['payload']['percentage'])){
-						$cmd->execCmd(array('slider' => $_directive['payload']['percentage']));
-					}
-					if(isset($_directive['payload']['percentageDelta'])){
-						if (isset($_directive['endpoint']['cookie']['cmd_get_state'])) {
-							$cmdState = cmd::byId($_directive['endpoint']['cookie']['cmd_get_state']);
-						}
-						if (!is_object($cmdState)) {
-							throw new Exception('ENDPOINT_UNREACHABLE');
-						}
-						$cmd->execCmd(array('slider' => $cmdState->execCmd() + $_directive['payload']['percentageDelta']));
-					}
-				   break;
-				}
-				if($_directive['payload']['percentage'] > 50){
-					if (isset($_directive['endpoint']['cookie']['cmd_set_on'])) {
-						$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_on']);
-					}
-					if (!is_object($cmd)) {
-						break;
-					}
-					$cmd->execCmd();
-				}else{
-					if (isset($_directive['endpoint']['cookie']['cmd_set_off'])) {
-						$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_off']);
-					}
-					if (!is_object($cmd)) {
-						break;
-					}
-					$cmd->execCmd();
+					$cmd->execCmd(array('slider' => $cmdState->execCmd() + $_directive['payload']['percentageDelta']));
 				}
 				break;
+			}
+			if($_directive['payload']['percentage'] > 50){
+				if (isset($_directive['endpoint']['cookie']['cmd_set_on'])) {
+					$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_on']);
+				}
+				if (!is_object($cmd)) {
+					break;
+				}
+				$cmd->execCmd();
+			}else{
+				if (isset($_directive['endpoint']['cookie']['cmd_set_off'])) {
+					$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_off']);
+				}
+				if (!is_object($cmd)) {
+					break;
+				}
+				$cmd->execCmd();
+			}
+			break;
 		}
 		return self::getState($_device, $_directive);
 	}

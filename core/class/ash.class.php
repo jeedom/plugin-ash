@@ -132,14 +132,18 @@ class ash extends eqLogic {
 		$devices = ash_devices::all(true);
 		foreach ($devices as $device) {
 			$info = $device->buildDevice();
-			if (!is_array($info) || count($info) == 0) {
+			if (!is_array($info) || count($info) == 0 || isset($info['missingGenericType'])) {
 				$device->setOptions('configState', 'NOK');
+				if(isset($info['missingGenericType'])){
+					$device->setOptions('missingGenericType',$info['missingGenericType']);
+				}
 				$device->save();
 				continue;
 			}
 			$info['capabilities'] = array_values($info['capabilities']);
 			$return[] = $info;
 			$device->setOptions('configState', 'OK');
+			$device->setOptions('missingGenericType','');
 			$device->save();
 		}
 		return array('endpoints' => $return);
