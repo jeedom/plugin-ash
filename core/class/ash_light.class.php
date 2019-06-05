@@ -26,7 +26,7 @@ class ash_light {
 	private static $_ON = array('ENERGY_ON', 'LIGHT_ON');
 	private static $_OFF = array('ENERGY_OFF', 'LIGHT_OFF');
 	private static $_STATE = array('ENERGY_STATE', 'LIGHT_STATE');
-	private static $_STATE_COLOR = array('LIGHT_COLOR');
+	private static $_COLOR_STATE = array('LIGHT_COLOR');
 	private static $_COLOR = array('LIGHT_SET_COLOR');
 	private static $_BRIGHTNESS = array('LIGHT_SLIDER');
 	private static $_BRIGHTNESS_STATE = array('LIGHT_STATE');
@@ -136,7 +136,7 @@ class ash_light {
 				}
 				$return['cookie']['cmd_get_state'] = $cmd->getId();
 			}
-			if (in_array($cmd->getGeneric_type(), self::$_STATE_COLOR)) {
+			if (in_array($cmd->getGeneric_type(), self::$_COLOR_STATE)) {
 				if(isset($return['capabilities']['Alexa.ColorController'])){
 					$return['capabilities']['Alexa.ColorController']['properties']['retrievable'] = true;
 				}
