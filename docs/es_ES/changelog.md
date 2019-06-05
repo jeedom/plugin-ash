@@ -1,3 +1,10 @@
+- Possibilité d'avoir les informations sur les type générique necessaire lors du click sur le label NOK
+
+# 03/06/2019
+
+- Actualización de la documentación
+- Ajout de d'information et d'un lien vers le service Assistant Vocaux
+
 # 31/05/2019
 
 - Support des volets
