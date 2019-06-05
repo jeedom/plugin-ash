@@ -30,7 +30,7 @@ $('.bt_configureEqLogic').on('click',function(){
 
 $('#div_configuration').off('click','.bt_needGenericType').on('click','.bt_needGenericType',function(){
   $('#md_modal').dialog({title: "{{Information type générique}}"});
-  $('#md_modal').load('index.php?v=d&plugin=gsh&modal=showNeedGenericType&eqLogic_id=' + $(this).closest('tr').attr('data-link_id')).dialog('open');
+  $('#md_modal').load('index.php?v=d&plugin=ash&modal=showNeedGenericType&eqLogic_id=' + $(this).closest('tr').attr('data-link_id')).dialog('open');
 });
 
 $('#bt_saveConfiguration').on('click',function(){
