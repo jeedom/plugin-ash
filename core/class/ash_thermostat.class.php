@@ -102,7 +102,7 @@ class ash_thermostat {
 				$return['cookie']['cmd_get_temperature'] = $cmd->getId();
 			}
 		}
-		if (count($return['traits']) == 0) {
+		if (count($return['capabilities']) == 0) {
 			return array('missingGenericType' => array(
 				__('Thermostat',__FILE__) => array('THERMOSTAT_SET_SETPOINT'),
 				__('Consigne',__FILE__) => array('THERMOSTAT_SETPOINT'),
