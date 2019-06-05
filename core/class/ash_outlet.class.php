@@ -104,7 +104,7 @@ class ash_outlet {
 				$return['cookie']['cmd_get_state'] = $cmd->getId();
 			}
 		}
-		if (count($return['traits']) == 0) {
+		if (count($return['capabilities']) == 0) {
 			return array('missingGenericType' => array(
 				__('Position',__FILE__) => self::$_SLIDER,
 				__('On',__FILE__) => self::$_ON,

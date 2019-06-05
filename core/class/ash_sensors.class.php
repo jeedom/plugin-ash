@@ -89,7 +89,7 @@ class ash_sensors {
 				$return['cookie']['cmd_temperature_state'] = $cmd->getId();
 			}
 		}
-		if (count($return['traits']) == 0) {
+		if (count($return['capabilities']) == 0) {
 			return array('missingGenericType' => array(
 				__('Contacteur',__FILE__) => self::$_CONTACT,
 				__('Mouvement',__FILE__) => self::$_MOTION,

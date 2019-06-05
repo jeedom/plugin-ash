@@ -143,7 +143,7 @@ class ash_light {
 				$return['cookie']['cmd_get_state_color'] = $cmd->getId();
 			}
 		}
-		if (count($return['traits']) == 0) {
+		if (count($return['capabilities']) == 0) {
 			return array('missingGenericType' => array(
 				__('On',__FILE__) => self::$_ON,
 				__('Off',__FILE__) => self::$_OFF,
