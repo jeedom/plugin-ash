@@ -136,6 +136,12 @@ class ash_light {
 				}
 				$return['cookie']['cmd_get_state'] = $cmd->getId();
 			}
+			if (in_array($cmd->getGeneric_type(), self::$_BRIGHTNESS_STATE)) {
+				if(isset($return['capabilities']['Alexa.BrightnessController'])){
+					$return['capabilities']['Alexa.BrightnessController']['properties']['retrievable'] = true;
+				}
+				$return['cookie']['cmd_get_brightness_state'] = $cmd->getId();
+			}
 			if (in_array($cmd->getGeneric_type(), self::$_COLOR_STATE)) {
 				if(isset($return['capabilities']['Alexa.ColorController'])){
 					$return['capabilities']['Alexa.ColorController']['properties']['retrievable'] = true;
@@ -234,13 +240,6 @@ class ash_light {
 			$value = $cmd->execCmd();
 			if ($cmd->getSubtype() == 'numeric') {
 				$return[] = array(
-					'namespace' => 'Alexa.BrightnessController',
-					'name' => 'brightness',
-					'value' => $value,
-					'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
-					'uncertaintyInMilliseconds' => 0,
-				);
-				$return[] = array(
 					'namespace' => 'Alexa.PowerController',
 					'name' => 'powerState',
 					'value' => ($value) ? 'ON' : 'OFF',
@@ -248,7 +247,7 @@ class ash_light {
 					'uncertaintyInMilliseconds' => 0,
 				);
 			} else if ($cmd->getSubtype() == 'binary') {
-				$return[] = array(
+				$return['Alexa.PowerController'] = array(
 					'namespace' => 'Alexa.PowerController',
 					'name' => 'powerState',
 					'value' => ($value) ? 'ON' : 'OFF',
@@ -257,6 +256,27 @@ class ash_light {
 				);
 			}
 		}
+		if (isset($_directive['endpoint']['cookie']['cmd_get_brightness_state'])) {
+			$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_get_brightness_state']);
+		}
+		if (is_object($cmd)) {
+			$value = $cmd->execCmd();
+			$return['Alexa.BrightnessController'] = array(
+				'namespace' => 'Alexa.BrightnessController',
+				'name' => 'brightness',
+				'value' => $value,
+				'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+				'uncertaintyInMilliseconds' => 0,
+			);
+			$return[] = array(
+				'namespace' => 'Alexa.PowerController',
+				'name' => 'powerState',
+				'value' => ($value) ? 'ON' : 'OFF',
+				'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+				'uncertaintyInMilliseconds' => 0,
+			);
+		}
+		
 		if (isset($_directive['endpoint']['cookie']['cmd_get_state_color'])) {
 			$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_get_state_color']);
 		}
@@ -265,7 +285,7 @@ class ash_light {
 			if ($cmd->getSubtype() == 'string') {
 				list($r, $g, $b) = sscanf($value, "#%02x%02x%02x");
 				$value = self::rgb_to_hsv($r, $g, $b);
-				$return[] = array(
+				$return['Alexa.ColorController'] = array(
 					'namespace' => 'Alexa.ColorController',
 					'name' => 'color',
 					'value' => array('hue' => $value[0],'saturation'=>$value[1]/100,'brightness'=>$value[2]/100),
@@ -274,7 +294,7 @@ class ash_light {
 				);
 			}
 		}
-		return array('properties' => $return);
+		return array('properties' => array_values($return));
 	}
 	
 	public static function rgb_to_hsv($R, $G, $B) {
