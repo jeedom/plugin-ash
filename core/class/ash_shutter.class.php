@@ -127,6 +127,9 @@ class ash_shutter {
 				}
 				if(isset($_directive['payload']['percentage'])){
 					$value = $cmd->getConfiguration('minValue', 0) + ($_directive['payload']['percentage'] / 100 * ($cmd->getConfiguration('maxValue', 100) - $cmd->getConfiguration('minValue', 0)));
+					if($_device->getOptions('shutter::invert',0) == 1){
+						$value = 100 - $value;
+					}
 					$cmd->execCmd(array('slider' => $value));
 				}
 				if(isset($_directive['payload']['percentageDelta'])){

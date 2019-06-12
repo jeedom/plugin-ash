@@ -24,13 +24,18 @@ $('.nav-tabs li a').on('click',function(){
 })
 
 $('.bt_configureEqLogic').on('click',function(){
-  $('#md_modal').dialog({title: "{{Configuration de l'équipement}}"});
-  $('#md_modal').load('index.php?v=d&modal=eqLogic.configure&eqLogic_id=' + $(this).attr('data-id')).dialog('open');
+  $('#md_modal').dialog({title: "{{Configuration de l'équipement}}"})
+  .load('index.php?v=d&modal=eqLogic.configure&eqLogic_id=' + $(this).attr('data-id')).dialog('open');
 });
 
 $('#div_configuration').off('click','.bt_needGenericType').on('click','.bt_needGenericType',function(){
-  $('#md_modal').dialog({title: "{{Information type générique}}"});
-  $('#md_modal').load('index.php?v=d&plugin=ash&modal=showNeedGenericType&eqLogic_id=' + $(this).closest('tr').attr('data-link_id')).dialog('open');
+  $('#md_modal').dialog({title: "{{Information type générique}}"})
+  .load('index.php?v=d&plugin=ash&modal=showNeedGenericType&eqLogic_id=' + $(this).closest('tr').attr('data-link_id')).dialog('open');
+});
+
+$('.bt_advanceConfigureEqLogic').on('click',function(){
+  $('#md_modal').dialog({title: "{{Configuration avancée}}"})
+  .load('index.php?v=d&plugin=ash&modal=advanceConfig&eqLogic_id=' + $(this).attr('data-id')).dialog('open');
 });
 
 $('#bt_saveConfiguration').on('click',function(){
