@@ -126,7 +126,8 @@ class ash_shutter {
 					throw new Exception('ENDPOINT_UNREACHABLE');
 				}
 				if(isset($_directive['payload']['percentage'])){
-					$cmd->execCmd(array('slider' => $_directive['payload']['percentage']));
+					$value = $cmd->getConfiguration('minValue', 0) + ($_directive['payload']['percentage'] / 100 * ($cmd->getConfiguration('maxValue', 100) - $cmd->getConfiguration('minValue', 0)));
+					$cmd->execCmd(array('slider' => $value));
 				}
 				if(isset($_directive['payload']['percentageDelta'])){
 					if (isset($_directive['endpoint']['cookie']['cmd_get_state'])) {
@@ -135,7 +136,8 @@ class ash_shutter {
 					if (!is_object($cmdState)) {
 						throw new Exception('ENDPOINT_UNREACHABLE');
 					}
-					$cmd->execCmd(array('slider' => $cmdState->execCmd() + $_directive['payload']['percentageDelta']));
+					$value = $cmd->getConfiguration('minValue', 0) + ($_directive['payload']['percentageDelta'] / 100 * ($cmd->getConfiguration('maxValue', 100) - $cmd->getConfiguration('minValue', 0)));
+					$cmd->execCmd(array('slider' => $cmdState->execCmd() + $value));
 				}
 				break;
 			}
