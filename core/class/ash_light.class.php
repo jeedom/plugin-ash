@@ -233,20 +233,18 @@ class ash_light {
 	public static function getState($_device, $_directive) {
 		$return = array();
 		$cmd = null;
-		if (isset($_directive['endpoint']['cookie']['cmd_get_state'])) {
-			$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_get_state']);
-		}
-		if (is_object($cmd)) {
-			$value = $cmd->execCmd();
-			if ($cmd->getSubtype() == 'numeric') {
-				$return[] = array(
-					'namespace' => 'Alexa.PowerController',
-					'name' => 'powerState',
-					'value' => ($value) ? 'ON' : 'OFF',
+		
+		if (isset($_directive['endpoint']['cookie']['cmd_get_brightness_state'])) {
+			$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_get_brightness_state']);
+			if (is_object($cmd)) {
+				$value = $cmd->execCmd();
+				$return['Alexa.BrightnessController'] = array(
+					'namespace' => 'Alexa.BrightnessController',
+					'name' => 'brightness',
+					'value' => $value,
 					'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
 					'uncertaintyInMilliseconds' => 0,
 				);
-			} else if ($cmd->getSubtype() == 'binary') {
 				$return['Alexa.PowerController'] = array(
 					'namespace' => 'Alexa.PowerController',
 					'name' => 'powerState',
@@ -256,42 +254,44 @@ class ash_light {
 				);
 			}
 		}
-		if (isset($_directive['endpoint']['cookie']['cmd_get_brightness_state'])) {
-			$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_get_brightness_state']);
+		if (isset($_directive['endpoint']['cookie']['cmd_get_state'])) {
+			$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_get_state']);
+			if (is_object($cmd)) {
+				$value = $cmd->execCmd();
+				if ($cmd->getSubtype() == 'numeric') {
+					$return['Alexa.PowerController'] = array(
+						'namespace' => 'Alexa.PowerController',
+						'name' => 'powerState',
+						'value' => ($value) ? 'ON' : 'OFF',
+						'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+						'uncertaintyInMilliseconds' => 0,
+					);
+				} else if ($cmd->getSubtype() == 'binary') {
+					$return['Alexa.PowerController'] = array(
+						'namespace' => 'Alexa.PowerController',
+						'name' => 'powerState',
+						'value' => ($value) ? 'ON' : 'OFF',
+						'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+						'uncertaintyInMilliseconds' => 0,
+					);
+				}
+			}
 		}
-		if (is_object($cmd)) {
-			$value = $cmd->execCmd();
-			$return['Alexa.BrightnessController'] = array(
-				'namespace' => 'Alexa.BrightnessController',
-				'name' => 'brightness',
-				'value' => $value,
-				'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
-				'uncertaintyInMilliseconds' => 0,
-			);
-			$return[] = array(
-				'namespace' => 'Alexa.PowerController',
-				'name' => 'powerState',
-				'value' => ($value) ? 'ON' : 'OFF',
-				'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
-				'uncertaintyInMilliseconds' => 0,
-			);
-		}
-		
 		if (isset($_directive['endpoint']['cookie']['cmd_get_state_color'])) {
 			$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_get_state_color']);
-		}
-		if (is_object($cmd)) {
-			$value = $cmd->execCmd();
-			if ($cmd->getSubtype() == 'string') {
-				list($r, $g, $b) = sscanf($value, "#%02x%02x%02x");
-				$value = self::rgb_to_hsv($r, $g, $b);
-				$return['Alexa.ColorController'] = array(
-					'namespace' => 'Alexa.ColorController',
-					'name' => 'color',
-					'value' => array('hue' => $value[0],'saturation'=>$value[1]/100,'brightness'=>$value[2]/100),
-					'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
-					'uncertaintyInMilliseconds' => 0,
-				);
+			if (is_object($cmd)) {
+				$value = $cmd->execCmd();
+				if ($cmd->getSubtype() == 'string') {
+					list($r, $g, $b) = sscanf($value, "#%02x%02x%02x");
+					$value = self::rgb_to_hsv($r, $g, $b);
+					$return['Alexa.ColorController'] = array(
+						'namespace' => 'Alexa.ColorController',
+						'name' => 'color',
+						'value' => array('hue' => $value[0],'saturation'=>$value[1]/100,'brightness'=>$value[2]/100),
+						'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+						'uncertaintyInMilliseconds' => 0,
+					);
+				}
 			}
 		}
 		return array('properties' => array_values($return));
