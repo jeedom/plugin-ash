@@ -245,7 +245,7 @@ class ash_light {
 					'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
 					'uncertaintyInMilliseconds' => 0,
 				);
-				$return[] = array(
+				$return['Alexa.PowerController'] = array(
 					'namespace' => 'Alexa.PowerController',
 					'name' => 'powerState',
 					'value' => ($value) ? 'ON' : 'OFF',
@@ -253,12 +253,13 @@ class ash_light {
 					'uncertaintyInMilliseconds' => 0,
 				);
 			}
-		}else if (isset($_directive['endpoint']['cookie']['cmd_get_state'])) {
+		}
+		if (isset($_directive['endpoint']['cookie']['cmd_get_state'])) {
 			$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_get_state']);
 			if (is_object($cmd)) {
 				$value = $cmd->execCmd();
 				if ($cmd->getSubtype() == 'numeric') {
-					$return[] = array(
+					$return['Alexa.PowerController'] = array(
 						'namespace' => 'Alexa.PowerController',
 						'name' => 'powerState',
 						'value' => ($value) ? 'ON' : 'OFF',
