@@ -8,6 +8,10 @@ Il peut fonctionner en passant par un service cloud mis à disposition par Jeedo
 >
 > Le plugin necessite un abonnement aux services vocaux. Vous pouvez gérer votre abonnement [ici](https://www.jeedom.com/market/index.php?v=d&p=profils#services)
 
+> **Important**
+>
+> Le plugin ne supporte pas les équipement avec des double fonction (2 sortie comme certain module zwave Fibaro). Il faut absolument passer par 2 virtuels pour le décomposer.
+
 # Mise en place de la connexion vers Alexa
 
 > **IMPORTANT**
@@ -44,9 +48,9 @@ Une fois le service bien actif il faut sur l'application Alexa ou sur le [site w
 
 > **IMPORTANT**
 >
-> Si vous avez un message d'erreur vous indiquants que votre mot de passe ou non d'utilisateur n'est pas bon il faut : 
+> Si vous avez un message d'erreur vous indiquants que votre mot de passe ou non d'utilisateur n'est pas bon il faut :
 > - vérifier qu'Amazon Alexa est bien en actif sur le market
-> - si c'est bien le cas, etês vous sur de vos identifiants (attention il faut respecter majuscule/minuscule) ? 
+> - si c'est bien le cas, etês vous sur de vos identifiants (attention il faut respecter majuscule/minuscule) ?
 > - si c'est le cas changer votre mot de passe sur le market et attendez 1h puis retestez
 
 ## Plugin Konfiguration
@@ -71,4 +75,4 @@ Vous pouvez aussi créer des scènes dans l'onglet scène, avec des actions d'en
 
 >**Alexa me dis "l'appareil ne répond pas" alors que l'action est bien faite**
 >
-> Regardez vos types génériques, Alexa nécessite ABSOLUMENT un retour d'état sinon il vous dira que l'appareil ne répond pas. Attention aussi au délai pour faire l'action si c'est trop long vous aurez le message l'appareil ne répond pas. 
+> Regardez vos types génériques, Alexa nécessite ABSOLUMENT un retour d'état sinon il vous dira que l'appareil ne répond pas. Attention aussi au délai pour faire l'action si c'est trop long vous aurez le message l'appareil ne répond pas.

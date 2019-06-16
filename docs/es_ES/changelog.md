@@ -1,3 +1,12 @@
+# 06/06/2019
+
+- Amélioration du support des volets
+- Possibilité d'inverser le sens des volets
+- Correction de bugs pour les lumieres (couleur et intensité)
+
+# 05/06/2019
+
+- Correction de bug
 - Possibilité d'avoir les informations sur les type générique necessaire lors du click sur le label NOK
 
 # 03/06/2019
