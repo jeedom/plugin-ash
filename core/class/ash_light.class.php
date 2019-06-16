@@ -83,7 +83,7 @@ class ash_light {
 				$return['cookie']['cmd_set_off'] = $cmd->getId();
 			}
 			
-			if (in_array($cmd->getGeneric_type(), $_BRIGHTNESS)) {
+			if (in_array($cmd->getGeneric_type(), self::$_BRIGHTNESS)) {
 				$return['capabilities']['Alexa.PowerController'] = array(
 					'type' => 'AlexaInterface',
 					'interface' => 'Alexa.PowerController',
@@ -110,7 +110,7 @@ class ash_light {
 				);
 				$return['cookie']['cmd_set_slider'] = $cmd->getId();
 			}
-			if (in_array($cmd->getGeneric_type(), $_COLOR)) {
+			if (in_array($cmd->getGeneric_type(), self::$_COLOR)) {
 				$return['capabilities']['Alexa.ColorController'] = array(
 					'type' => 'AlexaInterface',
 					'interface' => 'Alexa.ColorController',
