@@ -102,7 +102,7 @@ class ash_light {
 					'version' => 3,
 					'properties' => array(
 						'supported' => array(
-							array('name' => 'AdjustBrightness'),
+							array('name' => 'brightness'),
 						),
 						'proactivelyReported' => false,
 						'retrievable' => false,
