@@ -1,8 +1,5 @@
-# 06/06/2019
-
 - Amélioration du support des volets
 - Possibilité d'inverser le sens des volets
-- Correction de bugs pour les lumieres (couleur et intensité)
 
 # 05/06/2019
 
