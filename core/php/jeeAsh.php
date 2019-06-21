@@ -18,7 +18,7 @@
 require_once dirname(__FILE__) . "/../../../../core/php/core.inc.php";
 if (init('apikey') != '') {
 	$apikey = init('apikey');
-	if(isset($apikey) && strpos($apikey],'-') !== false){
+	if(isset($apikey) && strpos($apikey,'-') !== false){
 		$apikey = substr($apikey, 0, strpos($apikey, '-'));
 	}
 	if (!jeedom::apiAccess($apikey, 'ash')) {
