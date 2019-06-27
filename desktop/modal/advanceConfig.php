@@ -39,7 +39,7 @@ sendVarToJs('device', utils::o2a($device));
 			<div class="form-group">
 				<label class="col-sm-3 control-label">{{Groupe objet (option nécéssitant un compte market spécifique)}}</label>
 				<div class="col-sm-3">
-					<input type="text" class="deviceAttr" data-l1key="options" data-l2key="group"></input>
+					<input type="number" class="deviceAttr" data-l1key="options" data-l2key="group"></input>
 				</div>
 			</div>
 		</fieldset>
