@@ -34,6 +34,16 @@ sendVarToJs('device', utils::o2a($device));
 <div id="div_alertAdvanceConfigure"></div>
 <div id="div_advanceConfigForm">
 	<input type="text" class="deviceAttr form-control" data-l1key="id" style="display : none;" />
+	<form class="form-horizontal">
+		<fieldset>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">{{Groupe objet (option nécéssitant un compte market spécifique)}}</label>
+				<div class="col-sm-3">
+					<input type="number" class="deviceAttr" data-l1key="options" data-l2key="group"></input>
+				</div>
+			</div>
+		</fieldset>
+	</form>
 	<?php
 	if(in_array($device->getType(),array('SHUTTER'))){
 		?>
