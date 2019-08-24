@@ -76,3 +76,11 @@ Vous pouvez aussi créer des scènes dans l'onglet scène, avec des actions d'en
 >**Alexa me dis "l'appareil ne répond pas" alors que l'action est bien faite**
 >
 > Regardez vos types génériques, Alexa nécessite ABSOLUMENT un retour d'état sinon il vous dira que l'appareil ne répond pas. Attention aussi au délai pour faire l'action si c'est trop long vous aurez le message l'appareil ne répond pas.
+
+>**Lors de l'association j'ai une erreur (mais pas sur un soucis de mot de passe/nom d'utilisateur)**
+>
+>Si vous avez une erreur lors de l'association avec Jeedom cela vient surement du faite que vous n'avez pas ajouté/transmis d'équipement avant de faire l'association. Pour corriger aller sur Plugins -> Communication -> Alexa puis coché au moins un équipement à transmettre et faite sauvegarder (vérifié que l'équipement est bien en OK, si il est en NOK cliquer sur le NOK pour voir pourquoi ou renseignez vous sur les générique type dans jeedom). Puis refaite l'association
+
+>**Lors de l'ajout des équipement j'ai des NOK**
+>
+>Cliquez simplement sur le NOK une fenetre vous dira les generique type a avoir sur les commandes de l'équipement pour que cela marche
