@@ -39,7 +39,6 @@ function ash_install() {
 	} catch (\Exception $e) {
 		
 	}
-	
 }
 
 function ash_update() {
