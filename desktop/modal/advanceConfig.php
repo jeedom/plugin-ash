@@ -44,10 +44,10 @@ sendVarToJs('device', utils::o2a($device));
 			</div>
 		</fieldset>
 	</form>
+	<a class="btn btn-success pull-right bt_advanceConfigSaveDevice">{{Sauvegarder}}</a>
 	<?php
 	if(in_array($device->getType(),array('SHUTTER'))){
 		?>
-		<a class="btn btn-success pull-right bt_advanceConfigSaveDevice">{{Sauvegarder}}</a>
 		<legend>{{Configuration}}</legend>
 		<form class="form-horizontal">
 			<fieldset>

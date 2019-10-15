@@ -1,3 +1,6 @@
+# 23/06/2019
+
+- Actualización de la documentación
 - Amélioration du support des volets
 - Possibilité d'inverser le sens des volets
 
