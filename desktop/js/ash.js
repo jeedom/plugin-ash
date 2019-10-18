@@ -120,7 +120,7 @@ function loadData(){
         el.setValues(data.result[i], '.deviceAttr');
         if(data.result[i].options && data.result[i].options.configState){
           if(data.result[i].options.configState == 'OK'){
-            el.find('.deviceAttr[data-l2key=configState]').removeClass('label-danger').addClass('label-success  bt_needGenericType cursor');
+            el.find('.deviceAttr[data-l2key=configState]').removeClass('label-danger').addClass('label-success bt_needGenericType cursor');
           }else{
             el.find('.deviceAttr[data-l2key=configState]').removeClass('label-success').addClass('label-danger bt_needGenericType cursor');
           }
