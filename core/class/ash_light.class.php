@@ -92,9 +92,9 @@ class ash_light {
 						'supported' => array(
 							array('name' => 'powerState'),
 						),
+						'proactivelyReported' => false,
+						'retrievable' => false,
 					),
-					'proactivelyReported' => false,
-					'retrievable' => false,
 				);
 				$return['capabilities']['Alexa.BrightnessController'] = array(
 					'type' => 'AlexaInterface',
