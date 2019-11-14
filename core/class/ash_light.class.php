@@ -136,7 +136,7 @@ class ash_light {
 				}
 				$return['cookie']['cmd_get_state'] = $cmd->getId();
 			}
-			if (in_array($cmd->getGeneric_type(), self::$_BRIGHTNESS_STATE)) {
+			if (in_array($cmd->getGeneric_type(), self::$_BRIGHTNESS_STATE) && $cmd->getSubType() == 'numeric') {
 				if(isset($return['capabilities']['Alexa.BrightnessController'])){
 					$return['capabilities']['Alexa.BrightnessController']['properties']['retrievable'] = true;
 				}
