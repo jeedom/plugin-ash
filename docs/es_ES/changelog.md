@@ -1,3 +1,7 @@
+# 15/10/2019
+
+- Envoi automatique des informations au market lors de l'installation du plugin
+
 # 23/06/2019
 
 - Actualización de la documentación

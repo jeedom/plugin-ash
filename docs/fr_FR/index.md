@@ -53,6 +53,10 @@ Une fois le service bien actif il faut sur l'application Alexa ou sur le [site w
 > - si c'est bien le cas, etês vous sur de vos identifiants (attention il faut respecter majuscule/minuscule) ?
 > - si c'est le cas changer votre mot de passe sur le market et attendez 1h puis retestez
 
+> **IMPORTANT**
+>
+>Toute modification de configuration des équipements transmis à Alexa (ajout d'un équipement, suppression d'un équipement, changement d'un générique type d'une commande) nécessite forcement d'aller dans Plugin -> Communication -> Alexa puis de faire sauvegarder et dans l'application Alexa de refaire une découverte
+
 ## Configuration du plugin
 
 Sur votre Jeedom, allez sur Plugin -> Communication -> Alexa et dans la partie équipement sélectionnez les équipements à transmettre à Alexa ainsi que le type de l'équipement.
