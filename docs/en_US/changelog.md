@@ -1,3 +1,7 @@
+# 02/12/2019
+
+- Corretion de bug sur la geestion de multiple générique type de type etat
+
 # 15/10/2019
 
 - Envoi automatique des informations au market lors de l'installation du plugin
