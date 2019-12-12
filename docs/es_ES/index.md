@@ -18,29 +18,9 @@ Il peut fonctionner en passant par un service cloud mis à disposition par Jeedo
 >
 > Il est important de faire les étapes suivantes dans l'ordre indiqué !!!
 
-## Synchronisation et délai
-
-En mode cloud (et uniquement en mode cloud), il y a des délai de synchronisation lors des actions suivantes :
-
-- Activation du compte
-- Achat d'année sur le service Assistant Vocaux
-- Changement de clef api du plugin Google smarthome
-- Changement de l'url du jeedom
-- Changement de mot de passe market
-
-La synchronisation se fait toute les 6h (à 00h10,6h10,12h10,18h10). Cette synchronisation est du a notre volonté de rendre le serveur tierce qui fait le pont entre votre Jeedom et l'infrastructure Amazon Alexa indépendant et autonome (ca évite lors d'un soucis sur le market par exemple de perdre aussi les service Assistant vocaux). Lors de la synchronisation il y a un redemarrage du service (coupure de moins de 1s), ce qui explique la limitation à une fois toute les 6h.
-
 ## Configuration Market
 
-Après l'installation du plugin, il vous suffit d'aller dans la partie configuration du plugin puis de cliquer sur envoyer la configuration au market puis d'attendre 1h. Vous pouvez voir l'état sur le votre page profils sur le market, partie "Mes services" puis configuration sur le service d'assistant vocal (le status Amazon Alexa doit etre sur actif).
-
-> **IMPORTANT**
->
-> Si le service ne passe pas en actif au bout de quelques heures verifiez que : l'url est bien en https signé (c'est obligatoire et disponible gratuitement avec un service pack power ou plus, attention les certificats auto-signé ne marchent pas !!!!), que la case "Activer Amazon alexa" est bien cochée
-
-> **IMPORTANT**
->
-> Suite à l'activation et/ou modification des informations pour Alexa il faut attendre 1h pour que cela soit prise en compte
+Après l'installation du plugin, il vous suffit d'aller dans la partie configuration du plugin puis de cliquer sur envoyer la configuration au market.
 
 ## Configuration Alexa
 
@@ -51,7 +31,7 @@ Une fois le service bien actif il faut sur l'application Alexa ou sur le [site w
 > Si vous avez un message d'erreur vous indiquants que votre mot de passe ou non d'utilisateur n'est pas bon il faut :
 > - vérifier qu'Amazon Alexa est bien en actif sur le market
 > - si c'est bien le cas, etês vous sur de vos identifiants (attention il faut respecter majuscule/minuscule) ?
-> - si c'est le cas changer votre mot de passe sur le market et attendez 1h puis retestez
+> - si c'est le cas changer votre mot de passe sur le market et sur la configuration du service d'assistant vocal (page profils du market onglet mes services) faire sauvegarder
 
 > **IMPORTANT**
 >
