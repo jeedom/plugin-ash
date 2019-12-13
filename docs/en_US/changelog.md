@@ -1,3 +1,7 @@
+#11/12/2019
+
+- Updated documentation
+
 # 02/12/2019
 
 - Corretion de bug sur la geestion de multiple générique type de type etat

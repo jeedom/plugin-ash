@@ -4,11 +4,11 @@ if (!isConnect('admin')) {
 }
 ?>
 <br/>
-<a class="btn btn-success pull-right" id="bt_saveConfiguration"><i class="fa fa-check-circle"></i> {{Sauvegarder}}</a>
-<a class="btn btn-default pull-right" id="bt_displayDevice"><i class="fa fa-eye"></i> {{Voir la configuration}}</a>
+<a class="btn btn-success pull-right" id="bt_saveConfiguration"><i class="fas fa-check-circle"></i> {{Sauvegarder}}</a>
+<a class="btn btn-default pull-right" id="bt_displayDevice"><i class="fas fa-eye"></i> {{Voir la configuration}}</a>
 <ul class="nav nav-tabs" role="tablist">
-	<li role="presentation" class="active"><a href="#eqlogictab" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-tachometer"></i> {{Equipement}}</a></li>
-	<li role="presentation"><a href="#scenariotab" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-list-alt"></i> {{Scénario}}</a></li>
+	<li role="presentation" class="active"><a href="#eqlogictab" aria-controls="home" role="tab" data-toggle="tab"><i class="fas fa-tachometer-alt"></i> {{Equipement}}</a></li>
+	<li role="presentation"><a href="#scenariotab" aria-controls="profile" role="tab" data-toggle="tab"><i class="fas fa-list-alt"></i> {{Scénario}}</a></li>
 </ul>
 
 <div class="tab-content" id="div_configuration" style="height:calc(100% - 50px);overflow:auto;overflow-x: hidden;">
