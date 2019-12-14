@@ -1,6 +1,10 @@
+# 13/12/2019
+
+- Correction d'un soucis d'icone
+
 #11/12/2019
 
-- Updated documentation
+- Mise à jour de la documentation
 
 # 02/12/2019
 
