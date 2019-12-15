@@ -16,7 +16,7 @@
 
 # 23/06/2019
 
-- Mise à jour de la doc
+- Actualización de la documentación
 - Amélioration du support des volets
 - Possibilité d'inverser le sens des volets
 
@@ -27,14 +27,14 @@
 
 # 03/06/2019
 
-- Mise à jour de la doc
+- Actualización de la documentación
 - Ajout de d'information et d'un lien vers le service Assistant Vocaux
 
 # 31/05/2019
 
 - Support des volets
 - Support des capteurs (mouvement,contact, température)
-- Correction de bugs
+- Corrección de errores
 - IMPORTANT : a partir du 01/06/2019 les services vocaux deviennent payant, vous pouvez voir votre status sur votre page profils sur le market, onglet mes services
 
 # 24/04/2019
@@ -43,7 +43,7 @@
 
 # 02/11/2018
 
-- Mise à jour de la doc
+- Actualización de la documentación
 
 # 25/10/2018
 
@@ -52,7 +52,7 @@
 
 # 10/10/2018
 
-- Mise à jour de la doc
+- Actualización de la documentación
 
 # 09/10/2018
 
