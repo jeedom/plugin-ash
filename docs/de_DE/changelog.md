@@ -1,3 +1,15 @@
+# 13/12/2019
+
+- Correction d'un soucis d'icone
+
+#11/12/2019
+
+- Mise à jour de la documentation
+
+# 02/12/2019
+
+- Corretion de bug sur la geestion de multiple générique type de type etat
+
 # 15/10/2019
 
 - Envoi automatique des informations au market lors de l'installation du plugin
