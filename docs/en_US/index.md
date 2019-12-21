@@ -68,3 +68,13 @@ Vous pouvez aussi créer des scènes dans l'onglet scène, avec des actions d'en
 >**Lors de l'ajout des équipement j'ai des NOK**
 >
 >Cliquez simplement sur le NOK une fenetre vous dira les generique type a avoir sur les commandes de l'équipement pour que cela marche
+
+>**L'ajout d'équipement/scene n'apparait pas dans l'application alexa**
+>
+> Il faut :
+> - supprimé tous mes équipements transmis (vert OK) depuis le plugin Alexa
+> - bien sauvegarder
+> - “oublié” tous mes équipement jeedom visibles dans la rubrique Maison connectée de Alexa.amazon.com (ou l’app)
+> - faire une detection depuis Alexa
+> - remettre les équipements
+> - refaire une detection depuis Alexa
