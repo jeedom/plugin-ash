@@ -110,7 +110,6 @@ class ash_thermostat {
 				__('Mode',__FILE__) => array('THERMOSTAT_MODE')
 			));
 		}
-		$return['attributes'] = array('availableThermostatModes' => 'on,off,heat,cool', 'thermostatTemperatureUnit' => 'C');
 		return $return;
 	}
 	
