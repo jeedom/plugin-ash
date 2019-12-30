@@ -51,7 +51,7 @@ class ash_thermostat {
 					$return['capabilities']['Alexa.ThermostatController'] = array(
 						'type' => 'AlexaInterface',
 						'interface' => 'Alexa.ThermostatController',
-						'version' => 3,
+						'version' => "3",
 						'properties' => array(
 							'supported' => array(),
 							'proactivelyReported' => false,
@@ -71,7 +71,7 @@ class ash_thermostat {
 					$return['capabilities']['Alexa.ThermostatController'] = array(
 						'type' => 'AlexaInterface',
 						'interface' => 'Alexa.ThermostatController',
-						'version' => 3,
+						'version' => "3",
 						'properties' => array(
 							'supported' => array(),
 							'proactivelyReported' => false,
@@ -90,7 +90,7 @@ class ash_thermostat {
 				$return['capabilities']['Alexa.TemperatureSensor'] = array(
 					'type' => 'AlexaInterface',
 					'interface' => 'Alexa.TemperatureSensor',
-					'version' => 3,
+					'version' => "3",
 					'properties' => array(
 						'supported' => array(
 							array('name' => 'temperature'),
@@ -110,7 +110,6 @@ class ash_thermostat {
 				__('Mode',__FILE__) => array('THERMOSTAT_MODE')
 			));
 		}
-		$return['attributes'] = array('availableThermostatModes' => 'on,off,heat,cool', 'thermostatTemperatureUnit' => 'C');
 		return $return;
 	}
 	
