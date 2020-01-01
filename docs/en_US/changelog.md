@@ -8,7 +8,7 @@
 
 # 11/12/2019
 
-- Mise à jour de la documentation
+- Updated documentation
 
 # 02/12/2019
 
