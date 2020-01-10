@@ -38,7 +38,7 @@ class ash_thermostat {
 		$return['friendlyName'] = $_device->getPseudo();
 		$return['description'] = $eqLogic->getHumanName();
 		$return['manufacturerName'] = 'Jeedom';
-		$return['cookie'] = array('key1' => '');
+		$return['cookie'] = array();
 		$return['displayCategories'] = array($_device->getType());
 		$return['capabilities'] = array();
 		
@@ -51,7 +51,7 @@ class ash_thermostat {
 					$return['capabilities']['Alexa.ThermostatController'] = array(
 						'type' => 'AlexaInterface',
 						'interface' => 'Alexa.ThermostatController',
-						'version' => "3",
+						'version' => '3',
 						'properties' => array(
 							'supported' => array(),
 							'proactivelyReported' => false,
@@ -71,7 +71,7 @@ class ash_thermostat {
 					$return['capabilities']['Alexa.ThermostatController'] = array(
 						'type' => 'AlexaInterface',
 						'interface' => 'Alexa.ThermostatController',
-						'version' => "3",
+						'version' => '3',
 						'properties' => array(
 							'supported' => array(),
 							'proactivelyReported' => false,
@@ -90,7 +90,7 @@ class ash_thermostat {
 				$return['capabilities']['Alexa.TemperatureSensor'] = array(
 					'type' => 'AlexaInterface',
 					'interface' => 'Alexa.TemperatureSensor',
-					'version' => "3",
+					'version' => '3',
 					'properties' => array(
 						'supported' => array(
 							array('name' => 'temperature'),
