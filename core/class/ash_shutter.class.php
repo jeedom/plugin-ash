@@ -36,7 +36,7 @@ class ash_shutter {
 		$return['friendlyName'] = $_device->getPseudo();
 		$return['description'] = $eqLogic->getHumanName();
 		$return['manufacturerName'] = 'Jeedom';
-		$return['cookie'] = array('key1' => '');
+		$return['cookie'] = array();
 		$return['displayCategories'] = array($_device->getType());
 		$return['capabilities'] = array();
 		foreach ($eqLogic->getCmd() as $cmd) {
@@ -44,7 +44,7 @@ class ash_shutter {
 				$return['capabilities']['Alexa.PercentageController'] = array(
 					'type' => 'AlexaInterface',
 					'interface' => 'Alexa.PercentageController',
-					'version' => 3,
+					'version' => '3',
 					'properties' => array(
 						'supported' => array(
 							array('name' => 'percentage'),
@@ -59,7 +59,7 @@ class ash_shutter {
 				$return['capabilities']['Alexa.PercentageController'] = array(
 					'type' => 'AlexaInterface',
 					'interface' => 'Alexa.PercentageController',
-					'version' => 3,
+					'version' => '3',
 					'properties' => array(
 						'supported' => array(
 							array('name' => 'percentage'),
@@ -74,7 +74,7 @@ class ash_shutter {
 				$return['capabilities']['Alexa.PercentageController'] = array(
 					'type' => 'AlexaInterface',
 					'interface' => 'Alexa.PercentageController',
-					'version' => 3,
+					'version' => '3',
 					'properties' => array(
 						'supported' => array(
 							array('name' => 'percentage'),
