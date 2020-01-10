@@ -36,7 +36,7 @@ class ash_sensors {
 		$return['friendlyName'] = $_device->getPseudo();
 		$return['description'] = $eqLogic->getHumanName();
 		$return['manufacturerName'] = 'Jeedom';
-		$return['cookie'] = array('key1' => '');
+		$return['cookie'] = array();
 		$return['displayCategories'] = array($_device->getType());
 		$return['capabilities'] = array();
 		foreach ($eqLogic->getCmd() as $cmd) {
@@ -44,7 +44,7 @@ class ash_sensors {
 				$return['capabilities']['Alexa.ContactSensor'] = array(
 					'type' => 'AlexaInterface',
 					'interface' => 'Alexa.ContactSensor',
-					'version' => 3,
+					'version' => '3',
 					'properties' => array(
 						'supported' => array(
 							array('name' => 'detectionState'),
@@ -60,7 +60,7 @@ class ash_sensors {
 				$return['capabilities']['Alexa.MotionSensor'] = array(
 					'type' => 'AlexaInterface',
 					'interface' => 'Alexa.MotionSensor',
-					'version' => 3,
+					'version' => '3',
 					'properties' => array(
 						'supported' => array(
 							array('name' => 'detectionState'),
@@ -76,7 +76,7 @@ class ash_sensors {
 				$return['capabilities']['Alexa.TemperatureSensor'] = array(
 					'type' => 'AlexaInterface',
 					'interface' => 'Alexa.TemperatureSensor',
-					'version' => 3,
+					'version' => '3',
 					'properties' => array(
 						'supported' => array(
 							array('name' => 'temperature'),
