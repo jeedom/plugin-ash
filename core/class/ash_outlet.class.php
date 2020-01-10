@@ -43,7 +43,7 @@ class ash_outlet {
 		$return['friendlyName'] = $_device->getPseudo();
 		$return['description'] = $eqLogic->getHumanName();
 		$return['manufacturerName'] = 'Jeedom';
-		$return['cookie'] = array('key1' => '');
+		$return['cookie'] = array();
 		$return['displayCategories'] = array($_device->getType());
 		$return['capabilities'] = array();
 		
@@ -52,7 +52,7 @@ class ash_outlet {
 				$return['capabilities']['Alexa.PowerController'] = array(
 					'type' => 'AlexaInterface',
 					'interface' => 'Alexa.PowerController',
-					'version' => 3,
+					'version' => '3',
 					'properties' => array(
 						'supported' => array(
 							array('name' => 'powerState'),
@@ -68,7 +68,7 @@ class ash_outlet {
 				$return['capabilities']['Alexa.PowerController'] = array(
 					'type' => 'AlexaInterface',
 					'interface' => 'Alexa.PowerController',
-					'version' => 3,
+					'version' => '3',
 					'properties' => array(
 						'supported' => array(
 							array('name' => 'powerState'),
@@ -84,7 +84,7 @@ class ash_outlet {
 				$return['capabilities']['Alexa.PowerController'] = array(
 					'type' => 'AlexaInterface',
 					'interface' => 'Alexa.PowerController',
-					'version' => 3,
+					'version' => '3',
 					'properties' => array(
 						'supported' => array(
 							array('name' => 'powerState'),
