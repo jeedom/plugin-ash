@@ -46,7 +46,7 @@ class ash_light {
 		$return['friendlyName'] = $_device->getPseudo();
 		$return['description'] = $eqLogic->getHumanName();
 		$return['manufacturerName'] = 'Jeedom';
-		$return['cookie'] = array('key1' => '');
+		$return['cookie'] = array();
 		$return['displayCategories'] = array($_device->getType());
 		$return['capabilities'] = array();
 		
@@ -55,7 +55,7 @@ class ash_light {
 				$return['capabilities']['Alexa.PowerController'] = array(
 					'type' => 'AlexaInterface',
 					'interface' => 'Alexa.PowerController',
-					'version' => 3,
+					'version' => '3',
 					'properties' => array(
 						'supported' => array(
 							array('name' => 'powerState'),
@@ -71,7 +71,7 @@ class ash_light {
 				$return['capabilities']['Alexa.PowerController'] = array(
 					'type' => 'AlexaInterface',
 					'interface' => 'Alexa.PowerController',
-					'version' => 3,
+					'version' => '3',
 					'properties' => array(
 						'supported' => array(
 							array('name' => 'powerState'),
@@ -87,7 +87,7 @@ class ash_light {
 				$return['capabilities']['Alexa.PowerController'] = array(
 					'type' => 'AlexaInterface',
 					'interface' => 'Alexa.PowerController',
-					'version' => 3,
+					'version' => '3',
 					'properties' => array(
 						'supported' => array(
 							array('name' => 'powerState'),
@@ -99,7 +99,7 @@ class ash_light {
 				$return['capabilities']['Alexa.BrightnessController'] = array(
 					'type' => 'AlexaInterface',
 					'interface' => 'Alexa.BrightnessController',
-					'version' => 3,
+					'version' => '3',
 					'properties' => array(
 						'supported' => array(
 							array('name' => 'brightness'),
@@ -114,7 +114,7 @@ class ash_light {
 				$return['capabilities']['Alexa.ColorController'] = array(
 					'type' => 'AlexaInterface',
 					'interface' => 'Alexa.ColorController',
-					'version' => 3,
+					'version' => '3',
 					'properties' => array(
 						'supported' => array(
 							array('name' => 'color'),
