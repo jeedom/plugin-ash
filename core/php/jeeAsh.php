@@ -49,8 +49,12 @@ if ($data['action'] == 'exec') {
 	log::add('ash', 'debug','Reply : '. $result);
 	echo $result;
 	die();
-}
-if ($data['action'] == 'interact') {
+}else if ($data['action'] == 'sync') {
+	$result = json_encode(ash::sync());
+	log::add('ash', 'debug','Sync : '. $result);
+	echo $result;
+	die();
+}else if ($data['action'] == 'interact') {
 	$params = array('plugin' => 'ash', 'reply_cmd' => null);
 	echo json_encode(interactQuery::tryToReply(trim($data['data']['message']), $params));
 	die();

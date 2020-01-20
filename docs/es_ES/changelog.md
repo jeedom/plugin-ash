@@ -1,8 +1,12 @@
+# 30/12/2019
+
+- Correction d'un bug sur les thermostats
+
 # 13/12/2019
 
 - Correction d'un soucis d'icone
 
-#11/12/2019
+# 11/12/2019
 
 - Mise à jour de la documentation
 

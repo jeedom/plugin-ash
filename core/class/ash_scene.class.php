@@ -31,13 +31,13 @@ class ash_scene {
 		$return['friendlyName'] = $_device->getOptions('name');
 		$return['description'] = $_device->getOptions('name');
 		$return['manufacturerName'] = 'Jeedom';
-		$return['cookie'] = array('key1' => '');
+		$return['cookie'] = array();
 		$return['displayCategories'] = array($_device->getType());
 		$return['capabilities'] = array();
 		$return['capabilities']['Alexa.SceneController'] = array(
 			'type' => 'AlexaInterface',
 			'interface' => 'Alexa.SceneController',
-			'version' => 3,
+			'version' => '3',
 			'proactivelyReported' => false,
 			'supportsDeactivation' => (count($_device->getOptions('outAction')) > 0),
 		);
