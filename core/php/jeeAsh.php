@@ -31,8 +31,10 @@ if (init('apikey') != '') {
 }
 header('Content-type: application/json');
 $data = json_decode(file_get_contents('php://input'), true);
+$group = '';
 if(isset($data['apikey']) && strpos($data['apikey'],'-') !== false){
-	$data['apikey'] = substr($data['apikey'], 0, strpos($data['apikey'], '-'));
+	$group = explode('-',$data['apikey'])[1];
+	$data['apikey'] = explode('-',$data['apikey'])[0];
 }
 if (!isset($data['apikey']) || !jeedom::apiAccess($data['apikey'], 'ash')) {
 	echo json_encode(ash::buildErrorResponse($data, 'INTERNAL_ERROR'));
@@ -50,7 +52,7 @@ if ($data['action'] == 'exec') {
 	echo $result;
 	die();
 }else if ($data['action'] == 'sync') {
-	$result = json_encode(ash::sync());
+	$result = json_encode(ash::sync($group));
 	log::add('ash', 'debug','Sync : '. $result);
 	echo $result;
 	die();
