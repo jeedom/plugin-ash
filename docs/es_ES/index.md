@@ -47,6 +47,10 @@ Sur votre Jeedom, allez sur Plugin -> Communication -> Alexa et dans la partie �
 
 Vous pouvez aussi créer des scènes dans l'onglet scène, avec des actions d'entrée et de sortie.
 
+> **IMPORTANT**
+>
+> Si vous n'envoyez aucun équipement (aucun OK dans la liste des équipements sur le plugin Alexa), Amazon considere que c'est une erreur et reprend la derniere configuration connue. Donc si vous faite oublier tout et n'envoyez aucun équipement amazon reprendra la derniere configuration connu et donc fera tout réapparaitre.
+
 # FAQ
 
 >**J'ai lu que le plugin necessiterait un abonnement, pourquoi ?**
