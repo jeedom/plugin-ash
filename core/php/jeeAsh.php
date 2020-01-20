@@ -33,7 +33,7 @@ header('Content-type: application/json');
 $data = json_decode(file_get_contents('php://input'), true);
 $group = '';
 if(isset($data['apikey']) && strpos($data['apikey'],'-') !== false){
-	$group = explode('-',$data['apikey'])[1]
+	$group = explode('-',$data['apikey'])[1];
 	$data['apikey'] = explode('-',$data['apikey'])[0];
 }
 if (!isset($data['apikey']) || !jeedom::apiAccess($data['apikey'], 'ash')) {
