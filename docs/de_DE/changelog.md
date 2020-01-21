@@ -1,3 +1,7 @@
+# 20/01/2020
+
+- Préparation du support de la synchronisation sans cache
+
 # 30/12/2019
 
 - Correction d'un bug sur les thermostats
