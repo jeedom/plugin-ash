@@ -28,8 +28,8 @@ class ash_light {
 	private static $_STATE = array('ENERGY_STATE', 'LIGHT_STATE');
 	private static $_COLOR_STATE = array('LIGHT_COLOR');
 	private static $_COLOR = array('LIGHT_SET_COLOR');
-	private static $_BRIGHTNESS = array('LIGHT_SLIDER');
-	private static $_BRIGHTNESS_STATE = array('LIGHT_STATE');
+	private static $_BRIGHTNESS = array('LIGHT_SLIDER','LIGHT_SET_BRIGHTNESS');
+	private static $_BRIGHTNESS_STATE = array('LIGHT_STATE','LIGHT_BRIGHTNESS');
 	
 	/*     * ***********************Methode static*************************** */
 	
@@ -46,7 +46,7 @@ class ash_light {
 		$return['friendlyName'] = $_device->getPseudo();
 		$return['description'] = $eqLogic->getHumanName();
 		$return['manufacturerName'] = 'Jeedom';
-		$return['cookie'] = array();
+		$return['cookie'] = array('none' => 'empty');
 		$return['displayCategories'] = array($_device->getType());
 		$return['capabilities'] = array();
 		
