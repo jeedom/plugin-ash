@@ -1,3 +1,7 @@
+# 23/01/2020
+
+- Correction de soucis sur la decouverte d'équipements
+
 # 20/01/2020
 
 - Préparation du support de la synchronisation sans cache
