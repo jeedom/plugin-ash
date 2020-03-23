@@ -154,6 +154,7 @@ class ash extends eqLogic {
 				log::add('ash','error',__('Deux équipements et/ou scène avec le meme nom : ',__FILE__).$info['friendlyName']);
 				$device->setOptions('configState', 'NOK');
 				$device->save();
+				continue;
 			}
 			$names[$info['friendlyName']] = $info['friendlyName'];
 			if (!is_array($info) || count($info) == 0 || isset($info['missingGenericType'])) {
