@@ -144,11 +144,18 @@ class ash extends eqLogic {
 	public static function sync($_group='') {
 		$return = array();
 		$devices = ash_devices::all(true);
+		$names = array();
 		foreach ($devices as $device) {
 			if($device->getOptions('group') != '' && $device->getOptions('group') != $_group){
 				continue;
 			}
 			$info = $device->buildDevice();
+			if(isset($names[$info['friendlyName']])){
+				log::add('ash','error',__('Deux équipements et/ou scène avec le meme nom : ',__FILE__).$info['friendlyName']);
+				$device->setOptions('configState', 'NOK');
+				$device->save();
+			}
+			$names[$info['friendlyName']] = $info['friendlyName'];
 			if (!is_array($info) || count($info) == 0 || isset($info['missingGenericType'])) {
 				$device->setOptions('configState', 'NOK');
 				if(isset($info['missingGenericType'])){
