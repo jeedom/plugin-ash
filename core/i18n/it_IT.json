@@ -1,0 +1,114 @@
+{
+    "plugins\/ash\/plugin_info\/configuration.php": {
+        "Attention votre connexion externe ne semble pas etre en https, ce plugin nécessite ABSOLUMENT une connexion https. Si vous ne savez pas comment faire vous pouvez souscrire à un service pack power pour utiliser le service de DNS Jeedom": "",
+        "Attention il faut attendre 24h suite à l'envoi de la configuration pour que ca soit pris en compte.": "",
+        "Abonnement service assistant vocaux": "",
+        "Votre abonnement aux services assistant vocaux fini le ": "",
+        "Pour le prolonger, allez": "",
+        "ici": "qua",
+        "Votre abonnement aux services assistant vocaux est illimité.": "",
+        "Votre abonnement aux services assistant vocaux est fini.": "",
+        "Envoyer configuration au market": "",
+        "Envoyer": "Invia",
+        "Configuration envoyée avec succès.": ""
+    },
+    "plugins\/ash\/desktop\/modal\/advanceConfig.php": {
+        "Eqlogic ID non valide : ": "",
+        "Device non trouvé": "",
+        "Aucun type configuré pour ce périphérique": "",
+        "Groupe objet (option nécéssitant un compte market spécifique)": "",
+        "Sauvegarder": "Salva",
+        "Configuration": "Configurazione",
+        "Inverser": "Inverti",
+        "Il n\\'y a aucune configuration avancée pour ce type": "",
+        "Sauvegarde réussi, pensez à relancer une synchronisation": ""
+    },
+    "plugins\/ash\/desktop\/modal\/showNeedGenericType.php": {
+        "Eqlogic ID non valide : ": "",
+        "Device non trouvé": "",
+        "Aucun type configuré pour ce périphérique": "",
+        "Aucune information disponible": "",
+        "Voici les générique type qui sont utilisation avec votre type d\\'équipement. Attention il ne faut pas forcement tous les avoir sur l\\'équipement (ou n\\'en avoir aucun)": ""
+    },
+    "plugins\/ash\/desktop\/php\/ash.php": {
+        "401 - Accès non autorisé": "401 - Accesso non autorizzato",
+        "Sauvegarder": "Salva",
+        "Voir la configuration": "",
+        "Equipement": "Dispositivo",
+        "Scénario": "Scena",
+        "Plugin": "",
+        "Options": "Opzioni",
+        "Status": "Stato",
+        "Type": "Tipo",
+        "Pseudo": "",
+        "Action": "Azione",
+        "Transmettre": "",
+        "Aucun": "Nessuno",
+        " . $value['name'] . ": "",
+        "Ajouter scène": ""
+    },
+    "plugins\/ash\/desktop\/js\/ash.js": {
+        "Configuration de l'équipement": "Configurazione dell'apparecchiatura",
+        "Information type générique": "",
+        "Configuration avancée": "Configurazione avanzata",
+        "Synchronisation réussie. Pour voir le status des equipements à jour, merci de rafraichir la page (F5)": "",
+        "Configuration péripheriques": "",
+        "Nom de la scene ?": "",
+        "Nouveau nom ?": "Nuovo nome ?",
+        "Action d\\'entrée": "",
+        "Action de sortie": "",
+        "Décocher pour desactiver l\\'action": "Deselezionare per disabilitare \\ azione",
+        "Cocher pour que la commande s\\'éxecute en parrallele des autres actions": "Controllare l'ordine di 's \\ eseguiti in parallelo ad altre azioni",
+        "Sélectionner un mot-clé": "Seleziona una parola chiave",
+        "Nom du scene": "",
+        "Supprimer": "Rimuovere"
+    },
+    "plugins\/ash\/core\/php\/jeeAsh.php": {
+        "Vous n\\'etes pas autorisé à effectuer cette action. Clef API invalide. Merci de corriger la clef API sur votre page profils du market et d\\'attendre 24h avant de réessayer.": "",
+        "Configuration OK": ""
+    },
+    "plugins\/ash\/core\/ajax\/ash.ajax.php": {
+        "401 - Accès non autorisé": "401 - Accesso non autorizzato",
+        "Device non trouvé : ": "",
+        "Aucune méthode correspondante à : ": "Nessun metodo corrispondente a:"
+    },
+    "plugins\/ash\/core\/class\/ash_thermostat.class.php": {
+        "Thermostat": "",
+        "Consigne": "",
+        "Etat themostat ": "",
+        "Mode": ""
+    },
+    "plugins\/ash\/core\/class\/ash.class.php": {
+        "Deux équipements et\/ou scène avec le meme nom : ": ""
+    },
+    "plugins\/ash\/core\/class\/ash_scene.class.php": {
+        "Erreur lors de l\\'éxecution de ": "Errore durante l'esecuzione",
+        ". Détails : ": ". Dettagli:"
+    },
+    "plugins\/ash\/core\/class\/ash_sensors.class.php": {
+        "Contacteur": "",
+        "Mouvement": "",
+        "Température": ""
+    },
+    "plugins\/ash\/core\/class\/ash_shutter.class.php": {
+        "Position": "Posizione",
+        "On": "",
+        "Off": "",
+        "Etat": "Stato"
+    },
+    "plugins\/ash\/core\/class\/ash_outlet.class.php": {
+        "Position": "Posizione",
+        "On": "",
+        "Off": "",
+        "Etat": "Stato"
+    },
+    "plugins\/ash\/core\/class\/ash_light.class.php": {
+        "On": "",
+        "Off": "",
+        "Etat": "Stato",
+        "Luminosité": "",
+        "Etat luminosité": "",
+        "Couleur": "Colore",
+        "Etat couleur": ""
+    }
+}
