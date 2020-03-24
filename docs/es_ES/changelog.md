@@ -1,86 +1,86 @@
 # 23/01/2020
 
-- Correction de soucis sur la decouverte d'équipements
+- Corrección de inquietudes sobre el descubrimiento de equipos.
 
 # 20/01/2020
 
-- Préparation du support de la synchronisation sans cache
+- Preparación para el soporte de sincronización sin caché
 
 # 12/30/2019
 
-- Correction d'un bug sur les thermostats
+- Corrección de un error en los termostatos.
 
 # 13/12/2019
 
-- Correction d'un soucis d'icone
+- Corrección de un problema de ícono
 
-# 11/12/2019
+# 12/11/2019
 
 - Actualización de la documentación
 
-# 02/12/2019
+# 12/02/2019
 
-- Corretion de bug sur la geestion de multiple générique type de type etat
+- Corrección de errores en la gestión de múltiples tipos genéricos de tipo de estado
 
 # 15/10/2019
 
-- Envoi automatique des informations au market lors de l'installation du plugin
+- Envío automático de información al mercado al instalar el complemento
 
 # 23/06/2019
 
 - Actualizando el documento
-- Amélioration du support des volets
-- Possibilité d'inverser le sens des volets
+- Soporte de obturador mejorado
+- Posibilidad de invertir la dirección de las aletas.
 
 # 05/06/2019
 
 - Corrección de errores
-- Possibilité d'avoir les informations sur les type générique necessaire lors du click sur le label NOK
+- Posibilidad de tener información sobre el tipo genérico requerido al hacer clic en la etiqueta NOK
 
-# 03/06/2019
+# 06/03/2019
 
 - Actualizando el documento
-- Ajout de d'information et d'un lien vers le service Assistant Vocaux
+- Adición de información y un enlace al servicio de Asistente de voz
 
 # 31/05/2019
 
-- Support des volets
-- Support des capteurs (mouvement,contact, température)
+- Obturador de apoyo
+- Soporte del sensor (movimiento, contacto, temperatura)
 - Correcciones de errores
-- Importante : a partir du 01/06/2019 les services vocaux deviennent payant, vous pouvez voir votre status sur votre page profils sur le market, onglet mes services
+- Importante : a partir del 01/06/2019 los servicios de voz cobran, puede ver su estado en su página de perfil en el mercado, pestaña mis servicios
 
 # 24/04/2019
 
-- Nouvelle methode de synchronisation des péripheriques
+- Nuevo método de sincronización del dispositivo
 
-# 02/11/2018
+# 11/02/2018
 
 - Actualizando el documento
 
 # 25/10/2018
 
-- Correction d'un bug sur les volets
+- Corrección de un error en los paneles.
 - Actualizando el documento
 
 # 10/10/2018
 
 - Actualizando el documento
 
-# 09/10/2018
+# 10/09/2018
 
-- Correction de nombreux bug sur les retours d'état (lumière, prise, température, thermostat...)
+- Corrección de muchos errores en los retornos de estado (luz, salida, temperatura, termostato ...)
 
-# 08/10/2018
+# 10/08/2018
 
-- Corrección de errores sur les prises, volets...
+- Corrección de errores en enchufes, persianas...
 
-# 05/10/2018
+# 10/05/2018
 
-- Amélioration de la gestion des noms des équipements
-- Possibilité de mettre un pseudo à un équipement
-- Correction d'un bug indiquant un soucis de serveur
+- Gestión mejorada de los nombres de los equipos.
+- Posibilidad de robar un dispositivo
+- Corrección de un error que indica un problema del servidor
 
-# 04/10/2018
+# 10/04/2018
 
-- Correction d'un bug lors de l'envoi de la configuration
-- Correction d'un bug lors de la demande de la température
+- Corrección de un error al enviar la configuración
+- Corrección de un error durante la solicitud de temperatura.
