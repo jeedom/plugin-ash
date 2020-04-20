@@ -1,3 +1,5 @@
+- Correction d'un soucis sur l'allumage des lampes
+
 # 23/01/2020
 
 - Correction de soucis sur la decouverte d'équipements
