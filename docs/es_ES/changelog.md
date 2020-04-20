@@ -1,6 +1,8 @@
+- 
+
 # 23/01/2020
 
-- Corrección de inquietudes sobre el descubrimiento de equipos.
+- Corrección de problemas en la detección de equipos.
 
 # 20/01/2020
 

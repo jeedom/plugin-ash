@@ -92,13 +92,13 @@
     },
     "plugins\/ash\/core\/class\/ash_shutter.class.php": {
         "Position": "Position",
-        "On": "We",
+        "On": "On",
         "Off": "Off",
         "Etat": "State"
     },
     "plugins\/ash\/core\/class\/ash_outlet.class.php": {
         "Position": "Position",
-        "On": "We",
+        "On": "On",
         "Off": "Off",
         "Etat": "State"
     },

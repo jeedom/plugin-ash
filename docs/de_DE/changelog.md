@@ -1,3 +1,5 @@
+- 
+
 # 23.01.2020
 
 - Korrektur von Bedenken hinsichtlich der Entdeckung von Geräten

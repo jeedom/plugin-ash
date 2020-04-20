@@ -1,3 +1,5 @@
+- 
+
 # 01/23/2020
 
 - Correction of concerns about equipment discovery

@@ -69,8 +69,8 @@
     },
     "plugins\/ash\/core\/ajax\/ash.ajax.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
-        "Device non trouvé : ": "Dispositivo no encontrado:",
-        "Aucune méthode correspondante à : ": "Ningún método correspondiente a:"
+        "Device non trouvé : ": "Dispositivo no encontrado :",
+        "Aucune méthode correspondante à : ": "Ningún método correspondiente a :"
     },
     "plugins\/ash\/core\/class\/ash_thermostat.class.php": {
         "Thermostat": "Termostato",
@@ -79,7 +79,7 @@
         "Mode": "Modo"
     },
     "plugins\/ash\/core\/class\/ash.class.php": {
-        "Deux équipements et\/ou scène avec le meme nom : ": "Dos equipos y \/ o escenario con el mismo nombre:"
+        "Deux équipements et\/ou scène avec le meme nom : ": "Dos dispositivos y\/o escenario con el mismo nombre :"
     },
     "plugins\/ash\/core\/class\/ash_scene.class.php": {
         "Erreur lors de l\\'éxecution de ": "Error al ejecutar",
