@@ -1,0 +1,114 @@
+{
+    "plugins\/ash\/plugin_info\/configuration.php": {
+        "Attention votre connexion externe ne semble pas etre en https, ce plugin nécessite ABSOLUMENT une connexion https. Si vous ne savez pas comment faire vous pouvez souscrire à un service pack power pour utiliser le service de DNS Jeedom": "Please note your external connection does not seem to be in https, this plugin ABSOLUTELY requires an https connection. If you don't know how, you can subscribe to a power pack to use the Jeedom DNS service",
+        "Attention il faut attendre 24h suite à l'envoi de la configuration pour que ca soit pris en compte.": "Please note, you must wait 24 hours after sending the configuration for it to be taken into account.",
+        "Abonnement service assistant vocaux": "Voice assistant service subscription",
+        "Votre abonnement aux services assistant vocaux fini le ": "Your subscription to voice assistant services ended on",
+        "Pour le prolonger, allez": "To extend it, go",
+        "ici": "here",
+        "Votre abonnement aux services assistant vocaux est illimité.": "Your subscription to voice assistant services is unlimited.",
+        "Votre abonnement aux services assistant vocaux est fini.": "Your subscription to voice assistant services is finished.",
+        "Envoyer configuration au market": "Send configuration to market",
+        "Envoyer": "Send",
+        "Configuration envoyée avec succès.": "Configuration successfully sent."
+    },
+    "plugins\/ash\/desktop\/modal\/advanceConfig.php": {
+        "Eqlogic ID non valide : ": "Invalid Eqlogic ID:",
+        "Device non trouvé": "Device not found",
+        "Aucun type configuré pour ce périphérique": "No type configured for this device",
+        "Groupe objet (option nécéssitant un compte market spécifique)": "Object group (option requiring a specific market account)",
+        "Sauvegarder": "Save",
+        "Configuration": "Setup",
+        "Inverser": "Invert",
+        "Il n\\'y a aucune configuration avancée pour ce type": "There is no advanced configuration for this type",
+        "Sauvegarde réussi, pensez à relancer une synchronisation": "Backup successful, remember to restart synchronization"
+    },
+    "plugins\/ash\/desktop\/modal\/showNeedGenericType.php": {
+        "Eqlogic ID non valide : ": "Invalid Eqlogic ID:",
+        "Device non trouvé": "Device not found",
+        "Aucun type configuré pour ce périphérique": "No type configured for this device",
+        "Aucune information disponible": "No available information",
+        "Voici les générique type qui sont utilisation avec votre type d\\'équipement. Attention il ne faut pas forcement tous les avoir sur l\\'équipement (ou n\\'en avoir aucun)": "Here are the generic types that are used with your type of equipment. Attention it is not necessary necessarily to have them all on the equipment (or to have none)"
+    },
+    "plugins\/ash\/desktop\/php\/ash.php": {
+        "401 - Accès non autorisé": "401 - Unauthorized access",
+        "Sauvegarder": "Save",
+        "Voir la configuration": "View configuration",
+        "Equipement": "Device",
+        "Scénario": "Scenario",
+        "Plugin": "Plugin",
+        "Options": "Options",
+        "Status": "Status",
+        "Type": "Type",
+        "Pseudo": "Pseudo",
+        "Action": "Action",
+        "Transmettre": "Transmit",
+        "Aucun": "None",
+        " . $value['name'] . ": ". $ value ['name'].",
+        "Ajouter scène": "Add scene"
+    },
+    "plugins\/ash\/desktop\/js\/ash.js": {
+        "Configuration de l'équipement": "Equipment configuration",
+        "Information type générique": "Generic type information",
+        "Configuration avancée": "Advanced configuration",
+        "Synchronisation réussie. Pour voir le status des equipements à jour, merci de rafraichir la page (F5)": "Synchronization successful. To see the status of the equipment up to date, please refresh the page (F5)",
+        "Configuration péripheriques": "Peripheral configuration",
+        "Nom de la scene ?": "Name of the scene?",
+        "Nouveau nom ?": "New name?",
+        "Action d\\'entrée": "Input action",
+        "Action de sortie": "Exit action",
+        "Décocher pour desactiver l\\'action": "Uncheck to disable the action",
+        "Cocher pour que la commande s\\'éxecute en parrallele des autres actions": "Check for the command to be executed in parallel with other actions",
+        "Sélectionner un mot-clé": "Select a keyword",
+        "Nom du scene": "Scene name",
+        "Supprimer": "Delete"
+    },
+    "plugins\/ash\/core\/php\/jeeAsh.php": {
+        "Vous n\\'etes pas autorisé à effectuer cette action. Clef API invalide. Merci de corriger la clef API sur votre page profils du market et d\\'attendre 24h avant de réessayer.": "You are not authorized to perform this action. Invalid API key. Please correct the API key on your market profiles page and wait 24 hours before trying again.",
+        "Configuration OK": "Configuration OK"
+    },
+    "plugins\/ash\/core\/ajax\/ash.ajax.php": {
+        "401 - Accès non autorisé": "401 - Unauthorized access",
+        "Device non trouvé : ": "Device not found:",
+        "Aucune méthode correspondante à : ": "No method corresponding to:"
+    },
+    "plugins\/ash\/core\/class\/ash_thermostat.class.php": {
+        "Thermostat": "Thermostat",
+        "Consigne": "Instructions",
+        "Etat themostat ": "State themostat",
+        "Mode": "Fashion"
+    },
+    "plugins\/ash\/core\/class\/ash.class.php": {
+        "Deux équipements et\/ou scène avec le meme nom : ": "Two equipments and \/ or stage with the same name:"
+    },
+    "plugins\/ash\/core\/class\/ash_scene.class.php": {
+        "Erreur lors de l\\'éxecution de ": "Error while executing",
+        ". Détails : ": ". Details:"
+    },
+    "plugins\/ash\/core\/class\/ash_sensors.class.php": {
+        "Contacteur": "Contactor",
+        "Mouvement": "Movement",
+        "Température": "Temperature"
+    },
+    "plugins\/ash\/core\/class\/ash_shutter.class.php": {
+        "Position": "Position",
+        "On": "We",
+        "Off": "Off",
+        "Etat": "State"
+    },
+    "plugins\/ash\/core\/class\/ash_outlet.class.php": {
+        "Position": "Position",
+        "On": "We",
+        "Off": "Off",
+        "Etat": "State"
+    },
+    "plugins\/ash\/core\/class\/ash_light.class.php": {
+        "On": "We",
+        "Off": "Off",
+        "Etat": "State",
+        "Luminosité": "Brightness",
+        "Etat luminosité": "Brightness state",
+        "Couleur": "Color",
+        "Etat couleur": "Color status"
+    }
+}
