@@ -56,45 +56,6 @@ class ash extends eqLogic {
 		return $market->getResult();
 	}
 	
-	public static function generateConfiguration() {
-		$return = array(
-			"devPortSmartHome" => config::byKey('ashs::port', 'ash'),
-			"smartHomeProviderClientId" => config::byKey('ashs::clientId', 'ash'),
-			"smartHomeProvideClientSecret" => config::byKey('ashs::clientSecret', 'ash'),
-			"masterkey" => config::byKey('ashs::masterkey', 'ash'),
-			"jeedomTimeout" => config::byKey('ashs::timeout', 'ash'),
-			"url" => config::byKey('ashs::url', 'ash'),
-		);
-		return $return;
-	}
-	
-	public static function generateUserConf() {
-		$return = array(
-			"tokens" => array(
-				config::byKey('ashs::token', 'ash') => array(
-					"uid" => config::byKey('ashs::userid', 'ash'),
-					"accessToken" => config::byKey('ashs::token', 'ash'),
-					"refreshToken" => config::byKey('ashs::token', 'ash'),
-					"userId" => config::byKey('ashs::userid', 'ash'),
-				),
-			),
-			"users" => array(
-				config::byKey('ashs::userid', 'ash') => array(
-					"uid" => config::byKey('ashs::userid', 'ash'),
-					"name" => config::byKey('ashs::username', 'ash'),
-					"password" => sha1(config::byKey('ashs::password', 'ash')),
-					"tokens" => array(config::byKey('ashs::token', 'ash')),
-					"url" => network::getNetworkAccess(config::byKey('ashs::jeedomnetwork', 'ash', 'internal')),
-					"apikey" => jeedom::getApiKey('ash'),
-				),
-			),
-			"usernames" => array(
-				config::byKey('ashs::username', 'ash') => config::byKey('ashs::userid', 'ash'),
-			),
-		);
-		return $return;
-	}
-	
 	public static function sendDevices() {
 		if (config::byKey('mode', 'ash') == 'jeedom') {
 			$request_http = new com_http('https://api-aa.jeedom.com/jeedom/sync');
