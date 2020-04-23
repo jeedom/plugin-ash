@@ -57,8 +57,8 @@ if (!isConnect('admin')) {
 					echo '</td>';
 					echo '<td style="width:150px;">';
 					echo ' <a class="btn btn-success btn-sm bt_advanceConfigureEqLogic" data-id="' . $eqLogic->getId() . '" ><i class="fas fa-cog"></i></a>';
-					echo ' <a class="btn btn-default btn-sm bt_configureEqLogic" data-id="' . $eqLogic->getId() . '"><i class="fa fa-cogs"></i></a>';
-					echo ' <a class="btn btn-default btn-sm" href="' . $eqLogic->getLinkToConfiguration() . '"  target="_blank"><i class="fa fa-external-link"></i></a>';
+					echo ' <a class="btn btn-default btn-sm bt_configureEqLogic" data-id="' . $eqLogic->getId() . '"><i class="fas fa-cogs"></i></a>';
+					echo ' <a class="btn btn-default btn-sm" href="' . $eqLogic->getLinkToConfiguration() . '"  target="_blank"><i class="fas fa-external-link-alt"></i></a>';
 					echo '</td>';
 					echo '</tr>';
 				}

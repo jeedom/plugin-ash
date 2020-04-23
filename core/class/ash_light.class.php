@@ -183,7 +183,7 @@ class ash_light {
 				if (is_object($cmd)) {
 					$cmd->execCmd();
 				}
-			} 
+			}
 			if (isset($_directive['endpoint']['cookie']['cmd_set_slider'])) {
 				$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_slider']);
 				if (is_object($cmd)) {
