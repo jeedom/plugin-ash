@@ -26,11 +26,6 @@ try {
 	
 	ajax::init();
 	
-	if (init('action') == 'sendDevices') {
-		ash::sendDevices();
-		ajax::success();
-	}
-	
 	if (init('action') == 'saveDevices') {
 		$devices = json_decode(init('devices'), true);
 		foreach ($devices as $device_json) {

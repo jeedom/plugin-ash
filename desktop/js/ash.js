@@ -63,31 +63,9 @@ $('#bt_saveConfiguration').on('click',function(){
         $('#div_alert').showAlert({message: data.result, level: 'danger'});
         return;
       }
-      sendDevices();
     },
   });
 });
-
-function sendDevices(){
-  $.ajax({
-    type: "POST",
-    url: "plugins/ash/core/ajax/ash.ajax.php",
-    data: {
-      action: "sendDevices",
-    },
-    dataType: 'json',
-    error: function (request, status, error) {
-      handleAjaxError(request, status, error);
-    },
-    success: function (data) {
-      if (data.state != 'ok') {
-        $('#div_alert').showAlert({message: data.result, level: 'danger'});
-        return;
-      }
-      $('#div_alert').showAlert({message: '{{Synchronisation réussie. Pour voir le status des equipements à jour, merci de rafraichir la page (F5)}}', level: 'success'});
-    },
-  });
-}
 
 function loadData(){
   $("#div_scenes").empty();

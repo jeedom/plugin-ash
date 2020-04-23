@@ -24,6 +24,7 @@ include_file('core', 'ash_thermostat', 'class', 'ash');
 include_file('core', 'ash_scene', 'class', 'ash');
 include_file('core', 'ash_shutter', 'class', 'ash');
 include_file('core', 'ash_sensors', 'class', 'ash');
+include_file('core', 'ash_mode', 'class', 'ash');
 
 class ash extends eqLogic {
 	
@@ -37,6 +38,7 @@ class ash extends eqLogic {
 		'SCENE_TRIGGER' => array('class' => 'ash_scene', 'name' => 'Scene'),
 		'SHUTTER' => array('class' => 'ash_shutter', 'name' => 'Volet'),
 		'SENSORS' => array('class' => 'ash_sensors', 'name' => 'Capteur (mouvement, contact et température)'),
+		'MODE' => array('class' => 'ash_mode', 'name' => 'Mode'),
 	);
 	
 	/*     * ***********************Methode static*************************** */
@@ -54,52 +56,6 @@ class ash extends eqLogic {
 			throw new Exception($market->getError(), $market->getErrorCode());
 		}
 		return $market->getResult();
-	}
-	
-	public static function sendDevices() {
-		if (config::byKey('mode', 'ash') == 'jeedom') {
-			$request_http = new com_http('https://api-aa.jeedom.com/jeedom/sync');
-			$request_http->setPost(http_build_query(array(
-				'apikey' =>  jeedom::getApiKey('ash'),
-				'url' =>  network::getNetworkAccess('external'),
-				'hwkey' =>  jeedom::getHardwareKey(),
-				'data' => json_encode(self::sync())
-			)));
-			$result = $request_http->exec(30);
-			for($i=1;$i<10;$i++){
-				$devices = self::sync($i);
-				if(count($devices['endpoints']) == 0){
-					continue;
-				}
-				$request_http = new com_http('https://api-aa.jeedom.com/jeedom/sync');
-				$request_http->setPost(http_build_query(array(
-					'apikey' =>  jeedom::getApiKey('ash').'-'.$i,
-					'url' =>  network::getNetworkAccess('external'),
-					'hwkey' =>  jeedom::getHardwareKey(),
-					'data' => json_encode($devices)
-				)));
-				$result = $request_http->exec(30);
-			}
-		} else {
-			$request_http = new com_http(trim(config::byKey('ashs::url', 'ash')) . '/jeedom/sync/devices');
-			$post = array(
-				'masterkey' => config::byKey('ashs::masterkey', 'ash'),
-				'userId' => config::byKey('ashs::userid', 'ash'),
-				'data' => json_encode(self::sync(), JSON_UNESCAPED_UNICODE),
-			);
-			$request_http->setPost(http_build_query($post));
-			$result = $request_http->exec(60);
-			if (!is_json($result)) {
-				throw new Exception($result);
-			}
-			$result = json_decode($result, true);
-			if (!isset($result['success']) || !$result['success']) {
-				if (isset($result['message'])) {
-					throw new Exception($result['message']);
-				}
-				throw new Exception(json_encode($result, true));
-			}
-		}
 	}
 	
 	public static function sync($_group='') {
