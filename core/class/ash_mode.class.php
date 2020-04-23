@@ -23,8 +23,8 @@ class ash_mode {
   
   /*     * *************************Attributs****************************** */
   
-  private static $_MODE_STATE = array('MODE_STATE');
-  private static $_MODE_SET_STATE = array('MODE_SET_STATE');
+  private static $_MODE_STATE = array('MODE_STATE','THERMOSTAT_MODE','ALARM_MODE');
+  private static $_MODE_SET_STATE = array('MODE_SET_STATE','THERMOSTAT_SET_MODE','ALARM_SET_MODE');
   
   /*     * ***********************Methode static*************************** */
   
