@@ -237,6 +237,13 @@ class ash_light {
 			$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_get_brightness_state']);
 			if (is_object($cmd)) {
 				$value = $cmd->execCmd();
+				$value = ($value / $cmd->getConfiguration('maxValue',100) * 100) + $cmd->getConfiguration('minValue',0);
+				if($value > 100){
+					$value = 100;
+				}
+				if($value < 0){
+					$value = 0;
+				}
 				$return['Alexa.BrightnessController'] = array(
 					'namespace' => 'Alexa.BrightnessController',
 					'name' => 'brightness',
