@@ -32,8 +32,8 @@
     },
     "plugins\/ash\/desktop\/php\/ash.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
-        "Sauvegarder": "Guardar",
         "Voir la configuration": "Ver configuración",
+        "Sauvegarder": "Guardar",
         "Equipement": "Dispositivos",
         "Scénario": "Escenario",
         "Plugin": "Plugin",
@@ -51,7 +51,6 @@
         "Configuration de l'équipement": "Configuración del dispositivo",
         "Information type générique": "Información de tipo genérico",
         "Configuration avancée": "Configuración avanzada",
-        "Synchronisation réussie. Pour voir le status des equipements à jour, merci de rafraichir la page (F5)": "Sincronización exitosa. Para ver el estado del equipo actualizado, actualice la página (F5)",
         "Configuration péripheriques": "Configuración periférica",
         "Nom de la scene ?": "Nombre de la escena?",
         "Nouveau nom ?": "¿ Nuevo nombre ?",
@@ -61,6 +60,7 @@
         "Cocher pour que la commande s\\'éxecute en parrallele des autres actions": "Marque para que el comando se ejecute en paralelo con las otras acciones",
         "Sélectionner un mot-clé": "Seleccionar una palabra clave",
         "Nom du scene": "Nombre de la escena",
+        "Groupe objet (option nécéssitant un compte market spécifique)": "Grupo de objetos (opción que requiere una cuenta de mercado específica)",
         "Supprimer": "Borrar"
     },
     "plugins\/ash\/core\/php\/jeeAsh.php": {
@@ -95,6 +95,10 @@
         "On": "Uno",
         "Off": "Apagado",
         "Etat": "Estado"
+    },
+    "plugins\/ash\/core\/class\/ash_mode.class.php": {
+        "Mode": "Modo",
+        "Etat mode": "Estado del modo"
     },
     "plugins\/ash\/core\/class\/ash_outlet.class.php": {
         "Position": "Posición",

@@ -1,4 +1,7 @@
 - 
+- Improved shutter support
+- Improved interface
+- 
 
 # 01/23/2020
 

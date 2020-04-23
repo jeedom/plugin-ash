@@ -1,4 +1,7 @@
 - 
+- Soporte de obturador mejorado
+- Interfaz mejorada
+- 
 
 # 23/01/2020
 

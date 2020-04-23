@@ -1,6 +1,9 @@
 {
     "changelog.md": {
         "Correction d'un soucis sur l'allumage des lampes": "",
+        "Amélioration du support des volets": "Verbesserte Verschlussunterstützung",
+        "Amélioration de l'interface": "Verbesserte Oberfläche",
+        "Support des équipements de type mode": "",
         "23\/01\/2020": "23.01.2020",
         "Correction de soucis sur la decouverte d'équipements": "Korrektur von Bedenken hinsichtlich der Entdeckung von Geräten",
         "20\/01\/2020": "20.01.2020",
@@ -17,7 +20,6 @@
         "Envoi automatique des informations au market lors de l'installation du plugin": "Automatisches Senden von Informationen an den Markt bei der Installation des Plugins",
         "23\/06\/2019": "23.06.2019",
         "Mise à jour de la doc": "Aktualisieren des Dokuments",
-        "Amélioration du support des volets": "Verbesserte Verschlussunterstützung",
         "Possibilité d'inverser le sens des volets": "Möglichkeit, die Richtung der Klappen umzukehren",
         "05\/06\/2019": "06\/05\/2019",
         "Correction de bug": "Fehlerbehebung",

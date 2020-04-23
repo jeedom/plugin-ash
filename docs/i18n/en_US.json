@@ -1,6 +1,9 @@
 {
     "changelog.md": {
         "Correction d'un soucis sur l'allumage des lampes": "",
+        "Amélioration du support des volets": "Improved shutter support",
+        "Amélioration de l'interface": "Improved interface",
+        "Support des équipements de type mode": "",
         "23\/01\/2020": "01\/23\/2020",
         "Correction de soucis sur la decouverte d'équipements": "Correction of concerns about equipment discovery",
         "20\/01\/2020": "01\/20\/2020",
@@ -17,7 +20,6 @@
         "Envoi automatique des informations au market lors de l'installation du plugin": "Automatic sending of information to the market when installing the plugin",
         "23\/06\/2019": "06\/23\/2019",
         "Mise à jour de la doc": "Updating the doc",
-        "Amélioration du support des volets": "Improved shutter support",
         "Possibilité d'inverser le sens des volets": "Possibility to reverse the direction of the flaps",
         "05\/06\/2019": "06\/05\/2019",
         "Correction de bug": "Bug fix",

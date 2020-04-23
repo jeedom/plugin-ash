@@ -32,8 +32,8 @@
     },
     "plugins\/ash\/desktop\/php\/ash.php": {
         "401 - Accès non autorisé": "401 - Accesso non autorizzato",
-        "Sauvegarder": "Salva",
         "Voir la configuration": "",
+        "Sauvegarder": "Salva",
         "Equipement": "Dispositivo",
         "Scénario": "Scena",
         "Plugin": "",
@@ -51,7 +51,6 @@
         "Configuration de l'équipement": "Configurazione dell'apparecchiatura",
         "Information type générique": "",
         "Configuration avancée": "Configurazione avanzata",
-        "Synchronisation réussie. Pour voir le status des equipements à jour, merci de rafraichir la page (F5)": "",
         "Configuration péripheriques": "",
         "Nom de la scene ?": "",
         "Nouveau nom ?": "Nuovo nome ?",
@@ -61,6 +60,7 @@
         "Cocher pour que la commande s\\'éxecute en parrallele des autres actions": "Controllare l'ordine di 's \\ eseguiti in parallelo ad altre azioni",
         "Sélectionner un mot-clé": "Seleziona una parola chiave",
         "Nom du scene": "",
+        "Groupe objet (option nécéssitant un compte market spécifique)": "",
         "Supprimer": "Rimuovere"
     },
     "plugins\/ash\/core\/php\/jeeAsh.php": {
@@ -95,6 +95,10 @@
         "On": "",
         "Off": "",
         "Etat": "Stato"
+    },
+    "plugins\/ash\/core\/class\/ash_mode.class.php": {
+        "Mode": "",
+        "Etat mode": ""
     },
     "plugins\/ash\/core\/class\/ash_outlet.class.php": {
         "Position": "Posizione",

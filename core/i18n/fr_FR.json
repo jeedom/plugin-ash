@@ -32,8 +32,8 @@
     },
     "plugins\/ash\/desktop\/php\/ash.php": {
         "401 - Accès non autorisé": "401 - Accès non autorisé",
-        "Sauvegarder": "Sauvegarder",
         "Voir la configuration": "Voir la configuration",
+        "Sauvegarder": "Sauvegarder",
         "Equipement": "Equipement",
         "Scénario": "Scénario",
         "Plugin": "Plugin",
@@ -51,7 +51,6 @@
         "Configuration de l'équipement": "Configuration de l'équipement",
         "Information type générique": "Information type générique",
         "Configuration avancée": "Configuration avancée",
-        "Synchronisation réussie. Pour voir le status des equipements à jour, merci de rafraichir la page (F5)": "Synchronisation réussie. Pour voir le status des equipements à jour, merci de rafraichir la page (F5)",
         "Configuration péripheriques": "Configuration péripheriques",
         "Nom de la scene ?": "Nom de la scene ?",
         "Nouveau nom ?": "Nouveau nom ?",
@@ -61,6 +60,7 @@
         "Cocher pour que la commande s\\'éxecute en parrallele des autres actions": "Cocher pour que la commande s\\'éxecute en parrallele des autres actions",
         "Sélectionner un mot-clé": "Sélectionner un mot-clé",
         "Nom du scene": "Nom du scene",
+        "Groupe objet (option nécéssitant un compte market spécifique)": "Groupe objet (option nécéssitant un compte market spécifique)",
         "Supprimer": "Supprimer"
     },
     "plugins\/ash\/core\/php\/jeeAsh.php": {
@@ -95,6 +95,10 @@
         "On": "On",
         "Off": "Off",
         "Etat": "Etat"
+    },
+    "plugins\/ash\/core\/class\/ash_mode.class.php": {
+        "Mode": "Mode",
+        "Etat mode": "Etat mode"
     },
     "plugins\/ash\/core\/class\/ash_outlet.class.php": {
         "Position": "Position",

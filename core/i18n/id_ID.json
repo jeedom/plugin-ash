@@ -32,8 +32,8 @@
     },
     "plugins\/ash\/desktop\/php\/ash.php": {
         "401 - Accès non autorisé": "401 - Akses tidak sah",
-        "Sauvegarder": "Menyimpan",
         "Voir la configuration": "",
+        "Sauvegarder": "Menyimpan",
         "Equipement": "Peralatan",
         "Scénario": "Skenario",
         "Plugin": "",
@@ -51,7 +51,6 @@
         "Configuration de l'équipement": "Konfigurasi peralatan",
         "Information type générique": "",
         "Configuration avancée": "Konfigurasi lanjutan",
-        "Synchronisation réussie. Pour voir le status des equipements à jour, merci de rafraichir la page (F5)": "",
         "Configuration péripheriques": "",
         "Nom de la scene ?": "",
         "Nouveau nom ?": "Nama baru?",
@@ -61,6 +60,7 @@
         "Cocher pour que la commande s\\'éxecute en parrallele des autres actions": "Periksa untuk urutan \\ 's dieksekusi secara paralel untuk tindakan lainnya",
         "Sélectionner un mot-clé": "Pilih kata kunci",
         "Nom du scene": "",
+        "Groupe objet (option nécéssitant un compte market spécifique)": "",
         "Supprimer": "Menghapus"
     },
     "plugins\/ash\/core\/php\/jeeAsh.php": {
@@ -95,6 +95,10 @@
         "On": "",
         "Off": "",
         "Etat": "Negara"
+    },
+    "plugins\/ash\/core\/class\/ash_mode.class.php": {
+        "Mode": "",
+        "Etat mode": ""
     },
     "plugins\/ash\/core\/class\/ash_outlet.class.php": {
         "Position": "Posisi",

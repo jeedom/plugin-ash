@@ -32,8 +32,8 @@
     },
     "plugins\/ash\/desktop\/php\/ash.php": {
         "401 - Accès non autorisé": "401 - Unauthorized access",
-        "Sauvegarder": "Save",
         "Voir la configuration": "View configuration",
+        "Sauvegarder": "Save",
         "Equipement": "Device",
         "Scénario": "Scenario",
         "Plugin": "Plugin",
@@ -51,7 +51,6 @@
         "Configuration de l'équipement": "Equipment configuration",
         "Information type générique": "Generic type information",
         "Configuration avancée": "Advanced configuration",
-        "Synchronisation réussie. Pour voir le status des equipements à jour, merci de rafraichir la page (F5)": "Synchronization successful. To see the status of the equipment up to date, please refresh the page (F5)",
         "Configuration péripheriques": "Peripheral configuration",
         "Nom de la scene ?": "Name of the scene?",
         "Nouveau nom ?": "New name?",
@@ -61,6 +60,7 @@
         "Cocher pour que la commande s\\'éxecute en parrallele des autres actions": "Check for the command to be executed in parallel with other actions",
         "Sélectionner un mot-clé": "Select a keyword",
         "Nom du scene": "Scene name",
+        "Groupe objet (option nécéssitant un compte market spécifique)": "Object group (option requiring a specific market account)",
         "Supprimer": "Delete"
     },
     "plugins\/ash\/core\/php\/jeeAsh.php": {
@@ -95,6 +95,10 @@
         "On": "On",
         "Off": "Off",
         "Etat": "State"
+    },
+    "plugins\/ash\/core\/class\/ash_mode.class.php": {
+        "Mode": "Fashion",
+        "Etat mode": "Mode state"
     },
     "plugins\/ash\/core\/class\/ash_outlet.class.php": {
         "Position": "Position",

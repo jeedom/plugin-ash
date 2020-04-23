@@ -32,8 +32,8 @@
     },
     "plugins\/ash\/desktop\/php\/ash.php": {
         "401 - Accès non autorisé": "401 - Yetkisiz erişim",
-        "Sauvegarder": "Kaydet",
         "Voir la configuration": "",
+        "Sauvegarder": "Kaydet",
         "Equipement": "Cihaz",
         "Scénario": "Senaryo",
         "Plugin": "Eklenti",
@@ -51,7 +51,6 @@
         "Configuration de l'équipement": "Cihazın ayarları",
         "Information type générique": "",
         "Configuration avancée": "Gelişmiş ayarlar",
-        "Synchronisation réussie. Pour voir le status des equipements à jour, merci de rafraichir la page (F5)": "",
         "Configuration péripheriques": "",
         "Nom de la scene ?": "",
         "Nouveau nom ?": "Yeni isim ?",
@@ -61,6 +60,7 @@
         "Cocher pour que la commande s\\'éxecute en parrallele des autres actions": "Denetleyin diğer eylemlere ilişkin olarak yürütülen sipariş \\ 'ın",
         "Sélectionner un mot-clé": "Anahtar kelime seçin",
         "Nom du scene": "",
+        "Groupe objet (option nécéssitant un compte market spécifique)": "",
         "Supprimer": "Sil"
     },
     "plugins\/ash\/core\/php\/jeeAsh.php": {
@@ -95,6 +95,10 @@
         "On": "",
         "Off": "",
         "Etat": "Durum"
+    },
+    "plugins\/ash\/core\/class\/ash_mode.class.php": {
+        "Mode": "",
+        "Etat mode": ""
     },
     "plugins\/ash\/core\/class\/ash_outlet.class.php": {
         "Position": "Pozisyon",
