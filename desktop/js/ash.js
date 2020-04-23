@@ -281,7 +281,10 @@ function addScene(_scene) {
   div += '<input class="sceneAttr" data-l1key="type" style="display:none;" value="SCENE_TRIGGER" />';
   div += '<span class="sceneAttr label label-info rename cursor" data-l1key="options" data-l2key="name" style="font-size : 1em;" ></span>';
   div += '</div>';
-  div += '<div class="col-sm-8">';
+  div += '<div class="col-sm-2">';
+  div += '<input class="sceneAttr form-control" data-l1key="options" data-l2key="group" placeholder="{{Groupe objet (option nécéssitant un compte market spécifique)}}" />';
+  div += '</div>';
+  div += '<div class="col-sm-6">';
   div += '<div class="btn-group pull-right" role="group">';
   div += '<a class="btn btn-sm bt_removeScene btn-primary"><i class="fa fa-minus-circle"></i> {{Supprimer}}</a>';
   div += '<a class="btn btn-sm bt_addInAction btn-success"><i class="fa fa-plus-circle"></i> {{Action d\'entrée}}</a>';
