@@ -4,8 +4,11 @@ if (!isConnect('admin')) {
 }
 ?>
 <br/>
-<a class="btn btn-success pull-right" id="bt_saveConfiguration"><i class="fas fa-check-circle"></i> {{Sauvegarder}}</a>
-<a class="btn btn-default pull-right" id="bt_displayDevice"><i class="fas fa-eye"></i> {{Voir la configuration}}</a>
+<div class="input-group pull-right" style="display:inline-flex">
+	<span class="input-group-btn">
+		<a class="btn btn-default roundedLeft" id="bt_displayDevice"><i class="fas fa-eye"></i> {{Voir la configuration}}</a><a class="btn btn-success roundedRight" id="bt_saveConfiguration"><i class="fas fa-check-circle"></i> {{Sauvegarder}}</a>
+	</span>
+</div>
 <ul class="nav nav-tabs" role="tablist">
 	<li role="presentation" class="active"><a href="#eqlogictab" aria-controls="home" role="tab" data-toggle="tab"><i class="fas fa-tachometer-alt"></i> {{Equipement}}</a></li>
 	<li role="presentation"><a href="#scenariotab" aria-controls="profile" role="tab" data-toggle="tab"><i class="fas fa-list-alt"></i> {{Scénario}}</a></li>
@@ -56,9 +59,13 @@ if (!isConnect('admin')) {
 					echo '<input class="deviceAttr form-control" data-l1key="options" data-l2key="pseudo" />';
 					echo '</td>';
 					echo '<td style="width:150px;">';
-					echo ' <a class="btn btn-success btn-sm bt_advanceConfigureEqLogic" data-id="' . $eqLogic->getId() . '" ><i class="fas fa-cog"></i></a>';
-					echo ' <a class="btn btn-default btn-sm bt_configureEqLogic" data-id="' . $eqLogic->getId() . '"><i class="fas fa-cogs"></i></a>';
-					echo ' <a class="btn btn-default btn-sm" href="' . $eqLogic->getLinkToConfiguration() . '"  target="_blank"><i class="fas fa-external-link-alt"></i></a>';
+					echo '<div class="input-group">';
+					echo '<span class="input-group-btn">';
+					echo '<a class="btn btn-success btn-sm bt_advanceConfigureEqLogic roundedLeft" data-id="' . $eqLogic->getId() . '" ><i class="fas fa-cog"></i></a>';
+					echo '<a class="btn btn-default btn-sm bt_configureEqLogic" data-id="' . $eqLogic->getId() . '"><i class="fas fa-cogs"></i></a>';
+					echo '<a class="btn btn-default btn-sm roundedRight" href="' . $eqLogic->getLinkToConfiguration() . '"  target="_blank"><i class="fas fa-external-link-alt"></i></a>';
+					echo '</span>';
+					echo '</div>';
 					echo '</td>';
 					echo '</tr>';
 				}
