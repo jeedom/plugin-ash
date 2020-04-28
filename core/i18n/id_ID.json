@@ -74,9 +74,9 @@
     },
     "plugins\/ash\/core\/class\/ash_thermostat.class.php": {
         "Thermostat": "",
-        "Consigne": "",
+        "Consigne": "Pesanan",
         "Etat themostat ": "",
-        "Mode": ""
+        "Mode": "Mode"
     },
     "plugins\/ash\/core\/class\/ash.class.php": {
         "Deux équipements et\/ou scène avec le meme nom : ": ""
@@ -88,7 +88,7 @@
     "plugins\/ash\/core\/class\/ash_sensors.class.php": {
         "Contacteur": "",
         "Mouvement": "",
-        "Température": ""
+        "Température": "Suhu"
     },
     "plugins\/ash\/core\/class\/ash_shutter.class.php": {
         "Position": "Posisi",
@@ -97,7 +97,7 @@
         "Etat": "Negara"
     },
     "plugins\/ash\/core\/class\/ash_mode.class.php": {
-        "Mode": "",
+        "Mode": "Mode",
         "Etat mode": ""
     },
     "plugins\/ash\/core\/class\/ash_outlet.class.php": {
