@@ -37,59 +37,111 @@ class ash_shutter {
 		$return['description'] = $eqLogic->getHumanName();
 		$return['manufacturerName'] = 'Jeedom';
 		$return['cookie'] = array('none' => 'empty');
-		$return['displayCategories'] = array($_device->getType());
+		$return['displayCategories'] = array('INTERIOR_BLIND');
 		$return['capabilities'] = array();
 		foreach ($eqLogic->getCmd() as $cmd) {
-			if (in_array($cmd->getGeneric_type(), self::$_SLIDER)) {
-				$return['capabilities']['Alexa.PercentageController'] = array(
+			if (in_array($cmd->getGeneric_type(), self::$_ON) || in_array($cmd->getGeneric_type(), self::$_OFF) || in_array($cmd->getGeneric_type(), self::$_SLIDER)) {
+				$return['capabilities']['Alexa.RangeController'] = array (
 					'type' => 'AlexaInterface',
-					'interface' => 'Alexa.PercentageController',
+					'interface' => 'Alexa.RangeController',
+					'instance' => 'Blind.Lift',
 					'version' => '3',
-					'properties' => array(
-						'supported' => array(
-							array('name' => 'percentage'),
+					'properties' => array (
+						'supported' => array (
+							array ('name' => 'rangeValue'),
 						),
 						'proactivelyReported' => false,
 						'retrievable' => false,
 					),
-				);
-				$return['cookie']['cmd_set_slider'] = $cmd->getId();
-			}
-			if (in_array($cmd->getGeneric_type(), self::$_ON)) {
-				$return['capabilities']['Alexa.PercentageController'] = array(
-					'type' => 'AlexaInterface',
-					'interface' => 'Alexa.PercentageController',
-					'version' => '3',
-					'properties' => array(
-						'supported' => array(
-							array('name' => 'percentage'),
+					'capabilityResources' => array (
+						'friendlyNames' => array (
+							array (
+								'@type' => 'asset',
+								'value' => array ('assetId' => 'Alexa.Setting.Opening'),
+							),
 						),
-						'proactivelyReported' => false,
-						'retrievable' => false,
+					),
+					'configuration' => array (
+						'supportedRange' => array (
+							'minimumValue' => 0,
+							'maximumValue' => 100,
+							'precision' => 1,
+						),
+						'unitOfMeasure' => 'Alexa.Unit.Percent',
+					),
+					'semantics' => array (
+						'actionMappings' => array (
+							array (
+								'@type' => 'ActionsToDirective',
+								'actions' => array ('Alexa.Actions.Close'),
+								'directive' => array (
+									'name' => 'SetRangeValue',
+									'payload' => array ('rangeValue' => 0),
+								),
+							),
+							array (
+								'@type' => 'ActionsToDirective',
+								'actions' => array ('Alexa.Actions.Open'),
+								'directive' => array (
+									'name' => 'SetRangeValue',
+									'payload' => array ('rangeValue' => 100),
+								),
+							),
+							array (
+								'@type' => 'ActionsToDirective',
+								'actions' => array ('Alexa.Actions.Lower'),
+								'directive' => array (
+									'name' => 'AdjustRangeValue',
+									'payload' => array (
+										'rangeValueDelta' => -10,
+										'rangeValueDeltaDefault' => false,
+									),
+								),
+							),
+							array (
+								'@type' => 'ActionsToDirective',
+								'actions' => array ('Alexa.Actions.Raise'),
+								'directive' => array (
+									'name' => 'AdjustRangeValue',
+									'payload' => array (
+										'rangeValueDelta' => 10,
+										'rangeValueDeltaDefault' => false,
+									),
+								),
+							),
+						),
+						'stateMappings' => array (
+							array (
+								'@type' => 'StatesToValue',
+								'states' => array ('Alexa.States.Closed'),
+								'value' => 0,
+							),
+							array (
+								'@type' => 'StatesToRange',
+								'states' => array ('Alexa.States.Open'),
+								'range' => array (
+									'minimumValue' => 1,
+									'maximumValue' => 100,
+								),
+							),
+						),
 					),
 				);
-				$return['cookie']['cmd_set_on'] = $cmd->getId();
-			}
-			if (in_array($cmd->getGeneric_type(), self::$_OFF)) {
-				$return['capabilities']['Alexa.PercentageController'] = array(
-					'type' => 'AlexaInterface',
-					'interface' => 'Alexa.PercentageController',
-					'version' => '3',
-					'properties' => array(
-						'supported' => array(
-							array('name' => 'percentage'),
-						),
-						'proactivelyReported' => false,
-						'retrievable' => false,
-					),
-				);
-				$return['cookie']['cmd_set_off'] = $cmd->getId();
+				if (in_array($cmd->getGeneric_type(), self::$_ON)) {
+					$return['cookie']['cmd_set_on'] = $cmd->getId();
+				}
+				if (in_array($cmd->getGeneric_type(), self::$_OFF)) {
+					$return['cookie']['cmd_set_off'] = $cmd->getId();
+				}
+				if (in_array($cmd->getGeneric_type(), self::$_SLIDER)) {
+					$return['cookie']['cmd_set_slider'] = $cmd->getId();
+				}
 			}
 		}
 		foreach ($eqLogic->getCmd() as $cmd) {
 			if (in_array($cmd->getGeneric_type(), self::$_STATE)) {
-				if(isset($return['capabilities']['Alexa.PercentageController'])){
-					$return['capabilities']['Alexa.PercentageController']['properties']['retrievable'] = true;
+				if(isset($return['capabilities']['Alexa.RangeController'])){
+					$return['capabilities']['Alexa.RangeController']['properties']['retrievable'] = true;
 				}
 				$return['cookie']['cmd_get_state'] = $cmd->getId();
 			}
@@ -119,32 +171,33 @@ class ash_shutter {
 			throw new Exception('ENDPOINT_UNREACHABLE');
 		}
 		switch ($_directive['header']['name']) {
-			case 'SetPercentage':
+			case 'AdjustRangeValue' :
+			if (isset($_directive['endpoint']['cookie']['cmd_set_slider'])) {
+				if (isset($_directive['endpoint']['cookie']['cmd_get_state'])) {
+					$cmdState = cmd::byId($_directive['endpoint']['cookie']['cmd_get_state']);
+				}
+				if (!is_object($cmdState)) {
+					throw new Exception('ENDPOINT_UNREACHABLE');
+				}
+				$value = $cmd->getConfiguration('minValue', 0) + ($_directive['payload']['rangeValueDelta'] / 100 * ($cmd->getConfiguration('maxValue', 100) - $cmd->getConfiguration('minValue', 0)));
+				$cmd->execCmd(array('slider' => $cmdState->execCmd() + $value));
+			}
+			case 'SetRangeValue':
 			if (isset($_directive['endpoint']['cookie']['cmd_set_slider'])) {
 				$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_slider']);
 				if (!is_object($cmd)) {
 					throw new Exception('ENDPOINT_UNREACHABLE');
 				}
-				if(isset($_directive['payload']['percentage'])){
-					$value = $cmd->getConfiguration('minValue', 0) + ($_directive['payload']['percentage'] / 100 * ($cmd->getConfiguration('maxValue', 100) - $cmd->getConfiguration('minValue', 0)));
+				if(isset($_directive['payload']['rangeValue'])){
+					$value = $cmd->getConfiguration('minValue', 0) + ($_directive['payload']['rangeValue'] / 100 * ($cmd->getConfiguration('maxValue', 100) - $cmd->getConfiguration('minValue', 0)));
 					if($_device->getOptions('shutter::invert',0) == 1){
 						$value = 100 - $value;
 					}
 					$cmd->execCmd(array('slider' => $value));
 				}
-				if(isset($_directive['payload']['percentageDelta'])){
-					if (isset($_directive['endpoint']['cookie']['cmd_get_state'])) {
-						$cmdState = cmd::byId($_directive['endpoint']['cookie']['cmd_get_state']);
-					}
-					if (!is_object($cmdState)) {
-						throw new Exception('ENDPOINT_UNREACHABLE');
-					}
-					$value = $cmd->getConfiguration('minValue', 0) + ($_directive['payload']['percentageDelta'] / 100 * ($cmd->getConfiguration('maxValue', 100) - $cmd->getConfiguration('minValue', 0)));
-					$cmd->execCmd(array('slider' => $cmdState->execCmd() + $value));
-				}
 				break;
 			}
-			if($_directive['payload']['percentage'] > 50){
+			if($_directive['payload']['rangeValue'] > 50){
 				if (isset($_directive['endpoint']['cookie']['cmd_set_on'])) {
 					$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_on']);
 				}
@@ -165,6 +218,7 @@ class ash_shutter {
 		}
 		return self::getState($_device, $_directive);
 	}
+	
 	public static function getState($_device, $_directive) {
 		$return = array();
 		$cmd = null;
@@ -175,8 +229,9 @@ class ash_shutter {
 			return $return;
 		}
 		$return[] = array(
-			'namespace' => 'Alexa.PercentageController',
-			'name' => 'percentage',
+			'namespace' => 'Alexa.RangeController',
+			'instance' => 'Blind.Lift',
+			'name' => 'rangeValue',
 			'value' => $cmd->execCmd(),
 			'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
 			'uncertaintyInMilliseconds' => 0,

@@ -37,7 +37,7 @@ class ash_sensors {
 		$return['description'] = $eqLogic->getHumanName();
 		$return['manufacturerName'] = 'Jeedom';
 		$return['cookie'] = array('none' => 'empty');
-		$return['displayCategories'] = array($_device->getType());
+		$return['displayCategories'] = array();
 		$return['capabilities'] = array();
 		foreach ($eqLogic->getCmd() as $cmd) {
 			if (in_array($cmd->getGeneric_type(), self::$_CONTACT)) {

@@ -180,16 +180,15 @@ class ash_light {
 			case 'TurnOn':
 			if (isset($_directive['endpoint']['cookie']['cmd_set_on'])) {
 				$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_on']);
-			} else if (isset($_directive['endpoint']['cookie']['cmd_set_slider'])) {
+				if (is_object($cmd)) {
+					$cmd->execCmd();
+				}
+			}
+			if (isset($_directive['endpoint']['cookie']['cmd_set_slider'])) {
 				$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_slider']);
-			}
-			if (!is_object($cmd)) {
-				throw new Exception('ENDPOINT_UNREACHABLE');
-			}
-			if ($cmd->getSubtype() == 'other') {
-				$cmd->execCmd();
-			} else if ($cmd->getSubtype() == 'slider') {
-				$cmd->execCmd(array('slider' => 100));
+				if (is_object($cmd)) {
+					$cmd->execCmd(array('slider' => 100));
+				}
 			}
 			break;
 			case 'TurnOff':
@@ -238,6 +237,13 @@ class ash_light {
 			$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_get_brightness_state']);
 			if (is_object($cmd)) {
 				$value = $cmd->execCmd();
+				$value = ($value / $cmd->getConfiguration('maxValue',100) * 100) + $cmd->getConfiguration('minValue',0);
+				if($value > 100){
+					$value = 100;
+				}
+				if($value < 0){
+					$value = 0;
+				}
 				$return['Alexa.BrightnessController'] = array(
 					'namespace' => 'Alexa.BrightnessController',
 					'name' => 'brightness',
