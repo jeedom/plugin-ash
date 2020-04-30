@@ -1,5 +1,6 @@
 {
     "changelog.md": {
+        "28\/04\/2020": "",
         "Correction d'un soucis sur l'allumage des lampes": "",
         "Amélioration du support des volets": "Soporte de obturador mejorado",
         "Amélioration de l'interface": "Interfaz mejorada",
@@ -56,8 +57,6 @@
         "Il peut fonctionner en passant par un service cloud mis à disposition par Jeedom": "Puede operar a través de un servicio en la nube proporcionado por Jeedom",
         "Important": "Importante",
         "Le plugin necessite un abonnement aux services vocaux": "El complemento requiere una suscripción a los servicios de voz.",
-        "Vous pouvez gérer votre abonnement [ici](https": "Puede administrar su suscripción [aquí] (https",
-        "\/\/www.jeedom.com\/market\/index.php": "\/\/www.jeedom.com\/market\/index.php",
         "Le plugin ne supporte pas les équipement avec des double fonction (2 sortie comme certain module zwave Fibaro)": "El complemento no es compatible con equipos con funciones duales (2 salidas como cierto módulo zwave Fibaro)",
         "Il faut absolument passer par 2 virtuels pour le décomposer": "Absolutamente tienes que pasar por 2 virtuales para descomponerlo",
         "Mise en place de la connexion vers Alexa": "Establecer la conexión a Alexa",
@@ -66,8 +65,6 @@
         "Configuration Market": "Mercado de la configuración",
         "Après l'installation du plugin, il vous suffit d'aller dans la partie configuration du plugin puis de cliquer sur envoyer la configuration au market": "Después de instalar el complemento, solo necesita ir a la parte de configuración del complemento y luego hacer clic en enviar la configuración al mercado",
         "Configuration Alexa": "Configuración de Alexa",
-        "Une fois le service bien actif il faut sur l'application Alexa ou sur le [site web](https": "Una vez que el servicio está activo, debe hacerlo en la aplicación Alexa o en el [sitio web] (https",
-        "\/\/alexa.amazon.fr\/spa\/index": "\/\/alexa.amazon.fr\/spa\/index",
         "html) aller dans la partie skill et chercher le skill Jeedom puis l'activer, la il vous demandera des identifants il faut mettre ceux du market (attention bien mettre vos identifiants market et non ceux de votre Jeedom)": "html) vaya a la parte de habilidad y busque la habilidad Jeedom y luego actívela, allí le pedirá identificadores que debe colocar en el mercado (tenga cuidado de poner sus identificadores de mercado y no los de su Jeedom)",
         "Si vous avez un message d'erreur vous indiquants que votre mot de passe ou non d'utilisateur n'est pas bon il faut": "Si tiene un mensaje de error que le indica que su contraseña de usuario o no es correcta, debe",
         "vérifier qu'Amazon Alexa est bien en actif sur le market": "compruebe que Amazon Alexa esté activa en el mercado",
@@ -78,8 +75,6 @@
         "Sur votre Jeedom, allez sur Plugin -> Communication -> Alexa et dans la partie équipement sélectionnez les équipements à transmettre à Alexa ainsi que le type de l'équipement": "En su Jeedom, vaya a Complemento -> Comunicación -> Alexa y en la sección de equipos seleccione el equipo que se transmitirá a Alexa, así como el tipo de equipo",
         "Le plugin se base sur les types génériques de Jeedom des commandes pour piloter votre domotique": "El complemento se basa en los tipos genéricos de comandos Jeedom para controlar la automatización de su hogar.",
         "Il est donc très important de configurer ceux-ci correctement": "Por lo tanto, es muy importante configurarlos correctamente",
-        "Vous pouvez voir [ici](https": "Puedes ver [aquí] (https",
-        "\/\/jeedom.github": "\/\/jeedom.github",
         "io\/plugin-mobile\/fr_FR\/#tocAnchor-1-6) des explications sur les generiques type": "io \/ plugin-mobile \/ fr_FR \/ # tocAnchor-1-6) explicaciones sobre créditos genéricos",
         "Vous pouvez aussi créer des scènes dans l'onglet scène, avec des actions d'entrée et de sortie": "También puede crear escenas en la pestaña de escena, con acciones de entrada y salida.",
         "Si vous n'envoyez aucun équipement (aucun OK dans la liste des équipements sur le plugin Alexa), Amazon considere que c'est une erreur et reprend la derniere configuration connue": "Si no envía ningún equipo (no está bien en la lista de equipos en el complemento de Alexa), Amazon considera que es un error y utiliza la última configuración conocida",

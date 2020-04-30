@@ -74,9 +74,9 @@
     },
     "plugins\/ash\/core\/class\/ash_thermostat.class.php": {
         "Thermostat": "",
-        "Consigne": "",
+        "Consigne": "Ordem",
         "Etat themostat ": "",
-        "Mode": ""
+        "Mode": "Modo"
     },
     "plugins\/ash\/core\/class\/ash.class.php": {
         "Deux équipements et\/ou scène avec le meme nom : ": ""
@@ -88,7 +88,7 @@
     "plugins\/ash\/core\/class\/ash_sensors.class.php": {
         "Contacteur": "",
         "Mouvement": "",
-        "Température": ""
+        "Température": "Temperatura"
     },
     "plugins\/ash\/core\/class\/ash_shutter.class.php": {
         "Position": "Posição",
@@ -97,7 +97,7 @@
         "Etat": "Estado"
     },
     "plugins\/ash\/core\/class\/ash_mode.class.php": {
-        "Mode": "",
+        "Mode": "Modo",
         "Etat mode": ""
     },
     "plugins\/ash\/core\/class\/ash_outlet.class.php": {
