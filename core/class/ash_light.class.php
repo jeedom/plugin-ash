@@ -189,7 +189,7 @@ class ash_light {
 			if ($cmd->getSubtype() == 'other') {
 				$cmd->execCmd();
 			} else if ($cmd->getSubtype() == 'slider') {
-				$cmd->execCmd(array('slider' => 100));
+				$cmd->execCmd(array('slider' => $cmd->getConfiguration('maxValue', 100)));
 			}
 			break;
 			case 'TurnOff':
