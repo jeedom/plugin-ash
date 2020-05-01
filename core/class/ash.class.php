@@ -24,6 +24,7 @@ include_file('core', 'ash_thermostat', 'class', 'ash');
 include_file('core', 'ash_scene', 'class', 'ash');
 include_file('core', 'ash_shutter', 'class', 'ash');
 include_file('core', 'ash_sensors', 'class', 'ash');
+include_file('core', 'ash_mode', 'class', 'ash');
 
 class ash extends eqLogic {
 	
@@ -37,6 +38,7 @@ class ash extends eqLogic {
 		'SCENE_TRIGGER' => array('class' => 'ash_scene', 'name' => 'Scene'),
 		'SHUTTER' => array('class' => 'ash_shutter', 'name' => 'Volet'),
 		'SENSORS' => array('class' => 'ash_sensors', 'name' => 'Capteur (mouvement, contact et température)'),
+		'MODE' => array('class' => 'ash_mode', 'name' => 'Mode'),
 	);
 	
 	/*     * ***********************Methode static*************************** */
@@ -56,99 +58,22 @@ class ash extends eqLogic {
 		return $market->getResult();
 	}
 	
-	public static function generateConfiguration() {
-		$return = array(
-			"devPortSmartHome" => config::byKey('ashs::port', 'ash'),
-			"smartHomeProviderClientId" => config::byKey('ashs::clientId', 'ash'),
-			"smartHomeProvideClientSecret" => config::byKey('ashs::clientSecret', 'ash'),
-			"masterkey" => config::byKey('ashs::masterkey', 'ash'),
-			"jeedomTimeout" => config::byKey('ashs::timeout', 'ash'),
-			"url" => config::byKey('ashs::url', 'ash'),
-		);
-		return $return;
-	}
-	
-	public static function generateUserConf() {
-		$return = array(
-			"tokens" => array(
-				config::byKey('ashs::token', 'ash') => array(
-					"uid" => config::byKey('ashs::userid', 'ash'),
-					"accessToken" => config::byKey('ashs::token', 'ash'),
-					"refreshToken" => config::byKey('ashs::token', 'ash'),
-					"userId" => config::byKey('ashs::userid', 'ash'),
-				),
-			),
-			"users" => array(
-				config::byKey('ashs::userid', 'ash') => array(
-					"uid" => config::byKey('ashs::userid', 'ash'),
-					"name" => config::byKey('ashs::username', 'ash'),
-					"password" => sha1(config::byKey('ashs::password', 'ash')),
-					"tokens" => array(config::byKey('ashs::token', 'ash')),
-					"url" => network::getNetworkAccess(config::byKey('ashs::jeedomnetwork', 'ash', 'internal')),
-					"apikey" => jeedom::getApiKey('ash'),
-				),
-			),
-			"usernames" => array(
-				config::byKey('ashs::username', 'ash') => config::byKey('ashs::userid', 'ash'),
-			),
-		);
-		return $return;
-	}
-	
-	public static function sendDevices() {
-		if (config::byKey('mode', 'ash') == 'jeedom') {
-			$request_http = new com_http('https://api-aa.jeedom.com/jeedom/sync');
-			$request_http->setPost(http_build_query(array(
-				'apikey' =>  jeedom::getApiKey('ash'),
-				'url' =>  network::getNetworkAccess('external'),
-				'hwkey' =>  jeedom::getHardwareKey(),
-				'data' => json_encode(self::sync())
-			)));
-			$result = $request_http->exec(30);
-			for($i=1;$i<10;$i++){
-				$devices = self::sync($i);
-				if(count($devices['endpoints']) == 0){
-					continue;
-				}
-				$request_http = new com_http('https://api-aa.jeedom.com/jeedom/sync');
-				$request_http->setPost(http_build_query(array(
-					'apikey' =>  jeedom::getApiKey('ash').'-'.$i,
-					'url' =>  network::getNetworkAccess('external'),
-					'hwkey' =>  jeedom::getHardwareKey(),
-					'data' => json_encode($devices)
-				)));
-				$result = $request_http->exec(30);
-			}
-		} else {
-			$request_http = new com_http(trim(config::byKey('ashs::url', 'ash')) . '/jeedom/sync/devices');
-			$post = array(
-				'masterkey' => config::byKey('ashs::masterkey', 'ash'),
-				'userId' => config::byKey('ashs::userid', 'ash'),
-				'data' => json_encode(self::sync(), JSON_UNESCAPED_UNICODE),
-			);
-			$request_http->setPost(http_build_query($post));
-			$result = $request_http->exec(60);
-			if (!is_json($result)) {
-				throw new Exception($result);
-			}
-			$result = json_decode($result, true);
-			if (!isset($result['success']) || !$result['success']) {
-				if (isset($result['message'])) {
-					throw new Exception($result['message']);
-				}
-				throw new Exception(json_encode($result, true));
-			}
-		}
-	}
-	
 	public static function sync($_group='') {
 		$return = array();
 		$devices = ash_devices::all(true);
+		$names = array();
 		foreach ($devices as $device) {
 			if($device->getOptions('group') != '' && $device->getOptions('group') != $_group){
 				continue;
 			}
 			$info = $device->buildDevice();
+			if(isset($names[$info['friendlyName']])){
+				log::add('ash','error',__('Deux équipements et/ou scène avec le meme nom : ',__FILE__).$info['friendlyName']);
+				$device->setOptions('configState', 'NOK');
+				$device->save();
+				continue;
+			}
+			$names[$info['friendlyName']] = $info['friendlyName'];
 			if (!is_array($info) || count($info) == 0 || isset($info['missingGenericType'])) {
 				$device->setOptions('configState', 'NOK');
 				if(isset($info['missingGenericType'])){

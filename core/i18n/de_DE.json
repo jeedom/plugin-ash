@@ -1,0 +1,118 @@
+{
+    "plugins\/ash\/plugin_info\/configuration.php": {
+        "Attention votre connexion externe ne semble pas etre en https, ce plugin nécessite ABSOLUMENT une connexion https. Si vous ne savez pas comment faire vous pouvez souscrire à un service pack power pour utiliser le service de DNS Jeedom": "Bitte beachten Sie, dass Ihre externe Verbindung nicht in https zu sein scheint. Dieses Plugin erfordert ABSOLUT eine https-Verbindung. Wenn Sie nicht wissen, wie, können Sie ein Netzteil abonnieren, um den Jeedom-DNS-Dienst zu nutzen",
+        "Attention il faut attendre 24h suite à l'envoi de la configuration pour que ca soit pris en compte.": "Bitte beachten Sie, dass Sie nach dem Senden der Konfiguration 24 Stunden warten müssen, bis sie berücksichtigt wird.",
+        "Abonnement service assistant vocaux": "Abonnement des Sprachassistenten-Dienstes",
+        "Votre abonnement aux services assistant vocaux fini le ": "Ihr Abonnement für Sprachassistentendienste endete am",
+        "Pour le prolonger, allez": "Um es zu erweitern, gehen Sie",
+        "ici": "hier",
+        "Votre abonnement aux services assistant vocaux est illimité.": "Ihr Abonnement für Sprachassistentendienste ist unbegrenzt.",
+        "Votre abonnement aux services assistant vocaux est fini.": "Ihr Abonnement für Sprachassistentendienste ist beendet.",
+        "Envoyer configuration au market": "Konfiguration an den Markt senden",
+        "Envoyer": "Senden",
+        "Configuration envoyée avec succès.": "Konfiguration erfolgreich gesendet."
+    },
+    "plugins\/ash\/desktop\/modal\/advanceConfig.php": {
+        "Eqlogic ID non valide : ": "Ungültige Eqlogic ID:",
+        "Device non trouvé": "Gerät nicht gefunden",
+        "Aucun type configuré pour ce périphérique": "Kein Typ für dieses Gerät konfiguriert",
+        "Groupe objet (option nécéssitant un compte market spécifique)": "Objektgruppe (Option, die ein bestimmtes Marktkonto erfordert)",
+        "Sauvegarder": "Speichern",
+        "Configuration": "Konfiguration",
+        "Inverser": "Umgekehrt",
+        "Il n\\'y a aucune configuration avancée pour ce type": "Für diesen Typ gibt es keine erweiterte Konfiguration",
+        "Sauvegarde réussi, pensez à relancer une synchronisation": "Sicherung erfolgreich, denken Sie daran, die Synchronisierung neu zu starten"
+    },
+    "plugins\/ash\/desktop\/modal\/showNeedGenericType.php": {
+        "Eqlogic ID non valide : ": "Ungültige Eqlogic ID:",
+        "Device non trouvé": "Gerät nicht gefunden",
+        "Aucun type configuré pour ce périphérique": "Kein Typ für dieses Gerät konfiguriert",
+        "Aucune information disponible": "Keine Informationen verfügbar",
+        "Voici les générique type qui sont utilisation avec votre type d\\'équipement. Attention il ne faut pas forcement tous les avoir sur l\\'équipement (ou n\\'en avoir aucun)": "Hier sind die generischen Typen, die für Ihren Gerätetyp verwendet werden. Achtung, es ist nicht unbedingt notwendig, alle auf dem Gerät zu haben (oder keine zu haben)."
+    },
+    "plugins\/ash\/desktop\/php\/ash.php": {
+        "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
+        "Voir la configuration": "Konfiguration anzeigen",
+        "Sauvegarder": "Speichern",
+        "Equipement": "Gerät",
+        "Scénario": "Szenario",
+        "Plugin": "Plugin",
+        "Options": "Optionen",
+        "Status": "STATUS",
+        "Type": "Typ",
+        "Pseudo": "Spitzname",
+        "Action": "Aktion",
+        "Transmettre": "Senden",
+        "Aucun": "Ohne",
+        " . $value['name'] . ": ". $ value ['name'].",
+        "Ajouter scène": "Szene hinzufügen"
+    },
+    "plugins\/ash\/desktop\/js\/ash.js": {
+        "Configuration de l'équipement": "Gerätekonfiguration",
+        "Information type générique": "Allgemeine Typinformationen",
+        "Configuration avancée": "Erweiterte Konfiguration",
+        "Configuration péripheriques": "Peripheriekonfiguration",
+        "Nom de la scene ?": "Name der Szene?",
+        "Nouveau nom ?": "Neuer Name",
+        "Action d\\'entrée": "Eingabeaktion",
+        "Action de sortie": "Aktion beenden",
+        "Décocher pour desactiver l\\'action": "Auswählen, um die Aktion zu deaktivieren",
+        "Cocher pour que la commande s\\'éxecute en parrallele des autres actions": "Überprüfen Sie, ob der Befehl parallel zu den anderen Aktionen ausgeführt wird",
+        "Sélectionner un mot-clé": "Schlüsselwort auswählen",
+        "Nom du scene": "Name der Szene",
+        "Groupe objet (option nécéssitant un compte market spécifique)": "Objektgruppe (Option, die ein bestimmtes Marktkonto erfordert)",
+        "Supprimer": "Löschen"
+    },
+    "plugins\/ash\/core\/php\/jeeAsh.php": {
+        "Vous n\\'etes pas autorisé à effectuer cette action. Clef API invalide. Merci de corriger la clef API sur votre page profils du market et d\\'attendre 24h avant de réessayer.": "Sie sind nicht berechtigt, diese Aktion auszuführen. Ungültiger API-Schlüssel. Bitte korrigieren Sie den API-Schlüssel auf Ihrer Marktprofilseite und warten Sie 24 Stunden, bevor Sie es erneut versuchen.",
+        "Configuration OK": "Konfiguration OK"
+    },
+    "plugins\/ash\/core\/ajax\/ash.ajax.php": {
+        "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
+        "Device non trouvé : ": "Gerät nicht gefunden:",
+        "Aucune méthode correspondante à : ": "Keine Methode entsprechend:"
+    },
+    "plugins\/ash\/core\/class\/ash_thermostat.class.php": {
+        "Thermostat": "Thermostat",
+        "Consigne": "Anleitung",
+        "Etat themostat ": "Geben Sie den Status an",
+        "Mode": "Modus"
+    },
+    "plugins\/ash\/core\/class\/ash.class.php": {
+        "Deux équipements et\/ou scène avec le meme nom : ": "Zwei gleichnamige Geräte und \/ oder Bühnen:"
+    },
+    "plugins\/ash\/core\/class\/ash_scene.class.php": {
+        "Erreur lors de l\\'éxecution de ": "Fehler beim Ausführen",
+        ". Détails : ": ". Details:"
+    },
+    "plugins\/ash\/core\/class\/ash_sensors.class.php": {
+        "Contacteur": "Schütz",
+        "Mouvement": "Bewegung",
+        "Température": "Temperatur"
+    },
+    "plugins\/ash\/core\/class\/ash_shutter.class.php": {
+        "Position": "Position",
+        "On": "Ein",
+        "Off": "Aus",
+        "Etat": "Zustand"
+    },
+    "plugins\/ash\/core\/class\/ash_mode.class.php": {
+        "Mode": "Modus",
+        "Etat mode": "Modusstatus"
+    },
+    "plugins\/ash\/core\/class\/ash_outlet.class.php": {
+        "Position": "Position",
+        "On": "Ein",
+        "Off": "Aus",
+        "Etat": "Zustand"
+    },
+    "plugins\/ash\/core\/class\/ash_light.class.php": {
+        "On": "Ein",
+        "Off": "Aus",
+        "Etat": "Zustand",
+        "Luminosité": "Helligkeit",
+        "Etat luminosité": "Helligkeitszustand",
+        "Couleur": "Farbe",
+        "Etat couleur": "Farbstatus"
+    }
+}

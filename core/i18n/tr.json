@@ -1,0 +1,118 @@
+{
+    "plugins\/ash\/plugin_info\/configuration.php": {
+        "Attention votre connexion externe ne semble pas etre en https, ce plugin nécessite ABSOLUMENT une connexion https. Si vous ne savez pas comment faire vous pouvez souscrire à un service pack power pour utiliser le service de DNS Jeedom": "",
+        "Attention il faut attendre 24h suite à l'envoi de la configuration pour que ca soit pris en compte.": "",
+        "Abonnement service assistant vocaux": "",
+        "Votre abonnement aux services assistant vocaux fini le ": "",
+        "Pour le prolonger, allez": "",
+        "ici": "burada",
+        "Votre abonnement aux services assistant vocaux est illimité.": "",
+        "Votre abonnement aux services assistant vocaux est fini.": "",
+        "Envoyer configuration au market": "",
+        "Envoyer": "Gönder",
+        "Configuration envoyée avec succès.": ""
+    },
+    "plugins\/ash\/desktop\/modal\/advanceConfig.php": {
+        "Eqlogic ID non valide : ": "",
+        "Device non trouvé": "",
+        "Aucun type configuré pour ce périphérique": "",
+        "Groupe objet (option nécéssitant un compte market spécifique)": "",
+        "Sauvegarder": "Kaydet",
+        "Configuration": "Ayar",
+        "Inverser": "Ters çevir",
+        "Il n\\'y a aucune configuration avancée pour ce type": "",
+        "Sauvegarde réussi, pensez à relancer une synchronisation": ""
+    },
+    "plugins\/ash\/desktop\/modal\/showNeedGenericType.php": {
+        "Eqlogic ID non valide : ": "",
+        "Device non trouvé": "",
+        "Aucun type configuré pour ce périphérique": "",
+        "Aucune information disponible": "",
+        "Voici les générique type qui sont utilisation avec votre type d\\'équipement. Attention il ne faut pas forcement tous les avoir sur l\\'équipement (ou n\\'en avoir aucun)": ""
+    },
+    "plugins\/ash\/desktop\/php\/ash.php": {
+        "401 - Accès non autorisé": "401 - Yetkisiz erişim",
+        "Voir la configuration": "",
+        "Sauvegarder": "Kaydet",
+        "Equipement": "Cihaz",
+        "Scénario": "Senaryo",
+        "Plugin": "Eklenti",
+        "Options": "Opsiyonlar",
+        "Status": "Durum",
+        "Type": "Çeşit",
+        "Pseudo": "",
+        "Action": "Eylem",
+        "Transmettre": "",
+        "Aucun": "Hiçbir",
+        " . $value['name'] . ": "",
+        "Ajouter scène": ""
+    },
+    "plugins\/ash\/desktop\/js\/ash.js": {
+        "Configuration de l'équipement": "Cihazın ayarları",
+        "Information type générique": "",
+        "Configuration avancée": "Gelişmiş ayarlar",
+        "Configuration péripheriques": "",
+        "Nom de la scene ?": "",
+        "Nouveau nom ?": "Yeni isim ?",
+        "Action d\\'entrée": "",
+        "Action de sortie": "",
+        "Décocher pour desactiver l\\'action": "\\ Eylem devre dışı bırakmak için işaretini kaldırın",
+        "Cocher pour que la commande s\\'éxecute en parrallele des autres actions": "Denetleyin diğer eylemlere ilişkin olarak yürütülen sipariş \\ 'ın",
+        "Sélectionner un mot-clé": "Anahtar kelime seçin",
+        "Nom du scene": "",
+        "Groupe objet (option nécéssitant un compte market spécifique)": "",
+        "Supprimer": "Sil"
+    },
+    "plugins\/ash\/core\/php\/jeeAsh.php": {
+        "Vous n\\'etes pas autorisé à effectuer cette action. Clef API invalide. Merci de corriger la clef API sur votre page profils du market et d\\'attendre 24h avant de réessayer.": "",
+        "Configuration OK": ""
+    },
+    "plugins\/ash\/core\/ajax\/ash.ajax.php": {
+        "401 - Accès non autorisé": "401 - Yetkisiz erişim",
+        "Device non trouvé : ": "",
+        "Aucune méthode correspondante à : ": "Aşağıdakilere karşılık gelen bir yöntem yok:"
+    },
+    "plugins\/ash\/core\/class\/ash_thermostat.class.php": {
+        "Thermostat": "",
+        "Consigne": "Talimat",
+        "Etat themostat ": "",
+        "Mode": "Mod"
+    },
+    "plugins\/ash\/core\/class\/ash.class.php": {
+        "Deux équipements et\/ou scène avec le meme nom : ": ""
+    },
+    "plugins\/ash\/core\/class\/ash_scene.class.php": {
+        "Erreur lors de l\\'éxecution de ": "Yürütülürken hata oluştu",
+        ". Détails : ": ". Detaylar:"
+    },
+    "plugins\/ash\/core\/class\/ash_sensors.class.php": {
+        "Contacteur": "",
+        "Mouvement": "",
+        "Température": "Sıcaklık"
+    },
+    "plugins\/ash\/core\/class\/ash_shutter.class.php": {
+        "Position": "Pozisyon",
+        "On": "",
+        "Off": "",
+        "Etat": "Durum"
+    },
+    "plugins\/ash\/core\/class\/ash_mode.class.php": {
+        "Mode": "Mod",
+        "Etat mode": ""
+    },
+    "plugins\/ash\/core\/class\/ash_outlet.class.php": {
+        "Position": "Pozisyon",
+        "On": "",
+        "Off": "",
+        "Etat": "Durum"
+    },
+    "plugins\/ash\/core\/class\/ash_light.class.php": {
+        "On": "",
+        "Off": "",
+        "Etat": "Durum",
+        "Luminosité": "",
+        "Etat luminosité": "",
+        "Couleur": "Renk",
+        "Etat couleur": ""
+    }
+}

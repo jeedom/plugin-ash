@@ -1,0 +1,118 @@
+{
+    "plugins\/ash\/plugin_info\/configuration.php": {
+        "Attention votre connexion externe ne semble pas etre en https, ce plugin nécessite ABSOLUMENT une connexion https. Si vous ne savez pas comment faire vous pouvez souscrire à un service pack power pour utiliser le service de DNS Jeedom": "Observe que sua conexão externa não parece estar em https; este plug-in requer ABSOLUTAMENTE uma conexão https. Se você não souber como fazer isso, poderá se inscrever em um pacote de energia para usar o serviço DNS Jeedom",
+        "Attention il faut attendre 24h suite à l'envoi de la configuration pour que ca soit pris en compte.": "Observe que você deve esperar 24 horas após o envio da configuração para que ela seja levada em consideração.",
+        "Abonnement service assistant vocaux": "Assinatura do serviço de assistente de voz",
+        "Votre abonnement aux services assistant vocaux fini le ": "Sua assinatura dos serviços de assistente de voz terminou em",
+        "Pour le prolonger, allez": "Para estendê-lo, vá",
+        "ici": "aqui",
+        "Votre abonnement aux services assistant vocaux est illimité.": "Sua assinatura dos serviços de assistente de voz é ilimitada.",
+        "Votre abonnement aux services assistant vocaux est fini.": "Sua assinatura dos serviços de assistente de voz está concluída.",
+        "Envoyer configuration au market": "Enviar configuração ao mercado",
+        "Envoyer": "Enviar",
+        "Configuration envoyée avec succès.": "Configuração enviada com sucesso."
+    },
+    "plugins\/ash\/desktop\/modal\/advanceConfig.php": {
+        "Eqlogic ID non valide : ": "ID Eqlogic inválido:",
+        "Device non trouvé": "Dispositivo não encontrado",
+        "Aucun type configuré pour ce périphérique": "Nenhum tipo configurado para este dispositivo",
+        "Groupe objet (option nécéssitant un compte market spécifique)": "Grupo de objetos (opção que requer uma conta de mercado específica)",
+        "Sauvegarder": "Salvar",
+        "Configuration": "Configuração",
+        "Inverser": "Inverter",
+        "Il n\\'y a aucune configuration avancée pour ce type": "Não há configuração avançada para este tipo",
+        "Sauvegarde réussi, pensez à relancer une synchronisation": "Backup bem-sucedido, lembre-se de reiniciar a sincronização"
+    },
+    "plugins\/ash\/desktop\/modal\/showNeedGenericType.php": {
+        "Eqlogic ID non valide : ": "ID Eqlogic inválido:",
+        "Device non trouvé": "Dispositivo não encontrado",
+        "Aucun type configuré pour ce périphérique": "Nenhum tipo configurado para este dispositivo",
+        "Aucune information disponible": "Nenhuma informação disponível",
+        "Voici les générique type qui sont utilisation avec votre type d\\'équipement. Attention il ne faut pas forcement tous les avoir sur l\\'équipement (ou n\\'en avoir aucun)": "Aqui estão os tipos genéricos usados com o seu tipo de equipamento. Atenção, não é necessário necessariamente tê-los todos no equipamento (ou não ter nenhum)"
+    },
+    "plugins\/ash\/desktop\/php\/ash.php": {
+        "401 - Accès non autorisé": "401 - Acesso não autorizado",
+        "Voir la configuration": "Ver configuração",
+        "Sauvegarder": "Salvar",
+        "Equipement": "Equipamento",
+        "Scénario": "Cenas",
+        "Plugin": "Plugin",
+        "Options": "Opções",
+        "Status": "Estado",
+        "Type": "Tipo",
+        "Pseudo": "Apelido",
+        "Action": "Ação",
+        "Transmettre": "Transmitir",
+        "Aucun": "Nemhum",
+        " . $value['name'] . ": ". $ value ['nome'].",
+        "Ajouter scène": "Adicionar cena"
+    },
+    "plugins\/ash\/desktop\/js\/ash.js": {
+        "Configuration de l'équipement": "Configuração de equipamento",
+        "Information type générique": "Informações genéricas do tipo",
+        "Configuration avancée": "Configuração avançada",
+        "Configuration péripheriques": "Configuração periférica",
+        "Nom de la scene ?": "Nome da cena?",
+        "Nouveau nom ?": "Novo nome?",
+        "Action d\\'entrée": "Ação de entrada",
+        "Action de sortie": "Ação de saída",
+        "Décocher pour desactiver l\\'action": "Desmarque para desativar \\ Ação",
+        "Cocher pour que la commande s\\'éxecute en parrallele des autres actions": "Verifique a ordem \\ 's executadas em paralelo com outras acções",
+        "Sélectionner un mot-clé": "Selecione uma palavra-chave",
+        "Nom du scene": "Nome da cena",
+        "Groupe objet (option nécéssitant un compte market spécifique)": "Grupo de objetos (opção que requer uma conta de mercado específica)",
+        "Supprimer": "Remover"
+    },
+    "plugins\/ash\/core\/php\/jeeAsh.php": {
+        "Vous n\\'etes pas autorisé à effectuer cette action. Clef API invalide. Merci de corriger la clef API sur votre page profils du market et d\\'attendre 24h avant de réessayer.": "Você não está autorizado a executar esta ação. Chave de API inválida. Corrija a chave da API na sua página de perfil de mercado e aguarde 24 horas antes de tentar novamente.",
+        "Configuration OK": "Configuração OK"
+    },
+    "plugins\/ash\/core\/ajax\/ash.ajax.php": {
+        "401 - Accès non autorisé": "401 - Acesso não autorizado",
+        "Device non trouvé : ": "Dispositivo não encontrado:",
+        "Aucune méthode correspondante à : ": "Aucune methode correspondante à : "
+    },
+    "plugins\/ash\/core\/class\/ash_thermostat.class.php": {
+        "Thermostat": "Termostato",
+        "Consigne": "Ordem",
+        "Etat themostat ": "Estado Estado",
+        "Mode": "Modo"
+    },
+    "plugins\/ash\/core\/class\/ash.class.php": {
+        "Deux équipements et\/ou scène avec le meme nom : ": "Dois equipamentos e \/ ou palcos com o mesmo nome:"
+    },
+    "plugins\/ash\/core\/class\/ash_scene.class.php": {
+        "Erreur lors de l\\'éxecution de ": "Erro ao executar",
+        ". Détails : ": ". Detalhes:"
+    },
+    "plugins\/ash\/core\/class\/ash_sensors.class.php": {
+        "Contacteur": "Contator",
+        "Mouvement": "Movimento",
+        "Température": "Temperatura"
+    },
+    "plugins\/ash\/core\/class\/ash_shutter.class.php": {
+        "Position": "Posição",
+        "On": "Nós",
+        "Off": "Fora",
+        "Etat": "Estado"
+    },
+    "plugins\/ash\/core\/class\/ash_mode.class.php": {
+        "Mode": "Modo",
+        "Etat mode": "Estado do modo"
+    },
+    "plugins\/ash\/core\/class\/ash_outlet.class.php": {
+        "Position": "Posição",
+        "On": "Nós",
+        "Off": "Fora",
+        "Etat": "Estado"
+    },
+    "plugins\/ash\/core\/class\/ash_light.class.php": {
+        "On": "Nós",
+        "Off": "Fora",
+        "Etat": "Estado",
+        "Luminosité": "Brilho",
+        "Etat luminosité": "Estado de brilho",
+        "Couleur": "Cor",
+        "Etat couleur": "Status da cor"
+    }
+}

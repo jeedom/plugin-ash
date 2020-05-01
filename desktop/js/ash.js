@@ -63,31 +63,9 @@ $('#bt_saveConfiguration').on('click',function(){
         $('#div_alert').showAlert({message: data.result, level: 'danger'});
         return;
       }
-      sendDevices();
     },
   });
 });
-
-function sendDevices(){
-  $.ajax({
-    type: "POST",
-    url: "plugins/ash/core/ajax/ash.ajax.php",
-    data: {
-      action: "sendDevices",
-    },
-    dataType: 'json',
-    error: function (request, status, error) {
-      handleAjaxError(request, status, error);
-    },
-    success: function (data) {
-      if (data.state != 'ok') {
-        $('#div_alert').showAlert({message: data.result, level: 'danger'});
-        return;
-      }
-      $('#div_alert').showAlert({message: '{{Synchronisation réussie. Pour voir le status des equipements à jour, merci de rafraichir la page (F5)}}', level: 'success'});
-    },
-  });
-}
 
 function loadData(){
   $("#div_scenes").empty();
@@ -303,11 +281,16 @@ function addScene(_scene) {
   div += '<input class="sceneAttr" data-l1key="type" style="display:none;" value="SCENE_TRIGGER" />';
   div += '<span class="sceneAttr label label-info rename cursor" data-l1key="options" data-l2key="name" style="font-size : 1em;" ></span>';
   div += '</div>';
-  div += '<div class="col-sm-8">';
-  div += '<div class="btn-group pull-right" role="group">';
-  div += '<a class="btn btn-sm bt_removeScene btn-primary"><i class="fa fa-minus-circle"></i> {{Supprimer}}</a>';
+  div += '<div class="col-sm-2">';
+  div += '<input class="sceneAttr form-control" data-l1key="options" data-l2key="group" placeholder="{{Groupe objet (option nécéssitant un compte market spécifique)}}" />';
+  div += '</div>';
+  div += '<div class="col-sm-6">';
+  div += '<div class="input-group pull-right" style="display:inline-flex">';
+  div += '<span class="input-group-btn">';
+  div += '<a class="btn btn-sm bt_removeScene btn-primary roundedLeft"><i class="fa fa-minus-circle"></i> {{Supprimer}}</a>';
   div += '<a class="btn btn-sm bt_addInAction btn-success"><i class="fa fa-plus-circle"></i> {{Action d\'entrée}}</a>';
-  div += '<a class="btn btn-danger btn-sm bt_addOutAction"><i class="fa fa-plus-circle"></i> {{Action de sortie}}</a>';
+  div += '<a class="btn btn-danger btn-sm bt_addOutAction roundedRight"><i class="fa fa-plus-circle"></i> {{Action de sortie}}</a>';
+  div += '</span>';
   div += '</div>';
   div += '</div>';
   div += '</div>';
