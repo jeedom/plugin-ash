@@ -1,4 +1,4 @@
-# Descrição
+# Description
 
 Este plug-in torna possível fazer o link entre seu Jeedom e Alexa
 
@@ -51,7 +51,7 @@ Você também pode criar cenas na guia cena, com ações de entrada e saída.
 >
 > Se você não enviar nenhum equipamento (não há OK na lista de equipamentos no plug-in Alexa), a Amazon considera que é um erro e usa a última configuração conhecida. Portanto, se você esquecer tudo e não enviar nenhum equipamento, a amazon terá a última configuração conhecida e, portanto, fará tudo reaparecer.
 
-# Faq
+# FAQ
 
 >**Eu li que o plugin exigiria uma assinatura, por que ?**
 >

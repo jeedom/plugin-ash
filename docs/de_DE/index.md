@@ -1,4 +1,4 @@
-# Beschreibung
+# Description
 
 Dieses Plugin ermöglicht es, die Verbindung zwischen Ihrem Jeedom und Alexa herzustellen
 
@@ -51,7 +51,7 @@ Sie können auf der Registerkarte "Szene" auch Szenen mit Eingabe- und Ausgabeak
 >
 > Wenn Sie keine Geräte senden (kein OK in der Geräteliste des Alexa-Plugins), betrachtet Amazon dies als Fehler und verwendet die letzte bekannte Konfiguration. Wenn Sie also alles vergessen und keine Geräte senden, übernimmt amazon die letzte bekannte Konfiguration und lässt daher alles wieder erscheinen.
 
-# Faq
+# FAQ
 
 >**Ich habe gelesen, dass das Plugin ein Abonnement erfordern würde, warum ?**
 >

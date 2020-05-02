@@ -1,4 +1,4 @@
-# Descripción
+# Description
 
 Este complemento permite hacer el enlace entre su Jeedom y Alexa
 
@@ -51,7 +51,7 @@ También puede crear escenas en la pestaña de escena, con acciones de entrada y
 >
 > Si no envía ningún equipo (no está bien en la lista de equipos en el complemento de Alexa), Amazon considera que es un error y utiliza la última configuración conocida. Entonces, si olvida todo y no envía ningún equipo, Amazon tomará la última configuración conocida y, por lo tanto, hará que todo vuelva a aparecer.
 
-# Preguntas frecuentes
+# FAQ
 
 >**Leí que el complemento requeriría una suscripción, por qué ?**
 >
