@@ -63,6 +63,7 @@ $('#bt_saveConfiguration').on('click',function(){
         $('#div_alert').showAlert({message: data.result, level: 'danger'});
         return;
       }
+      $('#div_alert').showAlert({message: '{{Sauvegarde réussie, n\'oubliez pas de demander une decouverte à Alexa}}', level: 'success'});
     },
   });
 });

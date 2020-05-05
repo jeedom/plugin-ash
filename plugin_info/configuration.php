@@ -29,9 +29,6 @@ if (!isConnect()) {
 			echo '<div class="alert alert-danger">{{Attention votre connexion externe ne semble pas etre en https, ce plugin nécessite ABSOLUMENT une connexion https. Si vous ne savez pas comment faire vous pouvez souscrire à un service pack power pour utiliser le service de DNS Jeedom}}</div>';
 		}
 		?>
-		<div class="alert alert-info">
-			{{Attention il faut attendre 24h suite à l'envoi de la configuration pour que ca soit pris en compte.}}
-		</div>
 		<div class="form-group ashmode jeedom">
 			<?php
 			try {

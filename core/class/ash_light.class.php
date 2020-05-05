@@ -187,7 +187,7 @@ class ash_light {
 			if (isset($_directive['endpoint']['cookie']['cmd_set_slider'])) {
 				$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_slider']);
 				if (is_object($cmd)) {
-					$cmd->execCmd(array('slider' => 100));
+					$cmd->execCmd(array('slider' => $cmd->getConfiguration('maxValue', 100)));
 				}
 			}
 			break;

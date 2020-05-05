@@ -189,11 +189,7 @@ class ash_shutter {
 					throw new Exception('ENDPOINT_UNREACHABLE');
 				}
 				if(isset($_directive['payload']['rangeValue'])){
-					if($_directive['payload']['rangeValue'] == -1){
-						$value = 0;
-					}else{
-						$value = $cmd->getConfiguration('minValue', 0) + ($_directive['payload']['rangeValue'] / 100 * ($cmd->getConfiguration('maxValue', 100) - $cmd->getConfiguration('minValue', 0)));
-					}
+					$value = $cmd->getConfiguration('minValue', 0) + ($_directive['payload']['rangeValue'] / 100 * ($cmd->getConfiguration('maxValue', 100) - $cmd->getConfiguration('minValue', 0)));
 					if($_device->getOptions('shutter::invert',0) == 1){
 						$value = 100 - $value;
 					}
