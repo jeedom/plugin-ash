@@ -1,7 +1,6 @@
 {
     "plugins\/ash\/plugin_info\/configuration.php": {
         "Attention votre connexion externe ne semble pas etre en https, ce plugin nécessite ABSOLUMENT une connexion https. Si vous ne savez pas comment faire vous pouvez souscrire à un service pack power pour utiliser le service de DNS Jeedom": "Attention votre connexion externe ne semble pas etre en https, ce plugin nécessite ABSOLUMENT une connexion https. Si vous ne savez pas comment faire vous pouvez souscrire à un service pack power pour utiliser le service de DNS Jeedom",
-        "Attention il faut attendre 24h suite à l'envoi de la configuration pour que ca soit pris en compte.": "Attention il faut attendre 24h suite à l'envoi de la configuration pour que ca soit pris en compte.",
         "Abonnement service assistant vocaux": "Abonnement service assistant vocaux",
         "Votre abonnement aux services assistant vocaux fini le ": "Votre abonnement aux services assistant vocaux fini le ",
         "Pour le prolonger, allez": "Pour le prolonger, allez",
