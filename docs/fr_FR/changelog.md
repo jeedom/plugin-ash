@@ -1,3 +1,7 @@
+>**IMPORTANT**
+>
+>Pour rappel si il n'y a pas de d'informations sur la mise à jour c'est que celle-ci ne concerne que de la mise à jour de documentation ou de traduction
+
 # 30/04/2020
 
 - Correction d'un soucis sur la commande descente des volets
