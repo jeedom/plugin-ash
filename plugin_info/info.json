@@ -1,11 +1,11 @@
 {
-    "id": "ash",
-    "name": "Alexa",
-    "description": "Alexa",
-    "licence": "AGPL",
-    "author": "Loïc",
-    "require": "3.2.1",
-    "category": "communication",
-    "changelog": "https:\/\/doc.jeedom.com\/#language#\/plugins\/communication\/ash\/changelog",
-    "documentation": "https:\/\/doc.jeedom.com\/#language#\/plugins\/communication\/ash\/"
+  "id": "ash",
+  "name": "Alexa",
+  "description": "Plugin permettant d'utiliser Amazon Alexa (echo, dot...) pour piloter votre Jeedom. Important : le plugin nécessite un abonnement aux services vocaux . Pour gérer cet abonnement : https://www.jeedom.com/market/index.php?v=d&p=profils#services",
+  "licence": "AGPL",
+  "author": "Loïc",
+  "require": "3.2.1",
+  "category": "communication",
+  "changelog": "https:\/\/doc.jeedom.com\/#language#\/plugins\/communication\/ash\/changelog",
+  "documentation": "https:\/\/doc.jeedom.com\/#language#\/plugins\/communication\/ash\/"
 }
