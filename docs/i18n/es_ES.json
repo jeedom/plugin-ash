@@ -58,6 +58,7 @@
         "IMPORTANT]": "Importante]"
     },
     "index.md": {
+        "Alexa Smarthome": "Alexa Smarthome",
         "Ce plugin permet de faire le lien entre votre Jeedom et Alexa": "Este complemento permite hacer el enlace entre su Jeedom y Alexa",
         "Il peut fonctionner en passant par un service cloud mis à disposition par Jeedom": "Puede operar a través de un servicio en la nube proporcionado por Jeedom",
         "Le plugin necessite un abonnement aux services vocaux": "El complemento requiere una suscripción a los servicios de voz.",
@@ -112,11 +113,6 @@
         "faire une detection depuis Alexa": "hacer una detección de Alexa",
         "remettre les équipements": "devolver equipo",
         "refaire une detection depuis Alexa": "rehacer detección de Alexa",
-        " Description.": " Descripción.",
-        " Description?": " Descripción?",
-        "Description ": "Descripción ",
-        "[Description": "[Descripción",
-        "Description]": "Descripción]",
         " Important.": " Importante.",
         " Important?": " Importante?",
         "Important ": "Importante ",

@@ -58,6 +58,7 @@
         "IMPORTANT]": "Wichtig]"
     },
     "index.md": {
+        "Alexa Smarthome": "Alexa Smarthome",
         "Ce plugin permet de faire le lien entre votre Jeedom et Alexa": "Dieses Plugin ermöglicht es, die Verbindung zwischen Ihrem Jeedom und Alexa herzustellen",
         "Il peut fonctionner en passant par un service cloud mis à disposition par Jeedom": "Es kann über einen Cloud-Dienst von Jeedom betrieben werden",
         "Le plugin necessite un abonnement aux services vocaux": "Das Plugin erfordert ein Abonnement für Sprachdienste",
@@ -112,11 +113,6 @@
         "faire une detection depuis Alexa": "mache eine Entdeckung von Alexa",
         "remettre les équipements": "Rückgabegeräte",
         "refaire une detection depuis Alexa": "Wiederholen Sie die Erkennung von Alexa",
-        " Description.": " Beschreibung.",
-        " Description?": " Beschreibung?",
-        "Description ": "Beschreibung ",
-        "[Description": "[Beschreibung",
-        "Description]": "Beschreibung]",
         " Important.": " Wichtig.",
         " Important?": " Wichtig?",
         "Important ": "Wichtig ",
