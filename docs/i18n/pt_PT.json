@@ -1,5 +1,6 @@
 {
     "changelog.md": {
+        "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Como lembrete, se não houver informações sobre a atualização, isso significa que se trata apenas da atualização da documentação, tradução ou texto.",
         "30\/04\/2020": "30\/04\/2020",
         "Correction d'un soucis sur la commande descente des volets": "Correção de um problema com o controle de descida do obturador",
         "28\/04\/2020": "28\/04\/2020",
@@ -58,6 +59,7 @@
         "IMPORTANT]": "IMPORTANTE]"
     },
     "index.md": {
+        "Alexa Smarthome": "Alexa Smarthome",
         "Ce plugin permet de faire le lien entre votre Jeedom et Alexa": "Este plug-in torna possível fazer o link entre seu Jeedom e Alexa",
         "Il peut fonctionner en passant par un service cloud mis à disposition par Jeedom": "Ele pode operar através de um serviço em nuvem fornecido pela Jeedom",
         "Le plugin necessite un abonnement aux services vocaux": "O plug-in requer uma assinatura para serviços de voz",
@@ -112,11 +114,6 @@
         "faire une detection depuis Alexa": "faça uma detecção do Alexa",
         "remettre les équipements": "equipamento de retorno",
         "refaire une detection depuis Alexa": "refazer a detecção do Alexa",
-        " Description.": " Descrição.",
-        " Description?": " Descrição?",
-        "Description ": "Descrição ",
-        "[Description": "[Descrição",
-        "Description]": "Descrição]",
         " Important.": " IMPORTANTE.",
         " Important?": " IMPORTANTE?",
         "Important ": "IMPORTANTE ",
