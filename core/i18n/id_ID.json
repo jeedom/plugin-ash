@@ -70,7 +70,7 @@
     "plugins\/ash\/core\/ajax\/ash.ajax.php": {
         "401 - Accès non autorisé": "401 - Akses tidak sah",
         "Device non trouvé : ": "",
-        "Aucune méthode correspondante à : ": "Aucune methode correspondante à : "
+        "Aucune méthode correspondante à : ": "Aucune methode correspondante à :"
     },
     "plugins\/ash\/core\/class\/ash_thermostat.class.php": {
         "Thermostat": "",

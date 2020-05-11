@@ -5,11 +5,11 @@
         "Votre abonnement aux services assistant vocaux fini le ": "Su suscripción a los servicios de asistente de voz finalizó el",
         "Pour le prolonger, allez": "Para extenderlo, ve",
         "ici": "aquí",
-        "Votre abonnement aux services assistant vocaux est illimité.": "Su suscripción a los servicios de asistente de voz es ilimitada.",
-        "Votre abonnement aux services assistant vocaux est fini.": "Su suscripción a los servicios de asistente de voz ha finalizado.",
+        "Votre abonnement aux services assistant vocaux est illimité.": "Su suscripción a los servicios de asistente de voz es ilimitada",
+        "Votre abonnement aux services assistant vocaux est fini.": "Su suscripción a los servicios de asistente de voz ha finalizado",
         "Envoyer configuration au market": "Enviar configuración al mercado",
         "Envoyer": "Enviar",
-        "Configuration envoyée avec succès.": "Configuración enviada correctamente."
+        "Configuration envoyée avec succès.": "Configuración enviada correctamente"
     },
     "plugins\/ash\/desktop\/modal\/advanceConfig.php": {
         "Eqlogic ID non valide : ": "ID de Eqlogic no válido:",
@@ -26,7 +26,7 @@
         "Eqlogic ID non valide : ": "ID de Eqlogic no válido:",
         "Device non trouvé": "Dispositivo no encontrado",
         "Aucun type configuré pour ce périphérique": "Ningún tipo configurado para este dispositivo",
-        "Aucune information disponible": "No hay información disponible.",
+        "Aucune information disponible": "No hay información disponible",
         "Voici les générique type qui sont utilisation avec votre type d\\'équipement. Attention il ne faut pas forcement tous les avoir sur l\\'équipement (ou n\\'en avoir aucun)": "Estos son los tipos genéricos que se utilizan con su tipo de equipo. Atención, no es necesario necesariamente tenerlos todos en el equipo (o no tener ninguno)"
     },
     "plugins\/ash\/desktop\/php\/ash.php": {
@@ -43,7 +43,7 @@
         "Action": "Acción",
         "Transmettre": "Transmitir",
         "Aucun": "Ninguna",
-        " . $value['name'] . ": ". $ valor ['nombre'].",
+        " . $value['name'] . ": "$ valor ['nombre']",
         "Ajouter scène": "Añadir escena"
     },
     "plugins\/ash\/desktop\/js\/ash.js": {
@@ -64,7 +64,7 @@
         "Supprimer": "Borrar"
     },
     "plugins\/ash\/core\/php\/jeeAsh.php": {
-        "Vous n\\'etes pas autorisé à effectuer cette action. Clef API invalide. Merci de corriger la clef API sur votre page profils du market et d\\'attendre 24h avant de réessayer.": "No tiene autorización para realizar esta acción. Clave API no válida Corrija la clave API en su página de perfiles de mercado y espere 24 horas antes de volver a intentarlo.",
+        "Vous n\\'etes pas autorisé à effectuer cette action. Clef API invalide. Merci de corriger la clef API sur votre page profils du market et d\\'attendre 24h avant de réessayer.": "No tiene autorización para realizar esta acción. Clave API no válida Corrija la clave API en su página de perfiles de mercado y espere 24 horas antes de volver a intentarlo",
         "Configuration OK": "Configuración OK"
     },
     "plugins\/ash\/core\/ajax\/ash.ajax.php": {
@@ -83,7 +83,7 @@
     },
     "plugins\/ash\/core\/class\/ash_scene.class.php": {
         "Erreur lors de l\\'éxecution de ": "Error al ejecutar",
-        ". Détails : ": ". Detalles:"
+        ". Détails : ": "Detalles:"
     },
     "plugins\/ash\/core\/class\/ash_sensors.class.php": {
         "Contacteur": "Contactor",

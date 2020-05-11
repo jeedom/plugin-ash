@@ -1,6 +1,6 @@
 {
     "changelog.md": {
-        "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Zur Erinnerung: Wenn keine Informationen zum Update vorhanden sind, bedeutet dies, dass es sich nur um die Aktualisierung von Dokumentation, Übersetzung oder Text handelt.",
+        "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Zur Erinnerung: Wenn keine Informationen zum Update vorhanden sind, bedeutet dies, dass es sich nur um die Aktualisierung von Dokumentation, Übersetzung oder Text handelt",
         "30\/04\/2020": "30.04.2020",
         "Correction d'un soucis sur la commande descente des volets": "Behebung eines Problems mit der Verschlussabstiegssteuerung",
         "28\/04\/2020": "28.04.2020",
@@ -56,10 +56,12 @@
         " IMPORTANT?": " Wichtig?",
         "IMPORTANT ": "Wichtig ",
         "[IMPORTANT": "[Wichtig",
-        "IMPORTANT]": "Wichtig]"
+        "IMPORTANT]": "Wichtig]",
+        "*IMPORTANT": "*Wichtig",
+        "IMPORTANT*": "Wichtig*"
     },
     "index.md": {
-        "Alexa Smarthome": "Alexa Smarthome",
+        "Plugin Alexa Smarthome": "Alexa Smarthome Plugin",
         "Ce plugin permet de faire le lien entre votre Jeedom et Alexa": "Dieses Plugin ermöglicht es, die Verbindung zwischen Ihrem Jeedom und Alexa herzustellen",
         "Il peut fonctionner en passant par un service cloud mis à disposition par Jeedom": "Es kann über einen Cloud-Dienst von Jeedom betrieben werden",
         "Le plugin necessite un abonnement aux services vocaux": "Das Plugin erfordert ein Abonnement für Sprachdienste",
@@ -73,7 +75,7 @@
         "Configuration Alexa": "Alexa Konfiguration",
         "site web": "Website",
         "Une fois le service bien actif il faut sur l'application Alexa ou sur le": "Sobald der Dienst aktiv ist, müssen Sie auf der Alexa-App oder auf der",
-        "aller dans la partie skill et chercher le skill Jeedom puis l'activer, la il vous demandera des identifants il faut mettre ceux du market (attention bien mettre vos identifiants market et non ceux de votre Jeedom)": "Gehen Sie zum Skill-Teil und suchen Sie nach der Jeedom-Skill. Aktivieren Sie sie dann. Dort werden Sie nach Kennungen gefragt, die Sie vom Markt nehmen müssen (achten Sie darauf, dass Sie Ihre Marktkennungen und nicht die Ihrer Jeedom-Kennungen eingeben).",
+        "aller dans la partie skill et chercher le skill Jeedom puis l'activer, la il vous demandera des identifants il faut mettre ceux du market (attention bien mettre vos identifiants market et non ceux de votre Jeedom)": "Gehen Sie zum Skill-Teil und suchen Sie nach der Jeedom-Skill. Aktivieren Sie sie dann. Dort werden Sie nach Kennungen gefragt, die Sie vom Markt nehmen müssen (achten Sie darauf, dass Sie Ihre Marktkennungen und nicht die Ihrer Jeedom-Kennungen eingeben)",
         "Si vous avez un message d'erreur vous indiquants que votre mot de passe ou non d'utilisateur n'est pas bon il faut": "Wenn Sie eine Fehlermeldung erhalten, die Sie darüber informiert, dass Ihr Benutzerkennwort nicht korrekt ist oder nicht, müssen Sie dies tun",
         "vérifier qu'Amazon Alexa est bien en actif sur le market": "Überprüfen Sie, ob Amazon Alexa auf dem Markt aktiv ist",
         "si c'est bien le cas, etês vous sur de vos identifiants (attention il faut respecter majuscule\/minuscule)": "Wenn dies der Fall ist, achten Sie auf Ihre Anmeldeinformationen (Aufmerksamkeit, die Sie in Groß- \/ Kleinschreibung beachten müssen)",
@@ -92,7 +94,7 @@
         "C'est assez simple, Jeedom est une solution non-cloud (entendre tout est chez vous il n'y a pas de serveur de notre coté pour votre Jeedom) mais Alexa ne peut envoyer des demandes que vers un serveur unique pour un skill": "Es ist ganz einfach, Jeedom ist eine Nicht-Cloud-Lösung (hören Sie, dass alles zu Hause ist, es gibt keinen Server für Ihr Jeedom auf unserer Seite), aber Alexa kann nur Anforderungen für eine Fertigkeit an einen einzelnen Server senden",
         "On a donc été obligé de faire un serveur qui recoit toute les demandes d'Alexa et les retransmets vers votre Jeedom": "Also mussten wir einen Server erstellen, der alle Anfragen von Alexa empfängt und sie erneut an Ihr Jeedom überträgt",
         "Malheureusement se serveur (en plus du coût de développement et de maintenance) à un coût de location de notre coté": "Leider Server (zusätzlich zu den Kosten für Entwicklung und Wartung) zu einem Mietpreis auf unserer Seite",
-        "Voila pourquoi il y aura un abonnement pour le service \"Assistant Vocal\" qui couvrira et Amazon et Google (vous inquietez pas pour le prix il sera minime, le but est juste d'amortir le coût du serveur)": "Aus diesem Grund wird es ein Abonnement für den \"Voice Assistant\" -Dienst geben, der sowohl Amazon als auch Google abdeckt (keine Sorge, der Preis ist minimal, das Ziel besteht nur darin, die Kosten des Servers zu amortisieren).",
+        "Voila pourquoi il y aura un abonnement pour le service \"Assistant Vocal\" qui couvrira et Amazon et Google (vous inquietez pas pour le prix il sera minime, le but est juste d'amortir le coût du serveur)": "Aus diesem Grund wird es ein Abonnement für den \"Voice Assistant\" -Dienst geben, der sowohl Amazon als auch Google abdeckt (keine Sorge, der Preis ist minimal, das Ziel besteht nur darin, die Kosten des Servers zu amortisieren)",
         "Pour ouvrir\/fermer les volets je dois dire allume\/eteint": "Um die Fensterläden zu öffnen \/ schließen, muss ich Ein- \/ Ausschalten sagen",
         "C'est normal Alexa ne supporte pas les équipements de type ouvrant (pour des questions de securité) il faut donc lui faire croire que c'est une lumiere": "Dies ist normal. Alexa unterstützt das Öffnen von Geräten (aus Sicherheitsgründen) nicht. Sie müssen also davon ausgehen, dass es sich um ein Licht handelt",
         "Par contre grace aux routines vous pouvez dire ouvre\/ferme": "Dank der Routinen können Sie öffnen \/ schließen sagen",
@@ -119,20 +121,28 @@
         "Important ": "Wichtig ",
         "[Important": "[Wichtig",
         "Important]": "Wichtig]",
+        "*Important": "*Wichtig",
+        "Important*": "Wichtig*",
         " ici.": " hier.",
         " ici?": " hier?",
         "ici ": "hier ",
         "[ici": "[hier",
         "ici]": "hier]",
+        "*ici": "*hier",
+        "ici*": "hier*",
         " IMPORTANT.": " Wichtig.",
         " IMPORTANT?": " Wichtig?",
         "IMPORTANT ": "Wichtig ",
         "[IMPORTANT": "[Wichtig",
         "IMPORTANT]": "Wichtig]",
+        "*IMPORTANT": "*Wichtig",
+        "IMPORTANT*": "Wichtig*",
         " FAQ.": " Faq.",
         " FAQ?": " Faq?",
         "FAQ ": "Faq ",
         "[FAQ": "[Faq",
-        "FAQ]": "Faq]"
+        "FAQ]": "Faq]",
+        "*FAQ": "*Faq",
+        "FAQ*": "Faq*"
     }
 }

@@ -83,7 +83,7 @@
     },
     "plugins\/ash\/core\/class\/ash_scene.class.php": {
         "Erreur lors de l\\'éxecution de ": "Errore durante l'esecuzione",
-        ". Détails : ": ". Dettagli:"
+        ". Détails : ": "Dettagli:"
     },
     "plugins\/ash\/core\/class\/ash_sensors.class.php": {
         "Contacteur": "",
