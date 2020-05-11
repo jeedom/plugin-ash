@@ -6,7 +6,7 @@ Puede operar a través de un servicio en la nube proporcionado por Jeedom.
 
 > **Importante**
 >
-> El complemento requiere una suscripción a los servicios de voz.. Puedes gestionar tu suscripción [aquí](https://www.jeedom.com/market/index.php?v=d&p=profils#services)
+> El complemento requiere una suscripción a los servicios de voz. Puedes gestionar tu suscripción [aquí](https://www.jeedom.com/market/index.php?v=d&p=profils#services)
 
 > **Importante**
 >
@@ -43,15 +43,15 @@ En su Jeedom, vaya a Complemento -> Comunicación -> Alexa y en la sección de e
 
 > **Importante**
 >
-> El complemento se basa en los tipos genéricos de comandos Jeedom para controlar la automatización de su hogar.. Por lo tanto, es muy importante configurarlos correctamente. Podéis ver [aquí](https://jeedom.github.io/plugin-mobile/es_ES/#tocAnchor-1-6) explicaciones sobre genéricos genéricos
+> El complemento se basa en los tipos genéricos de comandos Jeedom para controlar la automatización de su hogar. Por lo tanto, es muy importante configurarlos correctamente. Podéis ver [aquí](https://jeedom.github.io/plugin-mobile/es_ES/#tocAnchor-1-6) explicaciones sobre genéricos genéricos
 
-También puede crear escenas en la pestaña de escena, con acciones de entrada y salida..
+También puede crear escenas en la pestaña de escena, con acciones de entrada y salida.
 
 > **Importante**
 >
 > Si no envía ningún equipo (no está bien en la lista de equipos en el complemento de Alexa), Amazon considera que es un error y utiliza la última configuración conocida. Entonces, si olvida todo y no envía ningún equipo, Amazon tomará la última configuración conocida y, por lo tanto, hará que todo vuelva a aparecer.
 
-# Preguntas frecuentes
+# FAQ
 
 >**Leí que el complemento requeriría una suscripción, por qué ?**
 >

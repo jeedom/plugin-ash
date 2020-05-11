@@ -5,11 +5,11 @@
         "Votre abonnement aux services assistant vocaux fini le ": "Sua assinatura dos serviços de assistente de voz terminou em",
         "Pour le prolonger, allez": "Para estendê-lo, vá",
         "ici": "aqui",
-        "Votre abonnement aux services assistant vocaux est illimité.": "Sua assinatura dos serviços de assistente de voz é ilimitada.",
-        "Votre abonnement aux services assistant vocaux est fini.": "Sua assinatura dos serviços de assistente de voz está concluída.",
+        "Votre abonnement aux services assistant vocaux est illimité.": "Sua assinatura dos serviços de assistente de voz é ilimitada",
+        "Votre abonnement aux services assistant vocaux est fini.": "Sua assinatura dos serviços de assistente de voz está concluída",
         "Envoyer configuration au market": "Enviar configuração ao mercado",
         "Envoyer": "Enviar",
-        "Configuration envoyée avec succès.": "Configuração enviada com sucesso."
+        "Configuration envoyée avec succès.": "Configuração enviada com sucesso"
     },
     "plugins\/ash\/desktop\/modal\/advanceConfig.php": {
         "Eqlogic ID non valide : ": "ID Eqlogic inválido:",
@@ -43,7 +43,7 @@
         "Action": "Ação",
         "Transmettre": "Transmitir",
         "Aucun": "Nemhum",
-        " . $value['name'] . ": ". $ value ['nome'].",
+        " . $value['name'] . ": "$ value ['nome']",
         "Ajouter scène": "Adicionar cena"
     },
     "plugins\/ash\/desktop\/js\/ash.js": {
@@ -64,13 +64,13 @@
         "Supprimer": "Remover"
     },
     "plugins\/ash\/core\/php\/jeeAsh.php": {
-        "Vous n\\'etes pas autorisé à effectuer cette action. Clef API invalide. Merci de corriger la clef API sur votre page profils du market et d\\'attendre 24h avant de réessayer.": "Você não está autorizado a executar esta ação. Chave de API inválida. Corrija a chave da API na sua página de perfil de mercado e aguarde 24 horas antes de tentar novamente.",
+        "Vous n\\'etes pas autorisé à effectuer cette action. Clef API invalide. Merci de corriger la clef API sur votre page profils du market et d\\'attendre 24h avant de réessayer.": "Você não está autorizado a executar esta ação. Chave de API inválida. Corrija a chave da API na sua página de perfil de mercado e aguarde 24 horas antes de tentar novamente",
         "Configuration OK": "Configuração OK"
     },
     "plugins\/ash\/core\/ajax\/ash.ajax.php": {
         "401 - Accès non autorisé": "401 - Acesso não autorizado",
         "Device non trouvé : ": "Dispositivo não encontrado:",
-        "Aucune méthode correspondante à : ": "Aucune methode correspondante à : "
+        "Aucune méthode correspondante à : ": "Aucune methode correspondante à :"
     },
     "plugins\/ash\/core\/class\/ash_thermostat.class.php": {
         "Thermostat": "Termostato",
@@ -83,7 +83,7 @@
     },
     "plugins\/ash\/core\/class\/ash_scene.class.php": {
         "Erreur lors de l\\'éxecution de ": "Erro ao executar",
-        ". Détails : ": ". Detalhes:"
+        ". Détails : ": "Detalhes:"
     },
     "plugins\/ash\/core\/class\/ash_sensors.class.php": {
         "Contacteur": "Contator",

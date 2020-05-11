@@ -43,7 +43,7 @@
         "Action": "Действие",
         "Transmettre": "",
         "Aucun": "Нет",
-        " . $value['name'] . ": ", $ value ['name'].",
+        " . $value['name'] . ": ", $ value ['name']",
         "Ajouter scène": ""
     },
     "plugins\/ash\/desktop\/js\/ash.js": {
@@ -70,7 +70,7 @@
     "plugins\/ash\/core\/ajax\/ash.ajax.php": {
         "401 - Accès non autorisé": "401 - Несанкционированный доступ",
         "Device non trouvé : ": "",
-        "Aucune méthode correspondante à : ": "Aucune methode correspondante à : "
+        "Aucune méthode correspondante à : ": "Aucune methode correspondante à :"
     },
     "plugins\/ash\/core\/class\/ash_thermostat.class.php": {
         "Thermostat": "термостат",

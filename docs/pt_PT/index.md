@@ -39,7 +39,7 @@ Depois que o serviço estiver ativo, você precisará no aplicativo Alexa ou no 
 
 ## Configuração do plugin
 
-No seu Jeedom, vá para Plugin -> Communication -> Alexa e, na seção equipment, selecione o equipamento a ser transmitido ao Alexa, bem como o tipo de equipamento..
+No seu Jeedom, vá para Plugin -> Communication -> Alexa e, na seção equipment, selecione o equipamento a ser transmitido ao Alexa, bem como o tipo de equipamento.
 
 > **IMPORTANTE**
 >
@@ -51,7 +51,7 @@ Você também pode criar cenas na guia cena, com ações de entrada e saída.
 >
 > Se você não enviar nenhum equipamento (não há OK na lista de equipamentos no plug-in Alexa), a Amazon considera que é um erro e usa a última configuração conhecida. Portanto, se você esquecer tudo e não enviar nenhum equipamento, a amazon terá a última configuração conhecida e, portanto, fará tudo reaparecer.
 
-# Faq
+# FAQ
 
 >**Eu li que o plugin exigiria uma assinatura, por que ?**
 >
@@ -67,7 +67,7 @@ Você também pode criar cenas na guia cena, com ações de entrada e saída.
 
 >**Durante a associação, tenho um erro (mas não em um problema de senha / nome de usuário)**
 >
->Se você tiver um erro durante a associação com a Jeedom, provavelmente é porque você não adicionou / transmitiu equipamento antes de fazer a associação.. Para corrigir, vá para Plugins -> Comunicação -> Alexa e marque pelo menos um equipamento para transmitir e salvar (verifique se o equipamento está em OK, se estiver em NOK, clique no NOK para ver o porquê ou perguntar sobre tipo genérico em jeedom). Depois refaça a associação
+>Se você tiver um erro durante a associação com a Jeedom, provavelmente é porque você não adicionou / transmitiu equipamento antes de fazer a associação. Para corrigir, vá para Plugins -> Comunicação -> Alexa e marque pelo menos um equipamento para transmitir e salvar (verifique se o equipamento está em OK, se estiver em NOK, clique no NOK para ver o porquê ou perguntar sobre tipo genérico em jeedom). Depois refaça a associação
 
 >**Ao adicionar equipamento, tenho NOK**
 >

@@ -51,7 +51,7 @@ You can also create scenes in the scene tab, with input and output actions.
 >
 > If you do not send any equipment (no OK in the equipment list on the Alexa plugin), Amazon considers that it is an error and uses the last known configuration. So if you forget everything and do not send any equipment amazon will take the last known configuration and therefore will make everything reappear.
 
-# Faq
+# FAQ
 
 >**I read that the plugin would require a subscription, why ?**
 >

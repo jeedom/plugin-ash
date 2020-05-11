@@ -24,7 +24,7 @@ Nach der Installation des Plugins müssen Sie nur zum Konfigurationsteil des Plu
 
 ## Alexa Konfiguration
 
-Sobald der Dienst aktiv ist, müssen Sie auf der Alexa-App oder auf der [Website](https://alexa.amazon.fr/spa/index.html) Gehen Sie zum Skill-Teil und suchen Sie nach der Jeedom-Skill. Aktivieren Sie sie dann. Dort werden Sie nach Kennungen gefragt, die Sie vom Markt nehmen müssen (achten Sie darauf, dass Sie Ihre Marktkennungen und nicht die Ihrer Jeedom-Kennungen eingeben).
+Sobald der Dienst aktiv ist, müssen Sie auf der Alexa-App oder auf der [Website](https://alexa.amazon.fr/spa/index.html) Gehen Sie zum Skill-Teil und suchen Sie nach der Jeedom-Skill. Aktivieren Sie sie dann. Dort werden Sie nach Kennungen gefragt, die Sie vom Markt nehmen müssen (achten Sie darauf, dass Sie Ihre Marktkennungen und nicht die Ihrer Jeedom-Kennungen eingeben)
 
 > **Wichtig**
 >
@@ -51,11 +51,11 @@ Sie können auf der Registerkarte "Szene" auch Szenen mit Eingabe- und Ausgabeak
 >
 > Wenn Sie keine Geräte senden (kein OK in der Geräteliste des Alexa-Plugins), betrachtet Amazon dies als Fehler und verwendet die letzte bekannte Konfiguration. Wenn Sie also alles vergessen und keine Geräte senden, übernimmt amazon die letzte bekannte Konfiguration und lässt daher alles wieder erscheinen.
 
-# Faq
+# FAQ
 
 >**Ich habe gelesen, dass das Plugin ein Abonnement erfordern würde, warum ?**
 >
-> Es ist ganz einfach, Jeedom ist eine Nicht-Cloud-Lösung (hören Sie, dass alles zu Hause ist, es gibt keinen Server für Ihr Jeedom auf unserer Seite), aber Alexa kann nur Anforderungen für eine Fertigkeit an einen einzelnen Server senden. Also mussten wir einen Server erstellen, der alle Anfragen von Alexa empfängt und sie erneut an Ihr Jeedom überträgt. Leider Server (zusätzlich zu den Kosten für Entwicklung und Wartung) zu einem Mietpreis auf unserer Seite. Aus diesem Grund wird es ein Abonnement für den "Voice Assistant" -Dienst geben, der sowohl Amazon als auch Google abdeckt (keine Sorge, der Preis ist minimal, das Ziel besteht nur darin, die Kosten des Servers zu amortisieren).
+> Es ist ganz einfach, Jeedom ist eine Nicht-Cloud-Lösung (hören Sie, dass alles zu Hause ist, es gibt keinen Server für Ihr Jeedom auf unserer Seite), aber Alexa kann nur Anforderungen für eine Fertigkeit an einen einzelnen Server senden. Also mussten wir einen Server erstellen, der alle Anfragen von Alexa empfängt und sie erneut an Ihr Jeedom überträgt. Leider Server (zusätzlich zu den Kosten für Entwicklung und Wartung) zu einem Mietpreis auf unserer Seite. Aus diesem Grund wird es ein Abonnement für den "Voice Assistant" -Dienst geben, der sowohl Amazon als auch Google abdeckt (keine Sorge, der Preis ist minimal, das Ziel besteht nur darin, die Kosten des Servers zu amortisieren)
 
 >**Um die Fensterläden zu öffnen / schließen, muss ich Ein- / Ausschalten sagen ?**
 >

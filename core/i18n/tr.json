@@ -83,7 +83,7 @@
     },
     "plugins\/ash\/core\/class\/ash_scene.class.php": {
         "Erreur lors de l\\'éxecution de ": "Yürütülürken hata oluştu",
-        ". Détails : ": ". Detaylar:"
+        ". Détails : ": "Detaylar:"
     },
     "plugins\/ash\/core\/class\/ash_sensors.class.php": {
         "Contacteur": "",
