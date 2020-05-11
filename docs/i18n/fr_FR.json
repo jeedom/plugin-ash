@@ -55,7 +55,7 @@
         "Correction d'un bug lors de la demande de la température": "Correction d'un bug lors de la demande de la température"
     },
     "index.md": {
-        "Alexa Smarthome": "Alexa Smarthome",
+        "Plugin Alexa Smarthome": "Plugin Alexa Smarthome",
         "Ce plugin permet de faire le lien entre votre Jeedom et Alexa": "Ce plugin permet de faire le lien entre votre Jeedom et Alexa",
         "Il peut fonctionner en passant par un service cloud mis à disposition par Jeedom": "Il peut fonctionner en passant par un service cloud mis à disposition par Jeedom",
         "Important": "Important",

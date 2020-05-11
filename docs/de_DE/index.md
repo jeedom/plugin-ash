@@ -1,4 +1,4 @@
-# Alexa Smarthome
+# Alexa Smarthome Plugin
 
 Dieses Plugin ermöglicht es, die Verbindung zwischen Ihrem Jeedom und Alexa herzustellen
 

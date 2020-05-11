@@ -59,7 +59,7 @@
         "IMPORTANT]": "IMPORTANTE]"
     },
     "index.md": {
-        "Alexa Smarthome": "Alexa Smarthome",
+        "Plugin Alexa Smarthome": "Alexa Smarthome plugin",
         "Ce plugin permet de faire le lien entre votre Jeedom et Alexa": "Este plug-in torna possível fazer o link entre seu Jeedom e Alexa",
         "Il peut fonctionner en passant par un service cloud mis à disposition par Jeedom": "Ele pode operar através de um serviço em nuvem fornecido pela Jeedom",
         "Le plugin necessite un abonnement aux services vocaux": "O plug-in requer uma assinatura para serviços de voz",

@@ -1,4 +1,4 @@
-# Alexa Smarthome
+# Complemento Alexa Smarthome
 
 Este complemento permite hacer el enlace entre su Jeedom y Alexa
 
