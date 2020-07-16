@@ -67,6 +67,7 @@
         "Il peut fonctionner en passant par un service cloud mis à disposition par Jeedom": "Es kann über einen Cloud-Dienst von Jeedom betrieben werden",
         "Le plugin necessite un abonnement aux services vocaux": "Das Plugin erfordert ein Abonnement für Sprachdienste",
         "Vous pouvez gérer votre abonnement": "Sie können Ihr Abonnement verwalten",
+        "Il faut ABSOLUMENT que votre Jeedom soit accessible en HTTPS (le plugin ne marche pas en HTTP) valide (donc pas de certificat auto-signé": "Es ist ABSOLUT notwendig, dass Ihr Jeedom in HTTPS zugänglich ist (das Plugin funktioniert nicht in HTTP), gültig (daher kein selbstsigniertes Zertifikat)",
         "Le plugin ne supporte pas les équipement avec des double fonction (2 sortie comme certain module zwave Fibaro": "Das Plugin unterstützt keine Geräte mit Doppelfunktionen (2 Ausgänge als bestimmtes zwave Fibaro-Modul",
         "Il faut absolument passer par 2 virtuels pour le décomposer": "Sie müssen unbedingt 2 virtuelle durchlaufen, um es aufzuschlüsseln",
         "Mise en place de la connexion vers Alexa": "Herstellen der Verbindung zu Alexa",
