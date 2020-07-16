@@ -63,6 +63,7 @@
         "ici": "ici",
         "Le plugin necessite un abonnement aux services vocaux": "Le plugin necessite un abonnement aux services vocaux",
         "Vous pouvez gérer votre abonnement": "Vous pouvez gérer votre abonnement",
+        "Il faut ABSOLUMENT que votre Jeedom soit accessible en HTTPS (le plugin ne marche pas en HTTP) valide (donc pas de certificat auto-signé": "Il faut ABSOLUMENT que votre Jeedom soit accessible en HTTPS (le plugin ne marche pas en HTTP) valide (donc pas de certificat auto-signé",
         "Le plugin ne supporte pas les équipement avec des double fonction (2 sortie comme certain module zwave Fibaro": "Le plugin ne supporte pas les équipement avec des double fonction (2 sortie comme certain module zwave Fibaro",
         "Il faut absolument passer par 2 virtuels pour le décomposer": "Il faut absolument passer par 2 virtuels pour le décomposer",
         "Mise en place de la connexion vers Alexa": "Mise en place de la connexion vers Alexa",

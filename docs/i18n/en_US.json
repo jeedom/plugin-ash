@@ -67,6 +67,7 @@
         "Il peut fonctionner en passant par un service cloud mis à disposition par Jeedom": "It can operate through a cloud service provided by Jeedom",
         "Le plugin necessite un abonnement aux services vocaux": "The plugin requires a subscription to voice services",
         "Vous pouvez gérer votre abonnement": "You can manage your subscription",
+        "Il faut ABSOLUMENT que votre Jeedom soit accessible en HTTPS (le plugin ne marche pas en HTTP) valide (donc pas de certificat auto-signé": "It is ABSOLUTELY necessary that your Jeedom is accessible in HTTPS (the plugin does not work in HTTP) valid (therefore no self-signed certificate",
         "Le plugin ne supporte pas les équipement avec des double fonction (2 sortie comme certain module zwave Fibaro": "The plugin does not support equipment with dual functions (2 output as certain zwave Fibaro module",
         "Il faut absolument passer par 2 virtuels pour le décomposer": "You absolutely have to go through 2 virtual ones to break it down",
         "Mise en place de la connexion vers Alexa": "Establishing the connection to Alexa",
