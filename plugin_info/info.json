@@ -7,5 +7,23 @@
     "require": "3.2.1",
     "category": "communication",
     "changelog": "https:\/\/doc.jeedom.com\/#language#\/plugins\/communication\/ash\/changelog",
-    "documentation": "https:\/\/doc.jeedom.com\/#language#\/plugins\/communication\/ash\/"
+    "documentation": "https:\/\/doc.jeedom.com\/#language#\/plugins\/communication\/ash\/",
+    "language": [
+        "fr_FR",
+        "en_US",
+        "de_DE",
+        "sp_SP",
+        "ru_RU",
+        "id_ID",
+        "it_IT"
+    ],
+    "compatibility": [
+        "miniplus",
+        "smart",
+        "rpi",
+        "docker",
+        "diy",
+        "mobile",
+        "v4"
+    ]
 }
