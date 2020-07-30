@@ -114,5 +114,8 @@
         "Etat luminosité": "Brightness state",
         "Couleur": "Color",
         "Etat couleur": "Color status"
+    },
+    "info.json": {
+        "Plugin permettant d'utiliser Amazon Alexa (echo, dot...) pour piloter votre Jeedom. Important : le plugin nécessite un abonnement aux services vocaux . Pour gérer cet abonnement : https:\/\/www.jeedom.com\/market\/index.php?v=d&p=profils#services": "Plugin allowing you to use Amazon Alexa (echo, dot ...) to control your Jeedom. Important: the plugin requires a subscription to voice services. To manage this subscription: https:\/\/www.jeedom.com\/market\/index.php?v=d&p=profils#services"
     }
 }
