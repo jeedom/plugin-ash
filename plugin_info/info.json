@@ -12,10 +12,7 @@
         "fr_FR",
         "en_US",
         "de_DE",
-        "sp_SP",
-        "ru_RU",
-        "id_ID",
-        "it_IT"
+        "sp_SP"
     ],
     "compatibility": [
         "miniplus",
