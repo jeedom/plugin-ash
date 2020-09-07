@@ -29,7 +29,13 @@ try {
 	if (init('action') == 'saveDevices') {
 		$devices = json_decode(init('devices'), true);
 		foreach ($devices as $device_json) {
-			$device = new ash_devices();
+			$device = null;
+			if (isset($device_json['id'])) {
+				$device = ash_devices::byId($device_json['id']);
+			}
+			if (!is_object($device)) {
+				$device = new ash_devices();
+			}
 			utils::a2o($device, $device_json);
 			$device->save();
 			$enableList[$device->getId()] = true;
