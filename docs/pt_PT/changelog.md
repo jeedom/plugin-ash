@@ -4,6 +4,9 @@
 >
 >Como lembrete, se não houver informações sobre a atualização, isso significa que se trata apenas da atualização da documentação, tradução ou texto
 
+
+- Correções de bugs
+
 # 30/04/2020
 
 - Correção de um problema com o controle de descida do obturador

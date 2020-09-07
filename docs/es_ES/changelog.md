@@ -4,6 +4,9 @@
 >
 >Como recordatorio si no hay información sobre la actualización, significa que solo se refiere a la actualización de documentación, traducción o texto
 
+
+- Correcciones de errores
+
 # 30/04/2020
 
 - Corrección de un problema con el control de descenso del obturador

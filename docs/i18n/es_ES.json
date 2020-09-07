@@ -2,6 +2,7 @@
     "changelog.md": {
         "Changelog Alexa": "Registro de cambios Alexa",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Como recordatorio si no hay información sobre la actualización, significa que solo se refiere a la actualización de documentación, traducción o texto",
+        "Correction de bugs": "Correcciones de errores",
         "30\/04\/2020": "30\/04\/2020",
         "Correction d'un soucis sur la commande descente des volets": "Corrección de un problema con el control de descenso del obturador",
         "28\/04\/2020": "28\/04\/2020",
@@ -34,7 +35,6 @@
         "31\/05\/2019": "31\/05\/2019",
         "Support des volets": "Obturador de apoyo",
         "Support des capteurs (mouvement,contact, température": "Soporte de sensores (movimiento, contacto, temperatura",
-        "Correction de bugs": "Correcciones de errores",
         "a partir du 01\/06\/2019 les services vocaux deviennent payant, vous pouvez voir votre status sur votre page profils sur le market, onglet mes services": "a partir del 01\/06\/2019 los servicios de voz cobran, puede ver su estado en su página de perfil en el mercado, pestaña mis servicios",
         "24\/04\/2019": "24\/04\/2019",
         "Nouvelle methode de synchronisation des péripheriques": "Nuevo método de sincronización del dispositivo",
