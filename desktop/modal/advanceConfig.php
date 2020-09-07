@@ -33,6 +33,7 @@ sendVarToJs('device', utils::o2a($device));
 ?>
 <div id="div_alertAdvanceConfigure"></div>
 <div id="div_advanceConfigForm">
+	<a class="btn btn-success pull-right bt_advanceConfigSaveDevice">{{Sauvegarder}}</a>
 	<input type="text" class="deviceAttr form-control" data-l1key="id" style="display : none;" />
 	<form class="form-horizontal">
 		<fieldset>
@@ -44,7 +45,41 @@ sendVarToJs('device', utils::o2a($device));
 			</div>
 		</fieldset>
 	</form>
-	<a class="btn btn-success pull-right bt_advanceConfigSaveDevice">{{Sauvegarder}}</a>
+	<form class="form-horizontal">
+		<fieldset>
+			<legend>{{Commandes}}</legend>
+			<table class="table table-condensed" id="table_advanceConfigGsh">
+				<thead>
+					<tr>
+						<th>{{Nom}}</th>
+						<th>{{Type}}</th>
+						<th>{{Sous-type}}</th>
+						<th>{{Type générique}}</th>
+						<th>{{Action}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php
+					foreach ($eqLogic->getCmd() as $cmd) {
+						echo '<tr>';
+						echo '<td>'.$cmd->getHumanName().'</td>';
+						echo '<td>'.$cmd->getType().'</td>';
+						echo '<td>'.$cmd->getSubType().'</td>';
+						if(isset($JEEDOM_INTERNAL_CONFIG['cmd']['generic_type'][$cmd->getGeneric_type()])){
+							echo '<td>'.$JEEDOM_INTERNAL_CONFIG['cmd']['generic_type'][$cmd->getGeneric_type()]['name'].'</td>';
+						}else{
+							echo '<td>'.$cmd->getGeneric_type().'</td>';
+						}
+						echo '<td><a class="btn btn-default btn-xs pull-right cursor bt_cmdConfiguration" data-id="' . $cmd->getId() . '"><i class="fas fa-cogs"></i></a><td>';
+						echo '</tr>';
+					}
+					?>
+				</tbody>
+			</table>
+		</fieldset>
+	</form>
+<form class="form-horizontal">
+		<fieldset>
 	<?php
 	if(in_array($device->getType(),array('SHUTTER'))){
 		?>
@@ -65,7 +100,8 @@ sendVarToJs('device', utils::o2a($device));
 	}
 	?>
 </div>
-
+</fieldset>
+	</form>
 <script>
 $('#div_advanceConfigForm').setValues(device, '.deviceAttr');
 $('.bt_advanceConfigSaveDevice').on('click',function(){
