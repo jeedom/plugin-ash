@@ -68,7 +68,7 @@ class ash extends eqLogic {
 			}
 			$info = $device->buildDevice();
 			if(isset($names[$info['friendlyName']])){
-				log::add('ash','error',__('Deux équipements et/ou scène avec le meme nom : ',__FILE__).$info['friendlyName']);
+				log::add('ash','error',__('Deux équipements et/ou scène avec le meme nom : ',__FILE__).json_encode($info));
 				$device->setOptions('configState', 'NOK');
 				$device->save();
 				continue;
