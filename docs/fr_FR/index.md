@@ -79,7 +79,7 @@ Vous pouvez aussi créer des scènes dans l'onglet scène, avec des actions d'en
 
 >**Lors de l'ajout des équipement j'ai des NOK**
 >
->Cliquez simplement sur le NOK une fenetre vous dira les generique type a avoir sur les commandes de l'équipement pour que cela marche
+>Cliquez simplement sur le NOK une fenetre vous dira les generique type a avoir sur les commandes de l'équipement pour que cela marche. Vous pouvez voir [ici](https://doc.jeedom.com/fr_FR/concept/generic_type) la documentation sur les générique type
 
 >**L'ajout d'équipement/scene n'apparait pas dans l'application alexa**
 >
