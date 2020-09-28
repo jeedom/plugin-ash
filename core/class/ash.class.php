@@ -67,15 +67,15 @@ class ash extends eqLogic {
 				continue;
 			}
 			$info = $device->buildDevice();
-if(isset($info['friendlyName']) && trim($info['friendlyName']) =!''){
-			if(isset($names[$info['friendlyName']])){
-				log::add('ash','error',__('Deux équipements et/ou scène avec le meme nom : ',__FILE__).json_encode($info));
-				$device->setOptions('configState', 'NOK');
-				$device->save();
-				continue;
+			if(isset($info['friendlyName']) && trim($info['friendlyName']) =! ''){
+				if(isset($names[$info['friendlyName']])){
+					log::add('ash','error',__('Deux équipements et/ou scène avec le meme nom : ',__FILE__).json_encode($info));
+					$device->setOptions('configState', 'NOK');
+					$device->save();
+					continue;
+				}
+				$names[$info['friendlyName']] = $info['friendlyName'];
 			}
-			$names[$info['friendlyName']] = $info['friendlyName'];
-}
 			if (!is_array($info) || count($info) == 0 || isset($info['missingGenericType'])) {
 				$device->setOptions('configState', 'NOK');
 				if(isset($info['missingGenericType'])){
