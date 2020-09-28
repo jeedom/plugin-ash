@@ -79,7 +79,7 @@ You can also create scenes in the scene tab, with input and output actions.
 
 >**When adding equipment I have NOK**
 >
->Just click on the NOK a window will tell you the generic type to have on the equipment controls for it to work
+>Just click on the NOK a window will tell you the generic type to have on the equipment controls for it to work. You can see [here](https://doc.jeedom.com/en_US/concept/generic_type) the documentation on generic type
 
 >**Adding equipment / scene does not appear in the alexa application**
 >

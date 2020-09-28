@@ -79,7 +79,7 @@ Você também pode criar cenas na guia cena, com ações de entrada e saída.
 
 >**Ao adicionar equipamento, tenho NOK**
 >
->Basta clicar no NOK, uma janela informará o tipo genérico a ser usado nos controles do equipamento para que funcione
+>Basta clicar no NOK, uma janela informará o tipo genérico a ser usado nos controles do equipamento para que funcione. Você pode ver [aqui](https://doc.jeedom.com/pt_PT/concept/generic_type) a documentação sobre tipo genérico
 
 >**Adicionar equipamento / cena não aparece no aplicativo alexa**
 >

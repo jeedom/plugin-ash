@@ -79,7 +79,7 @@ También puede crear escenas en la pestaña de escena, con acciones de entrada y
 
 >**Cuando agrego equipo tengo NOK**
 >
->Simplemente haga clic en NOK, una ventana le indicará el tipo genérico que debe tener en los controles del equipo para que funcione
+>Simplemente haga clic en NOK, una ventana le indicará el tipo genérico que debe tener en los controles del equipo para que funcione. Podéis ver [aquí](https://doc.jeedom.com/es_ES/concept/generic_type) la documentación sobre tipo genérico
 
 >**Agregar equipo / escena no aparece en la aplicación alexa**
 >
