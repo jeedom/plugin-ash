@@ -4,7 +4,7 @@
 >
 >Como recordatorio si no hay información sobre la actualización, significa que solo se refiere a la actualización de documentación, traducción o texto
 
-
+- Posibilidad de activar la rotación automática de la clave API
 - Correcciones de errores
 
 # 30/04/2020
