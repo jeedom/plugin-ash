@@ -57,6 +57,12 @@ if (!isConnect()) {
 				<a class="btn btn-default" id="bt_sendConfigToMarket"><i class="fa fa-paper-plane" aria-hidden="true"></i> {{Envoyer}}</a>
 			</div>
 		</div>
+		<div class="form-group gshmode jeedom">
+			<label class="col-sm-3 control-label">{{Activer la rotation de la clef api}}</label>
+			<div class="col-sm-2">
+				<input type="checkbox" class="configKey" data-l1key="enableApikeyRotate" />
+			</div>
+		</div>
 	</fieldset>
 </form>
 <script type="text/javascript">

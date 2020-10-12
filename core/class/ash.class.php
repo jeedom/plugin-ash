@@ -43,6 +43,29 @@ class ash extends eqLogic {
 	
 	/*     * ***********************Methode static*************************** */
 	
+	public static function postConfig_enableApikeyRotate($_value){
+		$cron = cron::byClassAndFunction('ash', 'rotateApiKey');
+		if($_value == 1){
+			if(!is_object($cron)){
+				$cron = new cron();
+			}
+			$cron->setClass('ash');
+			$cron->setFunction('rotateApiKey');
+			$cron->setLastRun(date('Y-m-d H:i:s'));
+			$cron->setSchedule(rand(0,59).' '.rand(0,23).' * * *');
+			$cron->save();
+		}else{
+			if(is_object($cron)){
+				$cron->remove();
+			}
+		}
+	}
+	
+	public static function rotateApiKey($_option = array()){
+		config::save('api', config::genKey(), 'ash');
+		self::sendJeedomConfig();
+	}
+	
 	public static function sendJeedomConfig() {
 		$market = repo_market::getJsonRpc();
 		if (!$market->sendRequest('ash::configAsh', array('ash::apikey' => jeedom::getApiKey('ash'), 'ash::url' => network::getNetworkAccess('external')))) {
