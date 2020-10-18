@@ -87,6 +87,7 @@ Vous pouvez aussi créer des scènes dans l'onglet scène, avec des actions d'en
 > - supprimé tous mes équipements transmis (vert OK) depuis le plugin Alexa
 > - bien sauvegarder
 > - “oublié” tous mes équipement jeedom visibles dans la rubrique Maison connectée de Alexa.amazon.com (ou l’app)
+> - dans plugin -> gestion de plugin puis alexa cliquer sur "encoyer la configuration au market"
 > - faire une detection depuis Alexa
 > - remettre les équipements
 > - refaire une detection depuis Alexa
