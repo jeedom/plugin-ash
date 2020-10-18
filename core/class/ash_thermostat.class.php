@@ -184,14 +184,6 @@ class ash_thermostat {
 				break;
 			}
 			foreach ($cmd_mode_array as $cmd_mode){
-				if($requested_mode == "HEAT" || $requested_mode == "AUTO"){
-					$requested_mode = "CONFORT";
-				}
-				if($requested_mode == "COOL"){
-					$requested_mode = "OFF";
-				}
-				
-				log::add('ash','debug',$cmd_mode->getName()." ".$requested_mode);
 				
 				if(strtoupper($cmd_mode->getName()) == $requested_mode){
 					$cmd_mode->execute();
