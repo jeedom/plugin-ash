@@ -3,6 +3,7 @@
         "Changelog Alexa": "Changelog Alexa",
         "IMPORTANT": "IMPORTANT",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte",
+        "Possibilité de choisir le mode du thermostat (uniquement avec un thermostat venant du plugin thermostat de jeedom et si les modes s'appellent heat, cool,off,auto,eco": "Possibilité de choisir le mode du thermostat (uniquement avec un thermostat venant du plugin thermostat de jeedom et si les modes s'appellent heat, cool,off,auto,eco",
         "Possibilité d'activer la rotation automatique de la clef api": "Possibilité d'activer la rotation automatique de la clef api",
         "Correction de bugs": "Correction de bugs",
         "30\/04\/2020": "30\/04\/2020",
@@ -116,6 +117,7 @@
         "bien sauvegarder": "bien sauvegarder",
         "oublié\" tous mes équipement jeedom visibles dans la rubrique Maison connectée de Alexa.amazon": "oublié\" tous mes équipement jeedom visibles dans la rubrique Maison connectée de Alexa.amazon",
         "com (ou l'app": "com (ou l'app",
+        "dans plugin -> gestion de plugin puis alexa cliquer sur \"encoyer la configuration au market": "dans plugin -> gestion de plugin puis alexa cliquer sur \"encoyer la configuration au market",
         "faire une detection depuis Alexa": "faire une detection depuis Alexa",
         "remettre les équipements": "remettre les équipements",
         "refaire une detection depuis Alexa": "refaire une detection depuis Alexa"

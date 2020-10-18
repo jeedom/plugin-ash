@@ -87,6 +87,7 @@ También puede crear escenas en la pestaña de escena, con acciones de entrada y
 > - borré todo mi equipo transmitido (verde OK) del complemento Alexa
 > - guardar bien
 > - “oublié” tous mes équipement jeedom visibles dans la rubrique Maison connectée de Alexa.amazon.com (o la aplicación)
+> - en el complemento -> administración de complementos, luego alexa haga clic en "enviar la configuración al mercado"
 > - hacer una detección de Alexa
 > - devolver equipo
 > - rehacer detección de Alexa

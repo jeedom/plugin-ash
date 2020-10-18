@@ -87,6 +87,7 @@ You can also create scenes in the scene tab, with input and output actions.
 > - deleted all my transmitted equipment (green OK) from the Alexa plugin
 > - save well
 > - “oublié” tous mes équipement jeedom visibles dans la rubrique Maison connectée de Alexa.amazon.com (or the app)
+> - in plugin -> plugin management then alexa click on "send the configuration to the market"
 > - do a detection from Alexa
 > - return equipment
 > - redo detection from Alexa

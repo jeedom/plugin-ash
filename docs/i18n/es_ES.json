@@ -2,6 +2,7 @@
     "changelog.md": {
         "Changelog Alexa": "Registro de cambios Alexa",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Como recordatorio si no hay información sobre la actualización, significa que solo se refiere a la actualización de documentación, traducción o texto",
+        "Possibilité de choisir le mode du thermostat (uniquement avec un thermostat venant du plugin thermostat de jeedom et si les modes s'appellent heat, cool,off,auto,eco": "Posibilidad de elegir el modo de termostato (solo con un termostato del complemento de termostato jeedom y si los modos se llaman calor, frío, apagado, automático, eco",
         "Possibilité d'activer la rotation automatique de la clef api": "Posibilidad de activar la rotación automática de la clave API",
         "Correction de bugs": "Correcciones de errores",
         "30\/04\/2020": "30\/04\/2020",
@@ -118,6 +119,7 @@
         "bien sauvegarder": "guardar bien",
         "oublié\" tous mes équipement jeedom visibles dans la rubrique Maison connectée de Alexa.amazon": "olvidé \"todo mi equipo jeedom visible en la sección de Connected Home de Alexa.amazon",
         "com (ou l'app": "com (o la aplicación",
+        "dans plugin -> gestion de plugin puis alexa cliquer sur \"encoyer la configuration au market": "en el complemento -> administración de complementos, luego alexa haga clic en \"enviar la configuración al mercado",
         "faire une detection depuis Alexa": "hacer una detección de Alexa",
         "remettre les équipements": "devolver equipo",
         "refaire une detection depuis Alexa": "rehacer detección de Alexa",

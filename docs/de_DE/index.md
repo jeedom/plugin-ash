@@ -87,6 +87,7 @@ Sie können auf der Registerkarte "Szene" auch Szenen mit Eingabe- und Ausgabeak
 > - löschte alle meine übertragenen Geräte (grün OK) aus dem Alexa-Plugin
 > - gut sparen
 > - “oublié” tous mes équipement jeedom visibles dans la rubrique Maison connectée de Alexa.amazon.com (oder die App)
+> - im plugin -> plugin management dann alexa auf "send the configuration to the market" klicken"
 > - mache eine Entdeckung von Alexa
 > - Rückgabegeräte
 > - Wiederholen Sie die Erkennung von Alexa

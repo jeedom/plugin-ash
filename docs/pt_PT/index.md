@@ -87,6 +87,7 @@ Você também pode criar cenas na guia cena, com ações de entrada e saída.
 > - apaguei todo o meu equipamento transmitido (verde OK) do plugin Alexa
 > - salve bem
 > - “oublié” tous mes équipement jeedom visibles dans la rubrique Maison connectée de Alexa.amazon.com (ou o aplicativo)
+> - em plugin -> gerenciamento de plugin, em seguida, alexa clique em "enviar a configuração para o mercado"
 > - faça uma detecção do Alexa
 > - equipamento de retorno
 > - refazer a detecção do Alexa
