@@ -4,7 +4,7 @@
 >
 >Como lembrete, se não houver informações sobre a atualização, isso significa que se trata apenas da atualização da documentação, tradução ou texto
 
-
+- Possibilidade de ativar a rotação automática da chave API
 - Correções de bugs
 
 # 30/04/2020

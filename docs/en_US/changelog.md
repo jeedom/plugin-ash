@@ -4,7 +4,7 @@
 >
 >As a reminder if there is no information on the update, it means that it only concerns the updating of documentation, translation or text
 
-
+- Possibility of activating the automatic rotation of the API key
 - Bugfix
 
 # 04/30/2020

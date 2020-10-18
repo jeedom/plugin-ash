@@ -2,6 +2,7 @@
     "changelog.md": {
         "Changelog Alexa": "Changelog Alexa",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Como lembrete, se não houver informações sobre a atualização, isso significa que se trata apenas da atualização da documentação, tradução ou texto",
+        "Possibilité d'activer la rotation automatique de la clef api": "Possibilidade de ativar a rotação automática da chave API",
         "Correction de bugs": "Correções de bugs",
         "30\/04\/2020": "30\/04\/2020",
         "Correction d'un soucis sur la commande descente des volets": "Correção de um problema com o controle de descida do obturador",

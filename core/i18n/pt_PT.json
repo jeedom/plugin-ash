@@ -9,6 +9,7 @@
         "Votre abonnement aux services assistant vocaux est fini.": "Sua assinatura dos serviços de assistente de voz está concluída",
         "Envoyer configuration au market": "Enviar configuração ao mercado",
         "Envoyer": "Enviar",
+        "Activer la rotation de la clef api": "Ative a rotação da chave API",
         "Configuration envoyée avec succès.": "Configuração enviada com sucesso"
     },
     "plugins\/ash\/desktop\/modal\/advanceConfig.php": {
