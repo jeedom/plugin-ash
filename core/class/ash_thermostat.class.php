@@ -147,6 +147,58 @@ class ash_thermostat {
 			}
 			$cmd->execCmd(array('slider' => $cmd_get->execCmd() + $_directive['payload']['targetSetpoint']['value']));
 			break;
+			case 'AdjustTargetTemperature':
+			if (isset($_directive['endpoint']['cookie']['cmd_set_thermostat'])) {
+				$cmd_set = cmd::byId($_directive['endpoint']['cookie']['cmd_set_thermostat']);
+			}
+			if (!is_object($cmd_set)) {
+				break;
+			}
+			if (isset($_directive['endpoint']['cookie']['cmd_get_thermostat'])) {
+				$cmd_get = cmd::byId($_directive['endpoint']['cookie']['cmd_get_thermostat']);
+			}
+			if (!is_object($cmd_get)) {
+				break;
+			}
+			$cmd_set->execCmd(array('slider' => $cmd_get->execCmd() + $_directive['payload']['targetSetpointDelta']['value']));
+			break;
+			case 'SetThermostatMode':
+			if (isset($_directive['payload']['thermostatMode']['value'])) {
+				$requested_mode = $_directive['payload']['thermostatMode']['value'];
+			}
+			if ($requested_mode == '') {
+				break;
+			}
+			if (isset($_directive['endpoint']['cookie']['cmd_get_mode'])) {
+				$cmd_get_mode = cmd::byId($_directive['endpoint']['cookie']['cmd_get_mode']);
+			}
+			if (!is_object($cmd_get_mode)) {
+				break;
+			}
+			$eqlogic = $cmd_get_mode->getEqLogic();
+			if (!is_object($eqlogic)) {
+				break;
+			}
+			$cmd_mode_array = cmd::byGenericType('THERMOSTAT_SET_MODE',$eqlogic->getId());
+			if (count($cmd_mode_array) == 0) {
+				break;
+			}
+			foreach ($cmd_mode_array as $cmd_mode){
+				if($requested_mode == "HEAT" || $requested_mode == "AUTO"){
+					$requested_mode = "CONFORT";
+				}
+				if($requested_mode == "COOL"){
+					$requested_mode = "OFF";
+				}
+				
+				log::add('ash','debug',$cmd_mode->getName()." ".$requested_mode);
+				
+				if(strtoupper($cmd_mode->getName()) == $requested_mode){
+					$cmd_mode->execute();
+					break;
+				}
+			}
+			break;
 		}
 		return self::getState($_device, $_directive);
 	}
