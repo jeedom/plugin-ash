@@ -10,7 +10,10 @@ Il peut fonctionner en passant par un service cloud mis à disposition par Jeedo
 
 > **Important**
 >
-> Il faut ABSOLUMENT que votre Jeedom soit accessible en HTTPS (le plugin ne marche pas en HTTP) valide (donc pas de certificat auto-signé)
+> AMAZON impose que votre Jeedom soit accessible en HTTPS (le plugin ne marche pas en HTTP) avec un certificat valide (donc pas de certificat auto-signé)
+>
+> Grâce aux Service Pack Power ou Ultimate, votre Jeedom est accessible en HTTPS.
+> Si vous disposez d'un Service Pack Community, vous devez installer vous même un certificat SSL émis par une autorité de certification.
 
 > **Important**
 >
