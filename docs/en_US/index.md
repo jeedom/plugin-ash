@@ -10,7 +10,10 @@ It can operate through a cloud service provided by Jeedom.
 
 > **Important**
 >
-> It is ABSOLUTELY necessary that your Jeedom is accessible in HTTPS (the plugin does not work in HTTP) valid (therefore no self-signed certificate)
+> AMAZON requires that your Jeedom be accessible in HTTPS (the plugin does not work in HTTP) with a valid certificate (therefore no self-signed certificate)
+>
+> Thanks to the Power or Ultimate Service Packs, your Jeedom is accessible via HTTPS.
+> If you have a Community Service Pack, you must install yourself an SSL certificate issued by a certification authority.
 
 > **Important**
 >

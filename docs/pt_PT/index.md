@@ -10,7 +10,10 @@ Ele pode operar através de um serviço em nuvem fornecido pela Jeedom.
 
 > **IMPORTANTE**
 >
-> É absolutamente necessário que seu Jeedom esteja acessível em HTTPS (o plug-in não funciona em HTTP) válido (portanto, nenhum certificado autoassinado))
+> AMAZON requer que seu Jeedom esteja acessível em HTTPS (o plugin não funciona em HTTP) com um certificado válido (portanto, nenhum certificado autoassinado)
+>
+> Graças aos Power ou Ultimate Service Packs, seu Jeedom pode ser acessado via HTTPS.
+> Se você tiver um Community Service Pack, deverá instalar um certificado SSL emitido por uma autoridade de certificação.
 
 > **IMPORTANTE**
 >
