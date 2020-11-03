@@ -9,14 +9,21 @@
         "Votre abonnement aux services assistant vocaux est fini.": "Sua assinatura dos serviços de assistente de voz está concluída",
         "Envoyer configuration au market": "Enviar configuração ao mercado",
         "Envoyer": "Enviar",
+        "Activer la rotation de la clef api": "Ative a rotação da chave API",
         "Configuration envoyée avec succès.": "Configuração enviada com sucesso"
     },
     "plugins\/ash\/desktop\/modal\/advanceConfig.php": {
         "Eqlogic ID non valide : ": "ID Eqlogic inválido:",
         "Device non trouvé": "Dispositivo não encontrado",
         "Aucun type configuré pour ce périphérique": "Nenhum tipo configurado para este dispositivo",
-        "Groupe objet (option nécéssitant un compte market spécifique)": "Grupo de objetos (opção que requer uma conta de mercado específica)",
         "Sauvegarder": "Salvar",
+        "Groupe objet (option nécéssitant un compte market spécifique)": "Grupo de objetos (opção que requer uma conta de mercado específica)",
+        "Commandes": "Comandos",
+        "Nom": "Nome",
+        "Type": "Tipo",
+        "Sous-type": "Subtipo",
+        "Type générique": "Tipo genérico",
+        "Action": "Ação",
         "Configuration": "Configuração",
         "Inverser": "Inverter",
         "Il n\\'y a aucune configuration avancée pour ce type": "Não há configuração avançada para este tipo",
@@ -34,7 +41,7 @@
         "Voir la configuration": "Ver configuração",
         "Sauvegarder": "Salvar",
         "Equipement": "Equipamento",
-        "Scénario": "Cenas",
+        "Scènes": "Cenários",
         "Plugin": "Plugin",
         "Options": "Opções",
         "Status": "Estado",
@@ -114,5 +121,8 @@
         "Etat luminosité": "Estado de brilho",
         "Couleur": "Cor",
         "Etat couleur": "Status da cor"
+    },
+    "info.json": {
+        "Plugin permettant d'utiliser Amazon Alexa (echo, dot...) pour piloter votre Jeedom. Important : le plugin nécessite un abonnement aux services vocaux . Pour gérer cet abonnement : https:\/\/www.jeedom.com\/market\/index.php?v=d&p=profils#services": "Plugin que permite usar o Amazon Alexa (eco, ponto ...) para controlar seu Jeedom. Importante: o plug-in requer uma assinatura para serviços de voz. Para gerenciar esta assinatura: https:\/\/www.jeedom.com\/market\/index.php?v=d&p=profils#services"
     }
 }

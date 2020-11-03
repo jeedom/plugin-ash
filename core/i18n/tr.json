@@ -9,14 +9,21 @@
         "Votre abonnement aux services assistant vocaux est fini.": "",
         "Envoyer configuration au market": "",
         "Envoyer": "Gönder",
+        "Activer la rotation de la clef api": "",
         "Configuration envoyée avec succès.": ""
     },
     "plugins\/ash\/desktop\/modal\/advanceConfig.php": {
         "Eqlogic ID non valide : ": "",
         "Device non trouvé": "",
         "Aucun type configuré pour ce périphérique": "",
-        "Groupe objet (option nécéssitant un compte market spécifique)": "",
         "Sauvegarder": "Kaydet",
+        "Groupe objet (option nécéssitant un compte market spécifique)": "",
+        "Commandes": "Komutalar",
+        "Nom": "İsim",
+        "Type": "Çeşit",
+        "Sous-type": "Alt türü(tipi)",
+        "Type générique": "Genel tip",
+        "Action": "Eylem",
         "Configuration": "Ayar",
         "Inverser": "Ters çevir",
         "Il n\\'y a aucune configuration avancée pour ce type": "",
@@ -34,7 +41,7 @@
         "Voir la configuration": "",
         "Sauvegarder": "Kaydet",
         "Equipement": "Cihaz",
-        "Scénario": "Senaryo",
+        "Scènes": "",
         "Plugin": "Eklenti",
         "Options": "Opsiyonlar",
         "Status": "Durum",
@@ -114,5 +121,8 @@
         "Etat luminosité": "",
         "Couleur": "Renk",
         "Etat couleur": ""
+    },
+    "info.json": {
+        "Plugin permettant d'utiliser Amazon Alexa (echo, dot...) pour piloter votre Jeedom. Important : le plugin nécessite un abonnement aux services vocaux . Pour gérer cet abonnement : https:\/\/www.jeedom.com\/market\/index.php?v=d&p=profils#services": ""
     }
 }
