@@ -2,6 +2,7 @@
     "changelog.md": {
         "Changelog Alexa": "Registro de cambios Alexa",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Como recordatorio si no hay información sobre la actualización, significa que solo se refiere a la actualización de documentación, traducción o texto",
+        "03\/11\/2020": "11\/03\/2020",
         "Possibilité de choisir le mode du thermostat (uniquement avec un thermostat venant du plugin thermostat de jeedom et si les modes s'appellent heat, cool,off,auto,eco": "Posibilidad de elegir el modo de termostato (solo con un termostato del complemento de termostato jeedom y si los modos se llaman calor, frío, apagado, automático, eco",
         "Possibilité d'activer la rotation automatique de la clef api": "Posibilidad de activar la rotación automática de la clave API",
         "Correction de bugs": "Correcciones de errores",
@@ -71,7 +72,8 @@
         "Vous pouvez gérer votre abonnement": "Puedes gestionar tu suscripción",
         "AMAZON impose que votre Jeedom soit accessible en HTTPS (le plugin ne marche pas en HTTP) avec un certificat valide (donc pas de certificat auto-signé": "AMAZON requiere que su Jeedom sea accesible en HTTPS (el complemento no funciona en HTTP) con un certificado válido (por lo tanto, sin certificado autofirmado",
         "Grâce aux Service Pack Power ou Ultimate, votre Jeedom est accessible en HTTPS": "Gracias a los paquetes de servicio Power o Ultimate, se puede acceder a su Jeedom a través de HTTPS",
-        "Si vous disposez d'un Service Pack Community, vous devez installer vous même un certificat SSL émis par une autorité de certification": "Si tiene un Community Service Pack, debe instalar usted mismo un certificado SSL emitido por una autoridad de certificación",
+        "Si vous disposez d'un Service Pack Community, vous devez installer vous même un certificat SSL émis par une autorité de certification (ex": "Si tiene un Community Service Pack, debe instalar usted mismo un certificado SSL emitido por una autoridad de certificación (p. Ej",
+        "Let's Encrypt": "Vamos a cifrar",
         "Le plugin ne supporte pas les équipement avec des double fonction (2 sortie comme certain module zwave Fibaro": "El complemento no es compatible con equipos con funciones duales (2 salidas como cierto módulo zwave Fibaro",
         "Il faut absolument passer par 2 virtuels pour le décomposer": "Absolutamente tienes que pasar por 2 virtuales para descomponerlo",
         "Mise en place de la connexion vers Alexa": "Establecer la conexión a Alexa",

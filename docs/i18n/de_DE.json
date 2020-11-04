@@ -2,6 +2,7 @@
     "changelog.md": {
         "Changelog Alexa": "Changelog Alexa",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Zur Erinnerung: Wenn keine Informationen zum Update vorhanden sind, bedeutet dies, dass es sich nur um die Aktualisierung von Dokumentation, Übersetzung oder Text handelt",
+        "03\/11\/2020": "03\/11\/2020",
         "Possibilité de choisir le mode du thermostat (uniquement avec un thermostat venant du plugin thermostat de jeedom et si les modes s'appellent heat, cool,off,auto,eco": "Möglichkeit, den Thermostatmodus zu wählen (nur mit einem Thermostat aus dem Jeedom-Thermostat-Plugin und wenn die Modi Wärme, Kühlen, Aus, Auto, Öko heißen",
         "Possibilité d'activer la rotation automatique de la clef api": "Möglichkeit der Aktivierung der automatischen Drehung des API-Schlüssels",
         "Correction de bugs": "Fehlerbehebungen",
@@ -71,7 +72,8 @@
         "Vous pouvez gérer votre abonnement": "Sie können Ihr Abonnement verwalten",
         "AMAZON impose que votre Jeedom soit accessible en HTTPS (le plugin ne marche pas en HTTP) avec un certificat valide (donc pas de certificat auto-signé": "AMAZON setzt voraus, dass Ihr Jeedom in HTTPS (das Plugin funktioniert nicht in HTTP) mit einem gültigen Zertifikat (daher kein selbstsigniertes Zertifikat) zugänglich ist",
         "Grâce aux Service Pack Power ou Ultimate, votre Jeedom est accessible en HTTPS": "Dank der Power- oder Ultimate Service Packs ist Ihr Jeedom über HTTPS zugänglich",
-        "Si vous disposez d'un Service Pack Community, vous devez installer vous même un certificat SSL émis par une autorité de certification": "Wenn Sie über ein Community Service Pack verfügen, müssen Sie selbst ein von einer Zertifizierungsstelle ausgestelltes SSL-Zertifikat installieren",
+        "Si vous disposez d'un Service Pack Community, vous devez installer vous même un certificat SSL émis par une autorité de certification (ex": "Wenn Sie über ein Community Service Pack verfügen, müssen Sie selbst ein SSL-Zertifikat installieren, das von einer Zertifizierungsstelle ausgestellt wurde (z",
+        "Let's Encrypt": "Lassen Sie uns verschlüsseln",
         "Le plugin ne supporte pas les équipement avec des double fonction (2 sortie comme certain module zwave Fibaro": "Das Plugin unterstützt keine Geräte mit Doppelfunktionen (2 Ausgänge als bestimmtes zwave Fibaro-Modul",
         "Il faut absolument passer par 2 virtuels pour le décomposer": "Sie müssen unbedingt 2 virtuelle durchlaufen, um es aufzuschlüsseln",
         "Mise en place de la connexion vers Alexa": "Herstellen der Verbindung zu Alexa",
