@@ -36,7 +36,7 @@ try {
 			if (!is_object($device)) {
 				$device = new ash_devices();
 			}
-			utils::a2o($device, $device_json);
+			utils::a2o($device,jeedom::fromHumanReadable($device_json));
 			$device->save();
 			$enableList[$device->getId()] = true;
 		}
