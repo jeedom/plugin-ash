@@ -33,7 +33,7 @@ if (!isConnect()) {
 			<?php
 			try {
 				$info =	ash::voiceAssistantInfo();
-				echo '<label class="col-lg-3 control-label">{{Abonnement service assistant vocaux}}</label>';
+				echo '<label class="col-lg-3 control-label">{{Abonnement aux services assistants vocaux}}</label>';
 				echo '<div class="col-lg-9">';
 				if(isset($info['limit']) && $info['limit'] != -1 && $info['limit'] != ''){
 					echo '<div>{{Votre abonnement aux services assistants vocaux finit le }}'.$info['limit'].'.';
