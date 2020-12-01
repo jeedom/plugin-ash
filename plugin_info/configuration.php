@@ -39,7 +39,7 @@ if (!isConnect()) {
 					echo '<div>{{Votre abonnement aux services assistants vocaux finit le }}'.$info['limit'].'.';
 					echo ' {{Pour le prolonger, allez}} <a href="https://www.jeedom.com/market/index.php?v=d&p=profils#services" target="_blank">{{ici}}</a>';
 				}else if($info['limit'] == -1){
-					echo '<div>{{Votre abonnement aux services assistant vocaux est illimité.}}';
+					echo '<div>{{Votre abonnement aux services assistants vocaux est illimité.}}';
 				}else{
 					echo '<div class="alert alert-warning">{{Votre abonnement aux services assistants vocaux est finit.}}';
 					echo ' {{Pour le prolonger, allez}} <a href="https://www.jeedom.com/market/index.php?v=d&p=profils#services" target="_blank">{{ici}}</a>';
