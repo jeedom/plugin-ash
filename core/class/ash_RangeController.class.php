@@ -25,7 +25,7 @@ class ash_RangeController {
 	/*     * ***********************Methode static*************************** */
 	public static function discover($_device,$_eqLogic) {
 		$return['capabilities'] = array();
-		foreach ($eqLogic->getCmd() as $cmd) {
+		foreach ($_eqLogic->getCmd() as $cmd) {
 			if (in_array($cmd->getGeneric_type(), self::$_ON) || in_array($cmd->getGeneric_type(), self::$_OFF) || in_array($cmd->getGeneric_type(), self::$_SLIDER)) {
 				$return['capabilities']['Alexa.RangeController'] = array (
 					'type' => 'AlexaInterface',
@@ -124,7 +124,7 @@ class ash_RangeController {
 				}
 			}
 		}
-		foreach ($eqLogic->getCmd() as $cmd) {
+		foreach ($_eqLogic->getCmd() as $cmd) {
 			if (in_array($cmd->getGeneric_type(), self::$_STATE)) {
 				if(isset($return['capabilities']['Alexa.RangeController'])){
 					$return['capabilities']['Alexa.RangeController']['properties']['retrievable'] = true;

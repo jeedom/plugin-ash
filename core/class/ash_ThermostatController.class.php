@@ -27,7 +27,7 @@ class ash_ThermostatController {
 	
 	public static function buildDevice($_device) {
 		$return['capabilities'] = array();
-		foreach ($eqLogic->getCmd() as $cmd) {
+		foreach ($_eqLogic->getCmd() as $cmd) {
 			if (in_array($cmd->getGeneric_type(), array('THERMOSTAT_SETPOINT'))) {
 				$return['cookie']['ThermostatController_getThermostat'] = $cmd->getId();
 			}

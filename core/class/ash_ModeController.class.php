@@ -74,7 +74,7 @@ class ash_ModeController {
       $return['cookie']['ModeController_setOn'] = $cmd->getId();
     }
   }
-  foreach ($eqLogic->getCmd() as $cmd) {
+  foreach ($_eqLogic->getCmd() as $cmd) {
     if (in_array($cmd->getGeneric_type(), self::$_MODE_STATE)) {
       if(isset($return['capabilities']['Alexa.ModeController'])){
         $return['capabilities']['Alexa.ModeController']['properties']['retrievable'] = true;

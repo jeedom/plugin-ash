@@ -23,7 +23,7 @@ class ash_TemperatureSensor {
 	/*     * ***********************Methode static*************************** */
 	public static function discover($_device,$_eqLogic) {
 		$return['capabilities'] = array();
-		foreach ($eqLogic->getCmd() as $cmd) {
+		foreach ($_eqLogic->getCmd() as $cmd) {
 			if (in_array($cmd->getGeneric_type(), self::$_TEMPERATURE)) {
 				$return['capabilities']['Alexa.TemperatureSensor'] = array(
 					'type' => 'AlexaInterface',
