@@ -1,12 +1,12 @@
 {
     "plugins\/ash\/plugin_info\/configuration.php": {
         "Attention votre connexion externe ne semble pas etre en https, ce plugin nécessite ABSOLUMENT une connexion https. Si vous ne savez pas comment faire vous pouvez souscrire à un service pack power pour utiliser le service de DNS Jeedom": "",
-        "Abonnement service assistant vocaux": "",
-        "Votre abonnement aux services assistant vocaux fini le ": "",
+        "Abonnement aux services assistants vocaux": "",
+        "Votre abonnement aux services assistants vocaux finit le ": "",
         "Pour le prolonger, allez": "",
         "ici": "здесь",
-        "Votre abonnement aux services assistant vocaux est illimité.": "",
-        "Votre abonnement aux services assistant vocaux est fini.": "",
+        "Votre abonnement aux services assistants vocaux est illimité.": "",
+        "Votre abonnement aux services assistants vocaux est finit.": "",
         "Envoyer configuration au market": "",
         "Envoyer": "Отправить",
         "Activer la rotation de la clef api": "",

@@ -1,12 +1,12 @@
 {
     "plugins\/ash\/plugin_info\/configuration.php": {
         "Attention votre connexion externe ne semble pas etre en https, ce plugin nécessite ABSOLUMENT une connexion https. Si vous ne savez pas comment faire vous pouvez souscrire à un service pack power pour utiliser le service de DNS Jeedom": "Observe que sua conexão externa não parece estar em https; este plug-in requer ABSOLUTAMENTE uma conexão https. Se você não souber como fazer isso, poderá se inscrever em um pacote de energia para usar o serviço DNS Jeedom",
-        "Abonnement service assistant vocaux": "Assinatura do serviço de assistente de voz",
-        "Votre abonnement aux services assistant vocaux fini le ": "Sua assinatura dos serviços de assistente de voz terminou em",
+        "Abonnement aux services assistants vocaux": "Assinatura de serviços de assistente de voz",
+        "Votre abonnement aux services assistants vocaux finit le ": "Sua assinatura de serviços de assistente de voz termina em",
         "Pour le prolonger, allez": "Para estendê-lo, vá",
         "ici": "aqui",
-        "Votre abonnement aux services assistant vocaux est illimité.": "Sua assinatura dos serviços de assistente de voz é ilimitada",
-        "Votre abonnement aux services assistant vocaux est fini.": "Sua assinatura dos serviços de assistente de voz está concluída",
+        "Votre abonnement aux services assistants vocaux est illimité.": "Sua assinatura de serviços de assistente de voz é ilimitada",
+        "Votre abonnement aux services assistants vocaux est finit.": "Sua assinatura dos serviços de assistente de voz terminou",
         "Envoyer configuration au market": "Enviar configuração ao mercado",
         "Envoyer": "Enviar",
         "Activer la rotation de la clef api": "Ative a rotação da chave API",
