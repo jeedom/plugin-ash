@@ -40,13 +40,15 @@ class ash_TemperatureSensor {
 				$return['cookie']['TemperatureSensor_getState'] = $cmd->getId();
 			}
 		}
-		if (count($return['capabilities']) == 0) {
-			return array('missingGenericType' => array(
-				__('Température',__FILE__) => self::$_TEMPERATURE
-			));
-		}
 		return $return;
 	}
+	
+	public static function needGenericType(){
+		return array(
+			__('Température',__FILE__) => self::$_TEMPERATURE
+		);
+	}
+	
 	public static function exec($_device, $_directive) {
 		return self::getState($_device, $_directive);
 	}

@@ -91,6 +91,13 @@ class ash_ModeController {
   return $return;
 }
 
+public static function needGenericType(){
+  return array(
+    __('Etat mode',__FILE__) => self::$_MODE_STATE,
+    __('Mode',__FILE__) => self::$_MODE_SET_STATE
+  );
+}
+
 public static function exec($_device, $_directive) {
   switch ($_directive['header']['name']) {
     case 'SetMode':

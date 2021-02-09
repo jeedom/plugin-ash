@@ -25,7 +25,7 @@ class ash_ThermostatController {
 	
 	/*     * ***********************Methode static*************************** */
 	
-	public static function buildDevice($_device) {
+	public static function discover($_device,$_eqLogic) {
 		$return['capabilities'] = array();
 		foreach ($_eqLogic->getCmd() as $cmd) {
 			if (in_array($cmd->getGeneric_type(), array('THERMOSTAT_SETPOINT'))) {
@@ -72,15 +72,16 @@ class ash_ThermostatController {
 				$return['cookie']['ThermostatController_getMode'] = $cmd->getId();
 			}
 		}
-		if (count($return['capabilities']) == 0) {
-			return array('missingGenericType' => array(
-				__('Thermostat',__FILE__) => array('THERMOSTAT_SET_SETPOINT'),
-				__('Consigne',__FILE__) => array('THERMOSTAT_SETPOINT'),
-				__('Etat themostat ',__FILE__) => array('THERMOSTAT_TEMPERATURE'),
-				__('Mode',__FILE__) => array('THERMOSTAT_MODE')
-			));
-		}
 		return $return;
+	}
+	
+	public static function needGenericType(){
+		return array(
+			__('Thermostat',__FILE__) => array('THERMOSTAT_SET_SETPOINT'),
+			__('Consigne',__FILE__) => array('THERMOSTAT_SETPOINT'),
+			__('Etat themostat ',__FILE__) => array('THERMOSTAT_TEMPERATURE'),
+			__('Mode',__FILE__) => array('THERMOSTAT_MODE')
+		);
 	}
 	
 	public static function exec($_device, $_directive) {

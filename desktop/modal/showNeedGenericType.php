@@ -29,9 +29,6 @@ if (!is_object($device)) {
 if ($device->getType() == '') {
   throw new Exception(__('Aucun type configuré pour ce périphérique', __FILE__));
 }
-if($device->getOptions('missingGenericType') == '' || !is_array($device->getOptions('missingGenericType')) || count($device->getOptions('missingGenericType')) == 0){
-  throw new Exception(__('Aucune information disponible', __FILE__));
-}
 
 $supportedType = ash::getSupportedType();
 echo '<div class="alert alert-info">{{Voici les types génériques utilisés pour le genre d\'équipement choisi. Attention il ne faut pas forcément les avoir tous sur l\'équipement (ou n’en avoir aucun)}}</div>';
@@ -43,7 +40,7 @@ foreach ($supportedType[$device->getType()]['skills'] as $skill) {
   }
   $genericType = $class::needGenericType();
   foreach ($genericType as $key => $values) {
-    echo '<legend>'.$traits.' : '.$key.'</legend>';
+    echo '<legend>'.$skill.' : '.$key.'</legend>';
     echo '<ul>';
     foreach ($values as $value) {
       echo '<li>';

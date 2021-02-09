@@ -54,13 +54,14 @@ class ash_ColorController {
 				$return['cookie']['ColorController_getState'] = $cmd->getId();
 			}
 		}
-		if (count($return['capabilities']) == 0) {
-			return array('missingGenericType' => array(
-				__('Couleur',__FILE__) => self::$_COLOR,
-				__('Etat couleur',__FILE__) => self::$_COLOR_STATE,
-			));
-		}
 		return $return;
+	}
+	
+	public static function needGenericType(){
+		return array(
+			__('Couleur',__FILE__) => self::$_COLOR,
+			__('Etat couleur',__FILE__) => self::$_COLOR_STATE,
+		);
 	}
 	
 	public static function exec($_device, $_directive) {

@@ -132,16 +132,18 @@ class ash_RangeController {
 				$return['cookie']['RangeController_getState'] = $cmd->getId();
 			}
 		}
-		if (count($return['capabilities']) == 0) {
-			return array('missingGenericType' => array(
-				__('Position',__FILE__) => self::$_SLIDER,
-				__('On',__FILE__) => self::$_ON,
-				__('Off',__FILE__) => self::$_OFF,
-				__('Etat',__FILE__) => self::$_STATE
-			));
-		}
 		return $return;
 	}
+	
+	public static function needGenericType(){
+		return array(
+			__('Position',__FILE__) => self::$_SLIDER,
+			__('On',__FILE__) => self::$_ON,
+			__('Off',__FILE__) => self::$_OFF,
+			__('Etat',__FILE__) => self::$_STATE
+		);
+	}
+	
 	public static function exec($_device, $_directive) {
 		switch ($_directive['header']['name']) {
 			case 'AdjustRangeValue' :

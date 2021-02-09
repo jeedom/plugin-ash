@@ -39,13 +39,15 @@ class ash_ContactSensor {
 				$return['cookie']['ContactSensor_getState'] = $cmd->getId();
 			}
 		}
-		if (count($return['capabilities']) == 0) {
-			return array('missingGenericType' => array(
-				__('Contacteur',__FILE__) => self::$_CONTACT
-			));
-		}
 		return $return;
 	}
+	
+	public static function needGenericType(){
+		return array(
+			__('Contacteur',__FILE__) => self::$_CONTACT
+		);
+	}
+	
 	public static function exec($_device, $_directive) {
 		return self::getState($_device, $_directive);
 	}

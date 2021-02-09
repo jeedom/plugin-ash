@@ -55,13 +55,14 @@ class ash_BrightnessController {
 				$return['cookie']['BrightnessController_getState'] = $cmd->getId();
 			}
 		}
-		if (count($return['capabilities']) == 0) {
-			return array('missingGenericType' => array(
-				__('Luminosité',__FILE__) => self::$_BRIGHTNESS,
-				__('Etat luminosité',__FILE__) => self::$_BRIGHTNESS_STATE
-			));
-		}
 		return $return;
+	}
+	
+	public static function needGenericType(){
+		return array(
+			__('Luminosité',__FILE__) => self::$_BRIGHTNESS,
+			__('Etat luminosité',__FILE__) => self::$_BRIGHTNESS_STATE
+		);
 	}
 	
 	public static function exec($_device, $_directive) {

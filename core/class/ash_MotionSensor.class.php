@@ -39,13 +39,15 @@ class ash_MotionSensor {
 				$return['cookie']['MotionSensor_getState'] = $cmd->getId();
 			}
 		}
-		if (count($return['capabilities']) == 0) {
-			return array('missingGenericType' => array(
-				__('Mouvement',__FILE__) => self::$_MOTION
-			));
-		}
 		return $return;
 	}
+	
+	public static function needGenericType(){
+		return array(
+			__('Mouvement',__FILE__) => self::$_MOTION
+		);
+	}
+	
 	public static function exec($_device, $_directive) {
 		return self::getState($_device, $_directive);
 	}
