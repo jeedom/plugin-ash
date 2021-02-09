@@ -18,37 +18,39 @@
 
 /* * ***************************Includes********************************* */
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
-include_file('core', 'ash_light', 'class', 'ash');
-include_file('core', 'ash_outlet', 'class', 'ash');
-include_file('core', 'ash_thermostat', 'class', 'ash');
+
 include_file('core', 'ash_scene', 'class', 'ash');
-include_file('core', 'ash_shutter', 'class', 'ash');
-include_file('core', 'ash_sensors', 'class', 'ash');
-include_file('core', 'ash_mode', 'class', 'ash');
-
-
 include_file('core', 'ash_PowerController', 'class', 'ash');
 include_file('core', 'ash_BrightnessController', 'class', 'ash');
 include_file('core', 'ash_ColorController', 'class', 'ash');
+include_file('core', 'ash_TemperatureSensor', 'class', 'ash');
+include_file('core', 'ash_MotionSensor', 'class', 'ash');
+include_file('core', 'ash_ContactSensor', 'class', 'ash');
+include_file('core', 'ash_ModeController', 'class', 'ash');
+include_file('core', 'ash_RangeController', 'class', 'ash');
+include_file('core', 'ash_ThermostatController', 'class', 'ash');
 
 class ash extends eqLogic {
 	
 	/*     * *************************Attributs****************************** */
 	
 	public static $_supportedType = array(
-		'THERMOSTAT' => array('class' => 'ash_thermostat', 'name' => 'Thermostat'),
-		'SCENE_TRIGGER' => array('class' => 'ash_scene', 'name' => 'Scene'),
-		'SHUTTER' => array('class' => 'ash_shutter', 'name' => 'Volet'),
-		'SENSORS' => array('class' => 'ash_sensors', 'name' => 'Capteur (mouvement, contact et température)'),
-		'MODE' => array('class' => 'ash_mode', 'name' => 'Mode'),
+		'THERMOSTAT' => array('class' => 'ash_thermostat', 'name' => 'Thermostat')
 	);
 	
 	
 	public static function getSupportedType(){
 		return array(
+			'THERMOSTAT' => array('name' => __('Thermostat',__FILE__) ,'skills' =>array('TemperatureSensor','ThermostatController')),
 			'LIGHT' => array('name' => __('Lumière',__FILE__) ,'skills' =>array('PowerController','BrightnessController','ColorController')),
 			'SWITCH' => array('name' => __('Switch',__FILE__) ,'skills' =>array('PowerController')),
 			'SMARTPLUG' => array('name' => __('Prise',__FILE__) ,'skills' =>array('PowerController')),
+			'OTHER' => array('name' => __('Mode',__FILE__) ,'skills' =>array('ModeController')),
+			'TEMPERATURE_SENSOR' => array('name' => __('Capteur de température',__FILE__) ,'skills' =>array('TemperatureSensor')),
+			'MOTION_SENSOR' => array('name' => __('Detecteur de mouvement',__FILE__) ,'skills' =>array('MotionSensor')),
+			'CONTACT_SENSOR' => array('name' => __('Detecteur d\'ouverture',__FILE__) ,'skills' =>array('ContactSensor')),
+			'SCENE_TRIGGER' => array('name' => __('Scene',__FILE__) ,'class' =>'ash_scene'),
+			'INTERIOR_BLIND' => array('name' => __('Volet',__FILE__) ,'skills' =>array('RangeController')),
 		);
 	}
 	
@@ -322,6 +324,11 @@ class ash_devices {
 			if(count($return['capabilities']) == 0){
 				return array();
 			}
+			$return['capabilities']['AlexaInterface'] = array(
+				"type" => "AlexaInterface",
+				"interface" => "Alexa",
+				"version" => "3",
+			);
 			return $return;
 		}
 	}

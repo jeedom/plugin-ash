@@ -48,12 +48,6 @@ class ash_BrightnessController {
 			}
 		}
 		foreach ($_eqLogic->getCmd() as $cmd) {
-			if (in_array($cmd->getGeneric_type(), self::$_STATE)) {
-				if(isset($return['capabilities']['Alexa.BrightnessController'])){
-					$return['capabilities']['Alexa.BrightnessController']['properties']['retrievable'] = true;
-				}
-				$return['cookie']['cmd_get_state'] = $cmd->getId();
-			}
 			if (in_array($cmd->getGeneric_type(), self::$_BRIGHTNESS_STATE) && $cmd->getSubType() == 'numeric') {
 				if(isset($return['capabilities']['Alexa.BrightnessController'])){
 					$return['capabilities']['Alexa.BrightnessController']['properties']['retrievable'] = true;
@@ -67,11 +61,6 @@ class ash_BrightnessController {
 				__('Etat luminosité',__FILE__) => self::$_BRIGHTNESS_STATE
 			));
 		}
-		$return['capabilities']['AlexaInterface'] = array(
-			"type" => "AlexaInterface",
-			"interface" => "Alexa",
-			"version" => "3",
-		);
 		return $return;
 	}
 	

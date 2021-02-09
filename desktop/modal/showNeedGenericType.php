@@ -32,21 +32,29 @@ if ($device->getType() == '') {
 if($device->getOptions('missingGenericType') == '' || !is_array($device->getOptions('missingGenericType')) || count($device->getOptions('missingGenericType')) == 0){
   throw new Exception(__('Aucune information disponible', __FILE__));
 }
-echo '<div class="alert alert-info">{{Voici les générique type qui sont utilisation avec votre type d\'équipement. Attention il ne faut pas forcement tous les avoir sur l\'équipement (ou n\'en avoir aucun)}}</div>';
-global $JEEDOM_INTERNAL_CONFIG;
-$genericType = $device->getOptions('missingGenericType');
-foreach ($genericType as $key => $values) {
-  echo '<legend>'.$key.'</legend>';
-  echo '<ul>';
-  foreach ($values as $value) {
-    echo '<li>';
-    if(isset($JEEDOM_INTERNAL_CONFIG['cmd']['generic_type'][$value])){
-      echo $JEEDOM_INTERNAL_CONFIG['cmd']['generic_type'][$value]['name'];
-    }else{
-      echo $value;
-    }
-    echo '</li>';
+
+$supportedType = ash::getSupportedType();
+echo '<div class="alert alert-info">{{Voici les types génériques utilisés pour le genre d\'équipement choisi. Attention il ne faut pas forcément les avoir tous sur l\'équipement (ou n’en avoir aucun)}}</div>';
+
+foreach ($supportedType[$device->getType()]['skills'] as $skill) {
+  $class = 'ash_'.$skill;
+  if (!class_exists($class) || !method_exists($class,'needGenericType')) {
+    continue;
   }
-  echo '</ul>';
+  $genericType = $class::needGenericType();
+  foreach ($genericType as $key => $values) {
+    echo '<legend>'.$traits.' : '.$key.'</legend>';
+    echo '<ul>';
+    foreach ($values as $value) {
+      echo '<li>';
+      if(isset($JEEDOM_INTERNAL_CONFIG['cmd']['generic_type'][$value])){
+        echo $JEEDOM_INTERNAL_CONFIG['cmd']['generic_type'][$value]['name'];
+      }else{
+        echo $value;
+      }
+      echo '</li>';
+    }
+    echo '</ul>';
+  }
 }
 ?>

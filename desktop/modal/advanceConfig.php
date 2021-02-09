@@ -29,26 +29,39 @@ if (!is_object($device)) {
 if ($device->getType() == '') {
 	throw new Exception(__('Aucun type configuré pour ce périphérique', __FILE__));
 }
+$supportedType = ash::getSupportedType();
 sendVarToJs('device', utils::o2a($device));
+global $JEEDOM_INTERNAL_CONFIG;
 ?>
 <div id="div_alertAdvanceConfigure"></div>
 <div id="div_advanceConfigForm">
-	<a class="btn btn-success pull-right bt_advanceConfigSaveDevice">{{Sauvegarder}}</a>
+	<a class="btn btn-success pull-right bt_advanceConfigSaveDevice"><i class="fas fa-check-circle"></i> {{Sauvegarder}}</a>
 	<input type="text" class="deviceAttr form-control" data-l1key="id" style="display : none;" />
 	<form class="form-horizontal">
 		<fieldset>
+			<legend>{{Général}}</legend>
 			<div class="form-group">
 				<label class="col-sm-3 control-label">{{Groupe objet (option nécéssitant un compte market spécifique)}}</label>
 				<div class="col-sm-3">
 					<input type="number" class="deviceAttr" data-l1key="options" data-l2key="group"></input>
 				</div>
 			</div>
+			<div class="form-group has-error">
+				<label class="col-sm-3 control-label">{{Pousser l'état}}</label>
+				<div class="col-sm-1">
+					<input type="checkbox" class="deviceAttr" data-l1key="options" data-l2key="reportState::enable" />
+				</div>
+				<div class="alert alert-danger col-sm-8">
+					{{Attention cela ne change absolument pas le fonctionnement du plugin}} (<?php echo config::byKey('product_name'); ?> {{pousse l'information de l'état des modules au lieu d'attendre la demande de Google) par contre ca peut ralentir votre}} <?php echo config::byKey('product_name'); ?>
+				</div>
+			</div>
 		</fieldset>
 	</form>
+	
 	<form class="form-horizontal">
 		<fieldset>
 			<legend>{{Commandes}}</legend>
-			<table class="table table-condensed" id="table_advanceConfigGsh">
+			<table class="table table-condensed" id="table_advanceConfigAsh">
 				<thead>
 					<tr>
 						<th>{{Nom}}</th>
@@ -78,31 +91,26 @@ sendVarToJs('device', utils::o2a($device));
 			</table>
 		</fieldset>
 	</form>
-<form class="form-horizontal">
+	
+	
+	<form class="form-horizontal">
 		<fieldset>
-	<?php
-	if(in_array($device->getType(),array('SHUTTER'))){
-		?>
-		<legend>{{Configuration}}</legend>
-		<form class="form-horizontal">
-			<fieldset>
-				<div class="form-group">
-					<label class="col-sm-3 control-label">{{Inverser}}</label>
-					<div class="col-sm-3">
-						<input type="checkbox" class="deviceAttr" data-l1key="options" data-l2key="shutter::invert"></input>
-					</div>
-				</div>
-			</fieldset>
-		</form>
-		<?php
-	}else{
-		echo '<div class="alert alert-info">{{Il n\'y a aucune configuration avancée pour ce type}}</div>';
-	}
-	?>
-</div>
-</fieldset>
+			<?php
+			foreach ($supportedType[$device->getType()]['traits'] as $traits) {
+				$class = 'ash_'.$traits;
+				if (!class_exists($class) || !method_exists($class,'getHtmlConfiguration')) {
+					continue;
+				}
+				echo '<legend>{{Configuration}} '.$traits.'</legend>';
+				$class::getHtmlConfiguration($eqLogic);
+			}
+			?>
+		</fieldset>
 	</form>
+</div>
+
 <script>
+initTooltips($("#div_advanceConfigForm"))
 $('#div_advanceConfigForm').setValues(device, '.deviceAttr');
 $('.bt_advanceConfigSaveDevice').on('click',function(){
 	var device = $('#div_advanceConfigForm').getValues('.deviceAttr')[0];
@@ -126,5 +134,9 @@ $('.bt_advanceConfigSaveDevice').on('click',function(){
 		},
 	});
 });
+
+$('#table_advanceConfigAsh .bt_cmdConfiguration').off('click').on('click', function() {
+	$('#md_modal2').dialog({title: "{{Configuration de la commande}}"}).load('index.php?v=d&modal=cmd.configure&cmd_id=' + $(this).attr('data-id')).dialog('open')
+})
 
 </script>

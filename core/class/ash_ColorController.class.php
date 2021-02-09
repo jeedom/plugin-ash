@@ -60,11 +60,6 @@ class ash_ColorController {
 				__('Etat couleur',__FILE__) => self::$_COLOR_STATE,
 			));
 		}
-		$return['capabilities']['AlexaInterface'] = array(
-			"type" => "AlexaInterface",
-			"interface" => "Alexa",
-			"version" => "3",
-		);
 		return $return;
 	}
 	
