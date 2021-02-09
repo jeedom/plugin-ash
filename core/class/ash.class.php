@@ -26,20 +26,31 @@ include_file('core', 'ash_shutter', 'class', 'ash');
 include_file('core', 'ash_sensors', 'class', 'ash');
 include_file('core', 'ash_mode', 'class', 'ash');
 
+
+include_file('core', 'ash_PowerController', 'class', 'ash');
+include_file('core', 'ash_BrightnessController', 'class', 'ash');
+include_file('core', 'ash_ColorController', 'class', 'ash');
+
 class ash extends eqLogic {
 	
 	/*     * *************************Attributs****************************** */
 	
 	public static $_supportedType = array(
-		'LIGHT' => array('class' => 'ash_light', 'name' => 'Lumière'),
-		'SWITCH' => array('class' => 'ash_outlet', 'name' => 'Switch'),
-		'SMARTPLUG' => array('class' => 'ash_outlet', 'name' => 'Prise'),
 		'THERMOSTAT' => array('class' => 'ash_thermostat', 'name' => 'Thermostat'),
 		'SCENE_TRIGGER' => array('class' => 'ash_scene', 'name' => 'Scene'),
 		'SHUTTER' => array('class' => 'ash_shutter', 'name' => 'Volet'),
 		'SENSORS' => array('class' => 'ash_sensors', 'name' => 'Capteur (mouvement, contact et température)'),
 		'MODE' => array('class' => 'ash_mode', 'name' => 'Mode'),
 	);
+	
+	
+	public static function getSupportedType(){
+		return array(
+			'LIGHT' => array('name' => __('Lumière',__FILE__) ,'skills' =>array('PowerController','BrightnessController','ColorController')),
+			'SWITCH' => array('name' => __('Switch',__FILE__) ,'skills' =>array('PowerController')),
+			'SMARTPLUG' => array('name' => __('Prise',__FILE__) ,'skills' =>array('PowerController')),
+		);
+	}
 	
 	/*     * ***********************Methode static*************************** */
 	
@@ -266,25 +277,79 @@ class ash_devices {
 	}
 	
 	public function buildDevice() {
-		if (!isset(ash::$_supportedType[$this->getType()])) {
+		$supportedType = ash::getSupportedType();
+		if (!isset($supportedType[$this->getType()])) {
 			return array();
 		}
-		$class = ash::$_supportedType[$this->getType()]['class'];
-		if (!class_exists($class)) {
-			return array();
+		if(isset($supportedType[$this->getType()]['class'])){
+			$class = $supportedType[$this->getType()]['class'];
+			if (!class_exists($class)) {
+				return array();
+			}
+			if ($this->getLink_type() == 'eqLogic') {
+				$eqLogic = $this->getLink();
+				if(!is_object($eqLogic) || $eqLogic->getIsEnable() == 0){
+					return array();
+				}
+			}
+			return $class::buildDevice($this);
 		}
-		return $class::buildDevice($this);
+		if(isset($supportedType[$this->getType()]['skills'])){
+			$eqLogic = $this->getLink();
+			if (!is_object($eqLogic)) {
+				return array();
+			}
+			$return = array();
+			$return['endpointId'] = $eqLogic->getId();
+			$return['friendlyName'] = $this->getPseudo();
+			$return['description'] = $eqLogic->getHumanName();
+			$return['manufacturerName'] = 'Jeedom';
+			$return['cookie'] = array('none' => 'empty');
+			$return['displayCategories'] = array($this->getType());
+			$return['capabilities'] = array();
+			
+			foreach ($supportedType[$this->getType()]['skills'] as $skill) {
+				$class = 'ash_'.$skill;
+				if (!class_exists($class)) {
+					continue;
+				}
+				$infos = $class::discover($this,$eqLogic);
+				if(count($infos['capabilities']) == 0){
+					continue;
+				}
+				$return = array_merge_recursive($return,$infos);
+			}
+			if(count($return['capabilities']) == 0){
+				return array();
+			}
+			return $return;
+		}
 	}
 	
 	public function exec($_directive) {
-		if (!isset(ash::$_supportedType[$this->getType()])) {
+		$supportedType = ash::getSupportedType();
+		if (!isset($supportedType[$this->getType()])) {
 			return;
 		}
-		$class = ash::$_supportedType[$this->getType()]['class'];
-		if (!class_exists($class)) {
-			return array();
+		if(isset($supportedType[$this->getType()]['class'])){
+			$class = $supportedType[$this->getType()]['class'];
+			if (!class_exists($class)) {
+				return array();
+			}
+			$result = $class::exec($this, $_execution, $_infos);
+			return $result;
 		}
-		return $class::exec($this, $_directive);
+		if(isset($supportedType[$this->getType()]['skills'])){
+			$return = array();
+			foreach ($supportedType[$this->getType()]['skills'] as $skill) {
+				$class = 'ash_'.$skill;
+				if (!class_exists($class)) {
+					continue;
+				}
+				$return = array_merge_recursive($return,$class::exec($this, $_directive));
+			}
+			return $return;
+		}
 	}
 	
 	public function getPseudo() {
