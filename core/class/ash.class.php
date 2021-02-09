@@ -316,7 +316,7 @@ class ash_devices {
 					continue;
 				}
 				$infos = $class::discover($this,$eqLogic);
-				if(count($infos['capabilities']) == 0){
+				if(!isset($infos['capabilities']) || count($infos['capabilities']) == 0){
 					continue;
 				}
 				$return = array_merge_recursive($return,$infos);

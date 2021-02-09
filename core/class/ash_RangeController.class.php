@@ -24,6 +24,7 @@ class ash_RangeController {
 	private static $_OFF = array('FLAP_BSO_DOWN', 'FLAP_DOWN','GB_CLOSE');
 	/*     * ***********************Methode static*************************** */
 	public static function discover($_device,$_eqLogic) {
+		$return = array();
 		$return['capabilities'] = array();
 		foreach ($_eqLogic->getCmd() as $cmd) {
 			if (in_array($cmd->getGeneric_type(), self::$_ON) || in_array($cmd->getGeneric_type(), self::$_OFF) || in_array($cmd->getGeneric_type(), self::$_SLIDER)) {

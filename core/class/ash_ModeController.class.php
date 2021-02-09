@@ -29,6 +29,7 @@ class ash_ModeController {
   /*     * ***********************Methode static*************************** */
   
   public static function discover($_device,$_eqLogic) {
+    $return = array();
     $return['capabilities'] = array();
     $return['capabilities']['Alexa.ModeController'] = array(
       'type' => 'AlexaInterface',

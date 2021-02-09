@@ -26,6 +26,7 @@ class ash_ThermostatController {
 	/*     * ***********************Methode static*************************** */
 	
 	public static function discover($_device,$_eqLogic) {
+		$return = array();
 		$return['capabilities'] = array();
 		foreach ($_eqLogic->getCmd() as $cmd) {
 			if (in_array($cmd->getGeneric_type(), array('THERMOSTAT_SETPOINT'))) {
