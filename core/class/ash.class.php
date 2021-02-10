@@ -35,6 +35,7 @@ include_file('core', 'ash_InventoryUsageSensor', 'class', 'ash');
 include_file('core', 'ash_PercentageController', 'class', 'ash');
 include_file('core', 'ash_PowerLevelController', 'class', 'ash');
 include_file('core', 'ash_ToggleController', 'class', 'ash');
+include_file('core', 'ash_LockController', 'class', 'ash');
 
 class ash extends eqLogic {
 	
@@ -61,7 +62,7 @@ class ash extends eqLogic {
 			'SMARTLOCK' => array('name' => __('Serrure',__FILE__) ,'skills' =>array('PowerController')),
 			'LAPTOP' => array('name' => __('PC portable',__FILE__) ,'skills' =>array('PowerController')),
 			'COMPUTER' => array('name' => __('Ordinateur',__FILE__) ,'skills' =>array('PowerController')),
-			'DOOR' => array('name' => __('Porte',__FILE__) ,'skills' =>array('ContactSensor')),
+			'DOOR' => array('name' => __('Porte',__FILE__) ,'skills' =>array('ContactSensor','LockController')),
 			'EXTERIOR_BLIND' => array('name' => __('Volet',__FILE__) ,'skills' =>array('PowerController')),
 			'FAN' => array('name' => __('Ventilateur',__FILE__) ,'skills' =>array('PowerController')),
 			'GARAGE_DOOR' => array('name' => __('Porte de garage',__FILE__) ,'skills' =>array('ContactSensor')),
@@ -71,7 +72,7 @@ class ash extends eqLogic {
 			'ROUTER' => array('name' => __('Routeur',__FILE__) ,'skills' =>array('PowerController')),
 			'SCREEN' => array('name' => __('Ecran',__FILE__) ,'skills' =>array('PowerController')),
 			'TV' => array('name' => __('TV',__FILE__) ,'skills' =>array('PowerController')),
-			'VEHICLE' => array('name' => __('Vehicule',__FILE__) ,'skills' =>array('PowerController')),
+			'VEHICLE' => array('name' => __('Vehicule',__FILE__) ,'skills' =>array('PowerController','LockController')),
 		);
 	}
 	
