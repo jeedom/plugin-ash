@@ -34,6 +34,7 @@ include_file('core', 'ash_InventoryLevelSensor', 'class', 'ash');
 include_file('core', 'ash_InventoryUsageSensor', 'class', 'ash');
 include_file('core', 'ash_PercentageController', 'class', 'ash');
 include_file('core', 'ash_PowerLevelController', 'class', 'ash');
+include_file('core', 'ash_ToggleController', 'class', 'ash');
 
 class ash extends eqLogic {
 	
