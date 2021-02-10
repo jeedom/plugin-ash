@@ -4,6 +4,14 @@
 >
 >As a reminder if there is no information on the update, it means that it only concerns the updating of documentation, translation or text
 
+- Redesign of the plugin
+- Addition of new type
+
+>**Important**
+>
+>Following the update it is necessary to redo a detection of the equipment from Alexa
+
+
 # 08/11/2020
 
 - Fixed a bug on scenes when renaming an order / equipment / item

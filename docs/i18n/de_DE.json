@@ -2,6 +2,9 @@
     "changelog.md": {
         "Changelog Alexa": "Changelog Alexa",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Zur Erinnerung: Wenn keine Informationen zum Update vorhanden sind, bedeutet dies, dass es sich nur um die Aktualisierung von Dokumentation, Übersetzung oder Text handelt",
+        "Refonte du plugin": "Neugestaltung des Plugins",
+        "Ajout de nouveau type": "Hinzufügung eines neuen Typs",
+        "Suite a la mise à jour il faut refaire une detection des équipements depuis Alexa": "Nach dem Update muss eine Erkennung der Geräte von Alexa wiederholt werden",
         "08\/11\/2020": "08\/11\/2020",
         "Correction d'un bug sur les scenes lors du renommage d'une commande\/équipement\/objet": "Ein Fehler in Szenen beim Umbenennen einer Bestellung \/ Ausrüstung \/ eines Artikels wurde behoben",
         "03\/11\/2020": "03\/11\/2020",
