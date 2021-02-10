@@ -32,6 +32,8 @@ include_file('core', 'ash_ThermostatController', 'class', 'ash');
 include_file('core', 'ash_ColorTemperatureController', 'class', 'ash');
 include_file('core', 'ash_InventoryLevelSensor', 'class', 'ash');
 include_file('core', 'ash_InventoryUsageSensor', 'class', 'ash');
+include_file('core', 'ash_PercentageController', 'class', 'ash');
+include_file('core', 'ash_PowerLevelController', 'class', 'ash');
 
 class ash extends eqLogic {
 	
