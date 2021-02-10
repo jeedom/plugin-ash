@@ -73,6 +73,7 @@ class ash extends eqLogic {
 			'SCREEN' => array('name' => __('Ecran',__FILE__) ,'skills' =>array('PowerController')),
 			'TV' => array('name' => __('TV',__FILE__) ,'skills' =>array('PowerController')),
 			'VEHICLE' => array('name' => __('Vehicule',__FILE__) ,'skills' =>array('PowerController','LockController')),
+			'VACUUM_CLEANER' => array('name' => __('Vehicule',__FILE__) ,'skills' =>array('PowerController','ModeController','InventoryLevelSensor')),
 		);
 	}
 	
