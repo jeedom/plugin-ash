@@ -87,12 +87,12 @@ global $JEEDOM_INTERNAL_CONFIG;
 	<form class="form-horizontal">
 		<fieldset>
 			<?php
-			foreach ($supportedType[$device->getType()]['traits'] as $traits) {
-				$class = 'ash_'.$traits;
+			foreach ($supportedType[$device->getType()]['skills'] as $skill) {
+				$class = 'ash_'.$skill;
 				if (!class_exists($class) || !method_exists($class,'getHtmlConfiguration')) {
 					continue;
 				}
-				echo '<legend>{{Configuration}} '.$traits.'</legend>';
+				echo '<legend>{{Configuration}} '.$skill.'</legend>';
 				$class::getHtmlConfiguration($eqLogic);
 			}
 			?>

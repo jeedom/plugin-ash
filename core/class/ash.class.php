@@ -63,7 +63,7 @@ class ash extends eqLogic {
 			'LAPTOP' => array('name' => __('PC portable',__FILE__) ,'skills' =>array('PowerController')),
 			'COMPUTER' => array('name' => __('Ordinateur',__FILE__) ,'skills' =>array('PowerController')),
 			'DOOR' => array('name' => __('Porte',__FILE__) ,'skills' =>array('ContactSensor','LockController')),
-			'EXTERIOR_BLIND' => array('name' => __('Volet',__FILE__) ,'skills' =>array('PowerController')),
+			'EXTERIOR_BLIND' => array('name' => __('Volet',__FILE__) ,'skills' =>array('RangeController')),
 			'FAN' => array('name' => __('Ventilateur',__FILE__) ,'skills' =>array('PowerController')),
 			'GARAGE_DOOR' => array('name' => __('Porte de garage',__FILE__) ,'skills' =>array('ContactSensor')),
 			'MICROWAVE' => array('name' => __('Micro-onde',__FILE__) ,'skills' =>array('PowerController')),
