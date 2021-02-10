@@ -17,6 +17,7 @@
         "Device non trouvé": "Gerät nicht gefunden",
         "Aucun type configuré pour ce périphérique": "Kein Typ für dieses Gerät konfiguriert",
         "Sauvegarder": "Speichern",
+        "Général": "Allgemeines",
         "Groupe objet (option nécéssitant un compte market spécifique)": "Objektgruppe (Option, die ein bestimmtes Marktkonto erfordert)",
         "Commandes": "Befehle",
         "Nom": "Name",
@@ -25,16 +26,14 @@
         "Type générique": "Typ Gattung",
         "Action": "Aktion",
         "Configuration": "Konfiguration",
-        "Inverser": "Umgekehrt",
-        "Il n\\'y a aucune configuration avancée pour ce type": "Für diesen Typ gibt es keine erweiterte Konfiguration",
-        "Sauvegarde réussi, pensez à relancer une synchronisation": "Sicherung erfolgreich, denken Sie daran, die Synchronisierung neu zu starten"
+        "Sauvegarde réussi, pensez à relancer une synchronisation": "Sicherung erfolgreich, denken Sie daran, die Synchronisierung neu zu starten",
+        "Configuration de la commande": "Befehlskonfiguration"
     },
     "plugins\/ash\/desktop\/modal\/showNeedGenericType.php": {
         "Eqlogic ID non valide : ": "Ungültige Eqlogic ID:",
         "Device non trouvé": "Gerät nicht gefunden",
         "Aucun type configuré pour ce périphérique": "Kein Typ für dieses Gerät konfiguriert",
-        "Aucune information disponible": "Keine Informationen verfügbar",
-        "Voici les générique type qui sont utilisation avec votre type d\\'équipement. Attention il ne faut pas forcement tous les avoir sur l\\'équipement (ou n\\'en avoir aucun)": "Hier sind die generischen Typen, die für Ihren Gerätetyp verwendet werden. Achtung, es ist nicht unbedingt notwendig, alle auf dem Gerät zu haben (oder keine zu haben)"
+        "Voici les types génériques utilisés pour le genre d\\'équipement choisi. Attention il ne faut pas forcément les avoir tous sur l\\'équipement (ou n’en avoir aucun)": "Hier sind die generischen Typen aufgeführt, die für den ausgewählten Gerätetyp verwendet werden. Bitte beachten Sie, dass Sie nicht unbedingt alle auf dem Gerät haben müssen (oder keine)"
     },
     "plugins\/ash\/desktop\/php\/ash.php": {
         "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
@@ -79,48 +78,80 @@
         "Device non trouvé : ": "Gerät nicht gefunden:",
         "Aucune méthode correspondante à : ": "Keine Methode entsprechend:"
     },
-    "plugins\/ash\/core\/class\/ash_thermostat.class.php": {
-        "Thermostat": "Thermostat",
-        "Consigne": "Anleitung",
-        "Etat themostat ": "Geben Sie den Status an",
-        "Mode": "Modus"
+    "plugins\/ash\/core\/class\/ash_ColorController.class.php": {
+        "Couleur": "Farbe",
+        "Etat couleur": "Farbzustand"
     },
     "plugins\/ash\/core\/class\/ash.class.php": {
+        "Thermostat": "Thermostat",
+        "Lumière": "Licht",
+        "Switch": "Schalter",
+        "Prise": "Steckdose",
+        "Mode": "Mode",
+        "Capteur de température": "Temperatursensor",
+        "Detecteur de mouvement": "Bewegungsmelder",
+        "Detecteur d\\'ouverture": "Öffnungsdetektor",
+        "Scene": "Szene",
+        "Rideaux": "Vorhänge",
+        "Purificateur d\\'air": "Luftreiniger",
+        "Arbre de Noel": "Weihnachtsbaum",
+        "Machine a cafée": "Kaffeemaschine",
+        "Four": "Ofen",
+        "Mijoteuse": "Langsamer Kocher",
+        "Alarme": "Alarm",
+        "Serrure": "Sperren",
+        "PC portable": "Laptop",
+        "Ordinateur": "Computer",
+        "Porte": "Tür",
+        "Volet": "Verschluss",
+        "Ventilateur": "Ventilator",
+        "Porte de garage": "Garagentor",
+        "Micro-onde": "Mikrowelle",
+        "Equipement réseaux": "Netzwerkausrüstung",
+        "Imprimante": "Drucker",
+        "Routeur": "Router",
+        "Ecran": "Bildschirm",
+        "TV": "Fernseher",
+        "Vehicule": "Fahrzeug",
         "Deux équipements et\/ou scène avec le meme nom : ": "Zwei gleichnamige Geräte und \/ oder Bühnen:"
     },
     "plugins\/ash\/core\/class\/ash_scene.class.php": {
         "Erreur lors de l\\'éxecution de ": "Fehler beim Ausführen",
         ". Détails : ": "Details:"
     },
-    "plugins\/ash\/core\/class\/ash_sensors.class.php": {
-        "Contacteur": "Schütz",
-        "Mouvement": "Bewegung",
+    "plugins\/ash\/core\/class\/ash_MotionSensor.class.php": {
+        "Mouvement": "Bewegung"
+    },
+    "plugins\/ash\/core\/class\/ash_RangeController.class.php": {
+        "Position": "Position",
+        "On": "Wir",
+        "Off": "Aus",
+        "Etat": "Zustand"
+    },
+    "plugins\/ash\/core\/class\/ash_TemperatureSensor.class.php": {
         "Température": "Temperatur"
     },
-    "plugins\/ash\/core\/class\/ash_shutter.class.php": {
-        "Position": "Position",
-        "On": "Ein",
+    "plugins\/ash\/core\/class\/ash_PowerController.class.php": {
+        "On": "Wir",
         "Off": "Aus",
         "Etat": "Zustand"
     },
-    "plugins\/ash\/core\/class\/ash_mode.class.php": {
-        "Mode": "Modus",
-        "Etat mode": "Modusstatus"
+    "plugins\/ash\/core\/class\/ash_ContactSensor.class.php": {
+        "Contacteur": "Schütz"
     },
-    "plugins\/ash\/core\/class\/ash_outlet.class.php": {
-        "Position": "Position",
-        "On": "Ein",
-        "Off": "Aus",
-        "Etat": "Zustand"
-    },
-    "plugins\/ash\/core\/class\/ash_light.class.php": {
-        "On": "Ein",
-        "Off": "Aus",
-        "Etat": "Zustand",
+    "plugins\/ash\/core\/class\/ash_BrightnessController.class.php": {
         "Luminosité": "Helligkeit",
-        "Etat luminosité": "Helligkeitszustand",
-        "Couleur": "Farbe",
-        "Etat couleur": "Farbstatus"
+        "Etat luminosité": "Helligkeitszustand"
+    },
+    "plugins\/ash\/core\/class\/ash_ThermostatController.class.php": {
+        "Thermostat": "Thermostat",
+        "Consigne": "Schließfach",
+        "Etat themostat ": "Geben Sie den Status an",
+        "Mode": "Mode"
+    },
+    "plugins\/ash\/core\/class\/ash_ModeController.class.php": {
+        "Mode": "Mode",
+        "Etat mode": "Statusmodus"
     },
     "info.json": {
         "Plugin permettant d'utiliser Amazon Alexa (echo, dot...) pour piloter votre Jeedom. Important : le plugin nécessite un abonnement aux services vocaux . Pour gérer cet abonnement : https:\/\/www.jeedom.com\/market\/index.php?v=d&p=profils#services": "Plugin, mit dem Sie Amazon Alexa (Echo, Punkt ...) verwenden können, um Ihr Jeedom zu steuern. Wichtig: Für das Plugin ist ein Abonnement für Sprachdienste erforderlich. So verwalten Sie dieses Abonnement: https:\/\/www.jeedom.com\/market\/index.php?v=d&p=profils#services"

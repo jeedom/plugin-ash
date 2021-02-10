@@ -17,6 +17,7 @@
         "Device non trouvé": "Device not found",
         "Aucun type configuré pour ce périphérique": "No type configured for this device",
         "Sauvegarder": "Save",
+        "Général": "General",
         "Groupe objet (option nécéssitant un compte market spécifique)": "Object group (option requiring a specific market account)",
         "Commandes": "Commands",
         "Nom": "Name",
@@ -25,16 +26,14 @@
         "Type générique": "Generic type",
         "Action": "Action",
         "Configuration": "Setup",
-        "Inverser": "Invert",
-        "Il n\\'y a aucune configuration avancée pour ce type": "There is no advanced configuration for this type",
-        "Sauvegarde réussi, pensez à relancer une synchronisation": "Backup successful, remember to restart synchronization"
+        "Sauvegarde réussi, pensez à relancer une synchronisation": "Backup successful, remember to restart synchronization",
+        "Configuration de la commande": "Command configuration"
     },
     "plugins\/ash\/desktop\/modal\/showNeedGenericType.php": {
         "Eqlogic ID non valide : ": "Invalid Eqlogic ID:",
         "Device non trouvé": "Device not found",
         "Aucun type configuré pour ce périphérique": "No type configured for this device",
-        "Aucune information disponible": "No available information",
-        "Voici les générique type qui sont utilisation avec votre type d\\'équipement. Attention il ne faut pas forcement tous les avoir sur l\\'équipement (ou n\\'en avoir aucun)": "Here are the generic types that are used with your type of equipment. Attention it is not necessary necessarily to have them all on the equipment (or to have none)"
+        "Voici les types génériques utilisés pour le genre d\\'équipement choisi. Attention il ne faut pas forcément les avoir tous sur l\\'équipement (ou n’en avoir aucun)": "Here are the generic types used for the type of equipment chosen. Please note that you do not necessarily have to have them all on the equipment (or have none)"
     },
     "plugins\/ash\/desktop\/php\/ash.php": {
         "401 - Accès non autorisé": "401 - Unauthorized access",
@@ -79,48 +78,80 @@
         "Device non trouvé : ": "Device not found:",
         "Aucune méthode correspondante à : ": "No method corresponding to:"
     },
-    "plugins\/ash\/core\/class\/ash_thermostat.class.php": {
-        "Thermostat": "Thermostat",
-        "Consigne": "Instructions",
-        "Etat themostat ": "State themostat",
-        "Mode": "Fashion"
+    "plugins\/ash\/core\/class\/ash_ColorController.class.php": {
+        "Couleur": "Color",
+        "Etat couleur": "Color state"
     },
     "plugins\/ash\/core\/class\/ash.class.php": {
+        "Thermostat": "Thermostat",
+        "Lumière": "Light",
+        "Switch": "Switch",
+        "Prise": "Socket",
+        "Mode": "Fashion",
+        "Capteur de température": "Temperature sensor",
+        "Detecteur de mouvement": "Movement detector",
+        "Detecteur d\\'ouverture": "Opening detector",
+        "Scene": "Scene",
+        "Rideaux": "Curtains",
+        "Purificateur d\\'air": "Air purifier",
+        "Arbre de Noel": "Christmas tree",
+        "Machine a cafée": "Coffee machine",
+        "Four": "Oven",
+        "Mijoteuse": "Slow cooker",
+        "Alarme": "Alarm",
+        "Serrure": "Lock",
+        "PC portable": "Laptop",
+        "Ordinateur": "Computer",
+        "Porte": "Door",
+        "Volet": "Shutter",
+        "Ventilateur": "Fan",
+        "Porte de garage": "Garage door",
+        "Micro-onde": "Microwave",
+        "Equipement réseaux": "Network equipment",
+        "Imprimante": "Printer",
+        "Routeur": "Router",
+        "Ecran": "Screen",
+        "TV": "TV",
+        "Vehicule": "Vehicle",
         "Deux équipements et\/ou scène avec le meme nom : ": "Two equipments and \/ or stage with the same name:"
     },
     "plugins\/ash\/core\/class\/ash_scene.class.php": {
         "Erreur lors de l\\'éxecution de ": "Error while executing",
         ". Détails : ": "Details:"
     },
-    "plugins\/ash\/core\/class\/ash_sensors.class.php": {
-        "Contacteur": "Contactor",
-        "Mouvement": "Movement",
-        "Température": "Temperature"
+    "plugins\/ash\/core\/class\/ash_MotionSensor.class.php": {
+        "Mouvement": "Movement"
     },
-    "plugins\/ash\/core\/class\/ash_shutter.class.php": {
+    "plugins\/ash\/core\/class\/ash_RangeController.class.php": {
         "Position": "Position",
-        "On": "On",
-        "Off": "Off",
-        "Etat": "State"
-    },
-    "plugins\/ash\/core\/class\/ash_mode.class.php": {
-        "Mode": "Fashion",
-        "Etat mode": "Mode state"
-    },
-    "plugins\/ash\/core\/class\/ash_outlet.class.php": {
-        "Position": "Position",
-        "On": "On",
-        "Off": "Off",
-        "Etat": "State"
-    },
-    "plugins\/ash\/core\/class\/ash_light.class.php": {
         "On": "We",
         "Off": "Off",
-        "Etat": "State",
+        "Etat": "State"
+    },
+    "plugins\/ash\/core\/class\/ash_TemperatureSensor.class.php": {
+        "Température": "Temperature"
+    },
+    "plugins\/ash\/core\/class\/ash_PowerController.class.php": {
+        "On": "We",
+        "Off": "Off",
+        "Etat": "State"
+    },
+    "plugins\/ash\/core\/class\/ash_ContactSensor.class.php": {
+        "Contacteur": "Contactor"
+    },
+    "plugins\/ash\/core\/class\/ash_BrightnessController.class.php": {
         "Luminosité": "Brightness",
-        "Etat luminosité": "Brightness state",
-        "Couleur": "Color",
-        "Etat couleur": "Color status"
+        "Etat luminosité": "Brightness state"
+    },
+    "plugins\/ash\/core\/class\/ash_ThermostatController.class.php": {
+        "Thermostat": "Thermostat",
+        "Consigne": "Locker",
+        "Etat themostat ": "State themostat",
+        "Mode": "Fashion"
+    },
+    "plugins\/ash\/core\/class\/ash_ModeController.class.php": {
+        "Mode": "Fashion",
+        "Etat mode": "State mode"
     },
     "info.json": {
         "Plugin permettant d'utiliser Amazon Alexa (echo, dot...) pour piloter votre Jeedom. Important : le plugin nécessite un abonnement aux services vocaux . Pour gérer cet abonnement : https:\/\/www.jeedom.com\/market\/index.php?v=d&p=profils#services": "Plugin allowing you to use Amazon Alexa (echo, dot ...) to control your Jeedom. Important: the plugin requires a subscription to voice services. To manage this subscription: https:\/\/www.jeedom.com\/market\/index.php?v=d&p=profils#services"

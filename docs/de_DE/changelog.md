@@ -4,6 +4,14 @@
 >
 >Zur Erinnerung: Wenn keine Informationen zum Update vorhanden sind, bedeutet dies, dass es sich nur um die Aktualisierung von Dokumentation, Übersetzung oder Text handelt
 
+- Neugestaltung des Plugins
+- Hinzufügung eines neuen Typs
+
+>**Wichtig**
+>
+>Nach dem Update muss eine Erkennung der Geräte von Alexa wiederholt werden
+
+
 # 08/11/2020
 
 - Ein Fehler in Szenen beim Umbenennen einer Bestellung / Ausrüstung / eines Artikels wurde behoben
