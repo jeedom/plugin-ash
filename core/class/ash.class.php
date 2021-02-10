@@ -31,15 +31,11 @@ include_file('core', 'ash_RangeController', 'class', 'ash');
 include_file('core', 'ash_ThermostatController', 'class', 'ash');
 include_file('core', 'ash_ColorTemperatureController', 'class', 'ash');
 include_file('core', 'ash_InventoryLevelSensor', 'class', 'ash');
+include_file('core', 'ash_InventoryUsageSensor', 'class', 'ash');
 
 class ash extends eqLogic {
 	
 	/*     * *************************Attributs****************************** */
-	
-	public static $_supportedType = array(
-		'THERMOSTAT' => array('class' => 'ash_thermostat', 'name' => 'Thermostat')
-	);
-	
 	
 	public static function getSupportedType(){
 		return array(

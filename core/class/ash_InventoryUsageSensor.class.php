@@ -16,19 +16,19 @@
 */
 /* * ***************************Includes********************************* */
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
-class ash_InventoryLevelSensor {
+class ash_InventoryUsageSensor {
 	/*     * *************************Attributs****************************** */
-	private static $_LEVEL_SENSOR = array('LEVEL_SENSOR');
+	private static $_USAGE_SENSOR = array('USAGE_SENSOR');
 	
 	/*     * ***********************Methode static*************************** */
 	public static function discover($_device,$_eqLogic) {
 		$return = array();
 		$return['capabilities'] = array();
 		foreach ($_eqLogic->getCmd() as $cmd) {
-			if (in_array($cmd->getGeneric_type(), self::$_LEVEL_SENSOR)) {
-				$return['capabilities']['Alexa.InventoryLevelSensor'] = array(
+			if (in_array($cmd->getGeneric_type(), self::$_USAGE_SENSOR)) {
+				$return['capabilities']['Alexa.InventoryUsageSensor'] = array(
 					'type' => 'AlexaInterface',
-					'interface' => 'Alexa.InventoryLevelSensor',
+					'interface' => 'Alexa.InventoryUsageSensor',
 					'instance' => $cmd->getId(),
 					'version' => '3',
 					'properties' => array(
@@ -44,7 +44,7 @@ class ash_InventoryLevelSensor {
 						'retrievable' => true,
 					),
 				);
-				$return['cookie']['InventoryLevelSensor_getState'] = $cmd->getId();
+				$return['cookie']['InventoryUsageSensor_getState'] = $cmd->getId();
 			}
 		}
 		return $return;
@@ -52,7 +52,7 @@ class ash_InventoryLevelSensor {
 	
 	public static function needGenericType(){
 		return array(
-			__('Niveau restant',__FILE__) => self::$_LEVEL_SENSOR
+			__('Consommation',__FILE__) => self::$_USAGE_SENSOR
 		);
 	}
 	
@@ -62,11 +62,11 @@ class ash_InventoryLevelSensor {
 	
 	public static function getState($_device, $_directive) {
 		$return = array();
-		if (isset($_directive['endpoint']['cookie']['InventoryLevelSensor_getState'])) {
-			$cmd = cmd::byId($_directive['endpoint']['cookie']['InventoryLevelSensor_getState']);
+		if (isset($_directive['endpoint']['cookie']['InventoryUsageSensor_getState'])) {
+			$cmd = cmd::byId($_directive['endpoint']['cookie']['InventoryUsageSensor_getState']);
 			if (is_object($cmd)) {
 				$return[] = array(
-					'namespace' => 'Alexa.InventoryLevelSensor',
+					'namespace' => 'Alexa.InventoryUsageSensor',
 					'instance' => $cmd->getId(),
 					'name' => 'level',
 					'value' => array(
