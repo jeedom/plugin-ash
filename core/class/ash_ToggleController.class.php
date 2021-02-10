@@ -36,7 +36,7 @@ class ash_ToggleController {
         $return['capabilities']['Alexa.ToggleController'] = array(
           'type' => 'AlexaInterface',
           'interface' => 'Alexa.ToggleController',
-          'instance': $cmd->getId(),
+          'instance' => $cmd->getId(),
           'version' => '3',
           'properties' => array(
             'supported' => array(
@@ -48,7 +48,7 @@ class ash_ToggleController {
           'capabilityResources' => array(
             'friendlyNames' => array(
               array(
-                '@type': 'text',
+                '@type' => 'text',
                 'value' => array(
                   'text'=> $cmd->getName(),
                   'locale'=> config::byKey('langage')

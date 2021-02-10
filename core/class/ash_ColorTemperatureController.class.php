@@ -73,7 +73,7 @@ class ash_ColorTemperatureController {
 			}
 			if (is_object($cmd)) {
 				$value = ((($_directive['payload']['colorTemperatureInKelvin'] - 2200)/7000)*$cmd->getConfiguration('maxValue',100))+$cmd->getConfiguration('minValue',0);
-				$cmd->execCmd(array('slider' => $value);
+				$cmd->execCmd(array('slider' => $value));
 			}
 			break;
 		}

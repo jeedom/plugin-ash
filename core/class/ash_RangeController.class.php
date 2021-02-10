@@ -159,6 +159,9 @@ class ash_RangeController {
 				$cmd->execCmd(array('slider' => $cmdState->execCmd() + $value));
 			}
 			case 'SetRangeValue':
+			if($_device->getOptions('OpenClose::invertSet',0) == 1){
+				$execution['payload']['rangeValue'] = 100 - $execution['payload']['rangeValue'];
+			}
 			if (isset($_directive['endpoint']['cookie']['RangeController_setSlider'])) {
 				$cmd = cmd::byId($_directive['endpoint']['cookie']['RangeController_setSlider']);
 				if (!is_object($cmd)) {
@@ -204,16 +207,45 @@ class ash_RangeController {
 		if (!is_object($cmd)) {
 			return $return;
 		}
+		$value = $cmd->execCmd();
+		if ($cmd->getSubtype() == 'binary') {
+			if ($cmd->getDisplay('invertBinary') == 1) {
+				$value = ($value) ? 0 : 100;
+			}else{
+				$value = ($value) ? 100 : 0;
+			}
+		}
+		if($_device->getOptions('RangeController::invertGet')){
+			$value = 100 - $value;
+		}
 		$return[] = array(
 			'namespace' => 'Alexa.RangeController',
 			'instance' => 'Blind.Lift',
 			'name' => 'rangeValue',
-			'value' => $cmd->execCmd(),
+			'value' => $value,
 			'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
 			'uncertaintyInMilliseconds' => 0,
 		);
 		return array('properties' => $return);
 	}
+	
+	public static function getHtmlConfiguration($_eqLogic){
+		echo '<div class="form-group">';
+		echo '<label class="col-sm-3 control-label">{{Inverser l\'action}}</label>';
+		echo '<div class="col-sm-3">';
+		echo '<input type="checkbox" class="deviceAttr" data-l1key="options" data-l2key="RangeController::invertSet"></input>';
+		echo '</div>';
+		echo '</div>';
+		echo '<div class="form-group">';
+		echo '<label class="col-sm-3 control-label">{{Inverser l\'état}}</label>';
+		echo '<div class="col-sm-3">';
+		echo '<input type="checkbox" class="deviceAttr" data-l1key="options" data-l2key="RangeController::invertGet"></input>';
+		echo '</div>';
+		echo '</div>';
+		echo '</div>';
+	}
+	
+	
 	/*     * *********************Méthodes d'instance************************* */
 	/*     * **********************Getteur Setteur*************************** */
 }
