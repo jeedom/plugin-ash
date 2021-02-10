@@ -82,6 +82,9 @@
         "Couleur": "Color",
         "Etat couleur": "Estado de color"
     },
+    "plugins\/ash\/core\/class\/ash_InventoryLevelSensor.class.php": {
+        "Niveau restant": "Nivel restante"
+    },
     "plugins\/ash\/core\/class\/ash.class.php": {
         "Thermostat": "Termostato",
         "Lumière": "Ligero",
@@ -122,11 +125,18 @@
     "plugins\/ash\/core\/class\/ash_MotionSensor.class.php": {
         "Mouvement": "Movimiento"
     },
+    "plugins\/ash\/core\/class\/ash_LockController.class.php": {
+        "Verouiller": "Para bloquear",
+        "Deverouiller": "Desbloquear",
+        "Etat": "Estado"
+    },
     "plugins\/ash\/core\/class\/ash_RangeController.class.php": {
         "Position": "Posición",
         "On": "Nosotros",
         "Off": "Apagado",
-        "Etat": "Estado"
+        "Etat": "Estado",
+        "Inverser l\\'action": "Invierta la acción",
+        "Inverser l\\'état": "Estado inverso"
     },
     "plugins\/ash\/core\/class\/ash_TemperatureSensor.class.php": {
         "Température": "Temperatura"
@@ -149,9 +159,28 @@
         "Etat themostat ": "Temostato de estado",
         "Mode": "Moda"
     },
+    "plugins\/ash\/core\/class\/ash_PowerLevelController.class.php": {
+        "Position": "Posición",
+        "Etat": "Estado"
+    },
+    "plugins\/ash\/core\/class\/ash_PercentageController.class.php": {
+        "Position": "Posición",
+        "Etat": "Estado"
+    },
+    "plugins\/ash\/core\/class\/ash_ToggleController.class.php": {
+        "Toggle": "Palanca",
+        "Etat": "Estado"
+    },
+    "plugins\/ash\/core\/class\/ash_InventoryUsageSensor.class.php": {
+        "Consommation": "Consumo"
+    },
     "plugins\/ash\/core\/class\/ash_ModeController.class.php": {
         "Mode": "Moda",
         "Etat mode": "Modo de estado"
+    },
+    "plugins\/ash\/core\/class\/ash_ColorTemperatureController.class.php": {
+        "Température couleur": "Temperatura del color",
+        "Etat température couleur": "Estado de la temperatura de color"
     },
     "info.json": {
         "Plugin permettant d'utiliser Amazon Alexa (echo, dot...) pour piloter votre Jeedom. Important : le plugin nécessite un abonnement aux services vocaux . Pour gérer cet abonnement : https:\/\/www.jeedom.com\/market\/index.php?v=d&p=profils#services": "Complemento que le permite usar Amazon Alexa (echo, dot ...) para controlar su Jeedom. Importante: el complemento requiere una suscripción a los servicios de voz. Para administrar esta suscripción: https:\/\/www.jeedom.com\/market\/index.php?v=d&p=profils#services"
