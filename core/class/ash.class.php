@@ -29,6 +29,7 @@ include_file('core', 'ash_ContactSensor', 'class', 'ash');
 include_file('core', 'ash_ModeController', 'class', 'ash');
 include_file('core', 'ash_RangeController', 'class', 'ash');
 include_file('core', 'ash_ThermostatController', 'class', 'ash');
+include_file('core', 'ash_ColorTemperatureController', 'class', 'ash');
 
 class ash extends eqLogic {
 	
@@ -42,7 +43,7 @@ class ash extends eqLogic {
 	public static function getSupportedType(){
 		return array(
 			'THERMOSTAT' => array('name' => __('Thermostat',__FILE__) ,'skills' =>array('TemperatureSensor','ThermostatController')),
-			'LIGHT' => array('name' => __('Lumière',__FILE__) ,'skills' =>array('PowerController','BrightnessController','ColorController')),
+			'LIGHT' => array('name' => __('Lumière',__FILE__) ,'skills' =>array('PowerController','BrightnessController','ColorController','ColorTemperatureController')),
 			'SWITCH' => array('name' => __('Switch',__FILE__) ,'skills' =>array('PowerController')),
 			'SMARTPLUG' => array('name' => __('Prise',__FILE__) ,'skills' =>array('PowerController')),
 			'OTHER' => array('name' => __('Mode',__FILE__) ,'skills' =>array('ModeController')),
