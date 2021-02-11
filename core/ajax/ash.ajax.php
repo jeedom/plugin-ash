@@ -61,7 +61,7 @@ try {
 	}
 	
 	if (init('action') == 'allDevices') {
-		ajax::success(utils::o2a(ash_devices::all()));
+		ajax::success(jeedom::toHumanReadable(utils::o2a(ash_devices::all())));
 	}
 	
 	if (init('action') == 'sendConfig') {
