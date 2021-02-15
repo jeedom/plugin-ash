@@ -23,8 +23,8 @@ class ash_PowerController {
   
   /*     * *************************Attributs****************************** */
   
-  private static $_ON = array('ENERGY_ON', 'LIGHT_ON');
-  private static $_OFF = array('ENERGY_OFF', 'LIGHT_OFF');
+  private static $_ON = array('ENERGY_ON', 'LIGHT_ON','LIGHT_SLIDER');
+  private static $_OFF = array('ENERGY_OFF', 'LIGHT_OFF','LIGHT_SLIDER');
   private static $_STATE = array('ENERGY_STATE', 'LIGHT_STATE');
   
   /*     * ***********************Methode static*************************** */
@@ -89,30 +89,25 @@ class ash_PowerController {
       case 'TurnOn':
       if (isset($_directive['endpoint']['cookie']['PowerController_setOn'])) {
         $cmd = cmd::byId($_directive['endpoint']['cookie']['PowerController_setOn']);
-        if (is_object($cmd)) {
-          $cmd->execCmd();
-        }
       }
-      if (isset($_directive['endpoint']['cookie']['cmd_set_slider'])) {
-        $cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_slider']);
-        if (is_object($cmd)) {
-          $cmd->execCmd(array('slider' => $cmd->getConfiguration('maxValue', 100)));
+      if (is_object($cmd)) {
+        if ($cmd->getSubtype() == 'other') {
+          $cmd->execCmd();
+        } else if ($cmd->getSubtype() == 'slider') {
+          $cmd->execCmd(array('slider' => $cmd->getConfiguration('maxValue',100)));
         }
       }
       break;
       case 'TurnOff':
       if (isset($_directive['endpoint']['cookie']['PowerController_setOff'])) {
         $cmd = cmd::byId($_directive['endpoint']['cookie']['PowerController_setOff']);
-      } else if (isset($_directive['endpoint']['cookie']['cmd_set_slider'])) {
-        $cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_slider']);
       }
-      if (!is_object($cmd)) {
-        throw new Exception('ENDPOINT_UNREACHABLE');
-      }
-      if ($cmd->getSubtype() == 'other') {
-        $cmd->execCmd();
-      } else if ($cmd->getSubtype() == 'slider') {
-        $cmd->execCmd(array('slider' => 0));
+      if (is_object($cmd)) {
+        if ($cmd->getSubtype() == 'other') {
+          $cmd->execCmd();
+        } else if ($cmd->getSubtype() == 'slider') {
+          $cmd->execCmd(array('slider' => $cmd->getConfiguration('minValue',0)));
+        }
       }
       break;
     }
