@@ -181,13 +181,11 @@ class ash extends eqLogic {
 		} else {
 			try {
 				$result = $device->exec($directive);
-				
 				if (isset($result['event'])) {
 					$return = $result;
 				} else {
 					$return['context'] = $result;
 				}
-				
 			} catch (Exception $e) {
 				return self::buildErrorResponse($_data, $e->getMessage());
 			}
