@@ -68,23 +68,6 @@ class ash_BrightnessController {
 	
 	public static function exec($_device, $_directive) {
 		switch ($_directive['header']['name']) {
-			case 'TurnOn':
-			if (isset($_directive['endpoint']['cookie']['BrightnessController_setSlider'])) {
-				$cmd = cmd::byId($_directive['endpoint']['cookie']['BrightnessController_setSlider']);
-				if (is_object($cmd)) {
-					$cmd->execCmd(array('slider' => $cmd->getConfiguration('maxValue', 100)));
-				}
-			}
-			break;
-			case 'TurnOff':
-			if (isset($_directive['endpoint']['cookie']['BrightnessController_setSlider'])) {
-				$cmd = cmd::byId($_directive['endpoint']['cookie']['BrightnessController_setSlider']);
-			}
-			if (!is_object($cmd)) {
-				throw new Exception('ENDPOINT_UNREACHABLE');
-			}
-			$cmd->execCmd(array('slider' => 0));
-			break;
 			case 'SetBrightness':
 			if (isset($_directive['endpoint']['cookie']['BrightnessController_setSlider'])) {
 				$cmd = cmd::byId($_directive['endpoint']['cookie']['BrightnessController_setSlider']);
