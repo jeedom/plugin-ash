@@ -34,6 +34,9 @@ class ash_PowerController {
     $return = array();
     foreach ($_eqLogic->getCmd() as $cmd) {
       if (in_array($cmd->getGeneric_type(), self::$_ON)) {
+        if($cmd->getGeneric_type() == 'LIGHT_SLIDER' && isset($return['cookie']['PowerController_setOn'])){
+          continue;
+        }
         $return['capabilities']['Alexa.PowerController'] = array(
           'type' => 'AlexaInterface',
           'interface' => 'Alexa.PowerController',
@@ -50,6 +53,9 @@ class ash_PowerController {
       }
       
       if (in_array($cmd->getGeneric_type(), self::$_OFF)) {
+        if($cmd->getGeneric_type() == 'LIGHT_SLIDER' && isset($return['cookie']['PowerController_setOff'])){
+          continue;
+        }
         $return['capabilities']['Alexa.PowerController'] = array(
           'type' => 'AlexaInterface',
           'interface' => 'Alexa.PowerController',
