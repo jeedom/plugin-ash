@@ -364,8 +364,7 @@ class ash_devices {
 			if (!class_exists($class)) {
 				return array();
 			}
-			$result = $class::exec($this, $_directive);
-			return $result;
+			return $class::exec($this, $_directive);
 		}
 		if(isset($supportedType[$this->getType()]['skills'])){
 			$return = array();
