@@ -1,23 +1,24 @@
 {
     "plugins\/ash\/plugin_info\/configuration.php": {
-        "Attention votre connexion externe ne semble pas etre en https, ce plugin nécessite ABSOLUMENT une connexion https. Si vous ne savez pas comment faire vous pouvez souscrire à un service pack power pour utiliser le service de DNS Jeedom": "",
-        "Abonnement service assistant vocaux": "",
-        "Votre abonnement aux services assistant vocaux fini le ": "",
-        "Pour le prolonger, allez": "",
+        "Attention votre connexion externe ne semble pas etre en https, ce plugin nécessite ABSOLUMENT une connexion https. Si vous ne savez pas comment faire vous pouvez souscrire à un service pack power pour utiliser le service de DNS Jeedom": "Attention votre connexion externe ne semble pas etre en https, ce plugin nécessite ABSOLUMENT une connexion https. Si vous ne savez pas comment faire vous pouvez souscrire à un service pack power pour utiliser le service de DNS Jeedom",
+        "Abonnement aux services assistants vocaux": "Abonnement aux services assistants vocaux",
+        "Votre abonnement aux services assistants vocaux finit le ": "Votre abonnement aux services assistants vocaux finit le",
+        "Pour le prolonger, allez": "Pour le prolonger, allez",
         "ici": "здесь",
-        "Votre abonnement aux services assistant vocaux est illimité.": "",
-        "Votre abonnement aux services assistant vocaux est fini.": "",
-        "Envoyer configuration au market": "",
+        "Votre abonnement aux services assistants vocaux est illimité.": "Votre abonnement aux services assistants vocaux est illimité",
+        "Votre abonnement aux services assistants vocaux est finit.": "Votre abonnement aux services assistants vocaux est finit",
+        "Envoyer configuration au market": "Envoyer configuration au market",
         "Envoyer": "Отправить",
-        "Activer la rotation de la clef api": "",
-        "Configuration envoyée avec succès.": ""
+        "Activer la rotation de la clef api": "Activer la rotation de la clef api",
+        "Configuration envoyée avec succès.": "Configuration envoyée avec succès"
     },
     "plugins\/ash\/desktop\/modal\/advanceConfig.php": {
-        "Eqlogic ID non valide : ": "",
-        "Device non trouvé": "",
-        "Aucun type configuré pour ce périphérique": "",
+        "Eqlogic ID non valide : ": "Eqlogic ID non valide :",
+        "Device non trouvé": "Device non trouvé",
+        "Aucun type configuré pour ce périphérique": "Aucun type configuré pour ce périphérique",
         "Sauvegarder": "Сохранить",
-        "Groupe objet (option nécéssitant un compte market spécifique)": "",
+        "Général": "Général",
+        "Groupe objet (option nécéssitant un compte market spécifique)": "Groupe objet (option nécéssitant un compte market spécifique)",
         "Commandes": "Команды",
         "Nom": "Имя",
         "Type": "Тип",
@@ -25,104 +26,163 @@
         "Type générique": "общий тип",
         "Action": "Действие",
         "Configuration": "Конфигурация",
-        "Inverser": "Обратный",
-        "Il n\\'y a aucune configuration avancée pour ce type": "",
-        "Sauvegarde réussi, pensez à relancer une synchronisation": ""
+        "Sauvegarde réussi, pensez à relancer une synchronisation": "Sauvegarde réussi, pensez à relancer une synchronisation",
+        "Configuration de la commande": "Configuration de la commande"
     },
     "plugins\/ash\/desktop\/modal\/showNeedGenericType.php": {
-        "Eqlogic ID non valide : ": "",
-        "Device non trouvé": "",
-        "Aucun type configuré pour ce périphérique": "",
-        "Aucune information disponible": "",
-        "Voici les générique type qui sont utilisation avec votre type d\\'équipement. Attention il ne faut pas forcement tous les avoir sur l\\'équipement (ou n\\'en avoir aucun)": ""
+        "Eqlogic ID non valide : ": "Eqlogic ID non valide :",
+        "Device non trouvé": "Device non trouvé",
+        "Aucun type configuré pour ce périphérique": "Aucun type configuré pour ce périphérique",
+        "Voici les types génériques utilisés pour le genre d\\'équipement choisi. Attention il ne faut pas forcément les avoir tous sur l\\'équipement (ou n’en avoir aucun)": "Voici les types génériques utilisés pour le genre d\\'équipement choisi. Attention il ne faut pas forcément les avoir tous sur l\\'équipement (ou n’en avoir aucun)"
     },
     "plugins\/ash\/desktop\/php\/ash.php": {
         "401 - Accès non autorisé": "401 - Несанкционированный доступ",
-        "Voir la configuration": "",
+        "Voir la configuration": "Voir la configuration",
         "Sauvegarder": "Сохранить",
         "Equipement": "Оборудование",
-        "Scènes": "",
+        "Scènes": "Scènes",
         "Plugin": "Плагин",
         "Options": "Опции",
         "Status": "Статус",
         "Type": "Тип",
-        "Pseudo": "",
+        "Pseudo": "Pseudo",
         "Action": "Действие",
-        "Transmettre": "",
+        "Transmettre": "Transmettre",
         "Aucun": "Нет",
         " . $value['name'] . ": ", $ value ['name']",
-        "Ajouter scène": ""
+        "Ajouter scène": "Ajouter scène"
     },
     "plugins\/ash\/desktop\/js\/ash.js": {
         "Configuration de l'équipement": "Конфигурация оборудования",
-        "Information type générique": "",
+        "Information type générique": "Information type générique",
         "Configuration avancée": "Расширенные настройки",
-        "Sauvegarde réussie, n\\'oubliez pas de demander une decouverte à Alexa": "",
-        "Configuration péripheriques": "",
-        "Nom de la scene ?": "",
+        "Sauvegarde réussie, n\\'oubliez pas de demander une decouverte à Alexa": "Sauvegarde réussie, n\\'oubliez pas de demander une decouverte à Alexa",
+        "Configuration péripheriques": "Configuration péripheriques",
+        "Nom de la scene ?": "Nom de la scene ?",
         "Nouveau nom ?": "Новое имя?",
-        "Action d\\'entrée": "",
-        "Action de sortie": "",
+        "Action d\\'entrée": "Action d\\'entrée",
+        "Action de sortie": "Action de sortie",
         "Décocher pour desactiver l\\'action": "Снимите флажок, чтобы отключить \\ Action",
         "Cocher pour que la commande s\\'éxecute en parrallele des autres actions": "Проверьте порядок \\ «s выполняться параллельно с другими действиями",
         "Sélectionner un mot-clé": "Выберите ключевое слово",
-        "Nom du scene": "",
-        "Groupe objet (option nécéssitant un compte market spécifique)": "",
+        "Nom du scene": "Nom du scene",
+        "Groupe objet (option nécéssitant un compte market spécifique)": "Groupe objet (option nécéssitant un compte market spécifique)",
         "Supprimer": "удаление"
     },
     "plugins\/ash\/core\/php\/jeeAsh.php": {
-        "Vous n\\'etes pas autorisé à effectuer cette action. Clef API invalide. Merci de corriger la clef API sur votre page profils du market et d\\'attendre 24h avant de réessayer.": "",
-        "Configuration OK": ""
+        "Vous n\\'etes pas autorisé à effectuer cette action. Clef API invalide. Merci de corriger la clef API sur votre page profils du market et d\\'attendre 24h avant de réessayer.": "Vous n\\'etes pas autorisé à effectuer cette action. Clef API invalide. Merci de corriger la clef API sur votre page profils du market et d\\'attendre 24h avant de réessayer",
+        "Configuration OK": "Configuration OK"
     },
     "plugins\/ash\/core\/ajax\/ash.ajax.php": {
         "401 - Accès non autorisé": "401 - Несанкционированный доступ",
-        "Device non trouvé : ": "",
+        "Device non trouvé : ": "Device non trouvé :",
         "Aucune méthode correspondante à : ": "Aucune methode correspondante à :"
     },
-    "plugins\/ash\/core\/class\/ash_thermostat.class.php": {
-        "Thermostat": "термостат",
-        "Consigne": "Порядок",
-        "Etat themostat ": "",
-        "Mode": "Режим"
+    "plugins\/ash\/core\/class\/ash_ColorController.class.php": {
+        "Couleur": "Couleur",
+        "Etat couleur": "Etat couleur"
+    },
+    "plugins\/ash\/core\/class\/ash_InventoryLevelSensor.class.php": {
+        "Niveau restant": "Niveau restant"
     },
     "plugins\/ash\/core\/class\/ash.class.php": {
-        "Deux équipements et\/ou scène avec le meme nom : ": ""
+        "Thermostat": "Thermostat",
+        "Lumière": "Lumière",
+        "Switch": "Switch",
+        "Prise": "Prise",
+        "Mode": "Mode",
+        "Capteur de température": "Capteur de température",
+        "Detecteur de mouvement": "Detecteur de mouvement",
+        "Detecteur d\\'ouverture": "Detecteur d\\'ouverture",
+        "Scene": "Scene",
+        "Rideaux": "Rideaux",
+        "Purificateur d\\'air": "Purificateur d\\'air",
+        "Arbre de Noel": "Arbre de Noel",
+        "Machine a cafée": "Machine a cafée",
+        "Four": "Four",
+        "Mijoteuse": "Mijoteuse",
+        "Alarme": "Alarme",
+        "Serrure": "Serrure",
+        "PC portable": "PC portable",
+        "Ordinateur": "Ordinateur",
+        "Porte": "Porte",
+        "Volet": "Volet",
+        "Ventilateur": "Ventilateur",
+        "Porte de garage": "Porte de garage",
+        "Micro-onde": "Micro-onde",
+        "Equipement réseaux": "Equipement réseaux",
+        "Imprimante": "Imprimante",
+        "Routeur": "Routeur",
+        "Ecran": "Ecran",
+        "TV": "TV",
+        "Vehicule": "Vehicule",
+        "Deux équipements et\/ou scène avec le meme nom : ": "Deux équipements et\/ou scène avec le meme nom :"
     },
     "plugins\/ash\/core\/class\/ash_scene.class.php": {
-        "Erreur lors de l\\'éxecution de ": "",
-        ". Détails : ": ""
+        "Erreur lors de l\\'éxecution de ": "Erreur lors de l\\'éxecution de",
+        ". Détails : ": "Détails :"
     },
-    "plugins\/ash\/core\/class\/ash_sensors.class.php": {
-        "Contacteur": "",
-        "Mouvement": "",
-        "Température": "Температура"
+    "plugins\/ash\/core\/class\/ash_MotionSensor.class.php": {
+        "Mouvement": "Mouvement"
     },
-    "plugins\/ash\/core\/class\/ash_shutter.class.php": {
-        "Position": "положение",
-        "On": "",
-        "Off": "Выключить",
-        "Etat": "состояние"
+    "plugins\/ash\/core\/class\/ash_LockController.class.php": {
+        "Verouiller": "Verouiller",
+        "Deverouiller": "Deverouiller",
+        "Etat": "Etat"
     },
-    "plugins\/ash\/core\/class\/ash_mode.class.php": {
-        "Mode": "Режим",
-        "Etat mode": ""
+    "plugins\/ash\/core\/class\/ash_RangeController.class.php": {
+        "Position": "Position",
+        "On": "On",
+        "Off": "Off",
+        "Etat": "Etat",
+        "Inverser l\\'action": "Inverser l\\'action",
+        "Inverser l\\'état": "Inverser l\\'état"
     },
-    "plugins\/ash\/core\/class\/ash_outlet.class.php": {
-        "Position": "положение",
-        "On": "",
-        "Off": "Выключить",
-        "Etat": "состояние"
+    "plugins\/ash\/core\/class\/ash_TemperatureSensor.class.php": {
+        "Température": "Température"
     },
-    "plugins\/ash\/core\/class\/ash_light.class.php": {
-        "On": "",
-        "Off": "Выключить",
-        "Etat": "состояние",
-        "Luminosité": "",
-        "Etat luminosité": "",
-        "Couleur": "цвет",
-        "Etat couleur": ""
+    "plugins\/ash\/core\/class\/ash_PowerController.class.php": {
+        "On": "On",
+        "Off": "Off",
+        "Etat": "Etat"
+    },
+    "plugins\/ash\/core\/class\/ash_ContactSensor.class.php": {
+        "Contacteur": "Contacteur"
+    },
+    "plugins\/ash\/core\/class\/ash_BrightnessController.class.php": {
+        "Luminosité": "Luminosité",
+        "Etat luminosité": "Etat luminosité"
+    },
+    "plugins\/ash\/core\/class\/ash_ThermostatController.class.php": {
+        "Thermostat": "Thermostat",
+        "Consigne": "Consigne",
+        "Etat themostat ": "Etat themostat",
+        "Mode": "Mode"
+    },
+    "plugins\/ash\/core\/class\/ash_PowerLevelController.class.php": {
+        "Position": "Position",
+        "Etat": "Etat"
+    },
+    "plugins\/ash\/core\/class\/ash_PercentageController.class.php": {
+        "Position": "Position",
+        "Etat": "Etat"
+    },
+    "plugins\/ash\/core\/class\/ash_ToggleController.class.php": {
+        "Toggle": "Toggle",
+        "Etat": "Etat"
+    },
+    "plugins\/ash\/core\/class\/ash_InventoryUsageSensor.class.php": {
+        "Consommation": "Consommation"
+    },
+    "plugins\/ash\/core\/class\/ash_ModeController.class.php": {
+        "Mode": "Mode",
+        "Etat mode": "Etat mode"
+    },
+    "plugins\/ash\/core\/class\/ash_ColorTemperatureController.class.php": {
+        "Température couleur": "Température couleur",
+        "Etat température couleur": "Etat température couleur"
     },
     "info.json": {
-        "Plugin permettant d'utiliser Amazon Alexa (echo, dot...) pour piloter votre Jeedom. Important : le plugin nécessite un abonnement aux services vocaux . Pour gérer cet abonnement : https:\/\/www.jeedom.com\/market\/index.php?v=d&p=profils#services": ""
+        "Plugin permettant d'utiliser Amazon Alexa (echo, dot...) pour piloter votre Jeedom. Important : le plugin nécessite un abonnement aux services vocaux . Pour gérer cet abonnement : https:\/\/www.jeedom.com\/market\/index.php?v=d&p=profils#services": "Plugin permettant d'utiliser Amazon Alexa (echo, dot...) pour piloter votre Jeedom. Important : le plugin nécessite un abonnement aux services vocaux . Pour gérer cet abonnement : https:\/\/www.jeedom.com\/market\/index.php?v=d&p=profils#services"
     }
 }

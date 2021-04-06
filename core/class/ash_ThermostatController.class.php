@@ -19,32 +19,18 @@
 /* * ***************************Includes********************************* */
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 
-class ash_thermostat {
+class ash_ThermostatController {
 	
 	/*     * *************************Attributs****************************** */
 	
 	/*     * ***********************Methode static*************************** */
 	
-	public static function buildDevice($_device) {
-		$eqLogic = $_device->getLink();
-		if (!is_object($eqLogic)) {
-			return 'deviceNotFound';
-		}
-		if ($eqLogic->getIsEnable() == 0) {
-			return 'deviceNotFound';
-		}
+	public static function discover($_device,$_eqLogic) {
 		$return = array();
-		$return['endpointId'] = $eqLogic->getId();
-		$return['friendlyName'] = $_device->getPseudo();
-		$return['description'] = $eqLogic->getHumanName();
-		$return['manufacturerName'] = 'Jeedom';
-		$return['cookie'] = array('none' => 'empty');
-		$return['displayCategories'] = array($_device->getType());
 		$return['capabilities'] = array();
-		
-		foreach ($eqLogic->getCmd() as $cmd) {
+		foreach ($_eqLogic->getCmd() as $cmd) {
 			if (in_array($cmd->getGeneric_type(), array('THERMOSTAT_SETPOINT'))) {
-				$return['cookie']['cmd_get_thermostat'] = $cmd->getId();
+				$return['cookie']['ThermostatController_getThermostat'] = $cmd->getId();
 			}
 			if (in_array($cmd->getGeneric_type(), array('THERMOSTAT_SET_SETPOINT'))) {
 				if (!isset($return['capabilities']['Alexa.ThermostatController'])) {
@@ -64,7 +50,7 @@ class ash_thermostat {
 					);
 				}
 				$return['capabilities']['Alexa.ThermostatController']['properties']['supported'][] = array('name' => 'targetSetpoint');
-				$return['cookie']['cmd_set_thermostat'] = $cmd->getId();
+				$return['cookie']['ThermostatController_setThermostat'] = $cmd->getId();
 			}
 			if (in_array($cmd->getGeneric_type(), array('THERMOSTAT_MODE'))) {
 				if (!isset($return['capabilities']['Alexa.ThermostatController'])) {
@@ -84,48 +70,26 @@ class ash_thermostat {
 					);
 				}
 				$return['capabilities']['Alexa.ThermostatController']['properties']['supported'][] = array('name' => 'thermostatMode');
-				$return['cookie']['cmd_get_mode'] = $cmd->getId();
+				$return['cookie']['ThermostatController_getMode'] = $cmd->getId();
 			}
-			if (in_array($cmd->getGeneric_type(), array('THERMOSTAT_TEMPERATURE'))) {
-				$return['capabilities']['Alexa.TemperatureSensor'] = array(
-					'type' => 'AlexaInterface',
-					'interface' => 'Alexa.TemperatureSensor',
-					'version' => '3',
-					'properties' => array(
-						'supported' => array(
-							array('name' => 'temperature'),
-						),
-						'proactivelyReported' => false,
-						'retrievable' => true,
-					),
-				);
-				$return['cookie']['cmd_get_temperature'] = $cmd->getId();
-			}
-		}
-		if (count($return['capabilities']) == 0) {
-			return array('missingGenericType' => array(
-				__('Thermostat',__FILE__) => array('THERMOSTAT_SET_SETPOINT'),
-				__('Consigne',__FILE__) => array('THERMOSTAT_SETPOINT'),
-				__('Etat themostat ',__FILE__) => array('THERMOSTAT_TEMPERATURE'),
-				__('Mode',__FILE__) => array('THERMOSTAT_MODE')
-			));
 		}
 		return $return;
 	}
 	
+	public static function needGenericType(){
+		return array(
+			__('Thermostat',__FILE__) => array('THERMOSTAT_SET_SETPOINT'),
+			__('Consigne',__FILE__) => array('THERMOSTAT_SETPOINT'),
+			__('Etat themostat ',__FILE__) => array('THERMOSTAT_TEMPERATURE'),
+			__('Mode',__FILE__) => array('THERMOSTAT_MODE')
+		);
+	}
+	
 	public static function exec($_device, $_directive) {
-		$return = array('status' => 'ERROR');
-		$eqLogic = $_device->getLink();
-		if (!is_object($eqLogic)) {
-			throw new Exception('NO_SUCH_ENDPOINT');
-		}
-		if ($eqLogic->getIsEnable() == 0) {
-			throw new Exception('ENDPOINT_UNREACHABLE');
-		}
 		switch ($_directive['header']['name']) {
 			case 'SetTargetTemperature':
-			if (isset($_directive['endpoint']['cookie']['cmd_set_thermostat'])) {
-				$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_thermostat']);
+			if (isset($_directive['endpoint']['cookie']['ThermostatController_setThermostat'])) {
+				$cmd = cmd::byId($_directive['endpoint']['cookie']['ThermostatController_setThermostat']);
 			}
 			if (!is_object($cmd)) {
 				break;
@@ -133,14 +97,14 @@ class ash_thermostat {
 			$cmd->execCmd(array('slider' => $_directive['payload']['targetSetpoint']['value']));
 			break;
 			case 'targetSetpointDelta':
-			if (isset($_directive['endpoint']['cookie']['cmd_set_thermostat'])) {
-				$cmd_set = cmd::byId($_directive['endpoint']['cookie']['cmd_set_thermostat']);
+			if (isset($_directive['endpoint']['cookie']['ThermostatController_setThermostat'])) {
+				$cmd_set = cmd::byId($_directive['endpoint']['cookie']['ThermostatController_setThermostat']);
 			}
 			if (!is_object($cmd_set)) {
 				break;
 			}
-			if (isset($_directive['endpoint']['cookie']['cmd_get_thermostat'])) {
-				$cmd_get = cmd::byId($_directive['endpoint']['cookie']['cmd_get_thermostat']);
+			if (isset($_directive['endpoint']['cookie']['ThermostatController_getThermostat'])) {
+				$cmd_get = cmd::byId($_directive['endpoint']['cookie']['ThermostatController_getThermostat']);
 			}
 			if (!is_object($cmd_get)) {
 				break;
@@ -148,14 +112,14 @@ class ash_thermostat {
 			$cmd->execCmd(array('slider' => $cmd_get->execCmd() + $_directive['payload']['targetSetpoint']['value']));
 			break;
 			case 'AdjustTargetTemperature':
-			if (isset($_directive['endpoint']['cookie']['cmd_set_thermostat'])) {
-				$cmd_set = cmd::byId($_directive['endpoint']['cookie']['cmd_set_thermostat']);
+			if (isset($_directive['endpoint']['cookie']['ThermostatController_setThermostat'])) {
+				$cmd_set = cmd::byId($_directive['endpoint']['cookie']['ThermostatController_setThermostat']);
 			}
 			if (!is_object($cmd_set)) {
 				break;
 			}
-			if (isset($_directive['endpoint']['cookie']['cmd_get_thermostat'])) {
-				$cmd_get = cmd::byId($_directive['endpoint']['cookie']['cmd_get_thermostat']);
+			if (isset($_directive['endpoint']['cookie']['ThermostatController_getThermostat'])) {
+				$cmd_get = cmd::byId($_directive['endpoint']['cookie']['ThermostatController_getThermostat']);
 			}
 			if (!is_object($cmd_get)) {
 				break;
@@ -169,13 +133,13 @@ class ash_thermostat {
 			if ($requested_mode == '') {
 				break;
 			}
-			if (isset($_directive['endpoint']['cookie']['cmd_get_mode'])) {
-				$cmd_get_mode = cmd::byId($_directive['endpoint']['cookie']['cmd_get_mode']);
+			if (isset($_directive['endpoint']['cookie']['ThermostatController_getMode'])) {
+				$ThermostatController_getMode = cmd::byId($_directive['endpoint']['cookie']['ThermostatController_getMode']);
 			}
-			if (!is_object($cmd_get_mode)) {
+			if (!is_object($ThermostatController_getMode)) {
 				break;
 			}
-			$eqlogic = $cmd_get_mode->getEqLogic();
+			$eqlogic = $ThermostatController_getMode->getEqLogic();
 			if (!is_object($eqlogic)) {
 				break;
 			}
@@ -198,21 +162,8 @@ class ash_thermostat {
 	public static function getState($_device, $_directive) {
 		$return = array();
 		$cmd = null;
-		if (isset($_directive['endpoint']['cookie']['cmd_get_temperature'])) {
-			$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_get_temperature']);
-			if (is_object($cmd)) {
-				$value = $cmd->execCmd();
-				$return[] = array(
-					'namespace' => 'Alexa.TemperatureSensor',
-					'name' => 'temperature',
-					'value' => array('value' => $value, 'scale' => 'CELSIUS'),
-					'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
-					'uncertaintyInMilliseconds' => 0,
-				);
-			}
-		}
-		if (isset($_directive['endpoint']['cookie']['cmd_get_thermostat'])) {
-			$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_get_thermostat']);
+		if (isset($_directive['endpoint']['cookie']['ThermostatController_getThermostat'])) {
+			$cmd = cmd::byId($_directive['endpoint']['cookie']['ThermostatController_getThermostat']);
 			if (is_object($cmd)) {
 				$value = $cmd->execCmd();
 				$return[] = array(
@@ -224,8 +175,8 @@ class ash_thermostat {
 				);
 			}
 		}
-		if (isset($_directive['endpoint']['cookie']['cmd_get_mode'])) {
-			$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_get_mode']);
+		if (isset($_directive['endpoint']['cookie']['ThermostatController_getMode'])) {
+			$cmd = cmd::byId($_directive['endpoint']['cookie']['ThermostatController_getMode']);
 			if (is_object($cmd)) {
 				$value = strtolower($cmd->execCmd());
 				$cValue = 'AUTO';

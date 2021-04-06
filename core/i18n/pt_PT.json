@@ -1,12 +1,12 @@
 {
     "plugins\/ash\/plugin_info\/configuration.php": {
         "Attention votre connexion externe ne semble pas etre en https, ce plugin nécessite ABSOLUMENT une connexion https. Si vous ne savez pas comment faire vous pouvez souscrire à un service pack power pour utiliser le service de DNS Jeedom": "Observe que sua conexão externa não parece estar em https; este plug-in requer ABSOLUTAMENTE uma conexão https. Se você não souber como fazer isso, poderá se inscrever em um pacote de energia para usar o serviço DNS Jeedom",
-        "Abonnement service assistant vocaux": "Assinatura do serviço de assistente de voz",
-        "Votre abonnement aux services assistant vocaux fini le ": "Sua assinatura dos serviços de assistente de voz terminou em",
+        "Abonnement aux services assistants vocaux": "Assinatura de serviços de assistente de voz",
+        "Votre abonnement aux services assistants vocaux finit le ": "Sua assinatura de serviços de assistente de voz termina em",
         "Pour le prolonger, allez": "Para estendê-lo, vá",
         "ici": "aqui",
-        "Votre abonnement aux services assistant vocaux est illimité.": "Sua assinatura dos serviços de assistente de voz é ilimitada",
-        "Votre abonnement aux services assistant vocaux est fini.": "Sua assinatura dos serviços de assistente de voz está concluída",
+        "Votre abonnement aux services assistants vocaux est illimité.": "Sua assinatura de serviços de assistente de voz é ilimitada",
+        "Votre abonnement aux services assistants vocaux est finit.": "Sua assinatura dos serviços de assistente de voz terminou",
         "Envoyer configuration au market": "Enviar configuração ao mercado",
         "Envoyer": "Enviar",
         "Activer la rotation de la clef api": "Ative a rotação da chave API",
@@ -17,6 +17,7 @@
         "Device non trouvé": "Dispositivo não encontrado",
         "Aucun type configuré pour ce périphérique": "Nenhum tipo configurado para este dispositivo",
         "Sauvegarder": "Salvar",
+        "Général": "Geral",
         "Groupe objet (option nécéssitant un compte market spécifique)": "Grupo de objetos (opção que requer uma conta de mercado específica)",
         "Commandes": "Comandos",
         "Nom": "Nome",
@@ -25,16 +26,14 @@
         "Type générique": "Tipo genérico",
         "Action": "Ação",
         "Configuration": "Configuração",
-        "Inverser": "Inverter",
-        "Il n\\'y a aucune configuration avancée pour ce type": "Não há configuração avançada para este tipo",
-        "Sauvegarde réussi, pensez à relancer une synchronisation": "Backup bem-sucedido, lembre-se de reiniciar a sincronização"
+        "Sauvegarde réussi, pensez à relancer une synchronisation": "Backup bem-sucedido, lembre-se de reiniciar a sincronização",
+        "Configuration de la commande": "Configuração de comando"
     },
     "plugins\/ash\/desktop\/modal\/showNeedGenericType.php": {
         "Eqlogic ID non valide : ": "ID Eqlogic inválido:",
         "Device non trouvé": "Dispositivo não encontrado",
         "Aucun type configuré pour ce périphérique": "Nenhum tipo configurado para este dispositivo",
-        "Aucune information disponible": "Nenhuma informação disponível",
-        "Voici les générique type qui sont utilisation avec votre type d\\'équipement. Attention il ne faut pas forcement tous les avoir sur l\\'équipement (ou n\\'en avoir aucun)": "Aqui estão os tipos genéricos usados com o seu tipo de equipamento. Atenção, não é necessário necessariamente tê-los todos no equipamento (ou não ter nenhum)"
+        "Voici les types génériques utilisés pour le genre d\\'équipement choisi. Attention il ne faut pas forcément les avoir tous sur l\\'équipement (ou n’en avoir aucun)": "Aqui estão os tipos genéricos usados para o tipo de equipamento escolhido. Observe que você não precisa necessariamente ter todos eles no equipamento (ou nenhum)"
     },
     "plugins\/ash\/desktop\/php\/ash.php": {
         "401 - Accès non autorisé": "401 - Acesso não autorizado",
@@ -79,48 +78,109 @@
         "Device non trouvé : ": "Dispositivo não encontrado:",
         "Aucune méthode correspondante à : ": "Aucune methode correspondante à :"
     },
-    "plugins\/ash\/core\/class\/ash_thermostat.class.php": {
-        "Thermostat": "Termostato",
-        "Consigne": "Ordem",
-        "Etat themostat ": "Estado Estado",
-        "Mode": "Modo"
+    "plugins\/ash\/core\/class\/ash_ColorController.class.php": {
+        "Couleur": "Cor",
+        "Etat couleur": "Estado de cor"
+    },
+    "plugins\/ash\/core\/class\/ash_InventoryLevelSensor.class.php": {
+        "Niveau restant": "Nível restante"
     },
     "plugins\/ash\/core\/class\/ash.class.php": {
+        "Thermostat": "Termostato",
+        "Lumière": "Luz",
+        "Switch": "Interruptor",
+        "Prise": "Soquete",
+        "Mode": "Moda",
+        "Capteur de température": "Sensor de temperatura",
+        "Detecteur de mouvement": "Detector de movimento",
+        "Detecteur d\\'ouverture": "Detector de abertura",
+        "Scene": "Cena",
+        "Rideaux": "Cortinas",
+        "Purificateur d\\'air": "Purificador de ar",
+        "Arbre de Noel": "árvore de Natal",
+        "Machine a cafée": "Máquina de café",
+        "Four": "Forno",
+        "Mijoteuse": "Fogão lento",
+        "Alarme": "Alarme",
+        "Serrure": "Fechadura",
+        "PC portable": "Computador portátil",
+        "Ordinateur": "Computador",
+        "Porte": "Porta",
+        "Volet": "Obturador",
+        "Ventilateur": "Ventilador",
+        "Porte de garage": "Porta da garagem",
+        "Micro-onde": "Microondas",
+        "Equipement réseaux": "Equipamento de rede",
+        "Imprimante": "Impressora",
+        "Routeur": "Roteador",
+        "Ecran": "Tela",
+        "TV": "Televisão",
+        "Vehicule": "Veículo",
         "Deux équipements et\/ou scène avec le meme nom : ": "Dois equipamentos e \/ ou palcos com o mesmo nome:"
     },
     "plugins\/ash\/core\/class\/ash_scene.class.php": {
         "Erreur lors de l\\'éxecution de ": "Erro ao executar",
         ". Détails : ": "Detalhes:"
     },
-    "plugins\/ash\/core\/class\/ash_sensors.class.php": {
-        "Contacteur": "Contator",
-        "Mouvement": "Movimento",
-        "Température": "Temperatura"
+    "plugins\/ash\/core\/class\/ash_MotionSensor.class.php": {
+        "Mouvement": "Movimento"
     },
-    "plugins\/ash\/core\/class\/ash_shutter.class.php": {
-        "Position": "Posição",
-        "On": "Nós",
-        "Off": "Fora",
+    "plugins\/ash\/core\/class\/ash_LockController.class.php": {
+        "Verouiller": "Trancar",
+        "Deverouiller": "Desbloquear",
         "Etat": "Estado"
     },
-    "plugins\/ash\/core\/class\/ash_mode.class.php": {
-        "Mode": "Modo",
-        "Etat mode": "Estado do modo"
-    },
-    "plugins\/ash\/core\/class\/ash_outlet.class.php": {
+    "plugins\/ash\/core\/class\/ash_RangeController.class.php": {
         "Position": "Posição",
-        "On": "Nós",
-        "Off": "Fora",
-        "Etat": "Estado"
-    },
-    "plugins\/ash\/core\/class\/ash_light.class.php": {
         "On": "Nós",
         "Off": "Fora",
         "Etat": "Estado",
+        "Inverser l\\'action": "Inverta a ação",
+        "Inverser l\\'état": "Estado reverso"
+    },
+    "plugins\/ash\/core\/class\/ash_TemperatureSensor.class.php": {
+        "Température": "Temperatura"
+    },
+    "plugins\/ash\/core\/class\/ash_PowerController.class.php": {
+        "On": "Nós",
+        "Off": "Fora",
+        "Etat": "Estado"
+    },
+    "plugins\/ash\/core\/class\/ash_ContactSensor.class.php": {
+        "Contacteur": "Contator"
+    },
+    "plugins\/ash\/core\/class\/ash_BrightnessController.class.php": {
         "Luminosité": "Brilho",
-        "Etat luminosité": "Estado de brilho",
-        "Couleur": "Cor",
-        "Etat couleur": "Status da cor"
+        "Etat luminosité": "Estado de brilho"
+    },
+    "plugins\/ash\/core\/class\/ash_ThermostatController.class.php": {
+        "Thermostat": "Termostato",
+        "Consigne": "Armário",
+        "Etat themostat ": "Estado themostat",
+        "Mode": "Moda"
+    },
+    "plugins\/ash\/core\/class\/ash_PowerLevelController.class.php": {
+        "Position": "Posição",
+        "Etat": "Estado"
+    },
+    "plugins\/ash\/core\/class\/ash_PercentageController.class.php": {
+        "Position": "Posição",
+        "Etat": "Estado"
+    },
+    "plugins\/ash\/core\/class\/ash_ToggleController.class.php": {
+        "Toggle": "Alternancia",
+        "Etat": "Estado"
+    },
+    "plugins\/ash\/core\/class\/ash_InventoryUsageSensor.class.php": {
+        "Consommation": "Consumo"
+    },
+    "plugins\/ash\/core\/class\/ash_ModeController.class.php": {
+        "Mode": "Moda",
+        "Etat mode": "Modo de estado"
+    },
+    "plugins\/ash\/core\/class\/ash_ColorTemperatureController.class.php": {
+        "Température couleur": "Temperatura de cor",
+        "Etat température couleur": "Status da temperatura da cor"
     },
     "info.json": {
         "Plugin permettant d'utiliser Amazon Alexa (echo, dot...) pour piloter votre Jeedom. Important : le plugin nécessite un abonnement aux services vocaux . Pour gérer cet abonnement : https:\/\/www.jeedom.com\/market\/index.php?v=d&p=profils#services": "Plugin que permite usar o Amazon Alexa (eco, ponto ...) para controlar seu Jeedom. Importante: o plug-in requer uma assinatura para serviços de voz. Para gerenciar esta assinatura: https:\/\/www.jeedom.com\/market\/index.php?v=d&p=profils#services"

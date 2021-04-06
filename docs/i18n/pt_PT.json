@@ -2,6 +2,11 @@
     "changelog.md": {
         "Changelog Alexa": "Changelog Alexa",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Como lembrete, se não houver informações sobre a atualização, isso significa que se trata apenas da atualização da documentação, tradução ou texto",
+        "Refonte du plugin": "Redesenho do plugin",
+        "Ajout de nouveau type": "Adição de novo tipo",
+        "Suite a la mise à jour il faut refaire une detection des équipements depuis Alexa": "Após a atualização é necessário refazer uma detecção do equipamento do Alexa",
+        "08\/11\/2020": "11\/08\/2020",
+        "Correction d'un bug sur les scenes lors du renommage d'une commande\/équipement\/objet": "Corrigido um bug nas cenas ao renomear um pedido \/ equipamento \/ item",
         "03\/11\/2020": "11\/03\/2020",
         "Possibilité de choisir le mode du thermostat (uniquement avec un thermostat venant du plugin thermostat de jeedom et si les modes s'appellent heat, cool,off,auto,eco": "Possibilidade de escolher o modo de termostato (apenas com um termostato do plugin jeedom termostato e se os modos são chamados de calor, resfriamento, desligado, automático, eco",
         "Possibilité d'activer la rotation automatique de la clef api": "Possibilidade de ativar a rotação automática da chave API",

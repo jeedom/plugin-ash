@@ -16,30 +16,17 @@
 */
 /* * ***************************Includes********************************* */
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
-class ash_shutter {
+class ash_RangeController {
 	/*     * *************************Attributs****************************** */
 	private static $_SLIDER = array('FLAP_SLIDER');
 	private static $_STATE = array('FLAP_STATE', 'FLAP_BSO_STATE','GARAGE_STATE','BARRIER_STATE');
 	private static $_ON = array('FLAP_BSO_UP', 'FLAP_UP','GB_OPEN');
 	private static $_OFF = array('FLAP_BSO_DOWN', 'FLAP_DOWN','GB_CLOSE');
 	/*     * ***********************Methode static*************************** */
-	public static function buildDevice($_device) {
-		$eqLogic = $_device->getLink();
-		if (!is_object($eqLogic)) {
-			return array();
-		}
-		if ($eqLogic->getIsEnable() == 0) {
-			return array();
-		}
+	public static function discover($_device,$_eqLogic) {
 		$return = array();
-		$return['endpointId'] = $eqLogic->getId();
-		$return['friendlyName'] = $_device->getPseudo();
-		$return['description'] = $eqLogic->getHumanName();
-		$return['manufacturerName'] = 'Jeedom';
-		$return['cookie'] = array('none' => 'empty');
-		$return['displayCategories'] = array('INTERIOR_BLIND');
 		$return['capabilities'] = array();
-		foreach ($eqLogic->getCmd() as $cmd) {
+		foreach ($_eqLogic->getCmd() as $cmd) {
 			if (in_array($cmd->getGeneric_type(), self::$_ON) || in_array($cmd->getGeneric_type(), self::$_OFF) || in_array($cmd->getGeneric_type(), self::$_SLIDER)) {
 				$return['capabilities']['Alexa.RangeController'] = array (
 					'type' => 'AlexaInterface',
@@ -128,53 +115,42 @@ class ash_shutter {
 					),
 				);
 				if (in_array($cmd->getGeneric_type(), self::$_ON)) {
-					$return['cookie']['cmd_set_on'] = $cmd->getId();
+					$return['cookie']['RangeController_setOn'] = $cmd->getId();
 				}
 				if (in_array($cmd->getGeneric_type(), self::$_OFF)) {
-					$return['cookie']['cmd_set_off'] = $cmd->getId();
+					$return['cookie']['RangeController_setOff'] = $cmd->getId();
 				}
 				if (in_array($cmd->getGeneric_type(), self::$_SLIDER)) {
-					$return['cookie']['cmd_set_slider'] = $cmd->getId();
+					$return['cookie']['RangeController_setSlider'] = $cmd->getId();
 				}
 			}
 		}
-		foreach ($eqLogic->getCmd() as $cmd) {
+		foreach ($_eqLogic->getCmd() as $cmd) {
 			if (in_array($cmd->getGeneric_type(), self::$_STATE)) {
 				if(isset($return['capabilities']['Alexa.RangeController'])){
 					$return['capabilities']['Alexa.RangeController']['properties']['retrievable'] = true;
 				}
-				$return['cookie']['cmd_get_state'] = $cmd->getId();
+				$return['cookie']['RangeController_getState'] = $cmd->getId();
 			}
 		}
-		if (count($return['capabilities']) == 0) {
-			return array('missingGenericType' => array(
-				__('Position',__FILE__) => self::$_SLIDER,
-				__('On',__FILE__) => self::$_ON,
-				__('Off',__FILE__) => self::$_OFF,
-				__('Etat',__FILE__) => self::$_STATE
-			));
-		}
-		$return['capabilities']['AlexaInterface'] = array(
-			"type" => "AlexaInterface",
-			"interface" => "Alexa",
-			"version" => "3",
-		);
 		return $return;
 	}
+	
+	public static function needGenericType(){
+		return array(
+			__('Position',__FILE__) => self::$_SLIDER,
+			__('On',__FILE__) => self::$_ON,
+			__('Off',__FILE__) => self::$_OFF,
+			__('Etat',__FILE__) => self::$_STATE
+		);
+	}
+	
 	public static function exec($_device, $_directive) {
-		$return = array('status' => 'ERROR');
-		$eqLogic = $_device->getLink();
-		if (!is_object($eqLogic)) {
-			throw new Exception('NO_SUCH_ENDPOINT');
-		}
-		if ($eqLogic->getIsEnable() == 0) {
-			throw new Exception('ENDPOINT_UNREACHABLE');
-		}
 		switch ($_directive['header']['name']) {
 			case 'AdjustRangeValue' :
-			if (isset($_directive['endpoint']['cookie']['cmd_set_slider'])) {
-				if (isset($_directive['endpoint']['cookie']['cmd_get_state'])) {
-					$cmdState = cmd::byId($_directive['endpoint']['cookie']['cmd_get_state']);
+			if (isset($_directive['endpoint']['cookie']['RangeController_setSlider'])) {
+				if (isset($_directive['endpoint']['cookie']['RangeController_getState'])) {
+					$cmdState = cmd::byId($_directive['endpoint']['cookie']['RangeController_getState']);
 				}
 				if (!is_object($cmdState)) {
 					throw new Exception('ENDPOINT_UNREACHABLE');
@@ -183,8 +159,11 @@ class ash_shutter {
 				$cmd->execCmd(array('slider' => $cmdState->execCmd() + $value));
 			}
 			case 'SetRangeValue':
-			if (isset($_directive['endpoint']['cookie']['cmd_set_slider'])) {
-				$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_slider']);
+			if($_device->getOptions('OpenClose::invertSet',0) == 1){
+				$execution['payload']['rangeValue'] = 100 - $execution['payload']['rangeValue'];
+			}
+			if (isset($_directive['endpoint']['cookie']['RangeController_setSlider'])) {
+				$cmd = cmd::byId($_directive['endpoint']['cookie']['RangeController_setSlider']);
 				if (!is_object($cmd)) {
 					throw new Exception('ENDPOINT_UNREACHABLE');
 				}
@@ -198,16 +177,16 @@ class ash_shutter {
 				break;
 			}
 			if($_directive['payload']['rangeValue'] > 50){
-				if (isset($_directive['endpoint']['cookie']['cmd_set_on'])) {
-					$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_on']);
+				if (isset($_directive['endpoint']['cookie']['RangeController_setOn'])) {
+					$cmd = cmd::byId($_directive['endpoint']['cookie']['RangeController_setOn']);
 				}
 				if (!is_object($cmd)) {
 					break;
 				}
 				$cmd->execCmd();
 			}else{
-				if (isset($_directive['endpoint']['cookie']['cmd_set_off'])) {
-					$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_set_off']);
+				if (isset($_directive['endpoint']['cookie']['RangeController_setOff'])) {
+					$cmd = cmd::byId($_directive['endpoint']['cookie']['RangeController_setOff']);
 				}
 				if (!is_object($cmd)) {
 					break;
@@ -222,22 +201,51 @@ class ash_shutter {
 	public static function getState($_device, $_directive) {
 		$return = array();
 		$cmd = null;
-		if (isset($_directive['endpoint']['cookie']['cmd_get_state'])) {
-			$cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_get_state']);
+		if (isset($_directive['endpoint']['cookie']['RangeController_getState'])) {
+			$cmd = cmd::byId($_directive['endpoint']['cookie']['RangeController_getState']);
 		}
 		if (!is_object($cmd)) {
 			return $return;
+		}
+		$value = $cmd->execCmd();
+		if ($cmd->getSubtype() == 'binary') {
+			if ($cmd->getDisplay('invertBinary') == 1) {
+				$value = ($value) ? 0 : 100;
+			}else{
+				$value = ($value) ? 100 : 0;
+			}
+		}
+		if($_device->getOptions('RangeController::invertGet')){
+			$value = 100 - $value;
 		}
 		$return[] = array(
 			'namespace' => 'Alexa.RangeController',
 			'instance' => 'Blind.Lift',
 			'name' => 'rangeValue',
-			'value' => $cmd->execCmd(),
+			'value' => $value,
 			'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
 			'uncertaintyInMilliseconds' => 0,
 		);
 		return array('properties' => $return);
 	}
+	
+	public static function getHtmlConfiguration($_eqLogic){
+		echo '<div class="form-group">';
+		echo '<label class="col-sm-3 control-label">{{Inverser l\'action}}</label>';
+		echo '<div class="col-sm-3">';
+		echo '<input type="checkbox" class="deviceAttr" data-l1key="options" data-l2key="RangeController::invertSet"></input>';
+		echo '</div>';
+		echo '</div>';
+		echo '<div class="form-group">';
+		echo '<label class="col-sm-3 control-label">{{Inverser l\'état}}</label>';
+		echo '<div class="col-sm-3">';
+		echo '<input type="checkbox" class="deviceAttr" data-l1key="options" data-l2key="RangeController::invertGet"></input>';
+		echo '</div>';
+		echo '</div>';
+		echo '</div>';
+	}
+	
+	
 	/*     * *********************Méthodes d'instance************************* */
 	/*     * **********************Getteur Setteur*************************** */
 }

@@ -18,28 +18,64 @@
 
 /* * ***************************Includes********************************* */
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
-include_file('core', 'ash_light', 'class', 'ash');
-include_file('core', 'ash_outlet', 'class', 'ash');
-include_file('core', 'ash_thermostat', 'class', 'ash');
+
 include_file('core', 'ash_scene', 'class', 'ash');
-include_file('core', 'ash_shutter', 'class', 'ash');
-include_file('core', 'ash_sensors', 'class', 'ash');
-include_file('core', 'ash_mode', 'class', 'ash');
+include_file('core', 'ash_PowerController', 'class', 'ash');
+include_file('core', 'ash_BrightnessController', 'class', 'ash');
+include_file('core', 'ash_ColorController', 'class', 'ash');
+include_file('core', 'ash_TemperatureSensor', 'class', 'ash');
+include_file('core', 'ash_MotionSensor', 'class', 'ash');
+include_file('core', 'ash_ContactSensor', 'class', 'ash');
+include_file('core', 'ash_ModeController', 'class', 'ash');
+include_file('core', 'ash_RangeController', 'class', 'ash');
+include_file('core', 'ash_ThermostatController', 'class', 'ash');
+include_file('core', 'ash_ColorTemperatureController', 'class', 'ash');
+include_file('core', 'ash_InventoryLevelSensor', 'class', 'ash');
+include_file('core', 'ash_InventoryUsageSensor', 'class', 'ash');
+include_file('core', 'ash_PercentageController', 'class', 'ash');
+include_file('core', 'ash_PowerLevelController', 'class', 'ash');
+include_file('core', 'ash_ToggleController', 'class', 'ash');
+include_file('core', 'ash_LockController', 'class', 'ash');
 
 class ash extends eqLogic {
 	
 	/*     * *************************Attributs****************************** */
 	
-	public static $_supportedType = array(
-		'LIGHT' => array('class' => 'ash_light', 'name' => 'Lumière'),
-		'SWITCH' => array('class' => 'ash_outlet', 'name' => 'Switch'),
-		'SMARTPLUG' => array('class' => 'ash_outlet', 'name' => 'Prise'),
-		'THERMOSTAT' => array('class' => 'ash_thermostat', 'name' => 'Thermostat'),
-		'SCENE_TRIGGER' => array('class' => 'ash_scene', 'name' => 'Scene'),
-		'SHUTTER' => array('class' => 'ash_shutter', 'name' => 'Volet'),
-		'SENSORS' => array('class' => 'ash_sensors', 'name' => 'Capteur (mouvement, contact et température)'),
-		'MODE' => array('class' => 'ash_mode', 'name' => 'Mode'),
-	);
+	public static function getSupportedType(){
+		return array(
+			'THERMOSTAT' => array('name' => __('Thermostat',__FILE__) ,'skills' =>array('TemperatureSensor','ThermostatController')),
+			'LIGHT' => array('name' => __('Lumière',__FILE__) ,'skills' =>array('PowerController','BrightnessController','ColorController','ColorTemperatureController')),
+			'SWITCH' => array('name' => __('Switch',__FILE__) ,'skills' =>array('PowerController')),
+			'SMARTPLUG' => array('name' => __('Prise',__FILE__) ,'skills' =>array('PowerController')),
+			'OTHER' => array('name' => __('Mode',__FILE__) ,'skills' =>array('ModeController')),
+			'TEMPERATURE_SENSOR' => array('name' => __('Capteur de température',__FILE__) ,'skills' =>array('TemperatureSensor')),
+			'MOTION_SENSOR' => array('name' => __('Detecteur de mouvement',__FILE__) ,'skills' =>array('MotionSensor')),
+			'CONTACT_SENSOR' => array('name' => __('Detecteur d\'ouverture',__FILE__) ,'skills' =>array('ContactSensor')),
+			'SCENE_TRIGGER' => array('name' => __('Scene',__FILE__) ,'class' =>'ash_scene'),
+			'INTERIOR_BLIND' => array('name' => __('Rideaux',__FILE__) ,'skills' =>array('RangeController')),
+			'AIR_PURIFIER' => array('name' => __('Purificateur d\'air',__FILE__) ,'skills' =>array('PowerController')),
+			'CHRISTMAS_TREE' => array('name' => __('Arbre de Noel',__FILE__) ,'skills' =>array('PowerController')),
+			'COFFEE_MAKER' => array('name' => __('Machine a cafée',__FILE__) ,'skills' =>array('PowerController')),
+			'OVEN' => array('name' => __('Four',__FILE__) ,'skills' =>array('PowerController','TemperatureSensor')),
+			'SLOW_COOKER' => array('name' => __('Mijoteuse',__FILE__) ,'skills' =>array('PowerController','TemperatureSensor')),
+			'SECURITY_SYSTEM' => array('name' => __('Alarme',__FILE__) ,'skills' =>array('PowerController','ModeController')),
+			'SMARTLOCK' => array('name' => __('Serrure',__FILE__) ,'skills' =>array('PowerController')),
+			'LAPTOP' => array('name' => __('PC portable',__FILE__) ,'skills' =>array('PowerController')),
+			'COMPUTER' => array('name' => __('Ordinateur',__FILE__) ,'skills' =>array('PowerController')),
+			'DOOR' => array('name' => __('Porte',__FILE__) ,'skills' =>array('ContactSensor','LockController')),
+			'EXTERIOR_BLIND' => array('name' => __('Volet',__FILE__) ,'skills' =>array('RangeController')),
+			'FAN' => array('name' => __('Ventilateur',__FILE__) ,'skills' =>array('PowerController')),
+			'GARAGE_DOOR' => array('name' => __('Porte de garage',__FILE__) ,'skills' =>array('ContactSensor')),
+			'MICROWAVE' => array('name' => __('Micro-onde',__FILE__) ,'skills' =>array('PowerController')),
+			'NETWORK_HARDWARE' => array('name' => __('Equipement réseaux',__FILE__) ,'skills' =>array('PowerController')),
+			'PRINTER' => array('name' => __('Imprimante',__FILE__) ,'skills' =>array('PowerController')),
+			'ROUTER' => array('name' => __('Routeur',__FILE__) ,'skills' =>array('PowerController')),
+			'SCREEN' => array('name' => __('Ecran',__FILE__) ,'skills' =>array('PowerController')),
+			'TV' => array('name' => __('TV',__FILE__) ,'skills' =>array('PowerController')),
+			'VEHICLE' => array('name' => __('Vehicule',__FILE__) ,'skills' =>array('PowerController','LockController')),
+			'VACUUM_CLEANER' => array('name' => __('Vehicule',__FILE__) ,'skills' =>array('PowerController','ModeController','InventoryLevelSensor')),
+		);
+	}
 	
 	/*     * ***********************Methode static*************************** */
 	
@@ -145,13 +181,11 @@ class ash extends eqLogic {
 		} else {
 			try {
 				$result = $device->exec($directive);
-				
 				if (isset($result['event'])) {
 					$return = $result;
 				} else {
 					$return['context'] = $result;
 				}
-				
 			} catch (Exception $e) {
 				return self::buildErrorResponse($_data, $e->getMessage());
 			}
@@ -266,25 +300,83 @@ class ash_devices {
 	}
 	
 	public function buildDevice() {
-		if (!isset(ash::$_supportedType[$this->getType()])) {
+		$supportedType = ash::getSupportedType();
+		if (!isset($supportedType[$this->getType()])) {
 			return array();
 		}
-		$class = ash::$_supportedType[$this->getType()]['class'];
-		if (!class_exists($class)) {
-			return array();
+		if(isset($supportedType[$this->getType()]['class'])){
+			$class = $supportedType[$this->getType()]['class'];
+			if (!class_exists($class)) {
+				return array();
+			}
+			if ($this->getLink_type() == 'eqLogic') {
+				$eqLogic = $this->getLink();
+				if(!is_object($eqLogic) || $eqLogic->getIsEnable() == 0){
+					return array();
+				}
+			}
+			return $class::buildDevice($this);
 		}
-		return $class::buildDevice($this);
+		if(isset($supportedType[$this->getType()]['skills'])){
+			$eqLogic = $this->getLink();
+			if (!is_object($eqLogic)) {
+				return array();
+			}
+			$return = array();
+			$return['endpointId'] = $eqLogic->getId();
+			$return['friendlyName'] = $this->getPseudo();
+			$return['description'] = $eqLogic->getHumanName();
+			$return['manufacturerName'] = 'Jeedom';
+			$return['cookie'] = array('none' => 'empty');
+			$return['displayCategories'] = array($this->getType());
+			$return['capabilities'] = array();
+			
+			foreach ($supportedType[$this->getType()]['skills'] as $skill) {
+				$class = 'ash_'.$skill;
+				if (!class_exists($class)) {
+					continue;
+				}
+				$infos = $class::discover($this,$eqLogic);
+				if(!isset($infos['capabilities']) || count($infos['capabilities']) == 0){
+					continue;
+				}
+				$return = array_merge_recursive($return,$infos);
+			}
+			if(count($return['capabilities']) == 0){
+				return array();
+			}
+			$return['capabilities']['AlexaInterface'] = array(
+				"type" => "AlexaInterface",
+				"interface" => "Alexa",
+				"version" => "3",
+			);
+			return $return;
+		}
 	}
 	
 	public function exec($_directive) {
-		if (!isset(ash::$_supportedType[$this->getType()])) {
+		$supportedType = ash::getSupportedType();
+		if (!isset($supportedType[$this->getType()])) {
 			return;
 		}
-		$class = ash::$_supportedType[$this->getType()]['class'];
-		if (!class_exists($class)) {
-			return array();
+		if(isset($supportedType[$this->getType()]['class'])){
+			$class = $supportedType[$this->getType()]['class'];
+			if (!class_exists($class)) {
+				return array();
+			}
+			return $class::exec($this, $_directive);
 		}
-		return $class::exec($this, $_directive);
+		if(isset($supportedType[$this->getType()]['skills'])){
+			$return = array();
+			foreach ($supportedType[$this->getType()]['skills'] as $skill) {
+				$class = 'ash_'.$skill;
+				if (!class_exists($class)) {
+					continue;
+				}
+				$return = array_merge_recursive($return,$class::exec($this, $_directive));
+			}
+			return $return;
+		}
 	}
 	
 	public function getPseudo() {

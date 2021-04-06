@@ -19,7 +19,7 @@
 /* * ***************************Includes********************************* */
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 
-class ash_mode {
+class ash_ModeController {
   
   /*     * *************************Attributs****************************** */
   
@@ -28,21 +28,8 @@ class ash_mode {
   
   /*     * ***********************Methode static*************************** */
   
-  public static function buildDevice($_device) {
-    $eqLogic = $_device->getLink();
-    if (!is_object($eqLogic)) {
-      return array();
-    }
-    if ($eqLogic->getIsEnable() == 0) {
-      return array();
-    }
+  public static function discover($_device,$_eqLogic) {
     $return = array();
-    $return['endpointId'] = $eqLogic->getId();
-    $return['friendlyName'] = $_device->getPseudo();
-    $return['description'] = $eqLogic->getHumanName();
-    $return['manufacturerName'] = 'Jeedom';
-    $return['cookie'] = array('none' => 'empty');
-    $return['displayCategories'] = array('OTHER');
     $return['capabilities'] = array();
     $return['capabilities']['Alexa.ModeController'] = array(
       'type' => 'AlexaInterface',
@@ -71,7 +58,7 @@ class ash_mode {
       'supportedModes' => array()
     )
   );
-  foreach ($eqLogic->getCmd() as $cmd) {
+  foreach ($_eqLogic->getCmd() as $cmd) {
     if (in_array($cmd->getGeneric_type(), self::$_MODE_SET_STATE)) {
       $return['capabilities']['Alexa.ModeController']['configuration']['supportedModes'][] = array(
         'value'=> $cmd->getId(),
@@ -85,15 +72,15 @@ class ash_mode {
           )
         )
       ));
-      $return['cookie']['cmd_set_on'] = $cmd->getId();
+      $return['cookie']['ModeController_setOn'] = $cmd->getId();
     }
   }
-  foreach ($eqLogic->getCmd() as $cmd) {
+  foreach ($_eqLogic->getCmd() as $cmd) {
     if (in_array($cmd->getGeneric_type(), self::$_MODE_STATE)) {
       if(isset($return['capabilities']['Alexa.ModeController'])){
         $return['capabilities']['Alexa.ModeController']['properties']['retrievable'] = true;
       }
-      $return['cookie']['cmd_get_state'] = $cmd->getId();
+      $return['cookie']['ModeController_getState'] = $cmd->getId();
     }
   }
   if (count($return['capabilities']) == 0) {
@@ -102,23 +89,17 @@ class ash_mode {
       __('Mode',__FILE__) => self::$_MODE_SET_STATE
     ));
   }
-  $return['capabilities']['AlexaInterface'] = array(
-    "type" => "AlexaInterface",
-    "interface" => "Alexa",
-    "version" => "3",
-  );
   return $return;
 }
 
+public static function needGenericType(){
+  return array(
+    __('Etat mode',__FILE__) => self::$_MODE_STATE,
+    __('Mode',__FILE__) => self::$_MODE_SET_STATE
+  );
+}
+
 public static function exec($_device, $_directive) {
-  $return = array('status' => 'ERROR');
-  $eqLogic = $_device->getLink();
-  if (!is_object($eqLogic)) {
-    throw new Exception('NO_SUCH_ENDPOINT');
-  }
-  if ($eqLogic->getIsEnable() == 0) {
-    throw new Exception('ENDPOINT_UNREACHABLE');
-  }
   switch ($_directive['header']['name']) {
     case 'SetMode':
     $cmd = cmd::byId($_directive['payload']['mode']);
@@ -134,14 +115,13 @@ public static function exec($_device, $_directive) {
 public static function getState($_device, $_directive) {
   $return = array();
   $cmd = null;
-  if (isset($_directive['endpoint']['cookie']['cmd_get_state'])) {
-    $cmd = cmd::byId($_directive['endpoint']['cookie']['cmd_get_state']);
+  if (isset($_directive['endpoint']['cookie']['ModeController_getState'])) {
+    $cmd = cmd::byId($_directive['endpoint']['cookie']['ModeController_getState']);
   }
   if (!is_object($cmd)) {
     return $return;
   }
   $value = $cmd->execCmd();
-  
   foreach ($cmd->getEqLogic()->getCmd() as $cmdSet) {
     if (in_array($cmdSet->getGeneric_type(), self::$_MODE_SET_STATE)) {
       if($cmdSet->getName() == $value){

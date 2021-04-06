@@ -2,6 +2,10 @@
 if (!isConnect('admin')) {
 	throw new Exception('{{401 - Accès non autorisé}}');
 }
+$supportedType = ash::getSupportedType();
+uasort($supportedType, function ($a, $b) {
+	return strcmp($a['name'], $b['name']);
+});
 ?>
 <br/>
 <div class="input-group pull-right" style="display:inline-flex">
@@ -47,7 +51,7 @@ if (!isConnect('admin')) {
 					echo '<td>';
 					echo '<select class="deviceAttr form-control input-sm" data-l1key="type">';
 					echo '<option value="">{{Aucun}}</option>';
-					foreach (ash::$_supportedType as $key => $value) {
+					foreach ($supportedType as $key => $value) {
 						if ($key == 'SCENE_TRIGGER') {
 							continue;
 						}

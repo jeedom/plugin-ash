@@ -42,12 +42,6 @@ function ash_install() {
 }
 
 function ash_update() {
-	foreach(ash_devices::all() as $device){
-		if($device->getType() == 'TEMPERATURE_SENSOR'){
-			$device->setType('SENSORS');
-			$device->save();
-		}
-	}
 }
 
 function ash_remove() {
