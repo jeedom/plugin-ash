@@ -83,11 +83,8 @@ class ash_ModeController {
       $return['cookie']['ModeController_getState'] = $cmd->getId();
     }
   }
-  if (count($return['capabilities']) == 0) {
-    return array('missingGenericType' => array(
-      __('Etat mode',__FILE__) => self::$_MODE_STATE,
-      __('Mode',__FILE__) => self::$_MODE_SET_STATE
-    ));
+  if (count($return['capabilities']['configuration']['supportedModes']) == 0) {
+    return array();
   }
   return $return;
 }
