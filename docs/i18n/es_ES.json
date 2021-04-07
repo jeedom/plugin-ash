@@ -2,6 +2,10 @@
     "changelog.md": {
         "Changelog Alexa": "Registro de cambios Alexa",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Como recordatorio si no hay información sobre la actualización, significa que solo se refiere a la actualización de documentación, traducción o texto",
+        "07\/04\/2021": "07\/04\/2021",
+        "Correction d'un bug sur les équipements utilisant le Mode Controller": "Se corrigió un error en los dispositivos que usaban el modo controlador",
+        "Correction d'un bug sur l'affichage des équipements NOK": "Se corrigió un error en la pantalla del equipo NOK",
+        "06\/04\/2021": "06\/04\/2021",
         "Refonte du plugin": "Rediseño del complemento",
         "Ajout de nouveau type": "Adición de un nuevo tipo",
         "Suite a la mise à jour il faut refaire une detection des équipements depuis Alexa": "Tras la actualización es necesario rehacer una detección del equipo desde Alexa",
