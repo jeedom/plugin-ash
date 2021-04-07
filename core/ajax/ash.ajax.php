@@ -46,6 +46,7 @@ try {
 				$dbObject->remove();
 			}
 		}
+		ash::sync();
 		ajax::success();
 	}
 	
