@@ -18,7 +18,7 @@
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 class ash_TemperatureSensor {
 	/*     * *************************Attributs****************************** */
-	private static $_TEMPERATURE = array('TEMPERATURE');
+	private static $_TEMPERATURE = array('TEMPERATURE','THERMOSTAT_TEMPERATURE');
 	
 	/*     * ***********************Methode static*************************** */
 	public static function discover($_device,$_eqLogic) {
