@@ -192,7 +192,7 @@ class ash_ThermostatController {
 				$return[] = array(
 					'namespace' => 'Alexa.ThermostatController',
 					'name' => 'thermostatMode',
-					'value' => array('value' => $cValue),
+					'value' => $cValue,
 					'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
 					'uncertaintyInMilliseconds' => 0,
 				);
