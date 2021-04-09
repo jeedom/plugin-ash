@@ -10,7 +10,7 @@
         "06\/04\/2021": "04\/06\/2021",
         "Refonte du plugin": "Redesign of the plugin",
         "Ajout de nouveau type": "Addition of new type",
-        "Suite a la mise à jour il faut refaire une detection des équipements depuis Alexa": "Following the update it is necessary to redo a detection of the equipment from Alexa",
+        "Suite a la mise à jour il faut refaire une detection des équipements depuis Alexa (pensez bien a verifier la page de configuration des équipements a tranmettrent à Alexa que les types sont bien correcte, il y a des chose à adapter suite à la mise à jour": "Following the update, you must redo an equipment detection from Alexa (remember to check the configuration page of the equipment sent to Alexa that the types are correct, there are things to adapt following the update",
         "08\/11\/2020": "08\/11\/2020",
         "Correction d'un bug sur les scenes lors du renommage d'une commande\/équipement\/objet": "Fixed a bug on scenes when renaming an order \/ equipment \/ item",
         "03\/11\/2020": "03\/11\/2020",
