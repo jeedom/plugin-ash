@@ -4,6 +4,10 @@
 >
 >Como recordatorio si no hay información sobre la actualización, significa que solo se refiere a la actualización de documentación, traducción o texto
 
+# 08/04/2021
+
+- Arreglado un error en mi termostato
+
 # 07/04/2021
 
 - Se corrigió un error en los dispositivos que usaban el modo controlador 
@@ -16,7 +20,7 @@
 
 >**Importante**
 >
->Tras la actualización es necesario rehacer una detección del equipo desde Alexa
+>Luego de la actualización, debes rehacer una detección de equipo de Alexa (recuerda revisar la página de configuración del equipo enviado a Alexa que los tipos son correctos, hay cosas que adaptar después de la actualización)
 
 
 # 08/11/2020

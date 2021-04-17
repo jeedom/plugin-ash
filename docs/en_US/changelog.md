@@ -4,6 +4,10 @@
 >
 >As a reminder if there is no information on the update, it means that it only concerns the updating of documentation, translation or text
 
+# 04/08/2021
+
+- Fixed a bug on my thermostat
+
 # 04/07/2021
 
 - Fixed a bug on devices using Controller Mode 
@@ -16,7 +20,7 @@
 
 >**Important**
 >
->Following the update it is necessary to redo a detection of the equipment from Alexa
+>Following the update, you must redo an equipment detection from Alexa (remember to check the configuration page of the equipment sent to Alexa that the types are correct, there are things to adapt following the update)
 
 
 # 08/11/2020

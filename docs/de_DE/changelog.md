@@ -4,6 +4,10 @@
 >
 >Zur Erinnerung: Wenn keine Informationen zum Update vorhanden sind, bedeutet dies, dass es sich nur um die Aktualisierung von Dokumentation, Übersetzung oder Text handelt
 
+# 04.08.2021
+
+- Ein Fehler an meinem Thermostat wurde behoben
+
 # 04/07/2021
 
 - Ein Fehler auf Geräten, die den Controller-Modus verwenden, wurde behoben 
@@ -16,7 +20,7 @@
 
 >**Wichtig**
 >
->Nach dem Update muss eine Erkennung der Geräte von Alexa wiederholt werden
+>Nach dem Update müssen Sie eine Geräteerkennung von Alexa wiederholen (denken Sie daran, auf der Konfigurationsseite des an Alexa gesendeten Geräts zu überprüfen, ob die Typen korrekt sind. Nach dem Update müssen einige Anpassungen vorgenommen werden)
 
 
 # 08/11/2020
