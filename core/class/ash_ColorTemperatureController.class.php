@@ -72,10 +72,10 @@ class ash_ColorTemperatureController {
 				$cmd = cmd::byId($_directive['endpoint']['cookie']['ColorTemperatureController_setState']);
 			}
 			if (is_object($cmd)) {
-				$value = ((($_directive['payload']['colorTemperatureInKelvin'] - 2200)/7000)*$cmd->getConfiguration('maxValue',100))+$cmd->getConfiguration('minValue',0);
 				if($_device->getOptions('ColorTemperatureController::invertSetColorTemp')){
 					$value = 9900 - $value;
 				}
+				$value = ((($_directive['payload']['colorTemperatureInKelvin'] - 2200)/7000)*$cmd->getConfiguration('maxValue',100))+$cmd->getConfiguration('minValue',0);
 				$cmd->execCmd(array('slider' => $value));
 			}
 			break;
