@@ -180,7 +180,9 @@
     },
     "plugins\/ash\/core\/class\/ash_ColorTemperatureController.class.php": {
         "Température couleur": "Température couleur",
-        "Etat température couleur": "Etat température couleur"
+        "Etat température couleur": "Etat température couleur",
+        "Inverser l\\'action de température de couleur": "Inverser l\\'action de température de couleur",
+        "Inverser l\\'état de température de couleur": "Inverser l\\'état de température de couleur"
     },
     "info.json": {
         "Plugin permettant d'utiliser Amazon Alexa (echo, dot...) pour piloter votre Jeedom. Important : le plugin nécessite un abonnement aux services vocaux . Pour gérer cet abonnement : https:\/\/www.jeedom.com\/market\/index.php?v=d&p=profils#services": "Plugin permettant d'utiliser Amazon Alexa (echo, dot...) pour piloter votre Jeedom. Important : le plugin nécessite un abonnement aux services vocaux . Pour gérer cet abonnement : https:\/\/www.jeedom.com\/market\/index.php?v=d&p=profils#services"

@@ -83,7 +83,7 @@ class ash_ModeController {
       $return['cookie']['ModeController_getState'] = $cmd->getId();
     }
   }
-  if (count($return['capabilities']['configuration']['supportedModes']) == 0) {
+  if (count($return['capabilities']['Alexa.ModeController']['configuration']['supportedModes']) == 0) {
     return array();
   }
   return $return;

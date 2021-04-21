@@ -10,7 +10,7 @@
         "06\/04\/2021": "06\/04\/2021",
         "Refonte du plugin": "Rediseño del complemento",
         "Ajout de nouveau type": "Adición de un nuevo tipo",
-        "Suite a la mise à jour il faut refaire une detection des équipements depuis Alexa": "Tras la actualización es necesario rehacer una detección del equipo desde Alexa",
+        "Suite a la mise à jour il faut refaire une detection des équipements depuis Alexa (pensez bien a verifier la page de configuration des équipements a tranmettrent à Alexa que les types sont bien correcte, il y a des chose à adapter suite à la mise à jour": "Luego de la actualización, debes rehacer una detección de equipo de Alexa (recuerda revisar la página de configuración del equipo enviado a Alexa que los tipos son correctos, hay cosas que adaptar después de la actualización",
         "08\/11\/2020": "08\/11\/2020",
         "Correction d'un bug sur les scenes lors du renommage d'une commande\/équipement\/objet": "Se corrigió un error en las escenas al cambiar el nombre de un pedido \/ equipo \/ artículo",
         "03\/11\/2020": "11\/03\/2020",
