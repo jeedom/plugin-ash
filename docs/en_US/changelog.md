@@ -4,9 +4,13 @@
 >
 >As a reminder if there is no information on the update, it means that it only concerns the updating of documentation, translation or text
 
+# 04/21/2021
+
+- Fixed a bug on modes
+
 # 04/08/2021
 
-- Fixed a bug on my thermostat
+- Fixed a bug on the thermostat
 
 # 04/07/2021
 

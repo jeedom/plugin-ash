@@ -2,8 +2,10 @@
     "changelog.md": {
         "Changelog Alexa": "Changelog Alexa",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "As a reminder if there is no information on the update, it means that it only concerns the updating of documentation, translation or text",
+        "21\/04\/2021": "04\/21\/2021",
+        "Correction d'un bug sur les modes": "Fixed a bug on modes",
         "08\/04\/2021": "04\/08\/2021",
-        "Correction d'un bug sur me thermostat": "Fixed a bug on my thermostat",
+        "Correction d'un bug sur le thermostat": "Fixed a bug on the thermostat",
         "07\/04\/2021": "04\/07\/2021",
         "Correction d'un bug sur les équipements utilisant le Mode Controller": "Fixed a bug on devices using Controller Mode",
         "Correction d'un bug sur l'affichage des équipements NOK": "Fixed a bug on the display of NOK equipment",

@@ -4,9 +4,13 @@
 >
 >Como lembrete, se não houver informações sobre a atualização, isso significa que se trata apenas da atualização da documentação, tradução ou texto
 
+# 21/04/2021
+
+- Corrigido um bug nos modos
+
 # 08/04/2021
 
-- Corrigido um bug no meu termostato
+- Corrigido um bug no termostato
 
 # 07/04/2021
 
