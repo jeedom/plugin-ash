@@ -4,9 +4,13 @@
 >
 >Zur Erinnerung: Wenn keine Informationen zum Update vorhanden sind, bedeutet dies, dass es sich nur um die Aktualisierung von Dokumentation, Übersetzung oder Text handelt
 
+# 21.04.2021
+
+- Ein Fehler in den Modi wurde behoben
+
 # 04.08.2021
 
-- Ein Fehler an meinem Thermostat wurde behoben
+- Ein Fehler am Thermostat wurde behoben
 
 # 04/07/2021
 
