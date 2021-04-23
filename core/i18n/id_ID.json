@@ -70,7 +70,7 @@
         "Supprimer": "Menghapus"
     },
     "plugins\/ash\/core\/php\/jeeAsh.php": {
-        "Vous n\\'etes pas autorisé à effectuer cette action. Clef API invalide. Merci de corriger la clef API sur votre page profils du market et d\\'attendre 24h avant de réessayer.": "Vous n\\'etes pas autorisé à effectuer cette action. Clef API invalide. Merci de corriger la clef API sur votre page profils du market et d\\'attendre 24h avant de réessayer",
+        "Vous n\\'etes pas autorisé à effectuer cette action. Clef API invalide. Merci de corriger la clef API.": "Vous n\\'etes pas autorisé à effectuer cette action. Clef API invalide. Merci de corriger la clef API",
         "Configuration OK": "Configuration OK"
     },
     "plugins\/ash\/core\/ajax\/ash.ajax.php": {

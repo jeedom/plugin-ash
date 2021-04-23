@@ -70,7 +70,7 @@
         "Supprimer": "Borrar"
     },
     "plugins\/ash\/core\/php\/jeeAsh.php": {
-        "Vous n\\'etes pas autorisé à effectuer cette action. Clef API invalide. Merci de corriger la clef API sur votre page profils du market et d\\'attendre 24h avant de réessayer.": "No tiene autorización para realizar esta acción. Clave API no válida Corrija la clave API en su página de perfiles de mercado y espere 24 horas antes de volver a intentarlo",
+        "Vous n\\'etes pas autorisé à effectuer cette action. Clef API invalide. Merci de corriger la clef API.": "No está autorizado para realizar esta acción. Clave de API no válida. Corrija la clave de API",
         "Configuration OK": "Configuración OK"
     },
     "plugins\/ash\/core\/ajax\/ash.ajax.php": {
