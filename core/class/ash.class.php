@@ -64,7 +64,7 @@ class ash extends eqLogic {
 			'COMPUTER' => array('name' => __('Ordinateur',__FILE__) ,'skills' =>array('PowerController')),
 			'DOOR' => array('name' => __('Porte',__FILE__) ,'skills' =>array('ContactSensor','LockController')),
 			'EXTERIOR_BLIND' => array('name' => __('Volet',__FILE__) ,'skills' =>array('RangeController')),
-			'FAN' => array('name' => __('Ventilateur',__FILE__) ,'skills' =>array('PowerController')),
+			'FAN' => array('name' => __('Ventilateur',__FILE__) ,'skills' =>array('PowerController','RangeController')),
 			'GARAGE_DOOR' => array('name' => __('Porte de garage',__FILE__) ,'skills' =>array('ContactSensor')),
 			'MICROWAVE' => array('name' => __('Micro-onde',__FILE__) ,'skills' =>array('PowerController')),
 			'NETWORK_HARDWARE' => array('name' => __('Equipement réseaux',__FILE__) ,'skills' =>array('PowerController')),
@@ -73,7 +73,7 @@ class ash extends eqLogic {
 			'SCREEN' => array('name' => __('Ecran',__FILE__) ,'skills' =>array('PowerController')),
 			'TV' => array('name' => __('TV',__FILE__) ,'skills' =>array('PowerController')),
 			'VEHICLE' => array('name' => __('Vehicule',__FILE__) ,'skills' =>array('PowerController','LockController')),
-			'VACUUM_CLEANER' => array('name' => __('Vehicule',__FILE__) ,'skills' =>array('PowerController','ModeController','InventoryLevelSensor')),
+			'VACUUM_CLEANER' => array('name' => __('Aspirateur',__FILE__) ,'skills' =>array('PowerController','ModeController','InventoryLevelSensor')),
 		);
 	}
 	
