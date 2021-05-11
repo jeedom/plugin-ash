@@ -116,6 +116,7 @@
         "Ecran": "Pantalla",
         "TV": "Televisor",
         "Vehicule": "Vehículo",
+        "Aspirateur": "Aspiradora",
         "Deux équipements et\/ou scène avec le meme nom : ": "Dos dispositivos y\/o escenario con el mismo nombre :"
     },
     "plugins\/ash\/core\/class\/ash_scene.class.php": {

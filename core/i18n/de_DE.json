@@ -116,6 +116,7 @@
         "Ecran": "Bildschirm",
         "TV": "Fernseher",
         "Vehicule": "Fahrzeug",
+        "Aspirateur": "Vakuum",
         "Deux équipements et\/ou scène avec le meme nom : ": "Zwei gleichnamige Geräte und \/ oder Bühnen:"
     },
     "plugins\/ash\/core\/class\/ash_scene.class.php": {
