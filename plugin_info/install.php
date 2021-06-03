@@ -45,7 +45,10 @@ function ash_update() {
 }
 
 function ash_remove() {
-	
+	$cron = cron::byClassAndFunction('ash', 'rotateApiKey');
+	if (is_object($cron)) {
+		$cron->remove();
+	}
 }
 
 ?>
