@@ -43,6 +43,9 @@ class ash extends eqLogic {
 
 	public static function getSupportedType() {
 		return array(
+			'AIR_CONDITIONER' => array('name' => __('Climatisation', __FILE__), 'skills' => array('TemperatureSensor', 'ThermostatController', 'RangeController')),
+			'AIR_FRESHENER' => array('name' => __('Désodoriasant', __FILE__), 'skills' => array('PowerController')),
+			'AIR_PURIFIER' => array('name' => __('Purificateur', __FILE__), 'skills' => array('PowerController', 'RangeController')),
 			'THERMOSTAT' => array('name' => __('Thermostat', __FILE__), 'skills' => array('TemperatureSensor', 'ThermostatController')),
 			'LIGHT' => array('name' => __('Lumière', __FILE__), 'skills' => array('PowerController', 'BrightnessController', 'ColorController', 'ColorTemperatureController')),
 			'SWITCH' => array('name' => __('Switch', __FILE__), 'skills' => array('PowerController')),
