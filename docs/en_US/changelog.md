@@ -4,6 +4,9 @@
 >
 >As a reminder if there is no information on the update, it means that it only concerns the updating of documentation, translation or text
 
+- Addition of new types
+- Improved lock type"
+
 # 04/21/2021
 
 - Fixed a bug on modes

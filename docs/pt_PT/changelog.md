@@ -4,6 +4,9 @@
 >
 >Como lembrete, se não houver informações sobre a atualização, isso significa que se trata apenas da atualização da documentação, tradução ou texto
 
+- Adição de novos tipos
+- Tipo de bloqueio aprimorado"
+
 # 21/04/2021
 
 - Corrigido um bug nos modos

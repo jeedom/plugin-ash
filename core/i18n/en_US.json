@@ -86,6 +86,9 @@
         "Niveau restant": "Remaining level"
     },
     "plugins\/ash\/core\/class\/ash.class.php": {
+        "Climatisation": "Air conditioner",
+        "Désodoriasant": "Deodorant",
+        "Purificateur": "Purifier",
         "Thermostat": "Thermostat",
         "Lumière": "Light",
         "Switch": "Switch",
