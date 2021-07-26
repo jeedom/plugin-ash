@@ -8,3 +8,4 @@ sftp-config.json
 Thumbs.db
 *.php~
 .remote-sync.json
+.vscode
