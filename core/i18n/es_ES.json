@@ -10,6 +10,7 @@
         "Envoyer configuration au market": "Enviar configuración al mercado",
         "Envoyer": "Enviar",
         "Activer la rotation de la clef api": "Activar la rotación de la clave api",
+        "Interdire toute requête si": "Prohibir cualquier solicitud si",
         "Configuration envoyée avec succès.": "Configuración enviada correctamente"
     },
     "plugins\/ash\/desktop\/modal\/advanceConfig.php": {

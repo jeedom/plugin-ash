@@ -4,6 +4,7 @@
 >
 >As a reminder if there is no information on the update, it means that it only concerns the updating of documentation, translation or text
 
+- Possibility to ban any request from Google based on a condition
 - Addition of new types
 - Improved lock type"
 

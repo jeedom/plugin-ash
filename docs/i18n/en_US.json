@@ -2,6 +2,7 @@
     "changelog.md": {
         "Changelog Alexa": "Changelog Alexa",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "As a reminder if there is no information on the update, it means that it only concerns the updating of documentation, translation or text",
+        "Possibilité d'interdir toute requete de Google en fonction d'une condition": "Possibility to ban any request from Google based on a condition",
         "Ajout de nouveaux type": "Addition of new types",
         "Amélioration du type \"serrure": "Improved lock type",
         "21\/04\/2021": "04\/21\/2021",
