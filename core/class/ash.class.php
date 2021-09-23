@@ -156,6 +156,7 @@ class ash extends eqLogic {
 	}
 
 	public static function exec($_data) {
+
 		$directive = $_data['data']['directive'];
 		$responseHeader = $directive['header'];
 		$responseHeader['namespace'] = 'Alexa';
@@ -172,6 +173,9 @@ class ash extends eqLogic {
 				'payload' => new stdClass(),
 			),
 		);
+		if (config::byKey('ashs::disableRequestIf', 'ash') != '' && jeedom::evaluateExpression(config::byKey('ashs::disableRequestIf', 'ash'))) {
+			return self::buildErrorResponse($_data, 'ENDPOINT_UNREACHABLE');
+		}
 		if (strpos($directive['endpoint']['endpointId'], 'scene::') !== false) {
 			$device = ash_devices::byId(str_replace('scene::', '', $directive['endpoint']['endpointId']));
 		} else {
