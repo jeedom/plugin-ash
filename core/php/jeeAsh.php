@@ -22,7 +22,7 @@ if (init('apikey') != '') {
 		$apikey = substr($apikey, 0, strpos($apikey, '-'));
 	}
 	if (!jeedom::apiAccess($apikey, 'ash')) {
-		echo __('Vous n\'etes pas autorisé à effectuer cette action. Clef API invalide. Merci de corriger la clef API sur votre page profils du market et d\'attendre 24h avant de réessayer.', __FILE__);
+		echo __('Vous n\'etes pas autorisé à effectuer cette action. Clef API invalide. Merci de corriger la clef API.', __FILE__);
 		die();
 	} else {
 		echo __('Configuration OK', __FILE__);

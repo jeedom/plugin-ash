@@ -10,6 +10,7 @@
         "Envoyer configuration au market": "Konfiguration an den Markt senden",
         "Envoyer": "Senden",
         "Activer la rotation de la clef api": "Aktivieren Sie die Drehung der API-Taste",
+        "Interdire toute requête si": "Verbieten Sie jede Anfrage, wenn",
         "Configuration envoyée avec succès.": "Konfiguration erfolgreich gesendet"
     },
     "plugins\/ash\/desktop\/modal\/advanceConfig.php": {
@@ -70,7 +71,7 @@
         "Supprimer": "Löschen"
     },
     "plugins\/ash\/core\/php\/jeeAsh.php": {
-        "Vous n\\'etes pas autorisé à effectuer cette action. Clef API invalide. Merci de corriger la clef API sur votre page profils du market et d\\'attendre 24h avant de réessayer.": "Sie sind nicht berechtigt, diese Aktion auszuführen. Ungültiger API-Schlüssel. Bitte korrigieren Sie den API-Schlüssel auf Ihrer Marktprofilseite und warten Sie 24 Stunden, bevor Sie es erneut versuchen",
+        "Vous n\\'etes pas autorisé à effectuer cette action. Clef API invalide. Merci de corriger la clef API.": "Sie sind nicht berechtigt, diese Aktion auszuführen. Ungültiger API-Schlüssel. Bitte korrigieren Sie den API-Schlüssel",
         "Configuration OK": "Konfiguration OK"
     },
     "plugins\/ash\/core\/ajax\/ash.ajax.php": {
@@ -86,6 +87,9 @@
         "Niveau restant": "Verbleibendes Niveau"
     },
     "plugins\/ash\/core\/class\/ash.class.php": {
+        "Climatisation": "Klimaanlage",
+        "Désodoriasant": "Deodorant",
+        "Purificateur": "Luftreiniger",
         "Thermostat": "Thermostat",
         "Lumière": "Licht",
         "Switch": "Schalter",
@@ -116,6 +120,7 @@
         "Ecran": "Bildschirm",
         "TV": "Fernseher",
         "Vehicule": "Fahrzeug",
+        "Aspirateur": "Vakuum",
         "Deux équipements et\/ou scène avec le meme nom : ": "Zwei gleichnamige Geräte und \/ oder Bühnen:"
     },
     "plugins\/ash\/core\/class\/ash_scene.class.php": {

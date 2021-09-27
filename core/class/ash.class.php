@@ -38,77 +38,80 @@ include_file('core', 'ash_ToggleController', 'class', 'ash');
 include_file('core', 'ash_LockController', 'class', 'ash');
 
 class ash extends eqLogic {
-	
+
 	/*     * *************************Attributs****************************** */
-	
-	public static function getSupportedType(){
+
+	public static function getSupportedType() {
 		return array(
-			'THERMOSTAT' => array('name' => __('Thermostat',__FILE__) ,'skills' =>array('TemperatureSensor','ThermostatController')),
-			'LIGHT' => array('name' => __('Lumière',__FILE__) ,'skills' =>array('PowerController','BrightnessController','ColorController','ColorTemperatureController')),
-			'SWITCH' => array('name' => __('Switch',__FILE__) ,'skills' =>array('PowerController')),
-			'SMARTPLUG' => array('name' => __('Prise',__FILE__) ,'skills' =>array('PowerController')),
-			'OTHER' => array('name' => __('Mode',__FILE__) ,'skills' =>array('ModeController')),
-			'TEMPERATURE_SENSOR' => array('name' => __('Capteur de température',__FILE__) ,'skills' =>array('TemperatureSensor')),
-			'MOTION_SENSOR' => array('name' => __('Detecteur de mouvement',__FILE__) ,'skills' =>array('MotionSensor')),
-			'CONTACT_SENSOR' => array('name' => __('Detecteur d\'ouverture',__FILE__) ,'skills' =>array('ContactSensor')),
-			'SCENE_TRIGGER' => array('name' => __('Scene',__FILE__) ,'class' =>'ash_scene'),
-			'INTERIOR_BLIND' => array('name' => __('Rideaux',__FILE__) ,'skills' =>array('RangeController')),
-			'AIR_PURIFIER' => array('name' => __('Purificateur d\'air',__FILE__) ,'skills' =>array('PowerController')),
-			'CHRISTMAS_TREE' => array('name' => __('Arbre de Noel',__FILE__) ,'skills' =>array('PowerController')),
-			'COFFEE_MAKER' => array('name' => __('Machine a cafée',__FILE__) ,'skills' =>array('PowerController')),
-			'OVEN' => array('name' => __('Four',__FILE__) ,'skills' =>array('PowerController','TemperatureSensor')),
-			'SLOW_COOKER' => array('name' => __('Mijoteuse',__FILE__) ,'skills' =>array('PowerController','TemperatureSensor')),
-			'SECURITY_SYSTEM' => array('name' => __('Alarme',__FILE__) ,'skills' =>array('PowerController','ModeController')),
-			'SMARTLOCK' => array('name' => __('Serrure',__FILE__) ,'skills' =>array('PowerController')),
-			'LAPTOP' => array('name' => __('PC portable',__FILE__) ,'skills' =>array('PowerController')),
-			'COMPUTER' => array('name' => __('Ordinateur',__FILE__) ,'skills' =>array('PowerController')),
-			'DOOR' => array('name' => __('Porte',__FILE__) ,'skills' =>array('ContactSensor','LockController')),
-			'EXTERIOR_BLIND' => array('name' => __('Volet',__FILE__) ,'skills' =>array('RangeController')),
-			'FAN' => array('name' => __('Ventilateur',__FILE__) ,'skills' =>array('PowerController')),
-			'GARAGE_DOOR' => array('name' => __('Porte de garage',__FILE__) ,'skills' =>array('ContactSensor')),
-			'MICROWAVE' => array('name' => __('Micro-onde',__FILE__) ,'skills' =>array('PowerController')),
-			'NETWORK_HARDWARE' => array('name' => __('Equipement réseaux',__FILE__) ,'skills' =>array('PowerController')),
-			'PRINTER' => array('name' => __('Imprimante',__FILE__) ,'skills' =>array('PowerController')),
-			'ROUTER' => array('name' => __('Routeur',__FILE__) ,'skills' =>array('PowerController')),
-			'SCREEN' => array('name' => __('Ecran',__FILE__) ,'skills' =>array('PowerController')),
-			'TV' => array('name' => __('TV',__FILE__) ,'skills' =>array('PowerController')),
-			'VEHICLE' => array('name' => __('Vehicule',__FILE__) ,'skills' =>array('PowerController','LockController')),
-			'VACUUM_CLEANER' => array('name' => __('Vehicule',__FILE__) ,'skills' =>array('PowerController','ModeController','InventoryLevelSensor')),
+			'AIR_CONDITIONER' => array('name' => __('Climatisation', __FILE__), 'skills' => array('TemperatureSensor', 'ThermostatController', 'RangeController')),
+			'AIR_FRESHENER' => array('name' => __('Désodoriasant', __FILE__), 'skills' => array('PowerController')),
+			'AIR_PURIFIER' => array('name' => __('Purificateur', __FILE__), 'skills' => array('PowerController', 'RangeController')),
+			'THERMOSTAT' => array('name' => __('Thermostat', __FILE__), 'skills' => array('TemperatureSensor', 'ThermostatController')),
+			'LIGHT' => array('name' => __('Lumière', __FILE__), 'skills' => array('PowerController', 'BrightnessController', 'ColorController', 'ColorTemperatureController')),
+			'SWITCH' => array('name' => __('Switch', __FILE__), 'skills' => array('PowerController')),
+			'SMARTPLUG' => array('name' => __('Prise', __FILE__), 'skills' => array('PowerController')),
+			'OTHER' => array('name' => __('Mode', __FILE__), 'skills' => array('ModeController')),
+			'TEMPERATURE_SENSOR' => array('name' => __('Capteur de température', __FILE__), 'skills' => array('TemperatureSensor')),
+			'MOTION_SENSOR' => array('name' => __('Detecteur de mouvement', __FILE__), 'skills' => array('MotionSensor')),
+			'CONTACT_SENSOR' => array('name' => __('Detecteur d\'ouverture', __FILE__), 'skills' => array('ContactSensor')),
+			'SCENE_TRIGGER' => array('name' => __('Scene', __FILE__), 'class' => 'ash_scene'),
+			'INTERIOR_BLIND' => array('name' => __('Rideaux', __FILE__), 'skills' => array('RangeController')),
+			'AIR_PURIFIER' => array('name' => __('Purificateur d\'air', __FILE__), 'skills' => array('PowerController')),
+			'CHRISTMAS_TREE' => array('name' => __('Arbre de Noel', __FILE__), 'skills' => array('PowerController')),
+			'COFFEE_MAKER' => array('name' => __('Machine a cafée', __FILE__), 'skills' => array('PowerController')),
+			'OVEN' => array('name' => __('Four', __FILE__), 'skills' => array('PowerController', 'TemperatureSensor')),
+			'SLOW_COOKER' => array('name' => __('Mijoteuse', __FILE__), 'skills' => array('PowerController', 'TemperatureSensor')),
+			'SECURITY_SYSTEM' => array('name' => __('Alarme', __FILE__), 'skills' => array('PowerController', 'ModeController')),
+			'SMARTLOCK' => array('name' => __('Serrure', __FILE__), 'skills' => array('PowerController', 'LockController')),
+			'LAPTOP' => array('name' => __('PC portable', __FILE__), 'skills' => array('PowerController')),
+			'COMPUTER' => array('name' => __('Ordinateur', __FILE__), 'skills' => array('PowerController')),
+			'DOOR' => array('name' => __('Porte', __FILE__), 'skills' => array('ContactSensor', 'LockController')),
+			'EXTERIOR_BLIND' => array('name' => __('Volet', __FILE__), 'skills' => array('RangeController')),
+			'FAN' => array('name' => __('Ventilateur', __FILE__), 'skills' => array('PowerController', 'RangeController')),
+			'GARAGE_DOOR' => array('name' => __('Porte de garage', __FILE__), 'skills' => array('ContactSensor')),
+			'MICROWAVE' => array('name' => __('Micro-onde', __FILE__), 'skills' => array('PowerController')),
+			'NETWORK_HARDWARE' => array('name' => __('Equipement réseaux', __FILE__), 'skills' => array('PowerController')),
+			'PRINTER' => array('name' => __('Imprimante', __FILE__), 'skills' => array('PowerController')),
+			'ROUTER' => array('name' => __('Routeur', __FILE__), 'skills' => array('PowerController')),
+			'SCREEN' => array('name' => __('Ecran', __FILE__), 'skills' => array('PowerController')),
+			'TV' => array('name' => __('TV', __FILE__), 'skills' => array('PowerController')),
+			'VEHICLE' => array('name' => __('Vehicule', __FILE__), 'skills' => array('PowerController', 'LockController')),
+			'VACUUM_CLEANER' => array('name' => __('Aspirateur', __FILE__), 'skills' => array('PowerController', 'ModeController', 'InventoryLevelSensor')),
 		);
 	}
-	
+
 	/*     * ***********************Methode static*************************** */
-	
-	public static function postConfig_enableApikeyRotate($_value){
+
+	public static function postConfig_enableApikeyRotate($_value) {
 		$cron = cron::byClassAndFunction('ash', 'rotateApiKey');
-		if($_value == 1){
-			if(!is_object($cron)){
+		if ($_value == 1) {
+			if (!is_object($cron)) {
 				$cron = new cron();
 			}
 			$cron->setClass('ash');
 			$cron->setFunction('rotateApiKey');
 			$cron->setLastRun(date('Y-m-d H:i:s'));
-			$cron->setSchedule(rand(0,59).' '.rand(0,23).' * * *');
+			$cron->setSchedule(rand(0, 59) . ' ' . rand(0, 23) . ' * * *');
 			$cron->save();
-		}else{
-			if(is_object($cron)){
+		} else {
+			if (is_object($cron)) {
 				$cron->remove();
 			}
 		}
 	}
-	
-	public static function rotateApiKey($_option = array()){
+
+	public static function rotateApiKey($_option = array()) {
 		config::save('api', config::genKey(), 'ash');
 		self::sendJeedomConfig();
 	}
-	
+
 	public static function sendJeedomConfig() {
 		$market = repo_market::getJsonRpc();
 		if (!$market->sendRequest('ash::configAsh', array('ash::apikey' => jeedom::getApiKey('ash'), 'ash::url' => network::getNetworkAccess('external')))) {
 			throw new Exception($market->getError(), $market->getErrorCode());
 		}
 	}
-	
+
 	public static function voiceAssistantInfo() {
 		$market = repo_market::getJsonRpc();
 		if (!$market->sendRequest('voiceAssistant::info')) {
@@ -116,19 +119,19 @@ class ash extends eqLogic {
 		}
 		return $market->getResult();
 	}
-	
-	public static function sync($_group='') {
+
+	public static function sync($_group = '') {
 		$return = array();
 		$devices = ash_devices::all(true);
 		$names = array();
 		foreach ($devices as $device) {
-			if($device->getOptions('group') != '' && $device->getOptions('group') != $_group){
+			if ($device->getOptions('group') != '' && $device->getOptions('group') != $_group) {
 				continue;
 			}
 			$info = $device->buildDevice();
-			if(isset($info['friendlyName']) && trim($info['friendlyName']) != ''){
-				if(isset($names[$info['friendlyName']])){
-					log::add('ash','error',__('Deux équipements et/ou scène avec le meme nom : ',__FILE__).json_encode($info));
+			if (isset($info['friendlyName']) && trim($info['friendlyName']) != '') {
+				if (isset($names[$info['friendlyName']])) {
+					log::add('ash', 'error', __('Deux équipements et/ou scène avec le meme nom : ', __FILE__) . json_encode($info));
 					$device->setOptions('configState', 'NOK');
 					$device->save();
 					continue;
@@ -137,8 +140,8 @@ class ash extends eqLogic {
 			}
 			if (!is_array($info) || count($info) == 0 || isset($info['missingGenericType'])) {
 				$device->setOptions('configState', 'NOK');
-				if(isset($info['missingGenericType'])){
-					$device->setOptions('missingGenericType',$info['missingGenericType']);
+				if (isset($info['missingGenericType'])) {
+					$device->setOptions('missingGenericType', $info['missingGenericType']);
 				}
 				$device->save();
 				continue;
@@ -146,19 +149,20 @@ class ash extends eqLogic {
 			$info['capabilities'] = array_values($info['capabilities']);
 			$return[] = $info;
 			$device->setOptions('configState', 'OK');
-			$device->setOptions('missingGenericType','');
+			$device->setOptions('missingGenericType', '');
 			$device->save();
 		}
 		return array('endpoints' => $return);
 	}
-	
+
 	public static function exec($_data) {
+
 		$directive = $_data['data']['directive'];
 		$responseHeader = $directive['header'];
 		$responseHeader['namespace'] = 'Alexa';
-		if($responseHeader['name'] == 'ReportState'){
+		if ($responseHeader['name'] == 'ReportState') {
 			$responseHeader['name'] = 'StateReport';
-		}else{
+		} else {
 			$responseHeader['name'] = 'Response';
 		}
 		$return = array(
@@ -169,6 +173,9 @@ class ash extends eqLogic {
 				'payload' => new stdClass(),
 			),
 		);
+		if (config::byKey('ashs::disableRequestIf', 'ash') != '' && jeedom::evaluateExpression(config::byKey('ashs::disableRequestIf', 'ash'))) {
+			return self::buildErrorResponse($_data, 'ENDPOINT_UNREACHABLE');
+		}
 		if (strpos($directive['endpoint']['endpointId'], 'scene::') !== false) {
 			$device = ash_devices::byId(str_replace('scene::', '', $directive['endpoint']['endpointId']));
 		} else {
@@ -190,12 +197,12 @@ class ash extends eqLogic {
 				return self::buildErrorResponse($_data, $e->getMessage());
 			}
 		}
-		if(isset($return['event']['endpoint']['cookie'])){
+		if (isset($return['event']['endpoint']['cookie'])) {
 			unset($return['event']['endpoint']['cookie']);
 		}
 		return $return;
 	}
-	
+
 	public static function buildErrorResponse($_data, $_name, $_payload = array()) {
 		$responseHeader = $_data['data']['directive']['header'];
 		$responseHeader['name'] = $_name;
@@ -207,30 +214,29 @@ class ash extends eqLogic {
 		);
 		return $response;
 	}
-	
+
 	/*     * *********************Méthodes d'instance************************* */
-	
-	
+
+
 	/*     * **********************Getteur Setteur*************************** */
 }
 
 class ashCmd extends cmd {
 	/*     * *************************Attributs****************************** */
-	
+
 	/*     * ***********************Methode static*************************** */
-	
+
 	/*     * *********************Methode d'instance************************* */
-	
+
 	public function execute($_options = array()) {
-		
 	}
-	
+
 	/*     * **********************Getteur Setteur*************************** */
 }
 
 class ash_devices {
 	/*     * *************************Attributs****************************** */
-	
+
 	private $id;
 	private $enable;
 	private $link_type;
@@ -239,9 +245,9 @@ class ash_devices {
 	private $options;
 	private $_link = null;
 	private $_cmds = null;
-	
+
 	/*     * ***********************Methode static*************************** */
-	
+
 	public static function all($_onlyEnable = false) {
 		$sql = 'SELECT ' . DB::buildField(__CLASS__) . '
 		FROM ash_devices';
@@ -250,7 +256,7 @@ class ash_devices {
 		}
 		return DB::Prepare($sql, array(), DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__);
 	}
-	
+
 	public static function byId($_id) {
 		$values = array(
 			'id' => $_id,
@@ -260,7 +266,7 @@ class ash_devices {
 		WHERE id=:id';
 		return DB::Prepare($sql, $values, DB::FETCH_TYPE_ROW, PDO::FETCH_CLASS, __CLASS__);
 	}
-	
+
 	public static function byLinkTypeLinkId($_link_type, $_link_id) {
 		$values = array(
 			'link_type' => $_link_type,
@@ -272,23 +278,23 @@ class ash_devices {
 		AND link_id=:link_id';
 		return DB::Prepare($sql, $values, DB::FETCH_TYPE_ROW, PDO::FETCH_CLASS, __CLASS__);
 	}
-	
+
 	/*     * *********************Methode d'instance************************* */
-	
+
 	public function preSave() {
 		if ($this->getEnable() == 0) {
 			$this->setOptions('configState', '');
 		}
 	}
-	
+
 	public function save() {
 		return DB::save($this);
 	}
-	
+
 	public function remove() {
 		DB::remove($this);
 	}
-	
+
 	public function getLink() {
 		if ($this->_link != null) {
 			return $this->_link;
@@ -298,26 +304,26 @@ class ash_devices {
 		}
 		return $this->_link;
 	}
-	
+
 	public function buildDevice() {
 		$supportedType = ash::getSupportedType();
 		if (!isset($supportedType[$this->getType()])) {
 			return array();
 		}
-		if(isset($supportedType[$this->getType()]['class'])){
+		if (isset($supportedType[$this->getType()]['class'])) {
 			$class = $supportedType[$this->getType()]['class'];
 			if (!class_exists($class)) {
 				return array();
 			}
 			if ($this->getLink_type() == 'eqLogic') {
 				$eqLogic = $this->getLink();
-				if(!is_object($eqLogic) || $eqLogic->getIsEnable() == 0){
+				if (!is_object($eqLogic) || $eqLogic->getIsEnable() == 0) {
 					return array();
 				}
 			}
 			return $class::buildDevice($this);
 		}
-		if(isset($supportedType[$this->getType()]['skills'])){
+		if (isset($supportedType[$this->getType()]['skills'])) {
 			$eqLogic = $this->getLink();
 			if (!is_object($eqLogic)) {
 				return array();
@@ -330,19 +336,19 @@ class ash_devices {
 			$return['cookie'] = array('none' => 'empty');
 			$return['displayCategories'] = array($this->getType());
 			$return['capabilities'] = array();
-			
+
 			foreach ($supportedType[$this->getType()]['skills'] as $skill) {
-				$class = 'ash_'.$skill;
+				$class = 'ash_' . $skill;
 				if (!class_exists($class)) {
 					continue;
 				}
-				$infos = $class::discover($this,$eqLogic);
-				if(!isset($infos['capabilities']) || count($infos['capabilities']) == 0){
+				$infos = $class::discover($this, $eqLogic);
+				if (!isset($infos['capabilities']) || count($infos['capabilities']) == 0) {
 					continue;
 				}
-				$return = array_merge_recursive($return,$infos);
+				$return = array_merge_recursive($return, $infos);
 			}
-			if(count($return['capabilities']) == 0){
+			if (count($return['capabilities']) == 0) {
 				return array();
 			}
 			$return['capabilities']['AlexaInterface'] = array(
@@ -353,32 +359,32 @@ class ash_devices {
 			return $return;
 		}
 	}
-	
+
 	public function exec($_directive) {
 		$supportedType = ash::getSupportedType();
 		if (!isset($supportedType[$this->getType()])) {
 			return;
 		}
-		if(isset($supportedType[$this->getType()]['class'])){
+		if (isset($supportedType[$this->getType()]['class'])) {
 			$class = $supportedType[$this->getType()]['class'];
 			if (!class_exists($class)) {
 				return array();
 			}
 			return $class::exec($this, $_directive);
 		}
-		if(isset($supportedType[$this->getType()]['skills'])){
+		if (isset($supportedType[$this->getType()]['skills'])) {
 			$return = array();
 			foreach ($supportedType[$this->getType()]['skills'] as $skill) {
-				$class = 'ash_'.$skill;
+				$class = 'ash_' . $skill;
 				if (!class_exists($class)) {
 					continue;
 				}
-				$return = array_merge_recursive($return,$class::exec($this, $_directive));
+				$return = array_merge_recursive($return, $class::exec($this, $_directive));
 			}
 			return $return;
 		}
 	}
-	
+
 	public function getPseudo() {
 		if ($this->getOptions('pseudo') != '') {
 			return $this->getOptions('pseudo');
@@ -386,58 +392,58 @@ class ash_devices {
 		$return = '';
 		$eqLogic = $this->getLink();
 		$object = $eqLogic->getObject();
-		if(is_object($object)){
-			$return .= $object->getName().' ';
+		if (is_object($object)) {
+			$return .= $object->getName() . ' ';
 		}
 		$return .= $eqLogic->getName();
 		return $return;
 	}
-	
+
 	/*     * **********************Getteur Setteur*************************** */
 	public function getId() {
 		return $this->id;
 	}
-	
+
 	public function setId($id) {
 		$this->id = $id;
 	}
-	
+
 	public function getEnable() {
 		return $this->enable;
 	}
-	
+
 	public function setEnable($enable) {
 		$this->enable = $enable;
 	}
-	
+
 	public function getlink_type() {
 		return $this->link_type;
 	}
-	
+
 	public function setLink_type($link_type) {
 		$this->link_type = $link_type;
 	}
-	
+
 	public function getLink_id() {
 		return $this->link_id;
 	}
-	
+
 	public function setLink_id($link_id) {
 		$this->link_id = $link_id;
 	}
-	
+
 	public function getType() {
 		return $this->type;
 	}
-	
+
 	public function setType($type) {
 		$this->type = $type;
 	}
-	
+
 	public function getOptions($_key = '', $_default = '') {
 		return utils::getJsonAttr($this->options, $_key, $_default);
 	}
-	
+
 	public function setOptions($_key, $_value) {
 		$this->options = utils::setJsonAttr($this->options, $_key, $_value);
 	}

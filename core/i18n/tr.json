@@ -10,6 +10,7 @@
         "Envoyer configuration au market": "Envoyer configuration au market",
         "Envoyer": "Gönder",
         "Activer la rotation de la clef api": "Activer la rotation de la clef api",
+        "Interdire toute requête si": "Interdire toute requête si",
         "Configuration envoyée avec succès.": "Configuration envoyée avec succès"
     },
     "plugins\/ash\/desktop\/modal\/advanceConfig.php": {
@@ -70,7 +71,7 @@
         "Supprimer": "Sil"
     },
     "plugins\/ash\/core\/php\/jeeAsh.php": {
-        "Vous n\\'etes pas autorisé à effectuer cette action. Clef API invalide. Merci de corriger la clef API sur votre page profils du market et d\\'attendre 24h avant de réessayer.": "Vous n\\'etes pas autorisé à effectuer cette action. Clef API invalide. Merci de corriger la clef API sur votre page profils du market et d\\'attendre 24h avant de réessayer",
+        "Vous n\\'etes pas autorisé à effectuer cette action. Clef API invalide. Merci de corriger la clef API.": "Vous n\\'etes pas autorisé à effectuer cette action. Clef API invalide. Merci de corriger la clef API",
         "Configuration OK": "Configuration OK"
     },
     "plugins\/ash\/core\/ajax\/ash.ajax.php": {
@@ -86,6 +87,9 @@
         "Niveau restant": "Niveau restant"
     },
     "plugins\/ash\/core\/class\/ash.class.php": {
+        "Climatisation": "Climatisation",
+        "Désodoriasant": "Désodoriasant",
+        "Purificateur": "Purificateur",
         "Thermostat": "Thermostat",
         "Lumière": "Lumière",
         "Switch": "Switch",
@@ -116,6 +120,7 @@
         "Ecran": "Ecran",
         "TV": "TV",
         "Vehicule": "Vehicule",
+        "Aspirateur": "Aspirateur",
         "Deux équipements et\/ou scène avec le meme nom : ": "Deux équipements et\/ou scène avec le meme nom :"
     },
     "plugins\/ash\/core\/class\/ash_scene.class.php": {
