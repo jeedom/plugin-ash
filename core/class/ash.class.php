@@ -444,7 +444,7 @@ class ash_devices {
 			'height' => 40,
 			'texty' => -14,
 			'textx' => 0,
-			'title' => __('Amazon Smarthome', __FILE__),
+			'title' => $this->getType(),
 			'url' => 'index.php?v=d&p=ash&m=ash',
 		);
 	}
