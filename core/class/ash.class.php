@@ -214,6 +214,12 @@ class ash extends eqLogic {
 		);
 		return $response;
 	}
+	
+	public static function customUsedBy($_type, $_id) {
+		if ($_type == 'cmd') {
+			return ash_devices::searchByOptions('#' . $_id . '#');
+		}
+	}
 
 	/*     * *********************Méthodes d'instance************************* */
 
@@ -277,6 +283,16 @@ class ash_devices {
 		WHERE link_type=:link_type
 		AND link_id=:link_id';
 		return DB::Prepare($sql, $values, DB::FETCH_TYPE_ROW, PDO::FETCH_CLASS, __CLASS__);
+	}
+	
+	public static function searchByOptions($_search) {
+		$value = array(
+			'search' => '%' . $_search . '%',
+		);
+		$sql = 'SELECT ' . DB::buildField(__CLASS__) . '
+		FROM ash_devices
+		WHERE options LIKE :search';
+		return DB::Prepare($sql, $value, DB::FETCH_TYPE_ALL, PDO::FETCH_CLASS, __CLASS__);
 	}
 
 	/*     * *********************Methode d'instance************************* */
@@ -397,6 +413,34 @@ class ash_devices {
 		}
 		$return .= $eqLogic->getName();
 		return $return;
+	}
+	
+	public function getName() {
+		return $this->getType();
+	}
+	
+	public function getLinkData(&$_data = array('node' => array(), 'link' => array()), $_level = 0, $_drill = 3) {
+		if (isset($_data['node']['ash' . $this->getId()])) {
+			return;
+		}
+		$_level++;
+		if ($_level > $_drill) {
+			return $_data;
+		}
+		$_data['node']['ash' . $this->getId()] = array(
+			'id' => 'ash' . $this->getId(),
+			'type' => __('Amazon Smarthome', __FILE__),
+			'name' => __('Amazon Smarthome', __FILE__),
+			'image' => 'plugins/ash/plugin_info/ash_icon.png',
+			'fontsize' => '1.5em',
+			'fontweight' => ($_level == 1) ? 'bold' : 'normal',
+			'width' => 40,
+			'height' => 40,
+			'texty' => -14,
+			'textx' => 0,
+			'title' => __('Amazon Smarthome', __FILE__),
+			'url' => 'index.php?v=d&p=ash&m=ash',
+		);
 	}
 
 	/*     * **********************Getteur Setteur*************************** */
