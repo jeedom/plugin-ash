@@ -219,6 +219,12 @@ class ash extends eqLogic {
 		if ($_type == 'cmd') {
 			return ash_devices::searchByOptions('#' . $_id . '#');
 		}
+		if ($_type == 'eqLogic') {
+			return array_merge(ash_devices::searchByOptions('#eqLogic' . $_id . '#'), ash_devices::searchByOptions('"eqLogic":"' . $_id . '"'));
+		}
+		if ($_type == 'scenario') {
+			return array_merge(ash_devices::searchByOptions('#scenario' . $_id . '#'), ash_devices::searchByOptions('"scenario_id":"' . $_id . '"'));
+		}
 	}
 
 	/*     * *********************Méthodes d'instance************************* */
