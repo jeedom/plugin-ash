@@ -121,7 +121,8 @@
         "TV": "Fernseher",
         "Vehicule": "Fahrzeug",
         "Aspirateur": "Vakuum",
-        "Deux équipements et\/ou scène avec le meme nom : ": "Zwei gleichnamige Geräte und \/ oder Bühnen:"
+        "Deux équipements et\/ou scène avec le meme nom : ": "Zwei gleichnamige Geräte und \/ oder Bühnen:",
+        "Amazon Smarthome": "Amazon Smarthome"
     },
     "plugins\/ash\/core\/class\/ash_scene.class.php": {
         "Erreur lors de l\\'éxecution de ": "Fehler beim Ausführen",
