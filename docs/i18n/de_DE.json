@@ -2,6 +2,8 @@
     "changelog.md": {
         "Changelog Alexa": "Changelog Alexa",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Zur Erinnerung: Wenn keine Informationen zum Update vorhanden sind, bedeutet dies, dass es sich nur um die Aktualisierung von Dokumentation, Übersetzung oder Text handelt",
+        "02\/06\/2022": "02.06.2022",
+        "Optimisation du processus de rotation de la clef api": "Optimierung des API-Schlüsselrotationsprozesses",
         "27\/09\/2021": "27.09.2021",
         "Possibilité d'interdir toute requete de Alexa en fonction d'une condition": "Möglichkeit, jede Anfrage von Alexa basierend auf einer Bedingung zu verbieten",
         "Ajout de nouveaux type": "Aufnahme neuer Typen",
