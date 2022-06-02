@@ -101,8 +101,13 @@ class ash extends eqLogic {
 	}
 
 	public static function rotateApiKey($_option = array()) {
-		config::save('api', config::genKey(), 'ash');
-		self::sendJeedomConfig();
+		$oldapikey = jeedom::getApiKey('ash');
+		try {
+			config::save('api', config::genKey(), 'ash');
+			self::sendJeedomConfig();
+		} catch (\Exception $e) {
+			config::save('api', $oldapikey, 'ash');
+		}
 	}
 
 	public static function sendJeedomConfig() {
