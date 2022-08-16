@@ -161,7 +161,6 @@ class ash extends eqLogic {
 	}
 
 	public static function exec($_data) {
-
 		$directive = $_data['data']['directive'];
 		$responseHeader = $directive['header'];
 		$responseHeader['namespace'] = 'Alexa';
@@ -188,7 +187,7 @@ class ash extends eqLogic {
 		}
 		if (!is_object($device)) {
 			return self::buildErrorResponse($_data, 'NO_SUCH_ENDPOINT');
-		} else if ($device->getEnable() == 0) {
+		} else if ($device->getEnable() != 1) {
 			return self::buildErrorResponse($_data, 'ENDPOINT_UNREACHABLE');
 		} else {
 			try {
@@ -255,7 +254,7 @@ class ash_devices {
 	/*     * *************************Attributs****************************** */
 
 	private $id;
-	private $enable;
+	private $enable = 0;
 	private $link_type;
 	private $link_id;
 	private $type;
@@ -309,7 +308,7 @@ class ash_devices {
 	/*     * *********************Methode d'instance************************* */
 
 	public function preSave() {
-		if ($this->getEnable() == 0) {
+		if ($this->getEnable() != 1) {
 			$this->setOptions('configState', '');
 		}
 	}
