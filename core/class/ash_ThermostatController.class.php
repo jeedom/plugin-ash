@@ -156,6 +156,7 @@ class ash_ThermostatController {
 			}
 			break;
 		}
+		sleep(1);
 		return self::getState($_device, $_directive);
 	}
 	
