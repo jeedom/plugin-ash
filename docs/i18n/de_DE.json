@@ -2,6 +2,8 @@
     "changelog.md": {
         "Changelog Alexa": "Changelog Alexa",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Zur Erinnerung: Wenn keine Informationen zum Update vorhanden sind, bedeutet dies, dass es sich nur um die Aktualisierung von Dokumentation, Übersetzung oder Text handelt",
+        "25\/10\/2022": "25.10.2022",
+        "Correction de bugs": "Fehlerbehebungen",
         "02\/06\/2022": "02.06.2022",
         "Optimisation du processus de rotation de la clef api": "Optimierung des API-Schlüsselrotationsprozesses",
         "27\/09\/2021": "27.09.2021",
@@ -24,7 +26,6 @@
         "03\/11\/2020": "03\/11\/2020",
         "Possibilité de choisir le mode du thermostat (uniquement avec un thermostat venant du plugin thermostat de jeedom et si les modes s'appellent heat, cool,off,auto,eco": "Möglichkeit, den Thermostatmodus zu wählen (nur mit einem Thermostat aus dem Jeedom-Thermostat-Plugin und wenn die Modi Wärme, Kühlen, Aus, Auto, Öko heißen",
         "Possibilité d'activer la rotation automatique de la clef api": "Möglichkeit der Aktivierung der automatischen Drehung des API-Schlüssels",
-        "Correction de bugs": "Fehlerbehebungen",
         "30\/04\/2020": "30.04.2020",
         "Correction d'un soucis sur la commande descente des volets": "Behebung eines Problems mit der Verschlussabstiegssteuerung",
         "28\/04\/2020": "28.04.2020",
