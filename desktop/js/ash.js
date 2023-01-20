@@ -19,7 +19,7 @@ actionOptions = []
 
 $('.nav-tabs li a').on('click',function(){
   setTimeout(function(){
-    taAutosize();
+    jeedomUtils.taAutosize();
   }, 50);
 })
 
