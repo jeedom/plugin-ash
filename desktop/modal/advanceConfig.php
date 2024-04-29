@@ -127,7 +127,11 @@ $('.bt_advanceConfigSaveDevice').on('click',function(){
 });
 
 $('#table_advanceConfigAsh .bt_cmdConfiguration').off('click').on('click', function() {
-	$('#md_modal2').dialog({title: "{{Configuration de la commande}}"}).load('index.php?v=d&modal=cmd.configure&cmd_id=' + $(this).attr('data-id')).dialog('open')
+	jeeDialog.dialog({
+          id: 'jee_modal2',
+          title: '{{Configuration de la commande}}',
+          contentUrl: 'index.php?v=d&modal=cmd.configure&cmd_id=' + $(this).attr('data-id')
+    })
 })
 
 </script>
