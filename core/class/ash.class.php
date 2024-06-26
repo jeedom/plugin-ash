@@ -58,7 +58,7 @@ class ash extends eqLogic {
 			'INTERIOR_BLIND' => array('name' => __('Rideaux', __FILE__), 'skills' => array('RangeController')),
 			'AIR_PURIFIER' => array('name' => __('Purificateur d\'air', __FILE__), 'skills' => array('PowerController')),
 			'CHRISTMAS_TREE' => array('name' => __('Arbre de Noel', __FILE__), 'skills' => array('PowerController')),
-			'COFFEE_MAKER' => array('name' => __('Machine a cafée', __FILE__), 'skills' => array('PowerController')),
+			'COFFEE_MAKER' => array('name' => __('Machine a café', __FILE__), 'skills' => array('PowerController')),
 			'OVEN' => array('name' => __('Four', __FILE__), 'skills' => array('PowerController', 'TemperatureSensor')),
 			'SLOW_COOKER' => array('name' => __('Mijoteuse', __FILE__), 'skills' => array('PowerController', 'TemperatureSensor')),
 			'SECURITY_SYSTEM' => array('name' => __('Alarme', __FILE__), 'skills' => array('PowerController', 'ModeController')),
