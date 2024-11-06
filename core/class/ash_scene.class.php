@@ -76,7 +76,7 @@ class ash_scene {
 		return $return;
 	}
 	
-	public function doAction($_device, $_action) {
+	public static function doAction($_device, $_action) {
 		if (!is_array($_device->getOptions($_action))) {
 			return;
 		}
