@@ -2,6 +2,7 @@
     "changelog.md": {
         "Changelog Alexa": "Registro de cambios Alexa",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Como recordatorio si no hay información sobre la actualización, significa que solo se refiere a la actualización de documentación, traducción o texto",
+        "06\/11\/2024": "11\/06\/2024",
         "Correction d'un soucis avec PHP8": "Se solucionó un problema con PHP8",
         "23\/09\/2024": "23\/09\/2024",
         "Correction d'un bug sur jeedom 4.4": "Se corrigió un error en Jeedom 4.4",
