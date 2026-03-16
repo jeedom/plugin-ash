@@ -159,8 +159,8 @@ class ash_RangeController {
 				$cmd->execCmd(array('slider' => $cmdState->execCmd() + $value));
 			}
 			case 'SetRangeValue':
-			if($_device->getOptions('OpenClose::invertSet',0) == 1){
-				$execution['payload']['rangeValue'] = 100 - $execution['payload']['rangeValue'];
+			if($_device->getOptions('RangeController::invertSet',0) == 1){
+				$_directive['payload']['rangeValue'] = 100 - $_directive['payload']['rangeValue'];
 			}
 			if (isset($_directive['endpoint']['cookie']['RangeController_setSlider'])) {
 				$cmd = cmd::byId($_directive['endpoint']['cookie']['RangeController_setSlider']);
