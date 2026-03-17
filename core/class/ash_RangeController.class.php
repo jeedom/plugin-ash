@@ -160,7 +160,7 @@ class ash_RangeController {
 			}
 			case 'SetRangeValue':
 			if($_device->getOptions('OpenClose::invertSet',0) == 1){
-				$execution['payload']['rangeValue'] = 100 - $execution['payload']['rangeValue'];
+				$_directive['payload']['rangeValue'] = 100 - $_directive['payload']['rangeValue'];
 			}
 			if (isset($_directive['endpoint']['cookie']['RangeController_setSlider'])) {
 				$cmd = cmd::byId($_directive['endpoint']['cookie']['RangeController_setSlider']);
