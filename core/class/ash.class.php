@@ -36,6 +36,7 @@ include_file('core', 'ash_PercentageController', 'class', 'ash');
 include_file('core', 'ash_PowerLevelController', 'class', 'ash');
 include_file('core', 'ash_ToggleController', 'class', 'ash');
 include_file('core', 'ash_LockController', 'class', 'ash');
+include_file('core', 'ash_GarageDoorController', 'class', 'ash');
 
 class ash extends eqLogic {
 
@@ -68,7 +69,7 @@ class ash extends eqLogic {
 			'DOOR' => array('name' => __('Porte', __FILE__), 'skills' => array('ContactSensor', 'LockController')),
 			'EXTERIOR_BLIND' => array('name' => __('Volet', __FILE__), 'skills' => array('RangeController')),
 			'FAN' => array('name' => __('Ventilateur', __FILE__), 'skills' => array('PowerController', 'RangeController')),
-			'GARAGE_DOOR' => array('name' => __('Porte de garage', __FILE__), 'skills' => array('ContactSensor')),
+			'GARAGE_DOOR' => array('name' => __('Porte de garage', __FILE__), 'skills' => array('ContactSensor', 'GarageDoorController')),
 			'MICROWAVE' => array('name' => __('Micro-onde', __FILE__), 'skills' => array('PowerController')),
 			'NETWORK_HARDWARE' => array('name' => __('Equipement réseaux', __FILE__), 'skills' => array('PowerController')),
 			'PRINTER' => array('name' => __('Imprimante', __FILE__), 'skills' => array('PowerController')),
