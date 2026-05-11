@@ -204,6 +204,7 @@ class ash extends eqLogic {
 		if (isset($return['event']['endpoint']['cookie'])) {
 			unset($return['event']['endpoint']['cookie']);
 		}
+		$return['event']['header']['messageId'] = vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex(random_bytes(16)), 4));
 		return $return;
 	}
 
