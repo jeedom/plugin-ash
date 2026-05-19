@@ -117,6 +117,7 @@ class ash_PowerController {
       }
       break;
     }
+    usleep(500000);
     return self::getState($_device, $_directive);
   }
   
