@@ -8,6 +8,8 @@
 
 - Correction d'un bug sur l'inversion des volets
 - Correction de bugs
+- Ajout porte de garage (merci @ripleyXLR8)
+
 
 # 06/11/2024
 
