@@ -1,196 +1,198 @@
 {
-    "plugins\/ash\/plugin_info\/configuration.php": {
-        "Attention votre connexion externe ne semble pas etre en https, ce plugin nécessite ABSOLUMENT une connexion https. Si vous ne savez pas comment faire vous pouvez souscrire à un service pack power pour utiliser le service de DNS Jeedom": "Tenga en cuenta que su conexión externa no parece estar en https, este complemento ABSOLUTAMENTE requiere una conexión https. Si no sabe cómo, puede suscribirse a una fuente de alimentación para usar el servicio DNS de Jeedom",
-        "Abonnement aux services assistants vocaux": "Suscripción a servicios de asistente de voz",
-        "Votre abonnement aux services assistants vocaux finit le ": "Su suscripción a los servicios de asistente de voz finalizará el",
-        "Pour le prolonger, allez": "Para extenderlo, ve",
-        "ici": "aquí",
-        "Votre abonnement aux services assistants vocaux est illimité.": "Su suscripción a los servicios de asistente de voz es ilimitada",
-        "Votre abonnement aux services assistants vocaux est finit.": "Su suscripción a los servicios de asistente de voz ha finalizado",
-        "Envoyer configuration au market": "Enviar configuración al mercado",
-        "Envoyer": "Enviar",
-        "Activer la rotation de la clef api": "Activar la rotación de la clave api",
-        "Interdire toute requête si": "Prohibir cualquier solicitud si",
-        "Configuration envoyée avec succès.": "Configuración enviada correctamente"
-    },
-    "plugins\/ash\/desktop\/modal\/advanceConfig.php": {
-        "Eqlogic ID non valide : ": "ID de Eqlogic no válido:",
-        "Device non trouvé": "Dispositivo no encontrado",
-        "Aucun type configuré pour ce périphérique": "Ningún tipo configurado para este dispositivo",
-        "Sauvegarder": "Guardar",
-        "Général": "General",
-        "Groupe objet (option nécéssitant un compte market spécifique)": "Grupo de objetos (opción que requiere una cuenta de mercado específica)",
-        "Commandes": "Comandos",
-        "Nom": "Nombre",
-        "Type": "Tipo",
-        "Sous-type": "Sub-tipo",
-        "Type générique": "Tipo genérico",
-        "Action": "Acción",
-        "Configuration": "Configuración",
-        "Sauvegarde réussi, pensez à relancer une synchronisation": "Copia de seguridad exitosa, recuerde reiniciar la sincronización",
-        "Configuration de la commande": "Configuración de comandos"
-    },
-    "plugins\/ash\/desktop\/modal\/showNeedGenericType.php": {
-        "Eqlogic ID non valide : ": "ID de Eqlogic no válido:",
-        "Device non trouvé": "Dispositivo no encontrado",
-        "Aucun type configuré pour ce périphérique": "Ningún tipo configurado para este dispositivo",
-        "Voici les types génériques utilisés pour le genre d\\'équipement choisi. Attention il ne faut pas forcément les avoir tous sur l\\'équipement (ou n’en avoir aucun)": "Estos son los tipos genéricos utilizados para el tipo de equipo elegido. Tenga en cuenta que no necesariamente tiene que tenerlos todos en el equipo (o no tener ninguno)"
-    },
-    "plugins\/ash\/desktop\/php\/ash.php": {
-        "401 - Accès non autorisé": "401 - Acceso no autorizado",
-        "Voir la configuration": "Ver configuración",
-        "Sauvegarder": "Guardar",
-        "Equipement": "Dispositivos",
-        "Scènes": "Escenas",
-        "Plugin": "Plugin",
-        "Options": "Opciones",
-        "Status": "Estado",
-        "Type": "Tipo",
-        "Pseudo": "Apodo",
-        "Action": "Acción",
-        "Transmettre": "Transmitir",
-        "Aucun": "Ninguna",
-        " . $value['name'] . ": "$ valor ['nombre']",
-        "Ajouter scène": "Añadir escena"
-    },
-    "plugins\/ash\/desktop\/js\/ash.js": {
-        "Configuration de l'équipement": "Configuración del dispositivo",
-        "Information type générique": "Información de tipo genérico",
-        "Configuration avancée": "Configuración avanzada",
-        "Sauvegarde réussie, n\\'oubliez pas de demander une decouverte à Alexa": "Copia de seguridad exitosa, no olvides pedirle a Alexa un descubrimiento",
-        "Configuration péripheriques": "Configuración periférica",
-        "Nom de la scene ?": "Nombre de la escena?",
-        "Nouveau nom ?": "¿ Nuevo nombre ?",
-        "Action d\\'entrée": "Acción de entrada",
-        "Action de sortie": "Acción de salida",
-        "Décocher pour desactiver l\\'action": "Desactive la casilla para desactivar Acción",
-        "Cocher pour que la commande s\\'éxecute en parrallele des autres actions": "Marque para que el comando se ejecute en paralelo con las otras acciones",
-        "Sélectionner un mot-clé": "Seleccionar una palabra clave",
-        "Nom du scene": "Nombre de la escena",
-        "Groupe objet (option nécéssitant un compte market spécifique)": "Grupo de objetos (opción que requiere una cuenta de mercado específica)",
-        "Supprimer": "Borrar"
-    },
-    "plugins\/ash\/core\/php\/jeeAsh.php": {
-        "Vous n\\'etes pas autorisé à effectuer cette action. Clef API invalide. Merci de corriger la clef API.": "No está autorizado para realizar esta acción. Clave de API no válida. Corrija la clave de API",
-        "Configuration OK": "Configuración OK"
-    },
     "plugins\/ash\/core\/ajax\/ash.ajax.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
-        "Device non trouvé : ": "Dispositivo no encontrado :",
-        "Aucune méthode correspondante à : ": "Ningún método correspondiente a :"
+        "Aucune méthode correspondante à : ": "Ningún método correspondiente a :",
+        "Device non trouvé : ": "Dispositivo no encontrado :"
+    },
+    "plugins\/ash\/core\/class\/ash.class.php": {
+        "Alarme": "Alarma",
+        "Amazon Smarthome": "Amazonas Smarthome",
+        "Arbre de Noel": "Arbol de navidad",
+        "Aspirateur": "Aspiradora",
+        "Capteur de température": "Sensor de temperatura",
+        "Climatisation": "Aire acondicionado",
+        "Detecteur d\\'ouverture": "Detector de apertura",
+        "Detecteur de mouvement": "Detector de movimiento",
+        "Deux équipements et\/ou scène avec le meme nom : ": "Dos dispositivos y\/o escenario con el mismo nombre :",
+        "Désodoriasant": "Desodorante",
+        "Ecran": "Pantalla",
+        "Equipement réseaux": "Equipo de red",
+        "Four": "Horno",
+        "Imprimante": "Impresora",
+        "Lumière": "Ligero",
+        "Machine a café": "Máquina de café",
+        "Micro-onde": "Micro ondas",
+        "Mijoteuse": "Olla de cocción lenta",
+        "Mode": "Moda",
+        "Ordinateur": "Computadora",
+        "PC portable": "Ordenador portátil",
+        "Porte": "Puerta",
+        "Porte de garage": "Puerta de garaje",
+        "Prise": "Enchufe",
+        "Purificateur": "Purificador",
+        "Purificateur d\\'air": "Purificador de aire",
+        "Rideaux": "Cortinas",
+        "Routeur": "Enrutador",
+        "Scene": "Escena",
+        "Serrure": "Bloquear",
+        "Switch": "Cambiar",
+        "TV": "Televisor",
+        "Thermostat": "Termostato",
+        "Vehicule": "Vehículo",
+        "Ventilateur": "Ventilador",
+        "Volet": "Obturador"
+    },
+    "plugins\/ash\/core\/class\/ash_BrightnessController.class.php": {
+        "Etat luminosité": "Estado de brillo",
+        "Luminosité": "Brillo"
     },
     "plugins\/ash\/core\/class\/ash_ColorController.class.php": {
         "Couleur": "Color",
         "Etat couleur": "Estado de color"
     },
-    "plugins\/ash\/core\/class\/ash_InventoryLevelSensor.class.php": {
-        "Niveau restant": "Nivel restante"
-    },
-    "plugins\/ash\/core\/class\/ash.class.php": {
-        "Climatisation": "Aire acondicionado",
-        "Désodoriasant": "Desodorante",
-        "Purificateur": "Purificador",
-        "Thermostat": "Termostato",
-        "Lumière": "Ligero",
-        "Switch": "Cambiar",
-        "Prise": "Enchufe",
-        "Mode": "Moda",
-        "Capteur de température": "Sensor de temperatura",
-        "Detecteur de mouvement": "Detector de movimiento",
-        "Detecteur d\\'ouverture": "Detector de apertura",
-        "Scene": "Escena",
-        "Rideaux": "Cortinas",
-        "Purificateur d\\'air": "Purificador de aire",
-        "Arbre de Noel": "Arbol de navidad",
-        "Machine a café": "Máquina de café",
-        "Four": "Horno",
-        "Mijoteuse": "Olla de cocción lenta",
-        "Alarme": "Alarma",
-        "Serrure": "Bloquear",
-        "PC portable": "Ordenador portátil",
-        "Ordinateur": "Computadora",
-        "Porte": "Puerta",
-        "Volet": "Obturador",
-        "Ventilateur": "Ventilador",
-        "Porte de garage": "Puerta de garaje",
-        "Micro-onde": "Micro ondas",
-        "Equipement réseaux": "Equipo de red",
-        "Imprimante": "Impresora",
-        "Routeur": "Enrutador",
-        "Ecran": "Pantalla",
-        "TV": "Televisor",
-        "Vehicule": "Vehículo",
-        "Aspirateur": "Aspiradora",
-        "Deux équipements et\/ou scène avec le meme nom : ": "Dos dispositivos y\/o escenario con el mismo nombre :",
-        "Amazon Smarthome": "Amazonas Smarthome"
-    },
-    "plugins\/ash\/core\/class\/ash_scene.class.php": {
-        "Erreur lors de l\\'éxecution de ": "Error al ejecutar",
-        ". Détails : ": "Detalles:"
-    },
-    "plugins\/ash\/core\/class\/ash_MotionSensor.class.php": {
-        "Mouvement": "Movimiento"
-    },
-    "plugins\/ash\/core\/class\/ash_LockController.class.php": {
-        "Verouiller": "Para bloquear",
-        "Deverouiller": "Desbloquear",
-        "Etat": "Estado"
-    },
-    "plugins\/ash\/core\/class\/ash_RangeController.class.php": {
-        "Position": "Posición",
-        "On": "Nosotros",
-        "Off": "Apagado",
-        "Etat": "Estado",
-        "Inverser l\\'action": "Invierta la acción",
-        "Inverser l\\'état": "Estado inverso"
-    },
-    "plugins\/ash\/core\/class\/ash_TemperatureSensor.class.php": {
-        "Température": "Temperatura"
-    },
-    "plugins\/ash\/core\/class\/ash_PowerController.class.php": {
-        "On": "Nosotros",
-        "Off": "Apagado",
-        "Etat": "Estado"
+    "plugins\/ash\/core\/class\/ash_ColorTemperatureController.class.php": {
+        "Etat température couleur": "Estado de la temperatura de color",
+        "Inverser l\\'action de température de couleur": "Acción de temperatura de color inversa",
+        "Inverser l\\'état de température de couleur": "Estado de temperatura de color inverso",
+        "Température couleur": "Temperatura del color"
     },
     "plugins\/ash\/core\/class\/ash_ContactSensor.class.php": {
         "Contacteur": "Contactor"
     },
-    "plugins\/ash\/core\/class\/ash_BrightnessController.class.php": {
-        "Luminosité": "Brillo",
-        "Etat luminosité": "Estado de brillo"
+    "plugins\/ash\/core\/class\/ash_GarageDoorController.class.php": {
+        "Etat": "Estado",
+        "Fermer": "Cerrar",
+        "Ouvrir": "Abrir"
     },
-    "plugins\/ash\/core\/class\/ash_ThermostatController.class.php": {
-        "Thermostat": "Termostato",
-        "Consigne": "Consigna",
-        "Etat themostat ": "Temostato de estado",
-        "Mode": "Moda"
-    },
-    "plugins\/ash\/core\/class\/ash_PowerLevelController.class.php": {
-        "Position": "Posición",
-        "Etat": "Estado"
-    },
-    "plugins\/ash\/core\/class\/ash_PercentageController.class.php": {
-        "Position": "Posición",
-        "Etat": "Estado"
-    },
-    "plugins\/ash\/core\/class\/ash_ToggleController.class.php": {
-        "Toggle": "Palanca",
-        "Etat": "Estado"
+    "plugins\/ash\/core\/class\/ash_InventoryLevelSensor.class.php": {
+        "Niveau restant": "Nivel restante"
     },
     "plugins\/ash\/core\/class\/ash_InventoryUsageSensor.class.php": {
         "Consommation": "Consumo"
     },
+    "plugins\/ash\/core\/class\/ash_LockController.class.php": {
+        "Deverouiller": "Desbloquear",
+        "Etat": "Estado",
+        "Verouiller": "Para bloquear"
+    },
     "plugins\/ash\/core\/class\/ash_ModeController.class.php": {
+        "Etat mode": "Modo de estado",
+        "Mode": "Moda"
+    },
+    "plugins\/ash\/core\/class\/ash_MotionSensor.class.php": {
+        "Mouvement": "Movimiento"
+    },
+    "plugins\/ash\/core\/class\/ash_PercentageController.class.php": {
+        "Etat": "Estado",
+        "Position": "Posición"
+    },
+    "plugins\/ash\/core\/class\/ash_PowerController.class.php": {
+        "Etat": "Estado",
+        "Off": "Apagado",
+        "On": "Nosotros"
+    },
+    "plugins\/ash\/core\/class\/ash_PowerLevelController.class.php": {
+        "Etat": "Estado",
+        "Position": "Posición"
+    },
+    "plugins\/ash\/core\/class\/ash_RangeController.class.php": {
+        "Etat": "Estado",
+        "Inverser l\\'action": "Invierta la acción",
+        "Inverser l\\'état": "Estado inverso",
+        "Off": "Apagado",
+        "On": "Nosotros",
+        "Position": "Posición"
+    },
+    "plugins\/ash\/core\/class\/ash_TemperatureSensor.class.php": {
+        "Température": "Temperatura"
+    },
+    "plugins\/ash\/core\/class\/ash_ThermostatController.class.php": {
+        "Consigne": "Consigna",
+        "Etat themostat ": "Temostato de estado",
         "Mode": "Moda",
-        "Etat mode": "Modo de estado"
+        "Thermostat": "Termostato"
     },
-    "plugins\/ash\/core\/class\/ash_ColorTemperatureController.class.php": {
-        "Température couleur": "Temperatura del color",
-        "Etat température couleur": "Estado de la temperatura de color",
-        "Inverser l\\'action de température de couleur": "Acción de temperatura de color inversa",
-        "Inverser l\\'état de température de couleur": "Estado de temperatura de color inverso"
+    "plugins\/ash\/core\/class\/ash_ToggleController.class.php": {
+        "Etat": "Estado",
+        "Toggle": "Palanca"
     },
-    "info.json": {
-        "Plugin permettant d'utiliser Amazon Alexa (echo, dot...) pour piloter votre Jeedom. Important : le plugin nécessite un abonnement aux services vocaux . Pour gérer cet abonnement : https:\/\/www.jeedom.com\/market\/index.php?v=d&p=profils#services": "Complemento que le permite usar Amazon Alexa (echo, dot ...) para controlar su Jeedom. Importante: el complemento requiere una suscripción a los servicios de voz. Para administrar esta suscripción: https:\/\/www.jeedom.com\/market\/index.php?v=d&p=profils#services"
+    "plugins\/ash\/core\/class\/ash_scene.class.php": {
+        ". Détails : ": "Detalles:",
+        "Erreur lors de l\\'éxecution de ": "Error al ejecutar"
+    },
+    "plugins\/ash\/core\/php\/jeeAsh.php": {
+        "Configuration OK": "Configuración OK",
+        "Vous n\\'etes pas autorisé à effectuer cette action. Clef API invalide. Merci de corriger la clef API.": "No está autorizado para realizar esta acción. Clave de API no válida. Corrija la clave de API"
+    },
+    "plugins\/ash\/desktop\/js\/ash.js": {
+        "Action d\\'entrée": "Acción de entrada",
+        "Action de sortie": "Acción de salida",
+        "Cocher pour que la commande s\\'éxecute en parrallele des autres actions": "Marque para que el comando se ejecute en paralelo con las otras acciones",
+        "Configuration avancée": "Configuración avanzada",
+        "Configuration de l'équipement": "Configuración del dispositivo",
+        "Configuration péripheriques": "Configuración periférica",
+        "Décocher pour desactiver l\\'action": "Desactive la casilla para desactivar Acción",
+        "Groupe objet (option nécéssitant un compte market spécifique)": "Grupo de objetos (opción que requiere una cuenta de mercado específica)",
+        "Information type générique": "Información de tipo genérico",
+        "Nom de la scene ?": "Nombre de la escena?",
+        "Nom du scene": "Nombre de la escena",
+        "Nouveau nom ?": "¿ Nuevo nombre ?",
+        "Sauvegarde réussie, n\\'oubliez pas de demander une decouverte à Alexa": "Copia de seguridad exitosa, no olvides pedirle a Alexa un descubrimiento",
+        "Supprimer": "Borrar",
+        "Sélectionner un mot-clé": "Seleccionar una palabra clave"
+    },
+    "plugins\/ash\/desktop\/modal\/advanceConfig.php": {
+        "Action": "Acción",
+        "Aucun type configuré pour ce périphérique": "Ningún tipo configurado para este dispositivo",
+        "Commandes": "Comandos",
+        "Configuration": "Configuración",
+        "Configuration de la commande": "Configuración de comandos",
+        "Device non trouvé": "Dispositivo no encontrado",
+        "Eqlogic ID non valide : ": "ID de Eqlogic no válido:",
+        "Groupe objet (option nécéssitant un compte market spécifique)": "Grupo de objetos (opción que requiere una cuenta de mercado específica)",
+        "Général": "General",
+        "Nom": "Nombre",
+        "Sauvegarde réussi, pensez à relancer une synchronisation": "Copia de seguridad exitosa, recuerde reiniciar la sincronización",
+        "Sauvegarder": "Guardar",
+        "Sous-type": "Sub-tipo",
+        "Type": "Tipo",
+        "Type générique": "Tipo genérico"
+    },
+    "plugins\/ash\/desktop\/modal\/showNeedGenericType.php": {
+        "Aucun type configuré pour ce périphérique": "Ningún tipo configurado para este dispositivo",
+        "Device non trouvé": "Dispositivo no encontrado",
+        "Eqlogic ID non valide : ": "ID de Eqlogic no válido:",
+        "Voici les types génériques utilisés pour le genre d\\'équipement choisi. Attention il ne faut pas forcément les avoir tous sur l\\'équipement (ou n’en avoir aucun)": "Estos son los tipos genéricos utilizados para el tipo de equipo elegido. Tenga en cuenta que no necesariamente tiene que tenerlos todos en el equipo (o no tener ninguno)"
+    },
+    "plugins\/ash\/desktop\/php\/ash.php": {
+        "' . $value['name'] . '": "' . $value['name'] . '",
+        "401 - Accès non autorisé": "401 - Acceso no autorizado",
+        "Action": "Acción",
+        "Ajouter scène": "Añadir escena",
+        "Aucun": "Ninguna",
+        "Equipement": "Dispositivos",
+        "Options": "Opciones",
+        "Plugin": "Plugin",
+        "Pseudo": "Apodo",
+        "Sauvegarder": "Guardar",
+        "Scènes": "Escenas",
+        "Status": "Estado",
+        "Transmettre": "Transmitir",
+        "Type": "Tipo",
+        "Voir la configuration": "Ver configuración"
+    },
+    "plugins\/ash\/plugin_info\/configuration.php": {
+        "Abonnement aux services assistants vocaux": "Suscripción a servicios de asistente de voz",
+        "Activer la rotation de la clef api": "Activar la rotación de la clave api",
+        "Attention votre connexion externe ne semble pas etre en https, ce plugin nécessite ABSOLUMENT une connexion https. Si vous ne savez pas comment faire vous pouvez souscrire à un service pack power pour utiliser le service de DNS Jeedom": "Tenga en cuenta que su conexión externa no parece estar en https, este complemento ABSOLUTAMENTE requiere una conexión https. Si no sabe cómo, puede suscribirse a una fuente de alimentación para usar el servicio DNS de Jeedom",
+        "Configuration envoyée avec succès.": "Configuración enviada correctamente",
+        "Envoyer": "Enviar",
+        "Envoyer configuration au market": "Enviar configuración al mercado",
+        "Interdire toute requête si": "Prohibir cualquier solicitud si",
+        "Pour le prolonger, allez": "Para extenderlo, ve",
+        "Votre abonnement aux services assistants vocaux est finit.": "Su suscripción a los servicios de asistente de voz ha finalizado",
+        "Votre abonnement aux services assistants vocaux est illimité.": "Su suscripción a los servicios de asistente de voz es ilimitada",
+        "Votre abonnement aux services assistants vocaux finit le ": "Su suscripción a los servicios de asistente de voz finalizará el",
+        "ici": "aquí"
     }
 }
