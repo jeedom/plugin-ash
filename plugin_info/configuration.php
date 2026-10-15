@@ -58,6 +58,13 @@ if (!isConnect()) {
 			</div>
 		</div>
 		<div class="form-group">
+			<label class="col-sm-3 control-label">{{Envoyer les changements d'état à Alexa}}</label>
+			<div class="col-sm-8">
+				<input type="checkbox" class="configKey" data-l1key="reportState::enable" />
+				<span class="help-block">{{Activer après la mise en place du service Alexa Events, puis relancer une découverte des équipements dans Alexa.}}</span>
+			</div>
+		</div>
+		<div class="form-group">
 			<label class="col-sm-3 control-label">{{Activer la rotation de la clef api}}</label>
 			<div class="col-sm-2">
 				<input type="checkbox" class="configKey" data-l1key="enableApikeyRotate" />

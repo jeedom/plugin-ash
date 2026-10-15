@@ -127,13 +127,13 @@ class ash_PowerController {
     if (isset($_directive['endpoint']['cookie']['PowerController_getState'])) {
       $cmd = cmd::byId($_directive['endpoint']['cookie']['PowerController_getState']);
       if (is_object($cmd)) {
-        $value = $cmd->execCmd();
+        $value = ash_state::value($cmd, $_directive);
         if ($cmd->getSubtype() == 'numeric') {
           $return['Alexa.PowerController'] = array(
             'namespace' => 'Alexa.PowerController',
             'name' => 'powerState',
             'value' => ($value) ? 'ON' : 'OFF',
-            'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+            'timeOfSample' => ash_state::sample($cmd, $_directive),
             'uncertaintyInMilliseconds' => 0,
           );
         } else if ($cmd->getSubtype() == 'binary') {
@@ -141,7 +141,7 @@ class ash_PowerController {
             'namespace' => 'Alexa.PowerController',
             'name' => 'powerState',
             'value' => ($value) ? 'ON' : 'OFF',
-            'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+            'timeOfSample' => ash_state::sample($cmd, $_directive),
             'uncertaintyInMilliseconds' => 0,
           );
         }

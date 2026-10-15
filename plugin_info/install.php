@@ -42,9 +42,12 @@ function ash_install() {
 }
 
 function ash_update() {
+	foreach (ash_devices::all() as $device) $device->configureStateListener();
 }
 
 function ash_remove() {
+	foreach (ash_devices::all() as $device) $device->removeStateListener();
+	ash_reporting::clear();
 	$cron = cron::byClassAndFunction('ash', 'rotateApiKey');
 	if (is_object($cron)) {
 		$cron->remove();

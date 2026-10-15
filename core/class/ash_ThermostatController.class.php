@@ -166,12 +166,12 @@ class ash_ThermostatController {
 		if (isset($_directive['endpoint']['cookie']['ThermostatController_getThermostat'])) {
 			$cmd = cmd::byId($_directive['endpoint']['cookie']['ThermostatController_getThermostat']);
 			if (is_object($cmd)) {
-				$value = $cmd->execCmd();
+				$value = ash_state::value($cmd, $_directive);
 				$return[] = array(
 					'namespace' => 'Alexa.ThermostatController',
 					'name' => 'targetSetpoint',
 					'value' => array('value' => $value, 'scale' => 'CELSIUS'),
-					'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+					'timeOfSample' => ash_state::sample($cmd, $_directive),
 					'uncertaintyInMilliseconds' => 0,
 				);
 			}
@@ -179,7 +179,7 @@ class ash_ThermostatController {
 		if (isset($_directive['endpoint']['cookie']['ThermostatController_getMode'])) {
 			$cmd = cmd::byId($_directive['endpoint']['cookie']['ThermostatController_getMode']);
 			if (is_object($cmd)) {
-				$value = strtolower($cmd->execCmd());
+				$value = strtolower(ash_state::value($cmd, $_directive));
 				$cValue = 'AUTO';
 				if(strpos($value,'chauffage') !== false){
 					$cValue = 'HEAT';
@@ -194,7 +194,7 @@ class ash_ThermostatController {
 					'namespace' => 'Alexa.ThermostatController',
 					'name' => 'thermostatMode',
 					'value' => $cValue,
-					'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+					'timeOfSample' => ash_state::sample($cmd, $_directive),
 					'uncertaintyInMilliseconds' => 0,
 				);
 			}

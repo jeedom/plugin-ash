@@ -1,5 +1,8 @@
 # Plugin Alexa Smarthome
 
+Pour l'envoi automatique des changements d'état à Alexa, voir
+[Envoi automatique des états](state-reporting.md).
+
 Ce plugin permet de faire le lien entre votre Jeedom et Alexa
 
 Il peut fonctionner en passant par un service cloud mis à disposition par Jeedom.

@@ -101,8 +101,8 @@ class ash_PercentageController {
 		$return[] = array(
 			'namespace' => 'Alexa.PercentageController',
 			'name' => 'percentage',
-			'value' => $cmd->execCmd(),
-			'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+			'value' => ash_state::value($cmd, $_directive),
+			'timeOfSample' => ash_state::sample($cmd, $_directive),
 			'uncertaintyInMilliseconds' => 0,
 		);
 		return array('properties' => $return);
