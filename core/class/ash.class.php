@@ -423,9 +423,6 @@ class ash_devices {
 			$return['description'] = $eqLogic->getHumanName();
 			$return['manufacturerName'] = 'Jeedom';
 			$return['cookie'] = array('none' => 'empty');
-			if (config::byKey('reportState::enable', 'ash', 0) == 1) {
-				$return['cookie']['ash_reporting_installation'] = ash_reporting::installationId();
-			}
 			$return['displayCategories'] = array($this->getType());
 			$return['capabilities'] = array();
 

@@ -17,8 +17,8 @@ change, sans attendre une interrogation d'Alexa. Elle est désactivée par défa
 
 Seules les propriétés Alexa lisibles à partir des commandes d'information sont
 déclarées comme proactives. Les scènes et les actions sans retour d'état ne
-produisent pas de faux états. Le serveur confirme également que l'équipement a
-bien été découvert par le compte Amazon destinataire.
+produisent pas de faux états. Relancer la découverte après l'activation pour
+qu'Alexa connaisse ces propriétés proactives.
 
 ## Fonctionnement
 
@@ -41,14 +41,15 @@ autonomes : Jeedom ne fournit pas un événement immédiat et fiable pour chaque
 changement de disponibilité.
 
 Un échec d'envoi au cloud conserve l'événement et le cron minute relance l'envoi.
-Le cloud conserve ensuite sa propre file durable et gère les erreurs Amazon ainsi
-que le renouvellement des jetons. Les files locales sont limitées à 5 000 événements
-et les événements de plus de 24 h sont abandonnés. La file contient des états,
-aucun jeton Amazon ; ces derniers restent uniquement sur cloud-service.
+Le cloud envoie directement le changement à Amazon et confirme l'envoi après sa
+réponse. Une erreur temporaire d'Amazon est donc également réessayée par le plugin.
+Il n'y a qu'une seule file, côté Jeedom, limitée à 5 000 événements ; ceux de plus
+de 24 h sont abandonnés. Elle contient des états, aucun jeton Amazon. Le cloud
+conserve les jetons dans sa table OAuth existante et gère leur renouvellement.
 
 Le routage respecte l'installation, le compte Market, les comptes multi-box et les
-groupes d'équipements. La rotation de la clé API ASH ne change pas l'identifiant
-persistant d'installation.
+groupes d'équipements, à partir des callbacks existants et de la clé API ASH
+actuelle. Les événements en attente utilisent la nouvelle clé après sa rotation.
 
 ## Diagnostic
 

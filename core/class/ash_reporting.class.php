@@ -5,15 +5,6 @@ class ash_reporting {
 
 	private static $voiceDevice = null;
 
-	public static function installationId() {
-		$id = config::byKey('reportState::installationId', 'ash');
-		if ($id === '') {
-			$id = self::uuid();
-			config::save('reportState::installationId', $id, 'ash');
-		}
-		return $id;
-	}
-
 	public static function voiceDevice($id = null) {
 		$previous = self::$voiceDevice;
 		self::$voiceDevice = $id;
@@ -94,7 +85,6 @@ class ash_reporting {
 			$sequence = max((int) floor(microtime(true) * 1000000),
 				file_exists($sequenceFile) ? (int) json_decode(file_get_contents($sequenceFile), true) + 1 : 0);
 			$payload = array('version' => 1, 'reportId' => self::uuid(),
-				'installationId' => self::installationId(),
 				'source' => hash('sha256', jeedom::getApiKey('ash')), 'endpointId' => (string) $endpoint['endpointId'],
 				'group' => (string) $device->getOptions('group'),
 				'cause' => self::$voiceDevice === (string) $device->getLink_id() ? 'VOICE_INTERACTION' : 'PHYSICAL_INTERACTION',
@@ -146,7 +136,7 @@ class ash_reporting {
 						'Autorization: ' . sha512(strtolower(config::byKey('market::username')) . ':' . config::byKey('market::password'))));
 					$request->setPost(json_encode($payload, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
 					$request->setLogError(false);
-					$response = json_decode($request->exec(5, 1), true);
+					$response = json_decode($request->exec(15, 1), true);
 					if (isset($response['retryable']) && $response['retryable'] === false) {
 						log::add('ash', 'error', 'Etat Alexa rejeté par le serveur ; vérifier la configuration de l\'équipement.');
 						unlink($file);

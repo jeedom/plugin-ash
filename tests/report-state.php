@@ -170,7 +170,6 @@ try {
 	$second = json_decode(file_get_contents($files[1]), true);
 	check($first['properties'][0]['value'] === 'ON' && $second['properties'][0]['value'] === 'OFF', 'event values are captured in FIFO order');
 	check($first['properties'][0]['timeOfSample'] === '2026-10-15T06:01:00Z', 'event timestamps survive delayed processing');
-	check($first['installationId'] === $endpoint['cookie']['ash_reporting_installation'], 'discovery and reports identify the same installation');
 	ash::reportState(array('eqLogic_id' => 42, 'event_id' => 3, 'value' => 0, 'datetime' => '2026-10-15 08:02:00'));
 	check(count(glob(ash_reporting::directory() . '/report-*.json')) === 2, 'unchanged samples do not create reports');
 	check($on->executions === 0 && $off->executions === 0, 'capturing state never executes an action');
