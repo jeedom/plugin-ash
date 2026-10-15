@@ -183,11 +183,13 @@
     },
     "plugins\/ash\/plugin_info\/configuration.php": {
         "Abonnement aux services assistants vocaux": "Suscripción a servicios de asistente de voz",
+        "Activer après la mise en place du service Alexa Events, puis relancer une découverte des équipements dans Alexa.": "Actívalo tras configurar el servicio Alexa Events y, a continuación, vuelve a iniciar la detección de dispositivos en Alexa.",
         "Activer la rotation de la clef api": "Activar la rotación de la clave api",
         "Attention votre connexion externe ne semble pas etre en https, ce plugin nécessite ABSOLUMENT une connexion https. Si vous ne savez pas comment faire vous pouvez souscrire à un service pack power pour utiliser le service de DNS Jeedom": "Tenga en cuenta que su conexión externa no parece estar en https, este complemento ABSOLUTAMENTE requiere una conexión https. Si no sabe cómo, puede suscribirse a una fuente de alimentación para usar el servicio DNS de Jeedom",
         "Configuration envoyée avec succès.": "Configuración enviada correctamente",
         "Envoyer": "Enviar",
         "Envoyer configuration au market": "Enviar configuración al mercado",
+        "Envoyer les changements d'état à Alexa": "Enviar los cambios de estado a Alexa",
         "Interdire toute requête si": "Prohibir cualquier solicitud si",
         "Pour le prolonger, allez": "Para extenderlo, ve",
         "Votre abonnement aux services assistants vocaux est finit.": "Su suscripción a los servicios de asistente de voz ha finalizado",
