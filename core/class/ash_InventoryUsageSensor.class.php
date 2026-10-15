@@ -70,10 +70,10 @@ class ash_InventoryUsageSensor {
 					'instance' => $cmd->getId(),
 					'name' => 'level',
 					'value' => array(
-						'value' => $cmd->execCmd(),
+						'value' => ash_state::value($cmd, $_directive),
 						'@type' => 'Count'
 					),
-					'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+					'timeOfSample' => ash_state::sample($cmd, $_directive),
 					'uncertaintyInMilliseconds' => 0,
 				);
 			}

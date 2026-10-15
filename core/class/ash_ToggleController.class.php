@@ -106,13 +106,13 @@ class ash_ToggleController {
     if (isset($_directive['endpoint']['cookie']['ToggleController_getState'])) {
       $cmd = cmd::byId($_directive['endpoint']['cookie']['ToggleController_getState']);
       if (is_object($cmd)) {
-        $value = $cmd->execCmd();
+        $value = ash_state::value($cmd, $_directive);
         if ($cmd->getSubtype() == 'numeric') {
           $return['Alexa.ToggleController'] = array(
             'namespace' => 'Alexa.ToggleController',
             'name' => 'toggleState',
             'value' => ($value) ? 'ON' : 'OFF',
-            'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+            'timeOfSample' => ash_state::sample($cmd, $_directive),
             'uncertaintyInMilliseconds' => 0,
           );
         } else if ($cmd->getSubtype() == 'binary') {
@@ -120,7 +120,7 @@ class ash_ToggleController {
             'namespace' => 'Alexa.ToggleController',
             'name' => 'toggleState',
             'value' => ($value) ? 'ON' : 'OFF',
-            'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+            'timeOfSample' => ash_state::sample($cmd, $_directive),
             'uncertaintyInMilliseconds' => 0,
           );
         }

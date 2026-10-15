@@ -63,10 +63,10 @@ class ash_TemperatureSensor {
 					'namespace' => 'Alexa.TemperatureSensor',
 					'name' => 'temperature',
 					'value' => array(
-						'value' => $cmd->execCmd(),
+						'value' => ash_state::value($cmd, $_directive),
 						'scale' => 'CELSIUS',
 					),
-					'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+					'timeOfSample' => ash_state::sample($cmd, $_directive),
 					'uncertaintyInMilliseconds' => 0,
 				);
 			}

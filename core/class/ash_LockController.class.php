@@ -112,13 +112,13 @@ class ash_LockController {
     if (isset($_directive['endpoint']['cookie']['LockController_getState'])) {
       $cmd = cmd::byId($_directive['endpoint']['cookie']['LockController_getState']);
       if (is_object($cmd)) {
-        $value = $cmd->execCmd();
+        $value = ash_state::value($cmd, $_directive);
         if ($cmd->getSubtype() == 'numeric') {
           $return['Alexa.LockController'] = array(
             'namespace' => 'Alexa.LockController',
             'name' => 'lockState',
             'value' => ($value) ? 'LOCKED' : 'UNLOCKED',
-            'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+            'timeOfSample' => ash_state::sample($cmd, $_directive),
             'uncertaintyInMilliseconds' => 0,
           );
         } else if ($cmd->getSubtype() == 'binary') {
@@ -126,7 +126,7 @@ class ash_LockController {
             'namespace' => 'Alexa.LockController',
             'name' => 'lockState',
             'value' => ($value) ? 'LOCKED' : 'UNLOCKED',
-            'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+            'timeOfSample' => ash_state::sample($cmd, $_directive),
             'uncertaintyInMilliseconds' => 0,
           );
         }

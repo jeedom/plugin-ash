@@ -86,7 +86,7 @@ class ash_ColorController {
 		if (isset($_directive['endpoint']['cookie']['ColorController_getState'])) {
 			$cmd = cmd::byId($_directive['endpoint']['cookie']['ColorController_getState']);
 			if (is_object($cmd)) {
-				$value = $cmd->execCmd();
+				$value = ash_state::value($cmd, $_directive);
 				if ($cmd->getSubtype() == 'string') {
 					list($r, $g, $b) = sscanf($value, "#%02x%02x%02x");
 					$value = self::rgb_to_hsv($r, $g, $b);
@@ -94,7 +94,7 @@ class ash_ColorController {
 						'namespace' => 'Alexa.ColorController',
 						'name' => 'color',
 						'value' => array('hue' => $value[0],'saturation'=>$value[1]/100,'brightness'=>$value[2]/100),
-						'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+						'timeOfSample' => ash_state::sample($cmd, $_directive),
 						'uncertaintyInMilliseconds' => 0,
 					);
 				}

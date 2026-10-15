@@ -18,6 +18,8 @@
 
 /* * ***************************Includes********************************* */
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
+require_once __DIR__ . '/ash_state.class.php';
+require_once __DIR__ . '/ash_reporting.class.php';
 
 include_file('core', 'ash_scene', 'class', 'ash');
 include_file('core', 'ash_PowerController', 'class', 'ash');
@@ -118,6 +120,32 @@ class ash extends eqLogic {
 		}
 	}
 
+	public static function postConfig_reportState_enable($_value) {
+		if ($_value != 1) ash_reporting::clear();
+		foreach (ash_devices::all() as $device) {
+			$device->configureStateListener();
+			if ($device->getLink_type() === 'eqLogic') ash_reporting::reset($device->getLink_id());
+		}
+	}
+
+	public static function reportState($_options) {
+		try {
+			ash_reporting::capture($_options);
+		} catch (Throwable $e) {
+			log::add('ash', 'error', 'Impossible de conserver un changement d\'état Alexa.');
+		}
+	}
+
+	public static function cron() {
+		if (!ash_reporting::allowed()) return;
+		foreach (ash_devices::all(true) as $device) {
+			if ($device->getLink_type() === 'eqLogic') {
+				self::reportState(array('eqLogic_id' => $device->getLink_id()));
+			}
+		}
+		ash_reporting::flush();
+	}
+
 	public static function voiceAssistantInfo() {
 		$market = repo_market::getJsonRpc();
 		if (!$market->sendRequest('voiceAssistant::info')) {
@@ -157,6 +185,9 @@ class ash extends eqLogic {
 			$device->setOptions('configState', 'OK');
 			$device->setOptions('missingGenericType', '');
 			$device->save();
+			if ($device->getLink_type() === 'eqLogic' && config::byKey('reportState::enable', 'ash', 0) == 1) {
+				ash_reporting::reset($device->getLink_id());
+			}
 		}
 		return array('endpoints' => $return);
 	}
@@ -191,6 +222,7 @@ class ash extends eqLogic {
 		} else if ($device->getEnable() != 1) {
 			return self::buildErrorResponse($_data, 'ENDPOINT_UNREACHABLE');
 		} else {
+			$voiceDevice = ash_reporting::voiceDevice($responseHeader['name'] === 'StateReport' ? null : (string) $device->getLink_id());
 			try {
 				$result = $device->exec($directive);
 				if (isset($result['event'])) {
@@ -200,6 +232,8 @@ class ash extends eqLogic {
 				}
 			} catch (Exception $e) {
 				return self::buildErrorResponse($_data, $e->getMessage());
+			} finally {
+				ash_reporting::voiceDevice($voiceDevice);
 			}
 		}
 		if (isset($return['event']['endpoint']['cookie'])) {
@@ -316,11 +350,38 @@ class ash_devices {
 	}
 
 	public function save() {
-		return DB::save($this);
+		$result = DB::save($this);
+		$this->configureStateListener();
+		return $result;
 	}
 
 	public function remove() {
+		$this->removeStateListener();
 		DB::remove($this);
+	}
+
+	public function removeStateListener() {
+		$listener = listener::byClassAndFunction('ash', 'reportState', array('eqLogic_id' => (int) $this->getLink_id(), 'background' => false));
+		if (is_object($listener)) $listener->remove();
+	}
+
+	public function configureStateListener() {
+		if ($this->getLink_type() !== 'eqLogic') return;
+		$endpoint = $this->buildDevice();
+		$ids = ash_state::inputs(is_array($endpoint) ? $endpoint : array());
+		if ($this->getEnable() != 1 || config::byKey('reportState::enable', 'ash', 0) != 1 || !count($ids)) {
+			$this->removeStateListener();
+			return;
+		}
+		$options = array('eqLogic_id' => (int) $this->getLink_id(), 'background' => false);
+		$listener = listener::byClassAndFunction('ash', 'reportState', $options);
+		if (!is_object($listener)) $listener = new listener();
+		$listener->setClass('ash');
+		$listener->setFunction('reportState');
+		$listener->setOption($options);
+		$listener->emptyEvent();
+		foreach ($ids as $id) $listener->addEvent($id);
+		$listener->save();
 	}
 
 	public function getLink() {
@@ -353,7 +414,7 @@ class ash_devices {
 		}
 		if (isset($supportedType[$this->getType()]['skills'])) {
 			$eqLogic = $this->getLink();
-			if (!is_object($eqLogic)) {
+			if (!is_object($eqLogic) || $eqLogic->getIsEnable() != 1) {
 				return array();
 			}
 			$return = array();
@@ -362,6 +423,9 @@ class ash_devices {
 			$return['description'] = $eqLogic->getHumanName();
 			$return['manufacturerName'] = 'Jeedom';
 			$return['cookie'] = array('none' => 'empty');
+			if (config::byKey('reportState::enable', 'ash', 0) == 1) {
+				$return['cookie']['ash_reporting_installation'] = ash_reporting::installationId();
+			}
 			$return['displayCategories'] = array($this->getType());
 			$return['capabilities'] = array();
 
@@ -384,6 +448,32 @@ class ash_devices {
 				"interface" => "Alexa",
 				"version" => "3",
 			);
+			$return['endpointId'] = (string) $return['endpointId'];
+			foreach ($return['capabilities'] as &$capability) {
+				if (isset($capability['instance'])) $capability['instance'] = (string) $capability['instance'];
+				if (isset($capability['properties'])) {
+					$capability['properties']['proactivelyReported'] = config::byKey('reportState::enable', 'ash', 0) == 1 && !empty($capability['properties']['retrievable']);
+				}
+			}
+			unset($capability);
+			$return['capabilities']['Alexa.EndpointHealth'] = array('type' => 'AlexaInterface',
+				'interface' => 'Alexa.EndpointHealth', 'version' => '3.1', 'properties' => array(
+					'supported' => array(array('name' => 'connectivity')), 'retrievable' => true,
+					// Jeedom exposes timeout status on reads, not a reliable immediate health event.
+					'proactivelyReported' => false));
+			if (config::byKey('reportState::enable', 'ash', 0) == 1) {
+				$available = array();
+				foreach (ash_state::properties($this, $return) as $property) $available[ash_state::key($property)] = true;
+				foreach ($return['capabilities'] as &$capability) {
+					if (empty($capability['properties']['proactivelyReported'])) continue;
+					foreach ($capability['properties']['supported'] as $property) {
+						$key = ash_state::key(array('namespace' => $capability['interface'],
+							'instance' => isset($capability['instance']) ? $capability['instance'] : '', 'name' => $property['name']));
+						if (!isset($available[$key]) || !count(ash_state::inputs($return))) $capability['properties']['proactivelyReported'] = false;
+					}
+				}
+				unset($capability);
+			}
 			return $return;
 		}
 	}
@@ -401,6 +491,9 @@ class ash_devices {
 			return $class::exec($this, $_directive);
 		}
 		if (isset($supportedType[$this->getType()]['skills'])) {
+			if ($_directive['header']['name'] === 'ReportState') {
+				return array('properties' => ash_state::properties($this, $this->buildDevice()));
+			}
 			$return = array();
 			foreach ($supportedType[$this->getType()]['skills'] as $skill) {
 				$class = 'ash_' . $skill;
@@ -409,7 +502,9 @@ class ash_devices {
 				}
 				$return = array_merge_recursive($return, $class::exec($this, $_directive));
 			}
-			return $return;
+			// Use the same property conversions for synchronous and proactive state reports.
+			$endpoint = $this->buildDevice();
+			return array('properties' => ash_state::properties($this, $endpoint));
 		}
 	}
 

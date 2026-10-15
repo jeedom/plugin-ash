@@ -88,7 +88,7 @@ class ash_ColorTemperatureController {
 		if (isset($_directive['endpoint']['cookie']['ColorTemperatureController_getState'])) {
 			$cmd = cmd::byId($_directive['endpoint']['cookie']['ColorTemperatureController_getState']);
 			if (is_object($cmd)) {
-				$value = $cmd->execCmd();
+				$value = ash_state::value($cmd, $_directive);
 				$value = ((($value-$cmd->getConfiguration('minValue',0))/$cmd->getConfiguration('maxValue',100))*7700)+2200;
 				if($_device->getOptions('ColorTemperatureController::invertGetColorTemp')){
 					$value = 9900 - $value;
@@ -97,7 +97,7 @@ class ash_ColorTemperatureController {
 					'namespace' => 'Alexa.ColorTemperatureController',
 					'name' => 'colorTemperatureInKelvin',
 					'value' => $value,
-					'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+					'timeOfSample' => ash_state::sample($cmd, $_directive),
 					'uncertaintyInMilliseconds' => 0,
 				);
 			}

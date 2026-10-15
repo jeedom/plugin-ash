@@ -207,7 +207,7 @@ class ash_RangeController {
 		if (!is_object($cmd)) {
 			return $return;
 		}
-		$value = $cmd->execCmd();
+		$value = ash_state::value($cmd, $_directive);
 		if ($cmd->getSubtype() == 'binary') {
 			if ($cmd->getDisplay('invertBinary') == 1) {
 				$value = ($value) ? 0 : 100;
@@ -223,7 +223,7 @@ class ash_RangeController {
 			'instance' => 'Blind.Lift',
 			'name' => 'rangeValue',
 			'value' => $value,
-			'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+			'timeOfSample' => ash_state::sample($cmd, $_directive),
 			'uncertaintyInMilliseconds' => 0,
 		);
 		return array('properties' => $return);

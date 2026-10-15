@@ -109,7 +109,7 @@ class ash_GarageDoorController {
 		}
 		if (!is_object($cmd)) return $return;
 
-		$value = $cmd->execCmd();
+		$value = ash_state::value($cmd, $_directive);
 		if ($cmd->getSubtype() == 'binary' && $cmd->getDisplay('invertBinary') == 1) {
 			$value = ($value) ? 0 : 1;
 		}
@@ -121,7 +121,7 @@ class ash_GarageDoorController {
 			'instance' => 'GarageDoor.Position',
 			'name' => 'mode',
 			'value' => $modeValue,
-			'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+			'timeOfSample' => ash_state::sample($cmd, $_directive),
 			'uncertaintyInMilliseconds' => 0,
 		);
 		return array('properties' => $return);

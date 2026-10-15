@@ -118,7 +118,7 @@ public static function getState($_device, $_directive) {
   if (!is_object($cmd)) {
     return $return;
   }
-  $value = $cmd->execCmd();
+  $value = ash_state::value($cmd, $_directive);
   foreach ($cmd->getEqLogic()->getCmd() as $cmdSet) {
     if (in_array($cmdSet->getGeneric_type(), self::$_MODE_SET_STATE)) {
       if($cmdSet->getName() == $value){
@@ -133,7 +133,7 @@ public static function getState($_device, $_directive) {
     'instance'=>'mode',
     'name'=>'mode',
     'value'=>$value,
-    'timeOfSample'=> date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+    'timeOfSample'=> ash_state::sample($cmd, $_directive),
     'uncertaintyInMilliseconds'=> 0
   );
   return array('properties' => $return);

@@ -86,7 +86,7 @@ class ash_BrightnessController {
 		if (isset($_directive['endpoint']['cookie']['BrightnessController_getState'])) {
 			$cmd = cmd::byId($_directive['endpoint']['cookie']['BrightnessController_getState']);
 			if (is_object($cmd)) {
-				$value = $cmd->execCmd();
+				$value = ash_state::value($cmd, $_directive);
 				$value = ($value / $cmd->getConfiguration('maxValue',100) * 100) + $cmd->getConfiguration('minValue',0);
 				if($value > 100){
 					$value = 100;
@@ -98,7 +98,7 @@ class ash_BrightnessController {
 					'namespace' => 'Alexa.BrightnessController',
 					'name' => 'brightness',
 					'value' => $value,
-					'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+					'timeOfSample' => ash_state::sample($cmd, $_directive),
 					'uncertaintyInMilliseconds' => 0,
 				);
 			}

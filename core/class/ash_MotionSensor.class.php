@@ -58,7 +58,7 @@ class ash_MotionSensor {
 		if (isset($_directive['endpoint']['cookie']['MotionSensor_getState'])) {
 			$cmd = cmd::byId($_directive['endpoint']['cookie']['MotionSensor_getState']);
 			if (is_object($cmd)) {
-				$value = $cmd->execCmd();
+				$value = ash_state::value($cmd, $_directive);
 				if ($cmd->getDisplay('invertBinary') == 1) {
 					$value = ($value) ? false : true;
 				}
@@ -67,7 +67,7 @@ class ash_MotionSensor {
 					'namespace' => 'Alexa.MotionSensor',
 					'name' => 'detectionState',
 					'value' => $value,
-					'timeOfSample' => date('Y-m-d\TH:i:s\Z', strtotime($cmd->getValueDate())),
+					'timeOfSample' => ash_state::sample($cmd, $_directive),
 					'uncertaintyInMilliseconds' => 0,
 				);
 			}
