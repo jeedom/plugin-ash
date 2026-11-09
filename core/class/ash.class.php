@@ -114,8 +114,14 @@ class ash extends eqLogic {
 	}
 
 	public static function sendJeedomConfig() {
+		$apiKey = jeedom::getApiKey('ash');
+		$url = network::getNetworkAccess('external');
+		if (class_exists('repo_market') && class_exists('marketClient', false)) {
+			marketClient::request('PUT', '/boxes/{boxId}/voice-assistant/amazon', array('apiKey' => $apiKey, 'url' => $url));
+			return;
+		}
 		$market = repo_market::getJsonRpc();
-		if (!$market->sendRequest('ash::configAsh', array('ash::apikey' => jeedom::getApiKey('ash'), 'ash::url' => network::getNetworkAccess('external')))) {
+		if (!$market->sendRequest('ash::configAsh', array('ash::apikey' => $apiKey, 'ash::url' => $url))) {
 			throw new Exception($market->getError(), $market->getErrorCode());
 		}
 	}
@@ -147,6 +153,9 @@ class ash extends eqLogic {
 	}
 
 	public static function voiceAssistantInfo() {
+		if (class_exists('repo_market') && class_exists('marketClient', false)) {
+			return marketClient::request('GET', '/me/services/voice-assistant');
+		}
 		$market = repo_market::getJsonRpc();
 		if (!$market->sendRequest('voiceAssistant::info')) {
 			throw new Exception($market->getError(), $market->getErrorCode());
