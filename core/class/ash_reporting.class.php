@@ -132,8 +132,24 @@ class ash_reporting {
 				$payload['source'] = hash('sha256', jeedom::getApiKey('ash'));
 				try {
 					$request = new com_http(rtrim(config::byKey('service::cloud::url'), '/') . '/service/amazonalexa/reportState');
+					$cloudToken = null;
+					if (is_callable(array('repo_market', 'getCloudToken'))) {
+						try {
+							$cloudToken = repo_market::getCloudToken();
+						} catch (Exception $e) {
+							if ($e->getCode() !== 401) {
+								throw $e;
+							}
+						}
+					}
+					if ($cloudToken) {
+						if (strtolower((string) parse_url($request->getUrl(), PHP_URL_SCHEME)) !== 'https') {
+							throw new Exception(__('Le service Cloud doit utiliser HTTPS.', __FILE__));
+						}
+						$request->setNoSslCheck(false);
+					}
 					$request->setHeader(array('Content-Type: application/json',
-						'Autorization: ' . sha512(strtolower(config::byKey('market::username')) . ':' . config::byKey('market::password'))));
+						$cloudToken ? 'Authorization: Bearer ' . $cloudToken : 'Autorization: ' . sha512(strtolower(config::byKey('market::username')) . ':' . config::byKey('market::password'))));
 					$request->setPost(json_encode($payload, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
 					$request->setLogError(false);
 					$response = json_decode($request->exec(15, 1), true);
